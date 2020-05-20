@@ -22,6 +22,10 @@
     "extends": "react-app"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "./src/api/**.js",
+      "./src/components/**/**.js"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 30,
