@@ -1,12 +1,16 @@
 import React from 'react';
 import './App.css';
 import { ProviderCard } from './components/providerCard'
+import {grommet, Grommet} from "grommet";
+import AppHeader from "./components/header/header";
 
 function App() {
   return (
     <div className="App">
-      <h1>Atendo em Libras</h1>
-      <ProviderCard></ProviderCard>
+        <Grommet theme={grommet}>
+            <AppHeader/>
+            <ProviderCard/>
+        </Grommet>
     </div>
   );
 }
