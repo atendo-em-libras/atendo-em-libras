@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
-export class ProviderCard extends React.Component {
+class ProviderCard extends React.Component {
     render() {
         const {name} = this.props
         return (
@@ -10,3 +11,9 @@ export class ProviderCard extends React.Component {
         )
     }
 }
+
+ProviderCard.propTypes = {
+    name: PropTypes.string.isRequired
+}
+
+export { ProviderCard }
