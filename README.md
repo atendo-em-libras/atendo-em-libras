@@ -66,3 +66,18 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Commit Message Standards ### 
+
+We are using [Conventional Commmit](https://www.conventionalcommits.org/en/v1.0.0/) as a commit message standard. 
+
+We are also utilizing [gitmoji](https://gitmoji.carloscuesta.me/)
+
+feature       :sparkles:
+chore         :construction:
+test          :white\_check\_mark:
+refactoring   :recycle:
+bug-fix       :bug:
+hot-fix       :ambulance:
+style:        :lipstick:
+docs          :pencil:
