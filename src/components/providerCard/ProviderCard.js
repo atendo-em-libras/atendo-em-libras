@@ -16,4 +16,4 @@ ProviderCard.propTypes = {
     name: PropTypes.string.isRequired
 }
 
-export { ProviderCard }
+export default ProviderCard;

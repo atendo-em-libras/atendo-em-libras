@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import { ProviderCard } from './components/providerCard'
 import {grommet, Grommet} from "grommet";
 import AppHeader from "./components/header/header";
+import ProviderCard from "./components/providerCard/ProviderCard";
 
 function App() {
   return (
