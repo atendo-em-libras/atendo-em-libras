@@ -23,4 +23,18 @@ describe("ProviderCard tests", () => {
   it("Component should render speciality property", () => {
     expect(providerCardComponent.getByText(speciality)).toBeInTheDocument()
   })
+
+  it("Component should not render video call avallability", () => {
+    expect(providerCardComponent.queryByText("Atende Online")).toBeNull()
+  })
+
+  it("Component should render video call avallability", () => {
+    const providerCardComponent = render(<ProviderCard 
+                                          name={name} 
+                                          category={category} 
+                                          speciality={speciality} 
+                                          videoCallAvaillability={true} />)
+
+    expect(providerCardComponent.getByText("Atende Online")).toBeInTheDocument()
+  })
 })
