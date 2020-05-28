@@ -3,12 +3,24 @@ import { ProviderCard } from "./ProviderCard"
 import { render } from "@testing-library/react"
 
 describe("ProviderCard tests", () => {
-  it("Component should receive provider name as property", () => {
-    // Given a name
-    const name = "Some Provider Name"
-    // When I render the component
-    const container = render(<ProviderCard name={name} />)
-    // Then the given name is printed inside
-    expect(container.getByText(name)).toBeInTheDocument()
+  let providerCardComponent
+  const name = "Luciana Andrade Souza"
+  const category = "Medicina"
+  const speciality = "Clínica Geral"
+
+  beforeEach(() => {
+    providerCardComponent = render(<ProviderCard name={name} category={category} speciality={speciality} />)
+  })
+
+  it("Component should render name property", () => {
+    expect(providerCardComponent.getByText(name)).toBeInTheDocument()
+  })
+
+  it("Component should render category property", () => {
+    expect(providerCardComponent.getByText(category)).toBeInTheDocument()
+  })
+
+  it("Component should render speciality property", () => {
+    expect(providerCardComponent.getByText(speciality)).toBeInTheDocument()
   })
 })
