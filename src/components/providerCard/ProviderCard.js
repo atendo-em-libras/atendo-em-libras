@@ -7,9 +7,9 @@ class ProviderCard extends React.Component {
         const { name, category, speciality } = this.props
         return (
             <div className='providerCard'>
-                <div>
-                <p>{ category }</p> 
-                <p>{ speciality }</p>
+                <div className='providerCardHeader'>
+                <p className='providerCategory'>{ category }</p> 
+                <p className='providerSpeciality'>{ speciality }</p>
                 </div>
                 <h1>{ name }</h1>
             </div>
