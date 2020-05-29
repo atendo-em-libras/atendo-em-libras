@@ -32,6 +32,10 @@
 .providerCard .providerSpecialty {
   color: #0F1423;
   font-size: 1.4em;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 30em;
+  text-overflow: ellipsis;
 }
 
 .providerCard .providerVideoCallAvailability {
