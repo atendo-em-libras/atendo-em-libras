@@ -10,6 +10,7 @@ function App() {
             <AppHeader/>
             <ProviderCard
               name="Luciana Andrade Souza"
+              licenseNumber="CRM 151515"
               category="Medicina"
               specialty="Clínica Geral"
               videoCallAvailability={true} />

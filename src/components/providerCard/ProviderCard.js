@@ -13,9 +13,13 @@ class ProviderCard extends React.Component {
                     <p className='providerCategory'>{ category }</p> 
                     <p className='providerSpecialty'>{ specialty }</p>
                 </div>
-                <div>
-                  <h1>{ name }</h1>
-                  <p>{ licenseNumber }</p>
+                <div className='providerCardBody'>
+                    <div className='providerCardColumn'>
+                        <p>{ name }</p>
+                        <p>REGISTRO</p>
+                        <p>{ licenseNumber }</p>
+                    </div>
+                    <div className='providerCardColumn'></div>
                 </div>
             </div>
         )
