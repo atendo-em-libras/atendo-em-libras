@@ -11,22 +11,44 @@ const DefaultHeader = styled(Header)`
     color: white;
     font-family: Open Sans, sans-serif;
     text-align: left;
+    padding: 36px 85px;
 `;
 
 const LogoBox = styled(Box)`
-    width: 162px;
+    width: 220px;
     height: 64px;
-    background-image: url(${logo});
+    background: url(${logo}) 0% 0% no-repeat;
 `;
 
 const HeaderImage = styled(Box)`
     width: 448px;
     height: 489px;
-    background-image: url(${headerImage});
+    background: url(${headerImage}) no-repeat;
 `;
 
-const  RegisterText = styled(Text)`
+const RegisterText = styled(Text)`
     font-size: 22px;
+    align-self: center;
+    width: 60%;
+    padding-left: 14%;
+`;
+
+const RegisterButton = styled(Button)`
+    width: 167px;
+    height: 55px;
+    background: #5996F7;
+    border-radius: 17px 17px 17px 0px;
+    border: 0px;
+    color: white;
+    fount-size: 19px;
+`;
+
+const TextHeading = styled(Heading)`
+   font-weight: 100;
+`;
+
+const DescriptionBox = styled(Box)`
+    margin-top: 20%;
 `;
 
 class AppHeader extends React.PureComponent {
@@ -34,31 +56,28 @@ class AppHeader extends React.PureComponent {
         return (
             <DefaultHeader align="start">
                 <Grid
+                    fill
                     rows={["auto", "flex"]}
-                    columns={{
-                        count: 2,
-                        size: "auto"
-                    }}
+                    columns={["44.33%", "55.66%"]}
                 >
                     <LogoBox/>
-                    <Box align="right">
+                    <Box direction="row" align="start">
                         <RegisterText>
                             É profissional de saúde ou conhece alguém da área?
                         </RegisterText>
-                        <Button/>
+                        <RegisterButton label="Cadastre Aqui"/>
                     </Box>
                     <HeaderImage/>
-                    <Box>
-                        <Heading>
+                    <DescriptionBox>
+                        <TextHeading>
                             Conheça profissionais de saúde que atendem em Libras
-                        </Heading>
+                        </TextHeading>
                         <Text size="medium">
                             Sabemos da dificuldade de encontrar um profissional de saúde que se comunique em Libras e no
                             atual momento em que vivemos isso se torna ainda mais difícil. Pensando nisso trouxemos
                             alguns profissionais que atendem em Libras.
                         </Text>
-                    </Box>
-
+                    </DescriptionBox>
                 </Grid>
             </DefaultHeader>
         )
