@@ -8,7 +8,11 @@ function App() {
     <div className="App">
         <Grommet theme={grommet}>
             <AppHeader/>
-            <ProviderCard name="Luciana Andrade Souza" category="Medicina" speciality="Clínica Geral" />
+            <ProviderCard 
+              name="Luciana Andrade Souza" 
+              category="Medicina" 
+              speciality="Clínica Geral" 
+              videoCallAvaillability={true} />
         </Grommet>
     </div>
   );
