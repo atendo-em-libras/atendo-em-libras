@@ -6,14 +6,14 @@ describe("ProviderCard tests", () => {
   let providerCardComponent
   const name = "Luciana Andrade Souza"
   const category = "Medicina"
-  const speciality = "Clínica Geral"
+  const specialty = "Clínica Geral"
   const licenseNumber = "PE 16505 / RQE 11952"
 
   beforeEach(() => {
     providerCardComponent = render(<ProviderCard 
                                     name={name} 
                                     category={category} 
-                                    speciality={speciality} 
+                                    specialty={specialty} 
                                     licenseNumber={licenseNumber}/>)
   })
 
@@ -25,8 +25,8 @@ describe("ProviderCard tests", () => {
     expect(providerCardComponent.getByText(category)).toBeInTheDocument()
   })
 
-  it("Component should render speciality property", () => {
-    expect(providerCardComponent.getByText(speciality)).toBeInTheDocument()
+  it("Component should render specialty property", () => {
+    expect(providerCardComponent.getByText(specialty)).toBeInTheDocument()
   })
 
   it("Component should render license number", () => {
@@ -41,9 +41,9 @@ describe("ProviderCard tests", () => {
     const providerCardComponent = render(<ProviderCard 
                                           name={name}
                                           category={category}
-                                          speciality={speciality}
+                                          specialty={specialty}
                                           licenseNumber={licenseNumber}
-                                          videoCallAvaillability={true} />)
+                                          videoCallAvailability={true} />)
 
     expect(providerCardComponent.getByText("Atende Online")).toBeInTheDocument()
   })

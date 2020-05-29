@@ -11,8 +11,8 @@ function App() {
             <ProviderCard
               name="Luciana Andrade Souza"
               category="Medicina"
-              speciality="Clínica Geral"
-              videoCallAvaillability={true} />
+              specialty="Clínica Geral"
+              videoCallAvailability={true} />
         </Grommet>
     </div>
   );
