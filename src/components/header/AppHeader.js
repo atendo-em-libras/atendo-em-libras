@@ -43,13 +43,17 @@ const RegisterButton = styled(Button)`
     fount-size: 19px;
 `;
 
-const TextHeading = styled(Heading)`
-   font-weight: 100;
-`;
 
 const DescriptionBox = styled(Box)`
     margin-top: 20%;
+    width: 80%;
 `;
+
+const TextHeading = styled(Heading)`
+   font-weight: 100;
+   margin-bottom: 3%;
+`;
+
 
 class AppHeader extends React.PureComponent {
     render() {
