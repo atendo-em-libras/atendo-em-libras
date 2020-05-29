@@ -8,7 +8,14 @@ function App() {
     <div className="App">
         <Grommet theme={grommet}>
             <AppHeader/>
-            <ProviderCard name="Luciana Andrade Souza" category="Medicina" speciality="Clínica Geral" />
+            <ProviderCard
+              name="Luciana Andrade Souza"
+              licenseNumber="CRM 151515"
+              category="Medicina"
+              specialty="Clínica Geral"
+              videoCallAvailability={true}
+              phoneNumber={"(11) 96578 3434"}
+              email={"i.standar27@fgv.com.br"} />
         </Grommet>
     </div>
   );

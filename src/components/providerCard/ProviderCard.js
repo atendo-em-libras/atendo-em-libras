@@ -4,16 +4,29 @@ import './ProviderCard.css'
 
 class ProviderCard extends React.Component {
     render() {
-        const { name, category, speciality, videoCallAvaillability } = this.props
+        const { name, category, specialty, licenseNumber, videoCallAvailability, phoneNumber, email } = this.props
         return (
             <div className='providerCard'>
-                { videoCallAvaillability && 
-                <p className='providerVideoCallAvaillability'>Atende Online</p> }
+                { videoCallAvailability && 
+                <p className='providerVideoCallAvailability'>Atende Online</p> }
                 <div className='providerCardHeader'>
                     <p className='providerCategory'>{ category }</p> 
-                    <p className='providerSpeciality'>{ speciality }</p>
+                    <p className='providerSpecialty'>{ specialty }</p>
                 </div>
-                <h1>{ name }</h1>
+                <div className='providerCardBody'>
+                    <div className='providerCardColumn'>
+                        <p>{ name }</p>
+                        <p>REGISTRO</p>
+                        <p>{ licenseNumber }</p>
+                    </div>
+                    <div className='providerCardColumn'>
+                        <div className="columnBlock">
+                            <p>Contato</p>
+                            <p>{ phoneNumber }</p>
+                            <p>{ email }</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -22,8 +35,11 @@ class ProviderCard extends React.Component {
 ProviderCard.propTypes = {
     name: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
-    speciality: PropTypes.string.isRequired,
-    videoCallAvaillability: PropTypes.bool
+    specialty: PropTypes.string.isRequired,
+    licenseNumber: PropTypes.string.isRequired,
+    videoCallAvailability: PropTypes.bool,
+    phoneNumber: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired
 }
 
 export { ProviderCard };

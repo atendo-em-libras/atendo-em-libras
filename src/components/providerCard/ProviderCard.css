@@ -1,20 +1,51 @@
 .providerCard {
   font-size: 10px;
   margin: 50px;
-  height: 500px;
   width: 700px;
   border-radius: 15px;
   box-shadow: 0px 10px 32px #0000001A;
   display: flex;
   flex-flow: column;
+  position: relative;
+  overflow: hidden;
+  padding: 2em;
 }
 
 .providerCardHeader {
-  padding: 2em;
   display: flex;
   flex-flow: row;
   align-items: center;
-  align-content: space-between;
+}
+
+.providerCard .providerCardBody {
+  display: flex;
+  flex-flow: row;
+  align-items: stretch;
+  justify-content: space-around;
+  margin-top: 1em;
+}
+
+.providerCard .providerCardColumn {
+  width: 50%;
+  border-right: #F5F5F5 1.5px dashed;
+  margin-right: 2em;
+}
+
+.providerCard .providerCardColumn:last-child {
+  border-right: none;
+  margin-right: none;
+}
+
+.providerCard .providerCardColumn .columnBlock {
+    border-bottom: #F5F5F5 1.5px solid;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+.providerCard .providerCardColumn .columnBlock:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .providerCard .providerCategory {
@@ -27,7 +58,23 @@
   background-color: #2AC390;
 }
 
-.providerCard .providerSpeciality {
+.providerCard .providerSpecialty {
   color: #0F1423;
   font-size: 1.4em;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 30em;
+  text-overflow: ellipsis;
+}
+
+.providerCard .providerVideoCallAvailability {
+  color: #5996F7;
+  background-color: #c7ddfd;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 0px 15px;
+  font-size: 1.4em;
+  font-weight: 600;
+  padding: 0.5em 1em;
 }
