@@ -1,21 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import './ProviderCard.css'
 import { Card } from './Card'
 import { CategoryBadge } from './CategoryBadge';
 
-
-class ProviderCard extends React.Component {
-
-  categoryColors = Object.freeze({
-    'medicina': '#2AC390',
-    'pessoa cuidadora': '#EAC276'
-  })
-
-  getCategoryColor = (categoryString) => {
-    categoryString = categoryString.trim().toLowerCase()
-    return this.categoryColors[categoryString]
-  }
+class ProviderCard extends Component {
 
   render() {
     const { name, category, specialty, licenseNumber, videoCallAvailability, phoneNumber, email } = this.props
@@ -54,7 +43,7 @@ ProviderCard.propTypes = {
   licenseNumber: PropTypes.string.isRequired,
   videoCallAvailability: PropTypes.bool,
   phoneNumber: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired
+  email: PropTypes.string.isRequired,
 }
 
 export { ProviderCard };
