@@ -40,7 +40,7 @@ const RegisterButton = styled(Button)`
     border-radius: 17px 17px 17px 0px;
     border: 0px;
     color: white;
-    fount-size: 19px;
+    font-size: 19px;
 `;
 
 
