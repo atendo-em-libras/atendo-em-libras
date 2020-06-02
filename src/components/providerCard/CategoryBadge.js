@@ -5,15 +5,20 @@ import React, { Component } from 'react'
 class CategoryBadge extends Component {
 
   categoryColors = Object.freeze({
-    'default': 'gray',
-    'medicina': '#2AC390',
-    'pessoa cuidadora': '#EAC276'
+    'Outro': '#5A8DED',
+    'Medicina': '#2AC390',
+    'Pessoa cuidadora': '#EAC276',
+    'Psicologia': '#A97FE2',
+    'Enfermagem' : '#F778C1',
+    'Fisioterapia' : '#ED985A',
+    'Odontologia' : '#51CECE',
+    'Fonoaudiologia': '#7C65DE',
+    'Nutrição' : '#A0C32A'
   })
 
   getCategoryColor = (categoryString) => {
-    categoryString = categoryString.trim().toLowerCase()
     const color = this.categoryColors[categoryString]
-    if (!color) return this.categoryColors['default']
+    if (!color) return this.categoryColors['Outro']
     return color
   }
 
