@@ -18,11 +18,28 @@ export const Card = styled.div`
     align-items: center;
   }
 
+  & .providerName {
+    font-weight: 800;
+    color: #0F1423;
+    font-size: 1.8em;
+  }
+
   & .providerCardBody {
     display: flex;
     flex-flow: row;
     align-items: stretch;
     justify-content: space-around;
     margin-top: 1em;
+  }
+
+  & .providerCardColumn {
+    width: 50%;
+    border-right: #F5F5F5 1.5px dashed;
+    margin-right: 2em;
+  }
+  
+  & .providerCardColumn:last-child {
+    border-right: none;
+    margin-right: none;
   }
 `

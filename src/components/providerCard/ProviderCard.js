@@ -4,9 +4,9 @@ import './ProviderCard.css'
 import { Card } from './Card'
 import { CategoryBadge } from './CategoryBadge'
 import { Paragraph } from 'grommet'
-import { ProviderName } from './ProviderName'
 import { SectionTitle } from './SectionTitle'
 import { License } from './License'
+import { SectionBlock } from './SectionBlock'
 
 class ProviderCard extends Component {
 
@@ -24,27 +24,29 @@ class ProviderCard extends Component {
         </div>
         <div className='providerCardBody'>
           <div className='providerCardColumn'>
-            <ProviderName>{ name }</ProviderName>
-            <License>REGISTRO</License>
-            <p>{ licenseNumber }</p>
+            <p className='providerName'>{ name }</p>
+            <License>
+              <p className="title">REGISTRO</p>
+              <p className="number">{ licenseNumber }</p>
+            </License>
             <Paragraph size="small">{ experience }</Paragraph>
             <Paragraph size="small">{`${ city } - ${ state }`}</Paragraph>
             <Paragraph size="small">{ adress }</Paragraph>
           </div>
           <div className='providerCardColumn'>
-              <div className="columnBlock">
+              <SectionBlock>
                   <SectionTitle>Contato</SectionTitle>
                   <p>{ phoneNumber }</p>
                   <p>{ email }</p>
-              </div>
-              <div className="columnBlock">
+              </SectionBlock>
+              <SectionBlock>
                   <SectionTitle>Atendimento online</SectionTitle>
                   <p>{ videoCallPlataform }</p>
-              </div>
-              <div className="columnBlock">
+              </SectionBlock>
+              <SectionBlock>
                   <SectionTitle>Planos de saúde</SectionTitle>
                   <p>{ healthInsurance }</p>
-              </div>
+              </SectionBlock>
           </div>
         </div>
       </Card>
