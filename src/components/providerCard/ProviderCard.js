@@ -9,7 +9,7 @@ class ProviderCard extends Component {
   render() {
     const { name, category, specialty, licenseNumber, videoCallAvailability, phoneNumber, email } = this.props
     return (
-      <Card className=''>
+      <Card className='providerCard'>
         { videoCallAvailability && 
         <p className='providerVideoCallAvailability'>Atende Online</p> }
         <div className='providerCardHeader'>

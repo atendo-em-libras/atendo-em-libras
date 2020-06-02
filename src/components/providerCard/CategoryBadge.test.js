@@ -9,9 +9,21 @@ describe("CategoryBadge", () => {
     expect(medicineBadge).toMatchSnapshot()
   })
 
-  it("renders outras correctly", () => {
-    const medicineBadge = render(<CategoryBadge category="advogado" />)
+  it("renders advocacia as default correctly", () => {
+    const lawyerBadge = render(<CategoryBadge category="advocacia" />)
 
-    expect(medicineBadge).toMatchSnapshot()
+    expect(lawyerBadge).toMatchSnapshot()
+  })
+
+  it("renders pessoa cuidadora correctly", () => {
+    const careGiverBadge = render(<CategoryBadge category="pessoa cuidadora" />)
+
+    expect(careGiverBadge).toMatchSnapshot()
+  })
+
+  it("renders pessoa cuidadora with upper case correctly", () => {
+    const careGiverBadge = render(<CategoryBadge category="Pessoa Cuidadora" />)
+
+    expect(careGiverBadge).toMatchSnapshot()
   })
 })
