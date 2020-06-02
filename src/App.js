@@ -20,7 +20,8 @@ function App() {
               healthInsurance="Amil, Unimed, SulAmérica"
               videoCallPlataform="iClinic"
               city="Recife"
-              state="PE"/>
+              state="PE"
+              adress="Rua Antônio Falcão, 45, Boa Viagem"/>
         </Grommet>
     </div>
   );

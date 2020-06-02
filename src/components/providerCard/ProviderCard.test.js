@@ -15,6 +15,7 @@ describe("ProviderCard tests", () => {
   const videoCallPlataform = "iClinic"
   const city = "Recife"
   const state = "PE"
+  const adress = "Rua Antônio Falcão, 45, Boa Viagem"
 
   beforeEach(() => {
     providerCardComponent = render(<ProviderCard 
@@ -28,7 +29,8 @@ describe("ProviderCard tests", () => {
                                     healthInsurance={healthInsurance}
                                     videoCallPlataform={videoCallPlataform}
                                     city={city}
-                                    state={state}/>)
+                                    state={state}
+                                    adress={adress}/>)
   })
 
   it("Component should render name property", () => {
@@ -69,6 +71,10 @@ describe("ProviderCard tests", () => {
 
   it("Component should render city and state", () => {
     expect(providerCardComponent.getByText(`${city} - ${state}`)).toBeInTheDocument()
+  })
+
+  it("Component should render adress", () => {
+    expect(providerCardComponent.getByText(adress)).toBeInTheDocument()
   })
 
   it("Component should not render video call avallability", () => {

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import './ProviderCard.css'
 import { Card } from './Card'
 import { CategoryBadge } from './CategoryBadge'
-import { Text, Paragraph } from 'grommet'
+import { Paragraph } from 'grommet'
 
 class ProviderCard extends Component {
 
   render() {
     const { name, category, specialty, licenseNumber, videoCallAvailability, 
       phoneNumber, email, experience, healthInsurance, videoCallPlataform,
-      city, state } = this.props
+      city, state, adress } = this.props
     return (
       <Card className='providerCard'>
         { videoCallAvailability && 
@@ -25,8 +25,9 @@ class ProviderCard extends Component {
             <p>{ name }</p>
             <p>REGISTRO</p>
             <p>{ licenseNumber }</p>
-            <Text size="small">{ experience }</Text>
+            <Paragraph size="small">{ experience }</Paragraph>
             <Paragraph size="small">{`${ city } - ${ state }`}</Paragraph>
+            <Paragraph size="small">{ adress }</Paragraph>
           </div>
           <div className='providerCardColumn'>
               <div className="columnBlock">
@@ -62,6 +63,7 @@ ProviderCard.propTypes = {
   videoCallPlataform: PropTypes.string,
   city: PropTypes.string,
   state: PropTypes.string,
+  adress: PropTypes.string
 }
 
 export { ProviderCard };
