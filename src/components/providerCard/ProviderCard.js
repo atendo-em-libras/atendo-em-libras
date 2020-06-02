@@ -4,6 +4,7 @@ import './ProviderCard.css'
 import { Card } from './Card'
 import { CategoryBadge } from './CategoryBadge'
 import { Paragraph } from 'grommet'
+import { ProviderName } from './ProviderName'
 
 class ProviderCard extends Component {
 
@@ -17,12 +18,11 @@ class ProviderCard extends Component {
         <p className='providerVideoCallAvailability'>Atende Online</p> }
         <div className='providerCardHeader'>
           <CategoryBadge category={category} />
-          
           <p className='providerSpecialty'>{ specialty }</p>
         </div>
         <div className='providerCardBody'>
           <div className='providerCardColumn'>
-            <p>{ name }</p>
+            <ProviderName>{ name }</ProviderName>
             <p>REGISTRO</p>
             <p>{ licenseNumber }</p>
             <Paragraph size="small">{ experience }</Paragraph>
