@@ -5,6 +5,8 @@ import { Card } from './Card'
 import { CategoryBadge } from './CategoryBadge'
 import { Paragraph } from 'grommet'
 import { ProviderName } from './ProviderName'
+import { SectionTitle } from './SectionTitle'
+import { License } from './License'
 
 class ProviderCard extends Component {
 
@@ -23,7 +25,7 @@ class ProviderCard extends Component {
         <div className='providerCardBody'>
           <div className='providerCardColumn'>
             <ProviderName>{ name }</ProviderName>
-            <p>REGISTRO</p>
+            <License>REGISTRO</License>
             <p>{ licenseNumber }</p>
             <Paragraph size="small">{ experience }</Paragraph>
             <Paragraph size="small">{`${ city } - ${ state }`}</Paragraph>
@@ -31,16 +33,16 @@ class ProviderCard extends Component {
           </div>
           <div className='providerCardColumn'>
               <div className="columnBlock">
-                  <p>Contato</p>
+                  <SectionTitle>Contato</SectionTitle>
                   <p>{ phoneNumber }</p>
                   <p>{ email }</p>
               </div>
               <div className="columnBlock">
-                  <p>Atendimento online</p>
+                  <SectionTitle>Atendimento online</SectionTitle>
                   <p>{ videoCallPlataform }</p>
               </div>
               <div className="columnBlock">
-                  <p>Planos de saúde</p>
+                  <SectionTitle>Planos de saúde</SectionTitle>
                   <p>{ healthInsurance }</p>
               </div>
           </div>
