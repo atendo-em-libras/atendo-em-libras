@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import {Box, Button, Grid, Header as GrommetHeader, Heading, Text} from "grommet";
 import styled from "styled-components";
 import logo from '../../assets/img_logo_atendoemlibras.svg';
@@ -54,8 +54,7 @@ const TextHeading = styled(Heading)`
    margin-bottom: 3%;
 `;
 
-
-export class Header extends React.PureComponent {
+class Header extends PureComponent {
     render() {
         return (
             <DefaultHeader align="start">
@@ -87,3 +86,5 @@ export class Header extends React.PureComponent {
         )
     }
 }
+
+export { Header } 
