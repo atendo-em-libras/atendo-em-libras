@@ -1,13 +1,13 @@
 import React from 'react';
 import {grommet, Grommet} from "grommet";
-import AppHeader from "./components/header/AppHeader";
+import Header from "./components/header/Header";
 import { ProviderCard } from "./components/providerCard/ProviderCard";
 
 function App() {
   return (
     <div className="App">
         <Grommet theme={grommet}>
-            <AppHeader/>
+            <Header/>
             <ProviderCard
               name="Luciana Andrade Souza"
               licenseNumber="CRM 151515"

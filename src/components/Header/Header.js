@@ -1,6 +1,6 @@
-import React from "react";
-import {Box, Button, Grid, Header, Heading, Text} from "grommet";
-import styled from "styled-components";
+import React from "./node_modules/react";
+import {Box, Button, Grid, Header, Heading, Text} from "./node_modules/grommet";
+import styled from "./node_modules/styled-components";
 import logo from '../../assets/img_logo_atendoemlibras.svg';
 import headerImage from '../../assets/img_hands.svg';
 

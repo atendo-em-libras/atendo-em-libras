@@ -1,6 +1,6 @@
-import React from "react"
+import React from "./node_modules/react"
 import AppHeader from "./AppHeader";
-import { render } from "@testing-library/react"
+import { render } from "./node_modules/@testing-library/react"
 
 describe("AppHeader tests", () => {
     let wrapper;
