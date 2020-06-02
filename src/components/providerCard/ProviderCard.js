@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import './ProviderCard.css'
 import { Card } from './Card'
-import { CategoryBadge } from './CategoryBadge';
+import { CategoryBadge } from './CategoryBadge'
+import { Text } from 'grommet'
 
 class ProviderCard extends Component {
 
   render() {
-    const { name, category, specialty, licenseNumber, videoCallAvailability, phoneNumber, email } = this.props
+    const { name, category, specialty, licenseNumber, videoCallAvailability, phoneNumber, email, experience } = this.props
     return (
       <Card className='providerCard'>
         { videoCallAvailability && 
@@ -22,6 +23,7 @@ class ProviderCard extends Component {
             <p>{ name }</p>
             <p>REGISTRO</p>
             <p>{ licenseNumber }</p>
+            <Text size={"small"}>{ experience }</Text>
           </div>
           <div className='providerCardColumn'>
               <div className="columnBlock">
@@ -44,6 +46,7 @@ ProviderCard.propTypes = {
   videoCallAvailability: PropTypes.bool,
   phoneNumber: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  experience: PropTypes.string,
 }
 
 export { ProviderCard };

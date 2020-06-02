@@ -15,7 +15,8 @@ function App() {
               specialty="Clínica Geral"
               videoCallAvailability={true}
               phoneNumber={"(11) 96578 3434"}
-              email={"i.standar27@fgv.com.br"} />
+              email={"i.standar27@fgv.com.br"} 
+              experience={"I love lorem ipsum"}/>
         </Grommet>
     </div>
   );
