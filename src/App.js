@@ -14,8 +14,14 @@ function App() {
               category="Medicina"
               specialty="Clínica Geral"
               videoCallAvailability={true}
-              phoneNumber={"(11) 96578 3434"}
-              email={"i.standar27@fgv.com.br"} />
+              phoneNumber="(11) 96578 3434"
+              email="i.standar27@fgv.com.br" 
+              experience="I love lorem ipsum"
+              healthInsurance="Amil, Unimed, SulAmérica"
+              videoCallPlataform="iClinic"
+              city="Recife"
+              state="PE"
+              adress="Rua Antônio Falcão, 45, Boa Viagem"/>
         </Grommet>
     </div>
   );
