@@ -11,6 +11,7 @@ describe("ProviderCard tests", () => {
   const phoneNumber = "(11) 96578 3434"
   const email = "i.standar27@fgv.com.br"
   const experience = "Experience with lorem ipsum"
+  const healthInsurance = "Amil, Unimed, SulAmérica"
 
   beforeEach(() => {
     providerCardComponent = render(<ProviderCard 
@@ -20,7 +21,8 @@ describe("ProviderCard tests", () => {
                                     licenseNumber={licenseNumber}
                                     phoneNumber={phoneNumber}
                                     email={email}
-                                    experience={experience}/>)
+                                    experience={experience}
+                                    healthInsurance={healthInsurance}/>)
   })
 
   it("Component should render name property", () => {
@@ -49,6 +51,10 @@ describe("ProviderCard tests", () => {
 
   it("Component should render experience", () => {
     expect(providerCardComponent.getByText(experience)).toBeInTheDocument()
+  })
+
+  it("Component should render health insurence", () => {
+    expect(providerCardComponent.getByText(healthInsurance)).toBeInTheDocument()
   })
 
   it("Component should not render video call avallability", () => {

@@ -8,7 +8,8 @@ import { Text } from 'grommet'
 class ProviderCard extends Component {
 
   render() {
-    const { name, category, specialty, licenseNumber, videoCallAvailability, phoneNumber, email, experience } = this.props
+    const { name, category, specialty, licenseNumber, videoCallAvailability, 
+      phoneNumber, email, experience, healthInsurance } = this.props
     return (
       <Card className='providerCard'>
         { videoCallAvailability && 
@@ -23,13 +24,17 @@ class ProviderCard extends Component {
             <p>{ name }</p>
             <p>REGISTRO</p>
             <p>{ licenseNumber }</p>
-            <Text size={"small"}>{ experience }</Text>
+            <Text size="small">{ experience }</Text>
           </div>
           <div className='providerCardColumn'>
               <div className="columnBlock">
                   <p>Contato</p>
                   <p>{ phoneNumber }</p>
                   <p>{ email }</p>
+              </div>
+              <div className="columnBlock">
+                  <p>Planos de saúde</p>
+                  <p>{ healthInsurance }</p>
               </div>
           </div>
         </div>
@@ -47,6 +52,7 @@ ProviderCard.propTypes = {
   phoneNumber: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   experience: PropTypes.string,
+  healthInsurance: PropTypes.string,
 }
 
 export { ProviderCard };
