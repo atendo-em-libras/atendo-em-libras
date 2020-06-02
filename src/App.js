@@ -1,6 +1,6 @@
 import React from 'react';
 import {grommet, Grommet} from "grommet";
-import Header from "./components/header/Header";
+import { Header } from "./components/Header";
 import { ProviderCard } from "./components/providerCard/ProviderCard";
 
 function App() {
