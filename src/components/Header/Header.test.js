@@ -9,10 +9,6 @@ describe("Header component", () => {
     headerElement = render(<Header />)
   });
 
-  it("should render register message", () => {
-      expect(headerElement.getByText("É profissional de saúde ou conhece alguém da área?")).toBeInTheDocument()
-  });
-
   it("should render register button", () => {
       expect(headerElement.getByRole('button')).toBeInTheDocument()
   });
