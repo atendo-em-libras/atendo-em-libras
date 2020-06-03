@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import styled from "styled-components";
 
 import { Container } from '../../Container'
-import logo from '../../../assets/img_atendo_em_libras_logo_white.svg';
+import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg';
 
 class HeaderMenu extends PureComponent {
   render = () => {
