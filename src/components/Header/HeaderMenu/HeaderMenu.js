@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Container } from '../Container'
 import logo from '../../../assets/img_logo_atendo_em_libras.svg';
 
-class HeaderNavigation extends PureComponent {
+class HeaderMenu extends PureComponent {
   render = () => {
     return (
       <Container>
@@ -18,7 +18,7 @@ class HeaderNavigation extends PureComponent {
   }
 }
 
-const StyledHeaderNavigation = styled(HeaderNavigation)`
+const StyledHeaderMenu = styled(HeaderMenu)`
   width: 100%;
   height: 15vh;
   display: flex;
@@ -51,4 +51,4 @@ const StyledHeaderNavigation = styled(HeaderNavigation)`
     outline-offset: 0;
   }
 `
-export { StyledHeaderNavigation as HeaderNavigation }
+export { StyledHeaderMenu as HeaderMenu }

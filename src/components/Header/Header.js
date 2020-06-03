@@ -2,14 +2,14 @@ import React, { PureComponent } from "react"
 import styled from "styled-components"
 
 import { HeaderCallOut } from './HeaderCallOut'
-import { HeaderNavigation } from './HeaderNavigation'
+import { HeaderMenu } from './HeaderMenu'
 import { HeaderBanner } from './HeaderBanner'
 
 class Header extends PureComponent {
   render = () => {
     return (
       <div className={this.props.className}>
-        <HeaderNavigation />
+        <HeaderMenu />
         <HeaderBanner />
         <HeaderCallOut />
       </div>
