@@ -19,7 +19,7 @@ export const Card = styled.div`
   }
 
   & .providerName {
-    font-weight: 800;
+    font-weight: 600;
     color: #0F1423;
     font-size: 1.8em;
   }
