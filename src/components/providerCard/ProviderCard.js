@@ -39,8 +39,10 @@ class ProviderCard extends Component {
               <p className="number">{ licenseNumber }</p>
             </License>
             {experience && <Paragraph size="small">{ experience }</Paragraph>}
-            {city && state && <Paragraph size="small"><IconText src={addressIcon} alt="address icon" />{`${ city } - ${ state }`}</Paragraph>}
-            <Paragraph size="small">{ address }</Paragraph>
+            <SectionBlock>
+              {city && state && <SectionTitle><IconText src={addressIcon} alt="address icon" />{`${ city } - ${ state }`}</SectionTitle>}
+              <Paragraph size="small">{ address }</Paragraph>
+            </SectionBlock>
           </div>
           <div className='providerCardColumn'>
               <SectionBlock>
