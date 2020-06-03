@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
 import { Header } from "./components/Header";
+import { Footer } from "./components/Footer"
 import { ProviderCard } from "./components/providerCard/ProviderCard";
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <ProviderCard
         name="Luciana Andrade Souza"
         licenseNumber="CRM 151515"
@@ -14,6 +15,7 @@ function App() {
         videoCallAvailability={true}
         phoneNumber={"(11) 96578 3434"}
         email={"i.standar27@fgv.com.br"} />
+      <Footer />
     </div>
   );
 }
