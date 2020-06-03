@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import styled from "styled-components";
 
 import illustration from '../../../assets/img_hands.svg';
-import { Container } from '../Container';
+import { Container } from '../../Container';
 
 class HeaderBanner extends PureComponent {
   render = () => {

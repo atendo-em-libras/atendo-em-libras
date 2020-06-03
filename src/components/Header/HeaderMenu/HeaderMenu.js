@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import styled from "styled-components";
 
-import { Container } from '../Container'
+import { Container } from '../../Container'
 import logo from '../../../assets/img_logo_atendo_em_libras.svg';
 
 class HeaderMenu extends PureComponent {
