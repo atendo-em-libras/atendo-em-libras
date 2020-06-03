@@ -28,7 +28,7 @@ class HeaderBanner extends PureComponent {
 const StyledHeaderBanner = styled(HeaderBanner)`
   width: 100%;
   height: 55vh;
-  padding-left: 50%;
+  padding-left: 45%;
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -36,19 +36,20 @@ const StyledHeaderBanner = styled(HeaderBanner)`
   align-items: flex-start;
   justify-content: center;
   img {
-    height: 40vw;
-    left: 5vh;
-    bottom: -5vh;
+    width: 45%;
+    left: 0;
     position: absolute;
+    box-sizing: border-box;
+    padding: 0 2vw;
   }
   h1 {
     width: 85%;
-    font-size: 4em;
+    font-size: 5em;
     font-weight: 400;
     line-height: 1.5em;
   }
   p {
-    width: 90%;
+    width: 85%;
     margin-top: 1em;
     font-size: 2em;
     font-weight: 400;
