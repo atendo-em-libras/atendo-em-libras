@@ -7,6 +7,7 @@ import { Paragraph } from 'grommet'
 import { SectionTitle } from './SectionTitle'
 import { License } from './License'
 import { SectionBlock } from './SectionBlock'
+import video from '../../assets/ic_video.svg'
 
 class ProviderCard extends Component {
 
@@ -17,7 +18,10 @@ class ProviderCard extends Component {
     return (
       <Card className='providerCard'>
         { videoCallAvailability && 
-        <p className='providerVideoCallAvailability'>Atende Online</p> }
+        <div className='providerVideoCallAvailability'>
+          <img src={video} alt="" />
+          <span >Atende Online</span>
+        </div> }
         <div className='providerCardHeader'>
           <CategoryBadge category={category} />
           <p className='providerSpecialty'>{ specialty }</p>
@@ -29,8 +33,8 @@ class ProviderCard extends Component {
               <p className="title">REGISTRO</p>
               <p className="number">{ licenseNumber }</p>
             </License>
-            <Paragraph size="small">{ experience }</Paragraph>
-            <Paragraph size="small">{`${ city } - ${ state }`}</Paragraph>
+            {experience && <Paragraph size="small">{ experience }</Paragraph>}
+            {city && state && <Paragraph size="small">{`${ city } - ${ state }`}</Paragraph>}
             <Paragraph size="small">{ adress }</Paragraph>
           </div>
           <div className='providerCardColumn'>
@@ -39,10 +43,10 @@ class ProviderCard extends Component {
                   <p>{ phoneNumber }</p>
                   <p>{ email }</p>
               </SectionBlock>
-              <SectionBlock>
+              {videoCallPlataform && <SectionBlock>
                   <SectionTitle>Atendimento online</SectionTitle>
-                  <p>{ videoCallPlataform }</p>
-              </SectionBlock>
+                   <p>{ videoCallPlataform }</p>
+              </SectionBlock>}
               <SectionBlock>
                   <SectionTitle>Planos de saúde</SectionTitle>
                   <p>{ healthInsurance }</p>
@@ -68,6 +72,10 @@ ProviderCard.propTypes = {
   city: PropTypes.string,
   state: PropTypes.string,
   adress: PropTypes.string
+}
+
+ProviderCard.defaultProps = {
+  healthInsurance: "Não informados",
 }
 
 export { ProviderCard };
