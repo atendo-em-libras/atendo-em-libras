@@ -11,6 +11,8 @@ import { IconText } from './IconText'
 import video from '../../assets/ic_video.svg'
 import phone from '../../assets/ic_phone.svg'
 import emailIcon from '../../assets/ic_mail.svg'
+import addressIcon from '../../assets/ic_pin.svg'
+import healthInsuranceIcon from '../../assets/ic_card.svg'
 
 class ProviderCard extends Component {
 
@@ -37,7 +39,7 @@ class ProviderCard extends Component {
               <p className="number">{ licenseNumber }</p>
             </License>
             {experience && <Paragraph size="small">{ experience }</Paragraph>}
-            {city && state && <Paragraph size="small">{`${ city } - ${ state }`}</Paragraph>}
+            {city && state && <Paragraph size="small"><IconText src={addressIcon} alt="address icon" />{`${ city } - ${ state }`}</Paragraph>}
             <Paragraph size="small">{ address }</Paragraph>
           </div>
           <div className='providerCardColumn'>
@@ -61,7 +63,7 @@ class ProviderCard extends Component {
               </SectionBlock>}
               <SectionBlock>
                   <SectionTitle>Planos de saúde</SectionTitle>
-                  <p>{ healthInsurance }</p>
+                  <p><IconText src={healthInsuranceIcon} alt="card icon" />{ healthInsurance }</p>
               </SectionBlock>
           </div>
         </div>
