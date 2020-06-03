@@ -45,7 +45,9 @@ const StyledHeaderMenu = styled(HeaderMenu)`
     font-size: 2em;
     cursor: pointer;
   }
-
+  button:hover {
+    background-color: #96BFFF;
+  }
   button:focus {
     outline: none;
     outline-offset: 0;
