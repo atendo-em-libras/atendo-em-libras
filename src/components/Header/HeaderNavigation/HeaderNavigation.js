@@ -1,43 +1,48 @@
 import React, { PureComponent } from 'react'
 import styled from "styled-components";
 
+import { Container } from '../Container'
 import logo from '../../../assets/img_logo_atendo_em_libras.svg';
 
 class HeaderNavigation extends PureComponent {
   render = () => {
     return (
-      <div className={this.props.className}>
-        <img src={logo} alt={'Logo Atendo em Libras'}></img>
-        <h2>É profissional de saúde ou conhece alguém da área?</h2>
-        <button>Cadastre Aqui</button>
-      </div>
+      <Container>
+        <div className={this.props.className}>
+          <img src={logo} alt={'Logo projeto Atendo em Libras'}></img>
+          <h2>É profissional de saúde ou conhece alguém da área?</h2>
+          <button>Cadastre Aqui</button>
+        </div>
+      </Container>
     )
   }
 }
 
 const StyledHeaderNavigation = styled(HeaderNavigation)`
   width: 100%;
+  height: 15vh;
   display: flex;
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
-
+  img {
+    height: 9em;
+  }
   h2 {
     display: flex;
     justify-content: flex-end;
-    font-size: 20px;
+    font-size: 2.2em;
+    font-weight: 400;
     flex-grow: 1;
-    padding-right: 20px
+    padding-right: 2em
   }
-
   button {
-    width: 167px;
-    height: 55px;
+    padding: 1.5em;
     background-color: #5996F7;
-    border-radius: 15px 15px 15px 0px;
+    border-radius: 1.5em 1.5em 1.5em 0;
     border: 0px;
     color: white;
-    font-size: 19px;
+    font-size: 2em;
     cursor: pointer;
   }
 
