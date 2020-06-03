@@ -12,10 +12,10 @@ describe("ProviderCard tests", () => {
   const email = "i.standar27@fgv.com.br"
   const experience = "Experience with lorem ipsum"
   const healthInsurance = "Amil, Unimed, SulAmérica"
-  const videoCallPlataform = "iClinic"
+  const videoCallPlatform = "iClinic"
   const city = "Recife"
   const state = "PE"
-  const adress = "Rua Antônio Falcão, 45, Boa Viagem"
+  const address = "Rua Antônio Falcão, 45, Boa Viagem"
 
   beforeEach(() => {
     providerCardComponent = render(<ProviderCard 
@@ -27,10 +27,10 @@ describe("ProviderCard tests", () => {
                                     email={email}
                                     experience={experience}
                                     healthInsurance={healthInsurance}
-                                    videoCallPlataform={videoCallPlataform}
+                                    videoCallPlatform={videoCallPlatform}
                                     city={city}
                                     state={state}
-                                    adress={adress}/>)
+                                    address={address}/>)
   })
 
   it("Component should render name property", () => {
@@ -65,16 +65,16 @@ describe("ProviderCard tests", () => {
     expect(providerCardComponent.getByText(healthInsurance)).toBeInTheDocument()
   })
 
-  it("Component should render video call plataform", () => {
-    expect(providerCardComponent.getByText(videoCallPlataform)).toBeInTheDocument()
+  it("Component should render video call platform", () => {
+    expect(providerCardComponent.getByText(videoCallPlatform)).toBeInTheDocument()
   })
 
   it("Component should render city and state", () => {
     expect(providerCardComponent.getByText(`${city} - ${state}`)).toBeInTheDocument()
   })
 
-  it("Component should render adress", () => {
-    expect(providerCardComponent.getByText(adress)).toBeInTheDocument()
+  it("Component should render address", () => {
+    expect(providerCardComponent.getByText(address)).toBeInTheDocument()
   })
 
   it("Component should not render video call avallability", () => {

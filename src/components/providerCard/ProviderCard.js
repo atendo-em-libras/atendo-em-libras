@@ -7,19 +7,22 @@ import { Paragraph } from 'grommet'
 import { SectionTitle } from './SectionTitle'
 import { License } from './License'
 import { SectionBlock } from './SectionBlock'
+import { IconText } from './IconText'
 import video from '../../assets/ic_video.svg'
+import phone from '../../assets/ic_phone.svg'
+import emailIcon from '../../assets/ic_mail.svg'
 
 class ProviderCard extends Component {
 
   render() {
     const { name, category, specialty, licenseNumber, videoCallAvailability, 
-      phoneNumber, email, experience, healthInsurance, videoCallPlataform,
-      city, state, adress } = this.props
+      phoneNumber, email, experience, healthInsurance, videoCallPlatform,
+      city, state, address } = this.props
     return (
       <Card className='providerCard'>
         { videoCallAvailability && 
         <div className='providerVideoCallAvailability'>
-          <img src={video} alt="" />
+          <IconText src={video} alt="video icon" />
           <span >Atende Online</span>
         </div> }
         <div className='providerCardHeader'>
@@ -35,17 +38,26 @@ class ProviderCard extends Component {
             </License>
             {experience && <Paragraph size="small">{ experience }</Paragraph>}
             {city && state && <Paragraph size="small">{`${ city } - ${ state }`}</Paragraph>}
-            <Paragraph size="small">{ adress }</Paragraph>
+            <Paragraph size="small">{ address }</Paragraph>
           </div>
           <div className='providerCardColumn'>
               <SectionBlock>
                   <SectionTitle>Contato</SectionTitle>
-                  <p>{ phoneNumber }</p>
-                  <p>{ email }</p>
+                  <p>
+                    <IconText src={phone} alt="phone icon" />
+                    <span> { phoneNumber }</span>
+                  </p>
+                  <p>
+                    <IconText src={emailIcon} alt="e-mail icon" />
+                    <span> { email }</span>
+                  </p>
               </SectionBlock>
-              {videoCallPlataform && <SectionBlock>
+                {videoCallPlatform && <SectionBlock>
                   <SectionTitle>Atendimento online</SectionTitle>
-                   <p>{ videoCallPlataform }</p>
+                  <p>
+                    <IconText src={video} alt="video icon" />
+                    <span>{ videoCallPlatform }</span>
+                  </p>
               </SectionBlock>}
               <SectionBlock>
                   <SectionTitle>Planos de saúde</SectionTitle>
@@ -68,10 +80,10 @@ ProviderCard.propTypes = {
   email: PropTypes.string.isRequired,
   experience: PropTypes.string,
   healthInsurance: PropTypes.string,
-  videoCallPlataform: PropTypes.string,
+  videoCallPlatform: PropTypes.string,
   city: PropTypes.string,
   state: PropTypes.string,
-  adress: PropTypes.string
+  address: PropTypes.string
 }
 
 ProviderCard.defaultProps = {

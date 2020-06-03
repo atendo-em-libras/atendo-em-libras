@@ -11,6 +11,7 @@ export const Card = styled.div`
   position: relative;
   overflow: hidden;
   padding: 2em;
+  line-height: normal;
 
   & .providerCardHeader {
     display: flex;

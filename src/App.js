@@ -14,8 +14,14 @@ function App() {
         specialty="Clínica Geral"
         videoCallAvailability={true}
         phoneNumber={"(11) 96578 3434"}
-        email={"i.standar27@fgv.com.br"} />
-      <Footer />
+        email={"i.standar27@fgv.com.br"}
+        city="Recife"
+        state="PE"
+        healthInsurance="Amil, SulAmérica, Bradesco..."
+        experience="Médico formado pela PUCRS com 7 anos de experiência..."
+        address="Rua Itapevi, 67"
+        videoCallPlatform="iClinic" />
+        <Footer />
     </div>
   );
 }
