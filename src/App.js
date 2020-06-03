@@ -18,7 +18,7 @@ function App() {
         city="Recife"
         state="PE"
         healthInsurance="Amil, SulAmérica, Bradesco..."
-        experience="Médico formado pela PUCRS com 7 anos de experiência..."
+        experience="“Experiência com Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo inci“Experiência com Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
         address="Rua Itapevi, 67"
         videoCallPlatform="iClinic" />
         <Footer />

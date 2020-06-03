@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './ProviderCard.css'
 import { Card } from './Card'
 import { CategoryBadge } from './CategoryBadge'
 import { Paragraph } from 'grommet'
@@ -8,6 +7,7 @@ import { SectionTitle } from './SectionTitle'
 import { License } from './License'
 import { SectionBlock } from './SectionBlock'
 import { IconText } from './IconText'
+import { ExerienceText } from './ExperienceText'
 import video from '../../assets/ic_video.svg'
 import phone from '../../assets/ic_phone.svg'
 import emailIcon from '../../assets/ic_mail.svg'
@@ -29,16 +29,16 @@ class ProviderCard extends Component {
         </div> }
         <div className='providerCardHeader'>
           <CategoryBadge category={category} />
-          <p className='providerSpecialty'>{ specialty }</p>
         </div>
         <div className='providerCardBody'>
           <div className='providerCardColumn'>
             <p className='providerName'>{ name }</p>
+            <p className='providerSpecialty'>{ specialty }</p>
             <License>
               <p className="title">REGISTRO</p>
               <p className="number">{ licenseNumber }</p>
             </License>
-            {experience && <Paragraph size="small">{ experience }</Paragraph>}
+            {experience && <ExerienceText size="small">{ experience }</ExerienceText>}
             <SectionBlock>
               {city && state && <SectionTitle><IconText src={addressIcon} alt="address icon" />{`${ city } - ${ state }`}</SectionTitle>}
               <Paragraph size="small">{ address }</Paragraph>
