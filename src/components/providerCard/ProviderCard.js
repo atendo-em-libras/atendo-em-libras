@@ -7,6 +7,7 @@ import { Paragraph } from 'grommet'
 import { SectionTitle } from './SectionTitle'
 import { License } from './License'
 import { SectionBlock } from './SectionBlock'
+import video from '../../assets/ic_video.svg'
 
 class ProviderCard extends Component {
 
@@ -17,7 +18,10 @@ class ProviderCard extends Component {
     return (
       <Card className='providerCard'>
         { videoCallAvailability && 
-        <p className='providerVideoCallAvailability'>Atende Online</p> }
+        <div className='providerVideoCallAvailability'>
+          <img src={video} alt="" />
+          <span >Atende Online</span>
+        </div> }
         <div className='providerCardHeader'>
           <CategoryBadge category={category} />
           <p className='providerSpecialty'>{ specialty }</p>
