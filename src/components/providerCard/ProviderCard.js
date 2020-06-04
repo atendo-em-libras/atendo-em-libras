@@ -86,7 +86,7 @@ class ProviderCard extends Component {
 
     return (
       <Grommet full theme={customBreakpoints}>
-        <Card className="providerCard">
+        <Card className="providerCard" role="provider">
           <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
             <Box gridArea="header">
               {videoCallAvailability && (
