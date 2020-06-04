@@ -2,74 +2,129 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Card } from './Card'
 import { CategoryBadge } from './CategoryBadge'
-import { Paragraph } from 'grommet'
+import { Paragraph, Box, Grommet } from 'grommet'
 import { SectionTitle } from './SectionTitle'
 import { License } from './License'
 import { SectionBlock } from './SectionBlock'
 import { IconText } from './IconText'
 import { ExerienceText } from './ExperienceText'
-import video from '../../assets/ic_video.svg'
-import phone from '../../assets/ic_phone.svg'
-import emailIcon from '../../assets/ic_mail.svg'
-import addressIcon from '../../assets/ic_pin.svg'
-import healthInsuranceIcon from '../../assets/ic_card.svg'
+import { videoIcon, phoneIcon, emailIcon, addressIcon, healthInsuranceIcon } from '../../assets/icons'
+import { grommet } from "grommet/themes";
+import { deepMerge } from "grommet/utils";
+import { ResponsiveGrid } from '../ResposiveGrid'
 
 class ProviderCard extends Component {
-
   render() {
-    const { name, category, specialty, licenseNumber, videoCallAvailability, 
+    const columns = {
+      small: ["auto"],
+      medium: ["1/2", "1/2"],
+      large: ["1/2", "1/2"],
+      xlarge: ["1/2", "1/2"]
+    };
+
+    const rows = {
+      small: ["auto", "auto", "auto"],
+      medium: ["xsmall", "auto"],
+      large: ["xsmall", "auto"],
+      xlarge: ["xsmall", "auto"],
+    };
+
+    const fixedGridAreas = {
+      small: [
+        { name: "header", start: [0, 0], end: [0, 0] },
+        { name: "first", start: [0, 1], end: [0, 1] },
+        { name: "second", start: [0, 2], end: [0, 2] }
+      ],
+      medium: [
+        { name: "header", start: [0, 0], end: [1, 0] },
+        { name: "first", start: [0, 1], end: [0, 1] },
+        { name: "second", start: [1, 1], end: [1, 1] }
+      ],
+      large: [
+        { name: "header", start: [0, 0], end: [1, 0] },
+        { name: "first", start: [0, 1], end: [0, 1] },
+        { name: "second", start: [1, 1], end: [1, 1] }
+      ],
+      xlarge: [
+        { name: "header", start: [0, 0], end: [1, 0] },
+        { name: "first", start: [0, 1], end: [0, 1] },
+        { name: "second", start: [1, 1], end: [1, 1] }
+      ]
+    };
+
+    const customBreakpoints = deepMerge(grommet, {
+      global: {
+        breakpoints: {
+          small: {
+            value: 600
+          },
+          medium: {
+            value: 900
+          },
+          large: {
+            value: 3000
+          }
+        }
+      }
+    });
+
+    const { name, category, specialty, licenseNumber, videoCallAvailability,
       phoneNumber, email, experience, healthInsurance, videoCallPlatform,
-      city, state, address } = this.props
+      city, state, address } = this.props;
+
     return (
-      <Card className='providerCard'>
-        { videoCallAvailability && 
-        <div className='providerVideoCallAvailability'>
-          <IconText src={video} alt="video icon" />
-          <span >Atende Online</span>
-        </div> }
-        <div className='providerCardHeader'>
-          <CategoryBadge category={category} />
-        </div>
-        <div className='providerCardBody'>
-          <div className='providerCardColumn'>
-            <p className='providerName'>{ name }</p>
-            <p className='providerSpecialty'>{ specialty }</p>
-            <License>
-              <p className="title">REGISTRO</p>
-              <p className="number">{ licenseNumber }</p>
-            </License>
-            {experience && <ExerienceText size="small">{ experience }</ExerienceText>}
-            <SectionBlock>
-              {city && state && <SectionTitle><IconText src={addressIcon} alt="address icon" />{`${ city } - ${ state }`}</SectionTitle>}
-              <Paragraph size="small">{ address }</Paragraph>
-            </SectionBlock>
-          </div>
-          <div className='providerCardColumn'>
-              <SectionBlock>
+
+      <Grommet full theme={customBreakpoints}>
+        < Card className='providerCard'>
+          <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
+            <Box gridArea="header">
+              {videoCallAvailability &&
+                  <span className='providerVideoCallAvailability'>
+                    <IconText src={videoIcon} alt="video icon" />Atende Online
+                </span>
+              }
+                <CategoryBadge category={category} />
+            </Box>
+              <Box gridArea="first" className='providerCardColumn'>
+                <p className='providerName'>{name}</p>
+                <p className='providerSpecialty'>{specialty}</p>
+                <License>
+                  <p className="title">REGISTRO</p>
+                  <p className="number">{licenseNumber}</p>
+                </License>
+                {experience && <ExerienceText size="small">{experience}</ExerienceText>}
+                <SectionBlock>
+                  {city && state && <SectionTitle><IconText src={addressIcon} alt="address icon" />{`${city} - ${state}`}</SectionTitle>}
+                  <Paragraph size="small">{address}</Paragraph>
+                </SectionBlock>
+              </Box>
+              <Box gridArea="second" className='providerCardColumn'>
+                <SectionBlock>
                   <SectionTitle>Contato</SectionTitle>
                   <p>
-                    <IconText src={phone} alt="phone icon" />
-                    <span> { phoneNumber }</span>
+                    <IconText src={phoneIcon} alt="phone icon" />
+                    <span> {phoneNumber}</span>
                   </p>
-                  <p>
+                  <Paragraph size="small">
                     <IconText src={emailIcon} alt="e-mail icon" />
-                    <span> { email }</span>
-                  </p>
-              </SectionBlock>
+                    <span> {email}</span>
+                  </Paragraph>
+                </SectionBlock>
                 {videoCallPlatform && <SectionBlock>
                   <SectionTitle>Atendimento online</SectionTitle>
                   <p>
-                    <IconText src={video} alt="video icon" />
-                    <span>{ videoCallPlatform }</span>
+                    <IconText src={videoIcon} alt="video icon" />
+                    <span>{videoCallPlatform}</span>
                   </p>
-              </SectionBlock>}
-              <SectionBlock>
+                </SectionBlock>}
+                <SectionBlock>
                   <SectionTitle>Planos de saúde</SectionTitle>
-                  <p><IconText src={healthInsuranceIcon} alt="card icon" />{ healthInsurance }</p>
-              </SectionBlock>
-          </div>
-        </div>
-      </Card>
+                  <p><IconText src={healthInsuranceIcon} alt="card icon" />{healthInsurance}</p>
+                </SectionBlock>
+              </Box>
+          </ResponsiveGrid>
+        </Card>
+      </Grommet>
     )
   }
 }

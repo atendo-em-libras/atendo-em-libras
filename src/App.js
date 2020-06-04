@@ -1,7 +1,7 @@
 import React from "react";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer"
-import { ProviderCard } from "./components/providerCard/ProviderCard";
+import { ProviderCard } from "./components/ProviderCard/ProviderCard";
 
 function App() {
   return (
