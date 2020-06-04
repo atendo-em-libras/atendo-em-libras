@@ -1,28 +1,34 @@
 import React from "react";
+import { Grommet } from 'grommet';
+import { grommet } from 'grommet/themes'
+import { deepMerge } from 'grommet/utils'
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer"
-import { ProviderCard } from "./components/ProviderCard/ProviderCard";
+import { ProviderList } from "./components/ProviderList";
+
+const customBreakpoints = deepMerge(grommet, {
+  global: {
+    breakpoints: {
+      small: {
+        value: 600,
+      },
+      medium: {
+        value: 900,
+      },
+      large: {
+        value: 3000,
+      },
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <ProviderCard
-        name="Luciana Andrade Souza"
-        licenseNumber="CRM 151515"
-        category="Medicina"
-        specialty="Clínica Geral"
-        videoCallAvailability={true}
-        phoneNumber={"(11) 96578 3434"}
-        email={"i.standar27@fgv.com.br"}
-        city="Recife"
-        state="PE"
-        healthInsurance="Amil, SulAmérica, Bradesco..."
-        experience="“Experiência com Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo inci“Experiência com Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        address="Rua Itapevi, 67"
-        videoCallPlatform="iClinic" />
+      <Grommet className="App" full theme={customBreakpoints}>
+        <Header />
+        <ProviderList />
         <Footer />
-    </div>
+      </Grommet>
   );
 }
 

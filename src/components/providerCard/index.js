@@ -1,1 +1,1 @@
-export * from './providerCard'
+export * from './ProviderCard'

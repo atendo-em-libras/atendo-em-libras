@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Card } from './Card'
 import { CategoryBadge } from './CategoryBadge'
-import { Paragraph, Box, Grommet } from 'grommet'
+import { Paragraph, Box } from 'grommet'
 import { SectionTitle } from './SectionTitle'
 import { License } from './License'
 import { SectionBlock } from './SectionBlock'
 import { IconText } from './IconText'
 import { ExerienceText } from './ExperienceText'
 import { videoIcon, phoneIcon, emailIcon, addressIcon, healthInsuranceIcon } from '../../assets/icons'
-import { grommet } from 'grommet/themes'
-import { deepMerge } from 'grommet/utils'
 import { ResponsiveGrid } from '../ResposiveGrid'
 
 class ProviderCard extends Component {
@@ -52,22 +50,6 @@ class ProviderCard extends Component {
       ],
     }
 
-    const customBreakpoints = deepMerge(grommet, {
-      global: {
-        breakpoints: {
-          small: {
-            value: 600,
-          },
-          medium: {
-            value: 900,
-          },
-          large: {
-            value: 3000,
-          },
-        },
-      },
-    })
-
     const {
       name,
       category,
@@ -85,68 +67,66 @@ class ProviderCard extends Component {
     } = this.props
 
     return (
-      <Grommet full theme={customBreakpoints}>
-        <Card className="providerCard" role="provider">
-          <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
-            <Box gridArea="header">
-              {videoCallAvailability && (
-                <span className="providerVideoCallAvailability">
-                  <IconText src={videoIcon} alt="video icon" />
+      <Card className="providerCard" role="provider">
+        <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
+          <Box gridArea="header">
+            {videoCallAvailability && (
+              <span className="providerVideoCallAvailability">
+                <IconText src={videoIcon} alt="video icon" />
                   Atende Online
-                </span>
+              </span>
+            )}
+            <CategoryBadge category={category} />
+          </Box>
+          <Box gridArea="first" className="providerCardColumn">
+            <p className="providerName">{name}</p>
+            <p className="providerSpecialty">{specialty}</p>
+            <License>
+              <p className="title">REGISTRO</p>
+              <p className="number">{licenseNumber}</p>
+            </License>
+            {experience && <ExerienceText size="small">{experience}</ExerienceText>}
+            <SectionBlock>
+              {city && state && (
+                <SectionTitle>
+                  <IconText src={addressIcon} alt="address icon" />
+                  {`${city} - ${state}`}
+                </SectionTitle>
               )}
-              <CategoryBadge category={category} />
-            </Box>
-            <Box gridArea="first" className="providerCardColumn">
-              <p className="providerName">{name}</p>
-              <p className="providerSpecialty">{specialty}</p>
-              <License>
-                <p className="title">REGISTRO</p>
-                <p className="number">{licenseNumber}</p>
-              </License>
-              {experience && <ExerienceText size="small">{experience}</ExerienceText>}
+              <Paragraph size="small">{address}</Paragraph>
+            </SectionBlock>
+          </Box>
+          <Box gridArea="second" className="providerCardColumn">
+            <SectionBlock>
+              <SectionTitle>Contato</SectionTitle>
+              <p>
+                <IconText src={phoneIcon} alt="phone icon" />
+                <span> {phoneNumber}</span>
+              </p>
+              <Paragraph size="small">
+                <IconText src={emailIcon} alt="e-mail icon" />
+                <span> {email}</span>
+              </Paragraph>
+            </SectionBlock>
+            {videoCallPlatform && (
               <SectionBlock>
-                {city && state && (
-                  <SectionTitle>
-                    <IconText src={addressIcon} alt="address icon" />
-                    {`${city} - ${state}`}
-                  </SectionTitle>
-                )}
-                <Paragraph size="small">{address}</Paragraph>
-              </SectionBlock>
-            </Box>
-            <Box gridArea="second" className="providerCardColumn">
-              <SectionBlock>
-                <SectionTitle>Contato</SectionTitle>
+                <SectionTitle>Atendimento online</SectionTitle>
                 <p>
-                  <IconText src={phoneIcon} alt="phone icon" />
-                  <span> {phoneNumber}</span>
-                </p>
-                <Paragraph size="small">
-                  <IconText src={emailIcon} alt="e-mail icon" />
-                  <span> {email}</span>
-                </Paragraph>
-              </SectionBlock>
-              {videoCallPlatform && (
-                <SectionBlock>
-                  <SectionTitle>Atendimento online</SectionTitle>
-                  <p>
-                    <IconText src={videoIcon} alt="video icon" />
-                    <span>{videoCallPlatform}</span>
-                  </p>
-                </SectionBlock>
-              )}
-              <SectionBlock>
-                <SectionTitle>Planos de saúde</SectionTitle>
-                <p>
-                  <IconText src={healthInsuranceIcon} alt="card icon" />
-                  {healthInsurance}
+                  <IconText src={videoIcon} alt="video icon" />
+                  <span>{videoCallPlatform}</span>
                 </p>
               </SectionBlock>
-            </Box>
-          </ResponsiveGrid>
-        </Card>
-      </Grommet>
+            )}
+            <SectionBlock>
+              <SectionTitle>Planos de saúde</SectionTitle>
+              <p>
+                <IconText src={healthInsuranceIcon} alt="card icon" />
+                {healthInsurance}
+              </p>
+            </SectionBlock>
+          </Box>
+        </ResponsiveGrid>
+      </Card>
     )
   }
 }
