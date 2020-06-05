@@ -15,18 +15,19 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
+  font-size: 1em;
+}
+
+html {  
+  font-size: 10px;
+  line-height: 1;  
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
-}
-
-body {  
-  font-size: 10px;
-  line-height: 1;  
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: 'Open Sans', sans-serif;
 }
 
 ol, ul {
