@@ -3,31 +3,38 @@ import styled from "styled-components";
 
 class HeaderCallOut extends PureComponent {
   render() {
-    return <h1 className={this.props.className}>Profissionais de diverssas áreas da saúde prontos para te atender</h1>
+    return (
+      <div className={this.props.className}>
+        <h2>Profissionais de diverssas áreas da saúde prontos para te atender</h2>
+      </div>
+    )
   }
 }
 
 const StyledHeaderCallOut = styled(HeaderCallOut)`
-  width: 50%;
-  height: 30vh;
-  padding: 0 25%;
+  width: 100%;
+  min-height: 220px;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  font-size: 50px;
-  font-weight: 200;
-  line-height: 50px;
+  box-sizing: content-box;
   background-color: #FFFFFF;
-  color: #000000;
   &:before {
     content: "";
     height: 8px;
-    width: 80px;
-    margin-bottom: 30px;
+    width: 65px;
+    margin-bottom: 32px;
     background-color: #5996F7;
     border-radius: 4px
+  }
+  h2 {
+    max-width: 480px;
+    color: #000000;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 50px;
   }
 `
 export { StyledHeaderCallOut as HeaderCallOut }

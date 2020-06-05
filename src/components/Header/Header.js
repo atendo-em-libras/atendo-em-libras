@@ -20,9 +20,9 @@ class Header extends PureComponent {
 const StyledHeader = styled(Header)`
   display: flex;
   flex-flow: column;
+  align-items: center;
   width: 100%;
-  height: 100vh;
-  background: #0F1423;
+  background-color: #0F1423;
   color: white;
   font-family: Open Sans, sans-serif;
   text-align: left;

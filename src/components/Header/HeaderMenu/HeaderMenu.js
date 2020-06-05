@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import styled from "styled-components";
+import styled from 'styled-components';
 
 import { Container } from '../../Container'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg';
@@ -11,7 +11,9 @@ class HeaderMenu extends PureComponent {
         <div className={this.props.className}>
           <img src={logo} alt={'Logo projeto Atendo em Libras'}></img>
           <h2>É profissional de saúde ou conhece alguém da área?</h2>
-          <button>Cadastre Aqui</button>
+          <a target='_blank' rel='noopener noreferrer' href='https://forms.gle/h1sX9nD45PgUAzGB6'>
+            <button>Cadastre Aqui</button>
+          </a>
         </div>
       </Container>
     )
@@ -20,29 +22,34 @@ class HeaderMenu extends PureComponent {
 
 const StyledHeaderMenu = styled(HeaderMenu)`
   width: 100%;
-  height: 15vh;
+  height: 7.5vh;
+  margin-top: 2.5vh;
+  box-sizing: border-box;
   display: flex;
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
   img {
-    height: 9em;
+    height: 5em;
   }
   h2 {
+    height: 5rem;
+    padding: 0 3rem;
     display: flex;
     justify-content: flex-end;
-    font-size: 2.2em;
-    font-weight: 400;
+    align-items: center;
     flex-grow: 1;
-    padding-right: 2em
+    font-size: 1.6rem;
+    font-weight: 400;
   }
   button {
-    padding: 1.5em;
+    padding: 20px;
     background-color: #5996F7;
-    border-radius: 1.5em 1.5em 1.5em 0;
-    border: 0px;
+    border-radius: 20px 20px 20px 0;
+    border: 0;
     color: white;
-    font-size: 2em;
+    font-size: 1.4em;
+    font-weight: 600;
     cursor: pointer;
   }
   button:hover {
@@ -53,4 +60,5 @@ const StyledHeaderMenu = styled(HeaderMenu)`
     outline-offset: 0;
   }
 `
+
 export { StyledHeaderMenu as HeaderMenu }
