@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ResponsiveGrid } from '../ResposiveGrid'
+import { ResponsiveGrid } from '../ResponsiveGrid'
 import { ProviderCard } from '../ProviderCard'
 import { getServiceProviders } from '../../api/spreadSheet'
 import { Grommet } from 'grommet'

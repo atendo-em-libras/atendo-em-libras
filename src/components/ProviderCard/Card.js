@@ -6,7 +6,7 @@ export const Card = styled(Box)`
   margin: 50px;
   width: 80%;
   border-radius: 15px;
-  box-shadow: 0px 10px 32px #0000001A;
+  box-shadow: 0px 10px 32px #0000001a;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -15,26 +15,26 @@ export const Card = styled(Box)`
 
   & .providerName {
     font-weight: 600;
-    color: #0F1423;
+    color: #0f1423;
     font-size: 1.8em;
   }
-  
+
   & .providerCardColumn:last-child {
     border-right: none;
     margin-right: none;
   }
 
   & .providerSpecialty {
-    color: #0F1423;
+    color: #0f1423;
     font-size: 1.4em;
     white-space: nowrap;
     overflow: hidden;
     max-width: 30em;
     text-overflow: ellipsis;
   }
-  
+
   & .providerVideoCallAvailability {
-    color: #5996F7;
+    color: #5996f7;
     background-color: #c7ddfd;
     position: absolute;
     right: 0;
@@ -47,7 +47,7 @@ export const Card = styled(Box)`
 
   @media (min-width: 700px) {
     & .providerCardColumn {
-      border-right: #F5F5F5 1.5px dashed;
+      border-right: #f5f5f5 1.5px dashed;
       padding-right: 3em;
     }
 

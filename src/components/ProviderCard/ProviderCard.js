@@ -9,7 +9,7 @@ import { SectionBlock } from './SectionBlock'
 import { IconText } from './IconText'
 import { ExerienceText } from './ExperienceText'
 import { videoIcon, phoneIcon, emailIcon, addressIcon, healthInsuranceIcon } from '../../assets/icons'
-import { ResponsiveGrid } from '../ResposiveGrid'
+import { ResponsiveGrid } from '../ResponsiveGrid'
 
 class ProviderCard extends Component {
   render() {
@@ -73,7 +73,7 @@ class ProviderCard extends Component {
             {videoCallAvailability && (
               <span className="providerVideoCallAvailability">
                 <IconText src={videoIcon} alt="video icon" />
-                  Atende Online
+                Atende Online
               </span>
             )}
             <CategoryBadge category={category} />

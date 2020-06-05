@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 
 import { Container } from '../Container'
 import atendoEmLibasLogo from '../../assets/images/img_atendo_em_libras_logo_blue.svg'
@@ -24,24 +24,24 @@ class Footer extends PureComponent {
             </FooterContent>
           </footer>
         </Container>
-      </div>  
+      </div>
     )
   }
 }
 
 const StyledFooter = styled(Footer)`
   width: 100%;
-  
+
   display: flex;
   flex-flow: row;
   align-items: center;
   color: white;
-  background-color: #FFFFFF;
-  border-top: solid #0000001A 1px;
+  background-color: #ffffff;
+  border-top: solid #0000001a 1px;
   footer {
     height: 20vh;
     display: flex;
-    flex-flow: row; 
+    flex-flow: row;
     justify-content: space-between;
     align-items: center;
     img {
@@ -65,7 +65,8 @@ const FooterContent = styled.div`
     img {
       height: 1.8em;
     }
-    p, a {
+    p,
+    a {
       color: black;
       font-size: 1.6em;
       font-weight: 600;
@@ -75,7 +76,7 @@ const FooterContent = styled.div`
     }
   }
   div:first-child {
-    margin-right: 100px
+    margin-right: 100px;
   }
 `
 

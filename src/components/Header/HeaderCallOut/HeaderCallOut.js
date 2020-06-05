@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import styled from "styled-components";
+import styled from 'styled-components'
 
 class HeaderCallOut extends PureComponent {
   render() {
@@ -19,14 +19,14 @@ const StyledHeaderCallOut = styled(HeaderCallOut)`
   justify-content: center;
   align-items: center;
   box-sizing: content-box;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   &:before {
-    content: "";
+    content: '';
     height: 8px;
     width: 65px;
     margin-bottom: 32px;
-    background-color: #5996F7;
-    border-radius: 4px
+    background-color: #5996f7;
+    border-radius: 4px;
   }
   h2 {
     max-width: 480px;

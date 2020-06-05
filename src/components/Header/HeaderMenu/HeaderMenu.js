@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 import { Container } from '../../Container'
-import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg';
+import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg'
 
 class HeaderMenu extends PureComponent {
   render = () => {
@@ -11,7 +11,7 @@ class HeaderMenu extends PureComponent {
         <div className={this.props.className}>
           <img src={logo} alt={'Logo projeto Atendo em Libras'}></img>
           <h2>É profissional de saúde ou conhece alguém da área?</h2>
-          <a target='_blank' rel='noopener noreferrer' href='https://forms.gle/h1sX9nD45PgUAzGB6'>
+          <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
             <button>Cadastre Aqui</button>
           </a>
         </div>
@@ -44,7 +44,7 @@ const StyledHeaderMenu = styled(HeaderMenu)`
   }
   button {
     padding: 20px;
-    background-color: #5996F7;
+    background-color: #5996f7;
     border-radius: 20px 20px 20px 0;
     border: 0;
     color: white;
@@ -53,7 +53,7 @@ const StyledHeaderMenu = styled(HeaderMenu)`
     cursor: pointer;
   }
   button:hover {
-    background-color: #96BFFF;
+    background-color: #96bfff;
   }
   button:focus {
     outline: none;
