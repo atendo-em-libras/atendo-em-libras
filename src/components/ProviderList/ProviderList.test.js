@@ -1,10 +1,38 @@
-import React from "react"
-import { render } from "@testing-library/react"
-import { ProviderList} from './ProviderList'
+import React from 'react'
+import { render } from '@testing-library/react'
+import { ProviderList } from './ProviderList'
+import { getServiceProviders } from '../../api/spreadSheet.js'
 
-describe("ProviderList tests", () => {
-    xit("Component should render a provider card", () => {
-      const providerListComponent = render(<ProviderList></ProviderList>)
-      expect(providerListComponent.getByRole('provider')).toBeInTheDocument()
-    })
+jest.mock('../../api/spreadSheet.js')
+
+describe('ProviderList tests', () => {
+  xit('Component should render a provider card', () => {
+    const mockedProviderList = [
+      {
+        'Apresentação ': 'Fisioterapeuta - Traumato Ortopedia ',
+        'Atende por videochamada? ': 'Não',
+        'Cadastro ': 'Quero me cadastrar',
+        'Categoria ': 'Fisioterapia',
+        'Cidade ': 'Uberlândia ',
+        'E-mail ': 'thais_amorim773@hotmail.com',
+        'Endereço de atendimento ': 'R. Bernardo Cupertino, 423 - B. Martins',
+        'Especialidade ': 'Traumato-ortopedia',
+        'Estado ': 'Minas Gerais (MG)',
+        'Local de atendimento ': 'Clínica Habilitar (Instituto de Habilitação física)',
+        'Nome do profissional ': 'Thaís Amorim ',
+        'Número de cadastro profissional ': 'Crefito4 202323',
+        'Planos de saúde aceitos ': 'Sul América, IPSM, Saúde Caixa, Cassi, Amil e Vitalis',
+        'Plataforma de Atendimento ': '',
+        'Sabe LIBRAS? ': '',
+        'Telefone ': '34 999624855',
+        'Timestamp ': '5/22/2020 12:15:19',
+      },
+    ]
+
+    getServiceProviders.mockResolvedValue(mockedProviderList)
+    const providerListComponent = render(<ProviderList />)
+    const { debug } = render(<providerList />)
+    debug()
+    expect(providerListComponent.getByText('Fisioterapia')).toBeInTheDocument()
+  })
 })
