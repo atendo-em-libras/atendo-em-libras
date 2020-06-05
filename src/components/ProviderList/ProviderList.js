@@ -9,6 +9,7 @@ import { deepMerge } from 'grommet/utils'
 const columns = {
   small: ['auto'],
   medium: ['auto', 'auto'],
+  large: ['auto', 'auto']
 }
 
 const rows = {
@@ -19,10 +20,10 @@ const rows = {
 
 const fixedGridAreas = {
   small: [
-    { name: 'header', start: [0, 0], end: [0, 0] },
+    { name: 'card', start: [0, 0], end: [0, 0] },
   ],
   medium: [
-    { name: 'header', start: [0, 1], end: [1, 0] },
+    { name: 'card', start: [0, 0], end: [1, 0] },
   ]
 }
 
@@ -64,10 +65,11 @@ class ProviderList extends Component {
   render() {
     const { providers } = this.state;
     return (
-      <Grommet className="App" full theme={customBreakpoints}>
+      <Grommet full theme={customBreakpoints}>
         <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
           {providers && providers.map((provider, id) => (
             <ProviderCard key={id}
+              gridArea="card"
               name={provider["Nome do profissional "]}
               licenseNumber={provider["Número de cadastro profissional "]}
               category={provider["Categoria "]}
