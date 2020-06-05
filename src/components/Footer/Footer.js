@@ -10,17 +10,19 @@ class Footer extends PureComponent {
     return (
       <div className={this.props.className}>
         <Container>
-          <FooterContent>
+          <footer>
             <img src={atendoEmLibasLogo} alt={'Logo Atendo em Libras'}></img>
-            <FooterElement>
-              <p>Apoio:</p>
-              <img src={thoughtworksLogo} alt={'Logo Thoughtworks'}></img>
-            </FooterElement>
-            <FooterElement>
-              <p>Dúvidas? Entre em contato em:</p>
-              <p>atendoemlibras@gmail.com</p>
-            </FooterElement>
-          </FooterContent>
+            <FooterContent>
+              <div>
+                <p>Apoio:</p>
+                <img src={thoughtworksLogo} alt={'Logo ThoughtWorks'}></img>
+              </div>
+              <div>
+                <p>Dúvidas? Entre em contato em:</p>
+                <a href={`mailto:atendoemlibras@gmail.com`}>atendoemlibras@gmail.com</a>
+              </div>
+            </FooterContent>
+          </footer>
         </Container>
       </div>  
     )
@@ -29,38 +31,55 @@ class Footer extends PureComponent {
 
 const StyledFooter = styled(Footer)`
   width: 100%;
-  height: 20vh;
+  
   display: flex;
   flex-flow: row;
   align-items: center;
   color: white;
   background-color: #FFFFFF;
   border-top: solid #0000001A 1px;
+  footer {
+    height: 20vh;
+    display: flex;
+    flex-flow: row; 
+    justify-content: space-between;
+    align-items: center;
+    img {
+      height: 5em;
+    }
+  }
 `
 
 const FooterContent = styled.div`
   display: flex;
+  height: 100%;
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
+  div {
+    height: 5em;
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    justify-content: space-between;
+    img {
+      height: 1.8em;
+    }
+    p, a {
+      color: black;
+      font-size: 1.6em;
+      font-weight: 600;
+    }
+    *:last-child {
+      font-weight: 400;
+    }
+  }
+  div:first-child {
+    margin-right: 100px
+  }
 `
 
-const FooterElement = styled.div`
-  display: flex;
-  flex-flow: column;
-  align-content: center;
-  img {
-    height: 2em;
-  }
-  p {
-    color: black;
-    font-size: 2em;
-    font-weight: 400;
-  }
-  p:first-child {
-    font-weight: 600;
-    padding-bottom: .5em;
-  }
-`
+// const FooterElement = styled.div`
+// `
 
 export { StyledFooter as Footer }
