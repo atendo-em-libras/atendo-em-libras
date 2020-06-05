@@ -8,7 +8,7 @@ import { deepMerge } from 'grommet/utils'
 
 const columns = {
   small: ['auto'],
-  medium: ['auto', 'auto'],
+  medium: ['auto'],
   large: ['auto', 'auto']
 }
 
@@ -23,7 +23,10 @@ const fixedGridAreas = {
     { name: 'card', start: [0, 0], end: [0, 0] },
   ],
   medium: [
-    { name: 'card', start: [0, 0], end: [1, 0] },
+    { name: 'card', start: [0, 0], end: [0, 0] },
+  ],
+  large: [
+    { name: 'card', start: [1, 0], end: [0, 0] },
   ]
 }
 
@@ -31,7 +34,7 @@ const customBreakpoints = deepMerge(grommet, {
   global: {
     breakpoints: {
       small: {
-        value: 600,
+        value: 700,
       },
       medium: {
         value: 900,

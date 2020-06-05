@@ -4,7 +4,7 @@ import { Box } from 'grommet'
 export const Card = styled(Box)`
   font-size: 10px;
   margin: 50px;
-  width: 700px;
+  width: 80%;
   border-radius: 15px;
   box-shadow: 0px 10px 32px #0000001A;
   display: flex;
@@ -18,14 +18,8 @@ export const Card = styled(Box)`
     color: #0F1423;
     font-size: 1.8em;
   }
-
-  & .providerCardColumn {
-    border-right: #F5F5F5 1.5px dashed;
-    padding-right: 3em;
-  }
   
   & .providerCardColumn:last-child {
-    padding-left: 3em;
     border-right: none;
     margin-right: none;
   }
@@ -49,5 +43,16 @@ export const Card = styled(Box)`
     font-size: 1.4em;
     font-weight: 600;
     padding: 0.5em 1em;
+  }
+
+  @media (min-width: 700px) {
+    & .providerCardColumn {
+      border-right: #F5F5F5 1.5px dashed;
+      padding-right: 3em;
+    }
+
+    & .providerCardColumn:last-child {
+      padding-left: 3em;
+    }
   }
 `

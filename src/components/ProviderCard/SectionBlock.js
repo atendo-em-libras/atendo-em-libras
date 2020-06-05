@@ -11,4 +11,12 @@ export const SectionBlock = styled.div`
         padding-bottom: 0;
         margin-bottom: 0;
     }
+
+    @media(max-width:700px){
+        &:first-child {
+            border-top: #F5F5F5 1.5px solid;
+            padding-top: 2em;
+            margin-top: 2em;
+        }
+    }
 `
