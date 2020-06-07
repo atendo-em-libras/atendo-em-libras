@@ -67,7 +67,7 @@ class ProviderCard extends Component {
     } = this.props
 
     return (
-      <Card className="providerCard">
+      <Card className="providerCard" role="provider">
         <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
           <Box gridArea="header">
             {videoCallAvailability && (

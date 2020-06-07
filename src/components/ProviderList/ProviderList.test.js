@@ -1,12 +1,12 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { ProviderList } from './ProviderList'
 import { getServiceProviders } from '../../api/spreadSheet.js'
 
 jest.mock('../../api/spreadSheet.js')
 
 describe('ProviderList tests', () => {
-  xit('Component should render a provider card', () => {
+  it('Component should render a provider card', async () => {
     const mockedProviderList = [
       {
         'Apresentação ': 'Fisioterapeuta - Traumato Ortopedia ',
@@ -30,9 +30,8 @@ describe('ProviderList tests', () => {
     ]
 
     getServiceProviders.mockResolvedValue(mockedProviderList)
-    const providerListComponent = render(<ProviderList />)
-    const { debug } = render(<providerList />)
-    debug()
-    expect(providerListComponent.getByText('Fisioterapia')).toBeInTheDocument()
+    render(<ProviderList />)
+    const proveiderList = await screen.findByRole('provider')
+    expect(proveiderList).toBeInTheDocument()
   })
 })

@@ -60,14 +60,12 @@ class ProviderList extends Component {
 
   render() {
     const { providers } = this.state
-    console.log(providers)
     return (
       <Grommet full theme={customBreakpoints}>
         <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
           {providers &&
             providers.map((provider, id) => (
               <ProviderCard
-                role="provider"
                 key={id}
                 gridArea="card"
                 name={provider['Nome do profissional ']}
