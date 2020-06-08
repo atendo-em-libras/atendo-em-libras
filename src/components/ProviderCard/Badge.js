@@ -12,4 +12,5 @@ export const Badge = styled.p`
   line-height: 1.8em;
   background-color: ${(props) => (props.color ? props.color : 'lightgrey')};
   align-items: center;
+  margin-bottom: 1.5em;
 `

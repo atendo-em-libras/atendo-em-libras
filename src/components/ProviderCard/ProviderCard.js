@@ -22,9 +22,9 @@ class ProviderCard extends Component {
 
     const rows = {
       small: ['auto', 'auto', 'auto'],
-      medium: ['xsmall', 'auto'],
-      large: ['xsmall', 'auto'],
-      xlarge: ['xsmall', 'auto'],
+      medium: ['auto', 'auto'],
+      large: ['auto', 'auto'],
+      xlarge: ['auto', 'auto'],
     }
 
     const fixedGridAreas = {
