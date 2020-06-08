@@ -3,7 +3,8 @@ import styled from 'styled-components'
 export const Badge = styled.p`
   margin-right: 1em;
   color: #fff;
-  width: 60px;
+  width: max-content;
+  max-width: 70%;
   font-size: 1.4em;
   font-weight: 600;
   padding: 0.2em 2em;
