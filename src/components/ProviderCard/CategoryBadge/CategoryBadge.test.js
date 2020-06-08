@@ -1,5 +1,5 @@
 import React from 'react'
-import { CategoryBadge } from './CategoryBadge'
+import { CategoryBadge } from '.'
 import { render } from '@testing-library/react'
 
 describe('CategoryBadge', () => {

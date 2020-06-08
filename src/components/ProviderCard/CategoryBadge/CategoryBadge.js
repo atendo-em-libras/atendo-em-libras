@@ -1,4 +1,4 @@
-import { Badge } from './Badge'
+import { Badge } from '../../Badge/Badge'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
@@ -31,4 +31,4 @@ CategoryBadge.propTypes = {
   category: PropTypes.string.isRequired,
 }
 
-export { CategoryBadge }
+export default CategoryBadge

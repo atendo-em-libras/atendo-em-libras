@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Card } from './Card'
-import { CategoryBadge } from './CategoryBadge'
+import { CategoryBadge } from './CategoryBadge/CategoryBadge'
 import { Paragraph, Box } from 'grommet'
 import { SectionTitle } from './SectionTitle'
 import { License } from './License'
