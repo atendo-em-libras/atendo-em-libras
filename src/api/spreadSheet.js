@@ -10,5 +10,10 @@ async function getSpreadSheetResource(spreadSheetKey, sheetName) {
 export async function getServiceProviders() {
   const professionalsSpreadSheetKey = '1rRGYf7ynJ6srpk9ryab4OWtuNdLgpPDEjGSMNaoyTcM'
   const professionalsSheetName = 'Form Responses 1'
-  return await getSpreadSheetResource(professionalsSpreadSheetKey, professionalsSheetName)
+  try {
+    return await getSpreadSheetResource(professionalsSpreadSheetKey, professionalsSheetName)
+  } catch (error) {
+    console.log(error)
+    return {}
+  }
 }

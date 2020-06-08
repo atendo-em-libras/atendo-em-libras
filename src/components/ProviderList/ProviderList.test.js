@@ -34,4 +34,14 @@ describe('ProviderList tests', () => {
     const proveiderList = await screen.findByRole('provider')
     expect(proveiderList).toBeInTheDocument()
   })
+
+  it('Component should render error to find providers', async () => {
+    const error = []
+    getServiceProviders.mockResolvedValue(error)
+    render(<ProviderList />)
+    const proveiderList = await screen.findByText(
+      'Não foram encontrados profissionais cadastrados. Tente novamente mais tarde.'
+    )
+    expect(proveiderList).toBeInTheDocument()
+  })
 })

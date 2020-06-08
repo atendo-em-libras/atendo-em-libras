@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { ResponsiveGrid } from '../ResponsiveGrid'
 import { ProviderCard } from '../ProviderCard'
 import { getServiceProviders } from '../../api/spreadSheet'
-import { Grommet } from 'grommet'
+import { Grommet, Paragraph, Box } from 'grommet'
 import { grommet } from 'grommet/themes'
 import { deepMerge } from 'grommet/utils'
 
@@ -62,9 +62,9 @@ class ProviderList extends Component {
     const { providers } = this.state
     return (
       <Grommet full theme={customBreakpoints}>
-        <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
-          {providers &&
-            providers.map((provider, id) => (
+        {providers && providers.length > 0 ? (
+          <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
+            {providers.map((provider, id) => (
               <ProviderCard
                 key={id}
                 gridArea="card"
@@ -83,7 +83,12 @@ class ProviderList extends Component {
                 videoCallPlatform={provider['Plataforma de Atendimento ']}
               />
             ))}
-        </ResponsiveGrid>
+          </ResponsiveGrid>
+        ) : (
+          <Box align="center">
+            <Paragraph fill>Não foram encontrados profissionais cadastrados. Tente novamente mais tarde.</Paragraph>
+          </Box>
+        )}
       </Grommet>
     )
   }
