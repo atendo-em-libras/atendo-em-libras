@@ -31,4 +31,4 @@ CategoryBadge.propTypes = {
   category: PropTypes.string.isRequired,
 }
 
-export default CategoryBadge
+export { CategoryBadge }
