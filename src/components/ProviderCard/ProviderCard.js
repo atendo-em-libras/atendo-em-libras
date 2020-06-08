@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
+import {
+  Card,
+  SectionTitle,
+  License,
+  SectionBlock,
+  IconText,
+  ExerienceText,
+  ProviderName,
+  ProviderVideoCallAvailability,
+  ProviderSpecialty,
+} from './ProviderCardStyles'
 import PropTypes from 'prop-types'
-import { Card } from './Card'
 import { CategoryBadge } from './CategoryBadge'
 import { Paragraph, Box } from 'grommet'
-import { SectionTitle } from './SectionTitle'
-import { License } from './License'
-import { SectionBlock } from './SectionBlock'
-import { IconText } from './IconText'
-import { ExerienceText } from './ExperienceText'
 import { videoIcon, phoneIcon, emailIcon, addressIcon, healthInsuranceIcon } from '../../assets/icons'
 import { ResponsiveGrid } from '../ResponsiveGrid'
 
@@ -71,16 +76,16 @@ class ProviderCard extends Component {
         <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
           <Box gridArea="header">
             {videoCallAvailability && (
-              <span className="providerVideoCallAvailability">
+              <ProviderVideoCallAvailability>
                 <IconText src={videoIcon} alt="video icon" />
                 Atende Online
-              </span>
+              </ProviderVideoCallAvailability>
             )}
             <CategoryBadge category={category} />
           </Box>
           <Box gridArea="first" className="providerCardColumn">
-            <p className="providerName">{name}</p>
-            <p className="providerSpecialty">{specialty}</p>
+            <ProviderName>{name}</ProviderName>
+            <ProviderSpecialty>{specialty}</ProviderSpecialty>
             <License>
               <p className="title">REGISTRO</p>
               <p className="number">{licenseNumber}</p>
