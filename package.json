@@ -29,8 +29,8 @@
     "format": "prettier --write src/**/*.js"
   },
   "lint-staged": {
-    "src/**/*.{js}": [
-      "eslint --fix src"
+    "src/**/*.js": [
+      "eslint --fix"
     ]
   },
   "eslintConfig": {
@@ -68,7 +68,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run lint"
     }
   },
   "babel": {
