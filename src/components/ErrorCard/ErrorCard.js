@@ -35,6 +35,7 @@ const RefreshButton = styled.button`
   width: 209px;
   height: 55px;
   background: #5996f7 padding-box;
+  border: none;
   border-radius: 17px;
   color: white;
   font-weight: 600;
@@ -52,7 +53,7 @@ export const ErrorCard = ({ onClick }) => (
       <Paragraph size="large">
         <strong>Tente novamente.</strong>
       </Paragraph>
-      <RefreshButton onClick={onClick}>
+      <RefreshButton onClick={onClick} aria-label="reload">
         <span>
           <RefreshIcon src={refreshIcon} alt="refreshIcon" />
         </span>

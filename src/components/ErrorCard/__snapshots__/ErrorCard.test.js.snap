@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorCard tests Render correctly 1`] = `
+<div
+  class="StyledBox-sc-13pk1d4-0 gVSbfC"
+  role="error"
+>
+  <div
+    class="StyledBox-sc-13pk1d4-0 gVSbfC sc-AxjAm sc-fzpans kMOYmu"
+  >
+    <div
+      class="StyledBox-sc-13pk1d4-0 jJdKAu sc-fzplWN joZkpM"
+    >
+      <img
+        alt="warningIcon"
+        class="sc-fzoLsD hYtyCV"
+        src="warning.svg"
+      />
+    </div>
+    <p
+      class="StyledParagraph-tbetod-0 kMGpcl"
+    >
+      Ops, tivemos um problema e infelizmente não conseguimos carregar a lista.
+    </p>
+    <p
+      class="StyledParagraph-tbetod-0 kMGpcl"
+    >
+      <strong>
+        Tente novamente.
+      </strong>
+    </p>
+    <button
+      aria-label="reload"
+      class="sc-fznyAO fitJpd"
+    >
+      <span>
+        <img
+          alt="refreshIcon"
+          class="sc-Axmtr sc-fzozJi jdSxEc"
+          src="ic_refresh.svg"
+        />
+      </span>
+      Recarregar página
+    </button>
+  </div>
+</div>
+`;
