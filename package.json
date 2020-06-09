@@ -6,7 +6,9 @@
     "axios": "^0.19.2",
     "csvtojson": "^2.0.10",
     "grommet": "^2.13.0",
+    "husky": "^4.2.5",
     "lint": "^0.7.0",
+    "lint-staged": "^10.2.9",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -25,6 +27,11 @@
     "lint:fix": "eslint --fix src",
     "fix:test": "npm run lint:fix && npm test",
     "format": "prettier --write src/**/*.js"
+  },
+  "lint-staged": {
+    "src/**/*.{js}": [
+      "eslint --fix src"
+    ]
   },
   "eslintConfig": {
     "plugins": [
@@ -58,6 +65,11 @@
     "tabWidth": 2,
     "semi": false,
     "singleQuote": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "babel": {
     "presets": [
