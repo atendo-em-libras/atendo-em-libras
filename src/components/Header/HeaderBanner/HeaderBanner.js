@@ -26,33 +26,47 @@ const StyledHeaderBanner = styled(HeaderBanner)`
   width: 100%;
   height: 60vh;
   max-height: 500px;
-  padding-left: 45%;
   box-sizing: border-box;
   background-color: #0f1423;
   position: relative;
   display: flex;
   flex-flow: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
+  @media (min-width: 800px) {
+    align-items: flex-start;
+    padding-left: 45%;
+  }
+
   img {
     width: 45%;
     left: 0;
-    position: absolute;
     box-sizing: border-box;
     padding: 0 4vw 0 0;
+    @media (min-width: 800px) {
+      position: absolute;
+    }
   }
   h1 {
-    width: 80%;
     font-size: 3.2em;
     font-weight: 400;
     line-height: 1.5em;
+    text-align: center;
+    @media (min-width: 800px) {
+      width: 80%;
+      text-align: left;
+    }
   }
   p {
-    width: 80%;
     margin-top: 1em;
     font-size: 1.4em;
     font-weight: 400;
     line-height: 1.5em;
+    text-align: center;
+    @media (min-width: 800px) {
+      width: 80%;
+      text-align: left;
+    }
   }
 `
 
