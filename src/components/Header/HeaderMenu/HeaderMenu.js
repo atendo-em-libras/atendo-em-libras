@@ -41,6 +41,9 @@ const StyledHeaderMenu = styled(HeaderMenu)`
     flex-grow: 1;
     font-size: 1.6rem;
     font-weight: 400;
+    @media (max-width: 800px) {
+      display: none;
+    }
   }
   button {
     padding: 20px;
@@ -51,6 +54,7 @@ const StyledHeaderMenu = styled(HeaderMenu)`
     font-size: 1.4em;
     font-weight: 600;
     cursor: pointer;
+    width: max-content;
   }
   button:hover {
     background-color: #96bfff;
