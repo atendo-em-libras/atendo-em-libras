@@ -39,9 +39,7 @@ describe('ProviderList tests', () => {
     const error = []
     getServiceProviders.mockResolvedValue(error)
     render(<ProviderList />)
-    const providerList = await screen.findByText(
-      'Não foram encontrados profissionais cadastrados. Tente novamente mais tarde.'
-    )
+    const providerList = await screen.findByRole('error')
     expect(providerList).toBeInTheDocument()
   })
 })

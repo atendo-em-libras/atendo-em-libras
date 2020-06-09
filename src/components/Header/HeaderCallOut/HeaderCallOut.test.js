@@ -11,7 +11,7 @@ describe('HeaderCallOut component', () => {
 
   it('should render register message', () => {
     expect(
-      headerCallOutContainer.getByText('Profissionais de diverssas áreas da saúde prontos para te atender')
+      headerCallOutContainer.getByText('Profissionais de diversas áreas da saúde prontos para te atender')
     ).toBeInTheDocument()
   })
 })

@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import { ResponsiveGrid } from '../ResponsiveGrid'
 import { ProviderCard } from '../ProviderCard'
 import { getServiceProviders } from '../../api/spreadSheet'
-import { Grommet, Paragraph, Box } from 'grommet'
+import { Grommet } from 'grommet'
 import { grommet } from 'grommet/themes'
 import { deepMerge } from 'grommet/utils'
+import { ErrorCard } from '../ErrorCard/ErrorCard'
 
 const columns = {
   small: ['auto'],
@@ -85,9 +86,7 @@ class ProviderList extends Component {
             ))}
           </ResponsiveGrid>
         ) : (
-          <Box align="center">
-            <Paragraph fill>Não foram encontrados profissionais cadastrados. Tente novamente mais tarde.</Paragraph>
-          </Box>
+          <ErrorCard />
         )}
       </Grommet>
     )

@@ -5,7 +5,7 @@ class HeaderCallOut extends PureComponent {
   render() {
     return (
       <div className={this.props.className}>
-        <h2>Profissionais de diverssas áreas da saúde prontos para te atender</h2>
+        <h2>Profissionais de diversas áreas da saúde prontos para te atender</h2>
       </div>
     )
   }
