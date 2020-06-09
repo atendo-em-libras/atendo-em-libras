@@ -5,7 +5,7 @@ import { getServiceProviders } from '../../api/spreadSheet'
 import { Grommet } from 'grommet'
 import { grommet } from 'grommet/themes'
 import { deepMerge } from 'grommet/utils'
-import { ErrorCard } from '../ErrorCard/ErrorCard'
+import { ErrorCard } from '../ErrorCard'
 
 const columns = {
   small: ['auto'],
@@ -55,6 +55,10 @@ class ProviderList extends Component {
     this.setState({ providers: serviceProvidersJson })
   }
 
+  handleClick() {
+    console.log('Click happened')
+  }
+
   componentDidMount() {
     this.loadServiceProvicers()
   }
@@ -86,7 +90,7 @@ class ProviderList extends Component {
             ))}
           </ResponsiveGrid>
         ) : (
-          <ErrorCard />
+          <ErrorCard onClick={this.handleClick} />
         )}
       </Grommet>
     )

@@ -42,7 +42,7 @@ const RefreshButton = styled.button`
   margin-top: 10%;
 `
 
-export const ErrorCard = () => (
+export const ErrorCard = ({ onClick }) => (
   <Box align="center" role="error">
     <ErrorContainer align="center">
       <ErrorImage aling="center">
@@ -52,7 +52,7 @@ export const ErrorCard = () => (
       <Paragraph size="large">
         <strong>Tente novamente.</strong>
       </Paragraph>
-      <RefreshButton>
+      <RefreshButton onClick={onClick}>
         <span>
           <RefreshIcon src={refreshIcon} alt="refreshIcon" />
         </span>
