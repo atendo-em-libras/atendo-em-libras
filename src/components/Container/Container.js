@@ -6,6 +6,9 @@ const Container = styled.div`
   box-sizing: border-box;
   padding: 0 80px;
   margin: 0 auto;
+  @media (max-width: 800px) {
+    padding: 0 10vw;
+  }
 `
 
 export { Container }
