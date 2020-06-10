@@ -40,11 +40,12 @@ const StyledHeaderBanner = styled(HeaderBanner)`
   }
   img {
     width: 45%;
+    max-height: 100%;
     left: 0;
     padding: 0 0 2em 0;
     box-sizing: border-box;
     @media (min-width: 800px) {
-      padding: 0 4vw 0 0;
+      padding: 2em 4vw 2em 0;
       position: absolute;
     }
   }
