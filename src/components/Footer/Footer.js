@@ -33,19 +33,25 @@ const StyledFooter = styled(Footer)`
   width: 100%;
 
   display: flex;
-  flex-flow: row;
   align-items: center;
   color: white;
   background-color: #ffffff;
   border-top: solid #0000001a 1px;
+  flex-flow: row;
   footer {
     height: 20vh;
     display: flex;
     flex-flow: row;
+    @media (max-width: 800px) {
+      flex-flow: column;
+    }
     justify-content: space-between;
     align-items: center;
     img {
       height: 5em;
+      @media (max-width: 800px) {
+        padding-top: 20px;
+      }
     }
   }
 `
@@ -77,6 +83,9 @@ const FooterContent = styled.div`
   }
   div:first-child {
     margin-right: 100px;
+    @media (max-width: 800px) {
+      margin-right: 10px;
+    }
   }
 `
 
