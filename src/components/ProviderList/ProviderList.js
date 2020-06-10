@@ -47,7 +47,6 @@ class ProviderList extends Component {
 
     this.state = {
       providers: [],
-      reload: false,
     }
   }
 
@@ -57,8 +56,7 @@ class ProviderList extends Component {
   }
 
   handleClick = () => {
-    console.log(this.state.reload)
-    this.setState({ reload: !this.state.reload })
+    window.location.reload()
   }
 
   componentDidMount() {
