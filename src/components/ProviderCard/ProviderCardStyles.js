@@ -82,6 +82,10 @@ const SectionTitle = styled.p`
   color: #0f1423;
 `
 const License = styled.div`
+  margin-bottom: 1.5em;
+  margin-top: 1em;
+  line-height: 20px;
+
   & .title {
     font-weight: 800;
     color: #5996f7;
