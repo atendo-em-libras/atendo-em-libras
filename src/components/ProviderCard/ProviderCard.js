@@ -76,7 +76,7 @@ class ProviderCard extends Component {
         <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
           <Box gridArea="header">
             {videoCallAvailability && (
-              <ProviderVideoCallAvailability>
+              <ProviderVideoCallAvailability role="note">
                 <IconText src={videoIcon} alt="video icon" />
                 Atende Online
               </ProviderVideoCallAvailability>

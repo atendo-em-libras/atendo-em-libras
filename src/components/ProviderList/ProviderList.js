@@ -55,6 +55,14 @@ class ProviderList extends Component {
     this.setState({ providers: serviceProvidersJson })
   }
 
+  parseVideoCallAvailability = (answer) => {
+    if (answer === 'Sim') {
+      return true
+    } else {
+      return false
+    }
+  }
+
   handleClick = () => {
     window.location.reload()
   }
@@ -77,7 +85,7 @@ class ProviderList extends Component {
                 licenseNumber={provider['Número de cadastro profissional ']}
                 category={provider['Categoria ']}
                 specialty={provider['Especialidade ']}
-                videoCallAvailability={true}
+                videoCallAvailability={this.parseVideoCallAvailability(provider['Atende por videochamada? '])}
                 phoneNumber={provider['Telefone ']}
                 email={provider['E-mail ']}
                 city={provider['Cidade ']}
