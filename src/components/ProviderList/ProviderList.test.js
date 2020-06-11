@@ -50,4 +50,12 @@ describe('ProviderList tests', () => {
     const videoCallAvailability = await screen.findByText('Atende Online')
     expect(videoCallAvailability).toBeInTheDocument()
   })
+
+  it('Component should show empty space before loading providers', async () => {
+    getServiceProviders.mockResolvedValue(mockedProviderList)
+    render(<ProviderList />)
+    expect(screen.queryByRole('provider')).toBeNull()
+    expect(screen.getByTestId('emptyList')).toBeInTheDocument()
+    expect(await screen.findByRole('provider')).toBeInTheDocument()
+  })
 })

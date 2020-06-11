@@ -46,12 +46,14 @@ class ProviderList extends Component {
     super(props)
 
     this.state = {
+      isLoaded: false,
       providers: [],
     }
   }
 
   loadServiceProvicers = async () => {
     const serviceProvidersJson = await getServiceProviders()
+    this.setState({ isLoaded: true })
     this.setState({ providers: serviceProvidersJson })
   }
 
@@ -72,7 +74,12 @@ class ProviderList extends Component {
   }
 
   render() {
-    const { providers } = this.state
+    const { isLoaded, providers } = this.state
+
+    if (!isLoaded) {
+      return <div data-testid="emptyList"></div>
+    }
+
     return (
       <Grommet full theme={customBreakpoints}>
         {providers && providers.length > 0 ? (
