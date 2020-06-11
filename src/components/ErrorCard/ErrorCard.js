@@ -41,6 +41,16 @@ const RefreshButton = styled.button`
   font-weight: 600;
   font-size: 1.4em;
   margin-top: 10%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #96bfff;
+  }
+
+  &:focus {
+    outline: none;
+    outline-offset: 0;
+  }
 `
 
 export const ErrorCard = ({ onClick }) => (

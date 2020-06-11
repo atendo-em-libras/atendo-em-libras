@@ -31,7 +31,7 @@ exports[`ErrorCard tests Render correctly 1`] = `
     </p>
     <button
       aria-label="reload"
-      class="sc-fznyAO fitJpd"
+      class="sc-fznyAO hmvasG"
     >
       <span>
         <img
