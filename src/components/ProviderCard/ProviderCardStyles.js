@@ -107,7 +107,6 @@ const ExerienceText = styled.p`
   color: #0f1423;
   opacity: 0.57;
   margin-bottom: 1.5em;
-  text-align: justify;
 `
 
 export {

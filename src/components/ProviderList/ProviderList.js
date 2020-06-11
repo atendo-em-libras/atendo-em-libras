@@ -81,7 +81,7 @@ class ProviderList extends Component {
     }
 
     return (
-      <Grommet full theme={customBreakpoints}>
+      <Grommet theme={customBreakpoints}>
         {providers && providers.length > 0 ? (
           <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
             {providers.map((provider, id) => (
