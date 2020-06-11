@@ -8,13 +8,13 @@ class HeaderMenu extends PureComponent {
   render = () => {
     return (
       <Container>
-        <div className={this.props.className}>
+        <header className={this.props.className}>
           <img src={logo} alt={'Logo projeto Atendo em Libras'}></img>
           <h2>É profissional de saúde ou conhece alguém da área?</h2>
           <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
             <button>Cadastre Aqui</button>
           </a>
-        </div>
+        </header>
       </Container>
     )
   }
@@ -22,7 +22,7 @@ class HeaderMenu extends PureComponent {
 
 const StyledHeaderMenu = styled(HeaderMenu)`
   width: 100%;
-  height: 7.5vh;
+  height: auto;
   margin-top: 2.5vh;
   box-sizing: border-box;
   display: flex;
@@ -41,6 +41,7 @@ const StyledHeaderMenu = styled(HeaderMenu)`
     flex-grow: 1;
     font-size: 1.6rem;
     font-weight: 400;
+    line-height: 1.6em;
     @media (max-width: 800px) {
       display: none;
     }

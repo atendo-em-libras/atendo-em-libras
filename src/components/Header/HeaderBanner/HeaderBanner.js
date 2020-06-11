@@ -27,7 +27,6 @@ const StyledHeaderBanner = styled(HeaderBanner)`
   height: auto;
   padding: 2em 0;
   box-sizing: border-box;
-  background-color: #0f1423;
   position: relative;
   display: flex;
   flex-flow: column;
@@ -36,17 +35,17 @@ const StyledHeaderBanner = styled(HeaderBanner)`
   @media (min-width: 800px) {
     align-items: flex-start;
     padding-left: 45%;
-    height: 60vh;
+    min-height: 50vh;
     max-height: 500px;
   }
-
   img {
     width: 45%;
+    max-height: 100%;
     left: 0;
     padding: 0 0 2em 0;
     box-sizing: border-box;
     @media (min-width: 800px) {
-      padding: 0 4vw 0 0;
+      padding: 2em 4vw 2em 0;
       position: absolute;
     }
   }
