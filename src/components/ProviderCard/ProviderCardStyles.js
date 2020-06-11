@@ -12,6 +12,7 @@ const Card = styled(Box)`
   overflow: hidden;
   padding: 2em;
   line-height: 3em;
+  word-break: break-word;
 
   & .providerCardColumn:last-child {
     border-right: none;
@@ -32,10 +33,9 @@ const Card = styled(Box)`
 const ProviderSpecialty = styled.p`
   color: #0f1423;
   font-size: 1.4em;
-  white-space: nowrap;
-  overflow: hidden;
   max-width: 30em;
-  text-overflow: ellipsis;
+  line-height: 20px;
+  margin-top: 1em;
 `
 
 const ProviderVideoCallAvailability = styled.span`
@@ -83,7 +83,7 @@ const SectionTitle = styled.p`
 `
 const License = styled.div`
   margin-bottom: 1.5em;
-  margin-top: 1em;
+  margin-top: 1.5em;
   line-height: 20px;
 
   & .title {
@@ -107,6 +107,7 @@ const ExerienceText = styled.p`
   color: #0f1423;
   opacity: 0.57;
   margin-bottom: 1.5em;
+  text-align: justify;
 `
 
 export {

@@ -6,7 +6,7 @@ exports[`ErrorCard tests Render correctly 1`] = `
   role="error"
 >
   <div
-    class="StyledBox-sc-13pk1d4-0 gVSbfC sc-AxjAm sc-fzpans kMOYmu"
+    class="StyledBox-sc-13pk1d4-0 gVSbfC sc-AxjAm sc-fzpans xeTrl"
   >
     <div
       class="StyledBox-sc-13pk1d4-0 jJdKAu sc-fzplWN joZkpM"
