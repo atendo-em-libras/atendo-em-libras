@@ -7,7 +7,7 @@ class ResponsiveGrid extends React.PureComponent {
 
     return (
       <ResponsiveContext.Consumer>
-        {(size) => {
+        {(size = 'large') => {
           let columnsVal = columns
           if (columns) {
             if (columns[size]) {
