@@ -6,14 +6,14 @@ exports[`ErrorCard tests Render correctly 1`] = `
   role="error"
 >
   <div
-    class="StyledBox-sc-13pk1d4-0 gVSbfC sc-AxjAm sc-AxhUy kUEvkl"
+    class="StyledBox-sc-13pk1d4-0 gVSbfC sc-AxjAm sc-AxgMl cyEFfC"
   >
     <div
-      class="StyledBox-sc-13pk1d4-0 jJdKAu sc-AxgMl hiPEXG"
+      class="StyledBox-sc-13pk1d4-0 jJdKAu sc-AxheI hjQdgo"
     >
       <img
         alt="warningIcon"
-        class="sc-AxhCb jHwcwp"
+        class="sc-AxhUy gPwQTM"
         src="warning.svg"
       />
     </div>
@@ -31,12 +31,12 @@ exports[`ErrorCard tests Render correctly 1`] = `
     </p>
     <button
       aria-label="reload"
-      class="sc-AxheI jbPxBe"
+      class="sc-AxiKw MEhks"
     >
       <span>
         <img
           alt="refreshIcon"
-          class="sc-AxirZ sc-AxiKw hAIpSm"
+          class="sc-AxirZ sc-AxhCb vzElu"
           src="ic_refresh.svg"
         />
       </span>
