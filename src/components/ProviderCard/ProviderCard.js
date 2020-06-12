@@ -88,7 +88,7 @@ class ProviderCard extends Component {
             <ProviderSpecialty>{specialty}</ProviderSpecialty>
             <License>
               <p className="title">REGISTRO</p>
-              <p className="number">{licenseNumber}</p>
+              {licenseNumber ? <p className="number">{licenseNumber}</p> : <p className="number">-</p>}
             </License>
             {experience && <ExerienceText size="small">{experience}</ExerienceText>}
             <SectionBlock>
@@ -113,12 +113,12 @@ class ProviderCard extends Component {
                 <span> {email}</span>
               </Paragraph>
             </SectionBlock>
-            {videoCallPlatform && (
+            {videoCallAvailability && (
               <SectionBlock>
                 <SectionTitle>Atendimento online</SectionTitle>
                 <p>
                   <IconText src={videoIcon} alt="video icon" />
-                  <span>{videoCallPlatform}</span>
+                  {videoCallPlatform ? <span>{videoCallPlatform}</span> : <span>Não informado</span>}
                 </p>
               </SectionBlock>
             )}
@@ -126,7 +126,7 @@ class ProviderCard extends Component {
               <SectionTitle>Planos de saúde</SectionTitle>
               <p>
                 <IconText src={healthInsuranceIcon} alt="card icon" />
-                {healthInsurance}
+                {healthInsurance ? <span>{healthInsurance}</span> : <span>Não informado</span>}
               </p>
             </SectionBlock>
           </Box>
@@ -150,10 +150,6 @@ ProviderCard.propTypes = {
   city: PropTypes.string,
   state: PropTypes.string,
   address: PropTypes.string,
-}
-
-ProviderCard.defaultProps = {
-  healthInsurance: 'Não informados',
 }
 
 export { ProviderCard }
