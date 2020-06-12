@@ -68,7 +68,7 @@ describe('ProviderCard tests', () => {
     expect(providerCardComponent.getByText(healthInsurance)).toBeInTheDocument()
   })
 
-  it('Component should render video call platform', () => {
+  xit('Component should render video call platform', () => {
     expect(providerCardComponent.getByText(videoCallPlatform)).toBeInTheDocument()
   })
 

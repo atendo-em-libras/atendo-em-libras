@@ -22,7 +22,7 @@ const rows = {
 const fixedGridAreas = {
   small: [{ name: 'card', start: [0, 0], end: [0, 0] }],
   medium: [{ name: 'card', start: [0, 0], end: [0, 0] }],
-  large: [{ name: 'card', start: [1, 0], end: [0, 0] }],
+  large: [{ name: 'card', start: [0, 0], end: [1, 0] }],
 }
 
 const customBreakpoints = deepMerge(grommet, {
@@ -83,7 +83,14 @@ class ProviderList extends Component {
     return (
       <Grommet theme={customBreakpoints}>
         {providers && providers.length > 0 ? (
-          <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
+          <ResponsiveGrid
+            columns={columns}
+            rows={rows}
+            areas={fixedGridAreas}
+            justify="center"
+            gapRow="50px"
+            gapCol="50px"
+          >
             {providers.map((provider, id) => (
               <ProviderCard
                 key={id}

@@ -3,8 +3,6 @@ import { Box } from 'grommet'
 
 const Card = styled(Box)`
   font-size: 10px;
-  margin: 50px;
-  width: 80%;
   border-radius: 15px;
   box-shadow: 0px 10px 32px #0000001a;
   display: flex;

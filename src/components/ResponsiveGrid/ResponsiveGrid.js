@@ -3,7 +3,7 @@ import { Grid, ResponsiveContext } from 'grommet'
 
 class ResponsiveGrid extends React.PureComponent {
   render() {
-    const { columns, rows, areas, children, props } = this.props
+    const { columns, rows, areas, children, props, justify = 'stretch', gapRow = 'none', gapCol = 'none' } = this.props
 
     return (
       <ResponsiveContext.Consumer>
@@ -31,6 +31,8 @@ class ResponsiveGrid extends React.PureComponent {
               areas={!areasVal ? undefined : areasVal}
               rows={!rowsVal ? size : rowsVal}
               columns={!columnsVal ? size : columnsVal}
+              justify={justify}
+              gap={{ row: gapRow, column: gapCol }}
             >
               {children}
             </Grid>

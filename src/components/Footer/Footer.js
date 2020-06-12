@@ -38,6 +38,7 @@ const StyledFooter = styled(Footer)`
   background-color: #ffffff;
   border-top: solid #0000001a 1px;
   flex-flow: row;
+  margin-top: 50px;
   footer {
     height: 20vh;
     display: flex;
