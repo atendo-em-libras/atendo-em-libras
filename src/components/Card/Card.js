@@ -6,6 +6,7 @@ const Card = styled(Box)`
   border-radius: 15px;
   box-shadow: 0px 10px 32px #0000001a;
   display: flex;
+  width: 100%;
   position: relative;
   overflow: hidden;
   padding: 2em;
