@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import {
-  Card,
   SectionTitle,
   License,
   SectionBlock,
-  IconText,
   ExerienceText,
   ProviderName,
   ProviderVideoCallAvailability,
   ProviderSpecialty,
 } from './ProviderCardStyles'
+import { IconText } from '../IconText'
+import { Card } from '../Card'
 import PropTypes from 'prop-types'
 import { CategoryBadge } from './CategoryBadge'
 import { Paragraph, Box } from 'grommet'

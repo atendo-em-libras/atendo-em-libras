@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, IconText } from '../ProviderCard/ProviderCardStyles'
+import { Card } from '../Card'
+import { IconText } from '../IconText'
 import errorImage from '../../assets/images/img_erro.svg'
 import { refreshIcon, warningIcon } from '../../assets/icons'
 import { Paragraph, Box } from 'grommet'

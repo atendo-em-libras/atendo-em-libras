@@ -1,33 +1,5 @@
 import styled from 'styled-components'
-import { Box } from 'grommet'
 
-const Card = styled(Box)`
-  font-size: 10px;
-  border-radius: 15px;
-  box-shadow: 0px 10px 32px #0000001a;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  padding: 2em;
-  line-height: 3em;
-  word-break: break-word;
-
-  & .providerCardColumn:last-child {
-    border-right: none;
-    margin-right: none;
-  }
-
-  @media (min-width: 700px) {
-    & .providerCardColumn {
-      border-right: #f5f5f5 1.5px dashed;
-      padding-right: 3em;
-    }
-
-    & .providerCardColumn:last-child {
-      padding-left: 3em;
-    }
-  }
-`
 const ProviderSpecialty = styled.p`
   color: #0f1423;
   font-size: 1.4em;
@@ -95,10 +67,6 @@ const License = styled.div`
     font-size: 1.4em;
   }
 `
-const IconText = styled.img`
-  vertical-align: middle;
-  margin-right: 5px;
-`
 const ExerienceText = styled.p`
   font-size: 1.3em;
   line-height: 1.5em;
@@ -108,11 +76,9 @@ const ExerienceText = styled.p`
 `
 
 export {
-  Card,
   SectionBlock,
   SectionTitle,
   License,
-  IconText,
   ExerienceText,
   ProviderName,
   ProviderVideoCallAvailability,
