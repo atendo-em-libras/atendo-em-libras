@@ -18,7 +18,7 @@ const Card = styled(Box)`
     margin-right: none;
   }
 
-  @media (min-width: 700px) {
+  @media (min-width: 800px) {
     & .providerCardColumn {
       border-right: #f5f5f5 1.5px dashed;
       padding-right: 3em;
