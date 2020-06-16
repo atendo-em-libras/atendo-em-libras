@@ -5,31 +5,7 @@ import { Container } from '../Container'
 import atendoEmLibasLogo from '../../assets/images/img_atendo_em_libras_logo_blue.svg'
 import thoughtworksLogo from '../../assets/images/img_thoughtworks_logo_black.svg'
 
-class Footer extends PureComponent {
-  render = () => {
-    return (
-      <div className={this.props.className}>
-        <Container>
-          <footer>
-            <img src={atendoEmLibasLogo} alt={'Logo Atendo em Libras'}></img>
-            <FooterContent>
-              <div>
-                <p>Apoio:</p>
-                <img src={thoughtworksLogo} alt={'Logo ThoughtWorks'}></img>
-              </div>
-              <div>
-                <p>Dúvidas? Entre em contato em:</p>
-                <a href={`mailto:atendoemlibras@gmail.com`}>atendoemlibras@gmail.com</a>
-              </div>
-            </FooterContent>
-          </footer>
-        </Container>
-      </div>
-    )
-  }
-}
-
-const StyledFooter = styled(Footer)`
+const StyledFooter = styled.footer`
   width: 100%;
 
   display: flex;
@@ -39,7 +15,7 @@ const StyledFooter = styled(Footer)`
   border-top: solid #0000001a 1px;
   flex-flow: row;
   margin-top: 50px;
-  footer {
+  section {
     height: 20vh;
     display: flex;
     flex-flow: row;
@@ -90,7 +66,28 @@ const FooterContent = styled.div`
   }
 `
 
-// const FooterElement = styled.div`
-// `
+class Footer extends PureComponent {
+  render = () => {
+    return (
+      <StyledFooter>
+        <Container>
+          <section>
+            <img src={atendoEmLibasLogo} alt={'Logo Atendo em Libras'}></img>
+            <FooterContent>
+              <div>
+                <p>Apoio:</p>
+                <img src={thoughtworksLogo} alt={'Logo ThoughtWorks'}></img>
+              </div>
+              <div>
+                <p>Dúvidas? Entre em contato em:</p>
+                <a href={`mailto:atendoemlibras@gmail.com`}>atendoemlibras@gmail.com</a>
+              </div>
+            </FooterContent>
+          </section>
+        </Container>
+      </StyledFooter>
+    )
+  }
+}
 
-export { StyledFooter as Footer }
+export { Footer }
