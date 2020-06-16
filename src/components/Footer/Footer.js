@@ -21,13 +21,15 @@ const StyledFooter = styled.footer`
     flex-flow: row;
     @media (max-width: 800px) {
       flex-flow: column;
+      align-items: flex-start;
+      margin: 50px 0 50px 0;
     }
     justify-content: space-between;
     align-items: center;
     img {
       height: 5em;
       @media (max-width: 800px) {
-        padding-top: 20px;
+        margin-bottom: 20px;
       }
     }
   }
@@ -37,6 +39,10 @@ const FooterContent = styled.div`
   display: flex;
   height: 100%;
   flex-flow: row;
+  @media (max-width: 800px) {
+    flex-flow: column;
+    align-items: flex-start;
+  }
   align-items: center;
   justify-content: space-between;
   div {
