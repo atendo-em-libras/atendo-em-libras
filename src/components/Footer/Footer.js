@@ -7,7 +7,6 @@ import thoughtworksLogo from '../../assets/images/img_thoughtworks_logo_black.sv
 
 const StyledFooter = styled.footer`
   width: 100%;
-
   display: flex;
   align-items: center;
   color: white;
@@ -22,15 +21,12 @@ const StyledFooter = styled.footer`
     @media (max-width: 800px) {
       flex-flow: column;
       align-items: flex-start;
-      margin: 50px 0 50px 0;
+      margin: 50px 0 100px 0;
     }
     justify-content: space-between;
     align-items: center;
     img {
       height: 5em;
-      @media (max-width: 800px) {
-        margin-bottom: 20px;
-      }
     }
   }
 `
@@ -51,6 +47,9 @@ const FooterContent = styled.div`
     flex-flow: column;
     align-content: center;
     justify-content: space-between;
+    @media (max-width: 800px) {
+      margin-top: 40px;
+    }
     img {
       height: 1.8em;
     }
