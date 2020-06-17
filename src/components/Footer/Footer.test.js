@@ -9,6 +9,10 @@ describe('Header component', () => {
     footerElement = render(<Footer />)
   })
 
+  it('renders footer correctly', () => {
+    expect(footerElement).toMatchSnapshot()
+  })
+
   it('should include Atendo em Libras email with label', () => {
     expect(footerElement.getByText('Dúvidas? Entre em contato em:')).toBeInTheDocument()
     expect(footerElement.getByText('atendoemlibras@gmail.com')).toBeInTheDocument()
