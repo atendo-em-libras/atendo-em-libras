@@ -2,14 +2,14 @@ import React from 'react'
 import { Footer } from './Footer'
 import { render } from '@testing-library/react'
 
-describe('Header component', () => {
+describe('Footer component', () => {
   let footerElement
 
   beforeEach(() => {
     footerElement = render(<Footer />)
   })
 
-  xit('renders footer correctly', () => {
+  it('renders footer correctly', () => {
     expect(footerElement).toMatchSnapshot()
   })
 

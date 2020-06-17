@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header component renders footer correctly 1`] = `
+exports[`Footer component renders footer correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -12,7 +12,7 @@ Object {
           class="sc-AxgMl jcvnKh"
         >
           <section
-            class="sc-AxirZ efUMsj"
+            class="sc-AxirZ jlgyyX"
           >
             <img
               alt="Logo Atendo em Libras"
@@ -59,7 +59,7 @@ Object {
         class="sc-AxgMl jcvnKh"
       >
         <section
-          class="sc-AxirZ efUMsj"
+          class="sc-AxirZ jlgyyX"
         >
           <img
             alt="Logo Atendo em Libras"

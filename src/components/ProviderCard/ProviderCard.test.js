@@ -1,9 +1,9 @@
 import React from 'react'
 import { ProviderCard } from './ProviderCard'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 describe('ProviderCard tests', () => {
-  let providerCardComponent
+  let view
   const name = 'Luciana Andrade Souza'
   const category = 'Medicina'
   const specialty = 'Clínica Geral'
@@ -16,9 +16,10 @@ describe('ProviderCard tests', () => {
   const city = 'Recife'
   const state = 'PE'
   const address = 'Rua Antônio Falcão, 45, Boa Viagem'
+  const videoCallAvailability = true
 
   beforeEach(() => {
-    providerCardComponent = render(
+    view = render(
       <ProviderCard
         name={name}
         category={category}
@@ -29,6 +30,7 @@ describe('ProviderCard tests', () => {
         experience={experience}
         healthInsurance={healthInsurance}
         videoCallPlatform={videoCallPlatform}
+        videoCallAvailability={videoCallAvailability}
         city={city}
         state={state}
         address={address}
@@ -37,66 +39,82 @@ describe('ProviderCard tests', () => {
   })
 
   it('Component should render name property', () => {
-    expect(providerCardComponent.getByText(name)).toBeInTheDocument()
+    expect(screen.getByText(name)).toBeInTheDocument()
   })
 
   it('Component should render category property', () => {
-    expect(providerCardComponent.getByText(category)).toBeInTheDocument()
+    expect(screen.getByText(category)).toBeInTheDocument()
   })
 
   it('Component should render specialty property', () => {
-    expect(providerCardComponent.getByText(specialty)).toBeInTheDocument()
+    expect(screen.getByText(specialty)).toBeInTheDocument()
   })
 
   it('Component should render license number', () => {
-    expect(providerCardComponent.getByText(licenseNumber)).toBeInTheDocument()
+    expect(screen.getByText(licenseNumber)).toBeInTheDocument()
   })
 
   it('Component should render phone number', () => {
-    expect(providerCardComponent.getByText(phoneNumber)).toBeInTheDocument()
+    expect(screen.getByText(phoneNumber)).toBeInTheDocument()
   })
 
   it('Component should render email', () => {
-    expect(providerCardComponent.getByText(email)).toBeInTheDocument()
+    expect(screen.getByText(email)).toBeInTheDocument()
   })
 
   it('Component should render experience', () => {
-    expect(providerCardComponent.getByText(experience)).toBeInTheDocument()
+    expect(screen.getByText(experience)).toBeInTheDocument()
   })
 
   it('Component should render health insurence', () => {
-    expect(providerCardComponent.getByText(healthInsurance)).toBeInTheDocument()
+    expect(screen.getByText(healthInsurance)).toBeInTheDocument()
   })
 
-  xit('Component should render video call platform', () => {
-    expect(providerCardComponent.getByText(videoCallPlatform)).toBeInTheDocument()
+  it('Component should render video call platform', () => {
+    expect(screen.getByText(videoCallPlatform)).toBeInTheDocument()
   })
 
   it('Component should render city and state', () => {
-    expect(providerCardComponent.getByText(`${city} - ${state}`)).toBeInTheDocument()
+    expect(screen.getByText(`${city} - ${state}`)).toBeInTheDocument()
   })
 
   it('Component should render address', () => {
-    expect(providerCardComponent.getByText(address)).toBeInTheDocument()
-  })
-
-  it('Component should not render video call avallability', () => {
-    expect(providerCardComponent.queryByText('Atende Online')).toBeNull()
+    expect(screen.getByText(address)).toBeInTheDocument()
   })
 
   it('Component should render video call avallability', () => {
-    const providerCardComponent = render(
+    expect(screen.getByText('Atende Online')).toBeInTheDocument()
+  })
+
+  it('Component should not render video call avallability', () => {
+    view.rerender(
       <ProviderCard
         name={name}
         category={category}
         specialty={specialty}
         licenseNumber={licenseNumber}
-        videoCallAvailability={true}
+        videoCallAvailability={false}
         phoneNumber={phoneNumber}
         email={email}
       />
     )
 
-    expect(providerCardComponent.getByText('Atende Online')).toBeInTheDocument()
+    expect(screen.queryByText('Atende Online')).toBeNull()
+  })
+
+  it('Component should not render video call platform', () => {
+    view.rerender(
+      <ProviderCard
+        name={name}
+        category={category}
+        specialty={specialty}
+        licenseNumber={licenseNumber}
+        videoCallAvailability={false}
+        phoneNumber={phoneNumber}
+        email={email}
+      />
+    )
+
+    expect(screen.queryByText(videoCallPlatform)).toBeNull()
   })
 })
