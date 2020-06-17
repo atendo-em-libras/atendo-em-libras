@@ -43,33 +43,30 @@ const FooterDetails = styled.div`
   }
   align-items: center;
   justify-content: space-between;
-  div {
-    height: 5em;
-    display: flex;
-    flex-flow: column;
-    align-content: center;
-    justify-content: space-between;
-    @media (max-width: 800px) {
-      margin-top: 40px;
-    }
-    img {
-      height: 1.8em;
-    }
-    p,
-    a {
-      color: black;
-      font-size: 1.6em;
-      font-weight: 600;
-    }
-    *:last-child {
-      font-weight: 400;
-    }
+`
+const InfoBox = styled.div`
+  height: 5em;
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  justify-content: space-between;
+  @media (max-width: 800px) {
+    margin-top: 40px;
   }
-  div:first-child {
+  img {
+    height: 1.8em;
+  }
+  p,
+  a {
+    color: black;
+    font-size: 1.6em;
+    font-weight: 600;
+  }
+  *:last-child {
+    font-weight: 400;
+  }
+  &:first-child {
     margin-right: 100px;
-    @media (max-width: 800px) {
-      margin-right: 10px;
-    }
   }
 `
 
@@ -81,14 +78,14 @@ class Footer extends PureComponent {
           <FooterContent>
             <FooterLogo src={atendoEmLibasLogo} alt={'Logo Atendo em Libras'} />
             <FooterDetails>
-              <div>
+              <InfoBox>
                 <p>Apoio:</p>
                 <img src={thoughtworksLogo} alt={'Logo ThoughtWorks'}></img>
-              </div>
-              <div>
+              </InfoBox>
+              <InfoBox>
                 <p>Dúvidas? Entre em contato em:</p>
                 <a href={`mailto:atendoemlibras@gmail.com`}>atendoemlibras@gmail.com</a>
-              </div>
+              </InfoBox>
             </FooterDetails>
           </FooterContent>
         </Container>
