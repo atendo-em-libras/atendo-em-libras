@@ -14,24 +14,26 @@ const StyledFooter = styled.footer`
   border-top: solid #0000001a 1px;
   flex-flow: row;
   margin-top: 50px;
-  section {
-    height: 20vh;
-    display: flex;
-    flex-flow: row;
-    @media (max-width: 800px) {
-      flex-flow: column;
-      align-items: flex-start;
-      margin: 50px 0 100px 0;
-    }
-    justify-content: space-between;
-    align-items: center;
-    img {
-      height: 5em;
-    }
-  }
 `
 
-const FooterContent = styled.div`
+const FooterContent = styled.section`
+  height: 20vh;
+  display: flex;
+  flex-flow: row;
+  @media (max-width: 800px) {
+    flex-flow: column;
+    align-items: flex-start;
+    margin: 50px 0 100px 0;
+  }
+  justify-content: space-between;
+  align-items: center;
+`
+
+const FooterLogo = styled.img`
+  height: 5em;
+`
+
+const FooterDetails = styled.div`
   display: flex;
   height: 100%;
   flex-flow: row;
@@ -76,9 +78,9 @@ class Footer extends PureComponent {
     return (
       <StyledFooter>
         <Container>
-          <section>
-            <img src={atendoEmLibasLogo} alt={'Logo Atendo em Libras'}></img>
-            <FooterContent>
+          <FooterContent>
+            <FooterLogo src={atendoEmLibasLogo} alt={'Logo Atendo em Libras'} />
+            <FooterDetails>
               <div>
                 <p>Apoio:</p>
                 <img src={thoughtworksLogo} alt={'Logo ThoughtWorks'}></img>
@@ -87,8 +89,8 @@ class Footer extends PureComponent {
                 <p>Dúvidas? Entre em contato em:</p>
                 <a href={`mailto:atendoemlibras@gmail.com`}>atendoemlibras@gmail.com</a>
               </div>
-            </FooterContent>
-          </section>
+            </FooterDetails>
+          </FooterContent>
         </Container>
       </StyledFooter>
     )
