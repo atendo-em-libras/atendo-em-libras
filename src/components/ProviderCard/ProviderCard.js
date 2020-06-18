@@ -71,16 +71,18 @@ class ProviderCard extends Component {
       address,
     } = this.props
 
+    const renderProviderVideoCallAvailability = () => (
+      <ProviderVideoCallAvailability role="note">
+        <IconText src={videoIcon} alt="video icon" />
+        Atende Online
+      </ProviderVideoCallAvailability>
+    )
+
     return (
       <Card className="providerCard" role="provider">
         <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
           <Box gridArea="header">
-            {videoCallAvailability && (
-              <ProviderVideoCallAvailability role="note">
-                <IconText src={videoIcon} alt="video icon" />
-                Atende Online
-              </ProviderVideoCallAvailability>
-            )}
+            {videoCallAvailability && renderProviderVideoCallAvailability()}
             <CategoryBadge category={category} />
           </Box>
           <Box gridArea="first" className="providerCardColumn">
