@@ -24,15 +24,43 @@ let mockedProviderList = [
     'Sabe LIBRAS? ': '',
     'Telefone ': '34 999624855',
     'Timestamp ': '5/22/2020 12:15:19',
+    'Exibir site ': 'Sim',
+  },
+  {
+    'Apresentação ': 'Nutrição',
+    'Atende por videochamada? ': 'Sim',
+    'Cadastro ': 'Quero me cadastrar',
+    'Categoria ': 'Nutrição',
+    'Cidade ': 'Belo Horizonte ',
+    'E-mail ': 'alerebemestar@gmail.com',
+    'Endereço de atendimento ': 'Rua Santa Rita Durão, 322 - sala 1309 Savassi',
+    'Especialidade ': 'Nutricionista',
+    'Estado ': 'Minas Gerais (MG)',
+    'Local de atendimento ': 'Clínica Comunicarte',
+    'Nome do profissional ': 'Lílian Almeida',
+    'Número de cadastro profissional ': 'CRN9: 12273',
+    'Planos de saúde aceitos ': 'Apenas particular',
+    'Plataforma de Atendimento ': '@alerebemestar',
+    'Sabe LIBRAS? ': '',
+    'Telefone ': '34 982616599',
+    'Timestamp ': '5/22/2020 19:07:26',
+    'Exibir site ': 'Não',
   },
 ]
 
 describe('ProviderList tests', () => {
-  it('Component should render a provider card', async () => {
+  it('Component should render a provider card when showCard column is yes', async () => {
     getServiceProviders.mockResolvedValue(mockedProviderList)
     render(<ProviderList />)
-    const providerList = await screen.findByRole('provider')
+    const providerList = await screen.findByText('thais_amorim773@hotmail.com')
     expect(providerList).toBeInTheDocument()
+  })
+
+  it('Component should not render a provider card when showCard column is no', async () => {
+    getServiceProviders.mockResolvedValue(mockedProviderList)
+    render(<ProviderList />)
+    const providerList = await screen.findAllByText('Contato')
+    expect(providerList.length).toBeLessThanOrEqual(1)
   })
 
   it('Component should render error to find providers', async () => {
@@ -47,8 +75,8 @@ describe('ProviderList tests', () => {
     mockedProviderList[0]['Atende por videochamada? '] = 'Sim'
     getServiceProviders.mockResolvedValue(mockedProviderList)
     render(<ProviderList />)
-    const videoCallAvailability = await screen.findByText('Atende Online')
-    expect(videoCallAvailability).toBeInTheDocument()
+    const videoCallAvailability = await screen.findAllByText('Atende Online')
+    expect(videoCallAvailability[0]).toBeInTheDocument()
   })
 
   it('Component should show empty space before loading providers', async () => {
@@ -56,6 +84,6 @@ describe('ProviderList tests', () => {
     render(<ProviderList />)
     expect(screen.queryByRole('provider')).toBeNull()
     expect(screen.getByTestId('emptyList')).toBeInTheDocument()
-    expect(await screen.findByRole('provider')).toBeInTheDocument()
+    expect(await screen.findByText('thais_amorim773@hotmail.com')).toBeInTheDocument()
   })
 })

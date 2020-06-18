@@ -91,25 +91,29 @@ class ProviderList extends Component {
             gapRow="50px"
             gapCol="50px"
           >
-            {providers.map((provider, id) => (
-              <ProviderCard
-                key={id}
-                gridArea="card"
-                name={provider['Nome do profissional ']}
-                licenseNumber={provider['Número de cadastro profissional ']}
-                category={provider['Categoria ']}
-                specialty={provider['Especialidade ']}
-                videoCallAvailability={this.parseVideoCallAvailability(provider['Atende por videochamada? '])}
-                phoneNumber={provider['Telefone ']}
-                email={provider['E-mail ']}
-                city={provider['Cidade ']}
-                state={provider['Estado ']}
-                healthInsurance={provider['Planos de saúde aceitos']}
-                experience={provider['Apresentação ']}
-                address={provider['Endereço de atendimento ']}
-                videoCallPlatform={provider['Plataforma de Atendimento ']}
-              />
-            ))}
+            {providers.map(
+              (provider, id) =>
+                provider['Exibir site '] === 'Sim' && (
+                  <ProviderCard
+                    key={id}
+                    gridArea="card"
+                    name={provider['Nome do profissional ']}
+                    licenseNumber={provider['Número de cadastro profissional ']}
+                    category={provider['Categoria ']}
+                    specialty={provider['Especialidade ']}
+                    videoCallAvailability={this.parseVideoCallAvailability(provider['Atende por videochamada? '])}
+                    phoneNumber={provider['Telefone ']}
+                    email={provider['E-mail ']}
+                    city={provider['Cidade ']}
+                    state={provider['Estado ']}
+                    healthInsurance={provider['Planos de saúde aceitos']}
+                    experience={provider['Apresentação ']}
+                    address={provider['Endereço de atendimento ']}
+                    videoCallPlatform={provider['Plataforma de Atendimento ']}
+                    showCard={provider['Exibir site ']}
+                  />
+                )
+            )}
           </ResponsiveGrid>
         ) : (
           <ErrorCard onClick={this.handleClick} />
