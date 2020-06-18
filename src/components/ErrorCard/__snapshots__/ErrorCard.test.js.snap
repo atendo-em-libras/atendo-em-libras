@@ -1,29 +1,151 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ErrorCard tests Render correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c5 {
+  font-size: 22px;
+  line-height: 28px;
+  max-width: 528px;
+}
+
+.c6 {
+  padding: 20px;
+  background-color: #5996f7;
+  border-radius: 17px;
+  border: 0;
+  color: white;
+  font-size: 1.4em;
+  font-weight: 600;
+  cursor: pointer;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-top: 38px;
+}
+
+.c6:hover {
+  background-color: #96bfff;
+}
+
+.c6:focus {
+  outline: none;
+  outline-offset: 0;
+}
+
+.c7 {
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-right: 8px;
+}
+
+.c4 {
+  position: absolute;
+  left: 45%;
+  top: 45%;
+}
+
+.c1 {
+  font-size: 10px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 32px #0000001a;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 2em;
+  line-height: 3em;
+  word-break: break-word;
+  width: 607px;
+  height: 589px;
+  text-align: center;
+  vertical-align: center;
+  padding-bottom: 54px;
+}
+
+.c1 .providerCardColumn:last-child {
+  border-right: none;
+  margin-right: none;
+}
+
+.c3 {
+  position: relative;
+  width: 501px;
+  height: 234px;
+  margin-top: 5%;
+  margin-bottom: 15%;
+  background: transparent url(img_erro.svg) no-repeat padding-box;
+}
+
+@media (min-width:800px) {
+  .c1 .providerCardColumn {
+    border-right: #f5f5f5 1.5px dashed;
+    padding-right: 3em;
+  }
+
+  .c1 .providerCardColumn:last-child {
+    padding-left: 3em;
+  }
+}
+
 <div
-  class="StyledBox-sc-13pk1d4-0 gVSbfC"
+  class="c0"
   role="error"
 >
   <div
-    class="StyledBox-sc-13pk1d4-0 gVSbfC sc-AxjAm sc-AxgMl djfYNZ"
+    class="c0 sc-AxjAm c1"
   >
     <div
-      class="StyledBox-sc-13pk1d4-0 jJdKAu sc-AxheI hjQdgo"
+      class="c2 c3"
     >
       <img
         alt="warningIcon"
-        class="sc-AxhUy gPwQTM"
+        class="c4"
         src="warning.svg"
       />
     </div>
     <p
-      class="StyledParagraph-tbetod-0 kMGpcl"
+      class="c5"
     >
       Ops, tivemos um problema e infelizmente não conseguimos carregar a lista.
     </p>
     <p
-      class="StyledParagraph-tbetod-0 kMGpcl"
+      class="c5"
     >
       <strong>
         Tente novamente.
@@ -31,12 +153,12 @@ exports[`ErrorCard tests Render correctly 1`] = `
     </p>
     <button
       aria-label="reload"
-      class="sc-AxiKw MEhks"
+      class="c6"
     >
       <span>
         <img
           alt="refreshIcon"
-          class="sc-AxirZ sc-AxhCb vzElu"
+          class="sc-AxirZ c7"
           src="ic_refresh.svg"
         />
       </span>
