@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Box } from 'grommet'
 
 const ProviderSpecialty = styled.p`
   color: #0f1423;
@@ -8,12 +9,15 @@ const ProviderSpecialty = styled.p`
   margin-top: 1em;
 `
 
+const ProviderVideoCallAvailabilityContainer = styled(Box)`
+  width: 100%;
+`
+
 const ProviderVideoCallAvailability = styled.span`
   color: #5996f7;
   background-color: #c7ddfd;
-  position: absolute;
-  right: 0;
-  top: 0;
+  width: 172px;
+  margin: 0 0 17px auto;
   border-radius: 0px 15px;
   font-size: 1.4em;
   font-weight: 600;
@@ -81,6 +85,7 @@ export {
   License,
   ExerienceText,
   ProviderName,
+  ProviderVideoCallAvailabilityContainer,
   ProviderVideoCallAvailability,
   ProviderSpecialty,
 }

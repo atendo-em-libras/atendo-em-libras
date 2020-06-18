@@ -5,6 +5,7 @@ import {
   SectionBlock,
   ExerienceText,
   ProviderName,
+  ProviderVideoCallAvailabilityContainer,
   ProviderVideoCallAvailability,
   ProviderSpecialty,
 } from './ProviderCardStyles'
@@ -72,10 +73,12 @@ class ProviderCard extends Component {
     } = this.props
 
     const renderProviderVideoCallAvailability = () => (
-      <ProviderVideoCallAvailability role="note">
-        <IconText src={videoIcon} alt="video icon" />
-        Atende Online
-      </ProviderVideoCallAvailability>
+      <ProviderVideoCallAvailabilityContainer>
+        <ProviderVideoCallAvailability role="note">
+          <IconText src={videoIcon} alt="video icon" />
+          Atende Online
+        </ProviderVideoCallAvailability>
+      </ProviderVideoCallAvailabilityContainer>
     )
 
     return (
