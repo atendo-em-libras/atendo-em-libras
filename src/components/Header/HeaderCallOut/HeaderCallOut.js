@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 class HeaderCallOut extends PureComponent {
   render() {

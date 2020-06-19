@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 import { Container } from '../../Container'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg'
