@@ -5,7 +5,7 @@ import errorImage from '../../assets/images/img_erro.svg'
 import { refreshIcon, warningIcon } from '../../assets/icons'
 import { Paragraph, Box } from 'grommet'
 import { Button } from '../Button'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 const RefreshIcon = styled(IconText)`
   margin-right: 8px;
