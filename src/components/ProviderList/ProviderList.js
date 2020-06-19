@@ -110,7 +110,6 @@ class ProviderList extends Component {
                     experience={provider['Apresentação ']}
                     address={provider['Endereço de atendimento ']}
                     videoCallPlatform={provider['Plataforma de Atendimento ']}
-                    showCard={provider['Exibir site ']}
                   />
                 )
             )}
