@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 import { HeaderCallOut } from './HeaderCallOut'
 import { HeaderMenu } from './HeaderMenu'

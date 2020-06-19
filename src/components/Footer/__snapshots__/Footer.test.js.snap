@@ -6,24 +6,24 @@ Object {
   "baseElement": <body>
     <div>
       <footer
-        class="sc-AxjAm iBdUHo"
+        class="FooterStyles__StyledFooter-cu8dia-0 kLAChd"
       >
         <div
-          class="sc-AxgMl jcvnKh"
+          class="Container-kkckgz-0 fUhoJX"
         >
           <section
-            class="sc-AxirZ jlgyyX"
+            class="FooterStyles__FooterContent-cu8dia-1 hgnYaG"
           >
             <img
               alt="Logo Atendo em Libras"
-              class="sc-AxiKw lihKWh"
+              class="FooterStyles__FooterLogo-cu8dia-2 czmqnf"
               src="img_atendo_em_libras_logo_blue.svg"
             />
             <div
-              class="sc-AxhCb goXWPz"
+              class="FooterStyles__FooterDetails-cu8dia-3 jwGOZB"
             >
               <div
-                class="sc-AxhUy cPqxGh"
+                class="FooterStyles__InfoBox-cu8dia-4 kcjrWR"
               >
                 <p>
                   Apoio:
@@ -34,7 +34,7 @@ Object {
                 />
               </div>
               <div
-                class="sc-AxhUy cPqxGh"
+                class="FooterStyles__InfoBox-cu8dia-4 kcjrWR"
               >
                 <p>
                   Dúvidas? Entre em contato em:
@@ -53,24 +53,24 @@ Object {
   </body>,
   "container": <div>
     <footer
-      class="sc-AxjAm iBdUHo"
+      class="FooterStyles__StyledFooter-cu8dia-0 kLAChd"
     >
       <div
-        class="sc-AxgMl jcvnKh"
+        class="Container-kkckgz-0 fUhoJX"
       >
         <section
-          class="sc-AxirZ jlgyyX"
+          class="FooterStyles__FooterContent-cu8dia-1 hgnYaG"
         >
           <img
             alt="Logo Atendo em Libras"
-            class="sc-AxiKw lihKWh"
+            class="FooterStyles__FooterLogo-cu8dia-2 czmqnf"
             src="img_atendo_em_libras_logo_blue.svg"
           />
           <div
-            class="sc-AxhCb goXWPz"
+            class="FooterStyles__FooterDetails-cu8dia-3 jwGOZB"
           >
             <div
-              class="sc-AxhUy cPqxGh"
+              class="FooterStyles__InfoBox-cu8dia-4 kcjrWR"
             >
               <p>
                 Apoio:
@@ -81,7 +81,7 @@ Object {
               />
             </div>
             <div
-              class="sc-AxhUy cPqxGh"
+              class="FooterStyles__InfoBox-cu8dia-4 kcjrWR"
             >
               <p>
                 Dúvidas? Entre em contato em:
