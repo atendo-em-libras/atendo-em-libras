@@ -10,13 +10,13 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run: yarn install
+      - run: npm install
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn lint
-      - run: yarn test -- --coverage
+      - run: npm run lint
+      - run: npm test -- --coverage
   deploy-staging:
     docker:
       - image: buildpack-deps:trusty
