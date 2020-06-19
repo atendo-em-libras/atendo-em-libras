@@ -4,15 +4,19 @@ import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { ProviderList } from './components/ProviderList'
 import { Container } from './components/Container'
+import { Grommet } from 'grommet'
+import { DEFAULT_THEME } from './constants'
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Container>
-        <ProviderList />
-      </Container>
-      <Footer />
+      <Grommet plain theme={DEFAULT_THEME}>
+        <Header />
+        <Container>
+          <ProviderList />
+        </Container>
+        <Footer />
+      </Grommet>
     </div>
   )
 }
