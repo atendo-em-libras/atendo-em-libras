@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { ResponsiveGrid } from '../ResponsiveGrid'
 import { ProviderCard } from '../ProviderCard'
-import { getServiceProviders } from '../../api/spreadSheet'
 import { ErrorCard } from '../ErrorCard'
+import ProviderApi from '../../api/provider'
 
 const columns = {
   small: ['auto'],
@@ -33,17 +33,9 @@ class ProviderList extends Component {
   }
 
   loadServiceProvicers = async () => {
-    const serviceProvidersJson = await getServiceProviders()
+    const serviceProvidersJson = await ProviderApi.get()
     this.setState({ isLoaded: true })
     this.setState({ providers: serviceProvidersJson })
-  }
-
-  parseVideoCallAvailability = (answer) => {
-    if (answer === 'Sim') {
-      return true
-    } else {
-      return false
-    }
   }
 
   handleClick = () => {
@@ -63,29 +55,30 @@ class ProviderList extends Component {
 
     return providers && providers.length > 0 ? (
       <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas} justify="center" gapRow="50px" gapCol="50px">
-        {providers.map(
-          (provider, id) =>
-            provider['Exibir site '] === 'Sim' && (
+        {providers.map((provider, id) => {
+          return (
+            provider.showCard && (
               <ProviderCard
                 key={id}
                 gridArea="card"
-                name={provider['Nome do profissional ']}
-                licenseNumber={provider['Número de cadastro profissional ']}
-                category={provider['Categoria ']}
-                specialty={provider['Especialidade ']}
-                videoCallAvailability={this.parseVideoCallAvailability(provider['Atende por videochamada? '])}
-                phoneNumber={provider['Telefone ']}
-                email={provider['E-mail ']}
-                city={provider['Cidade ']}
-                state={provider['Estado ']}
-                healthInsurance={provider['Planos de saúde aceitos']}
-                experience={provider['Apresentação ']}
-                address={provider['Endereço de atendimento ']}
-                videoCallPlatform={provider['Plataforma de Atendimento ']}
-                showCard={provider['Exibir site ']}
+                name={provider.name}
+                licenseNumber={provider.licenseNumber}
+                category={provider.category}
+                specialty={provider.specialty}
+                videoCallAvailability={provider.videoCallAvailability}
+                phoneNumber={provider.phoneNumber}
+                email={provider.email}
+                city={provider.city}
+                state={provider.state}
+                healthInsurance={provider.healthInsurance}
+                experience={provider.experience}
+                address={provider.address}
+                videoCallPlatform={provider.videoCallPlatform}
+                showCard={provider.showCard}
               />
             )
-        )}
+          )
+        })}
       </ResponsiveGrid>
     ) : (
       <ErrorCard onClick={this.handleClick} />
