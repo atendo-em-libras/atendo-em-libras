@@ -70,7 +70,7 @@ class ProviderCard extends Component {
       city,
       state,
       address,
-    } = this.props
+    } = this.props.provider
 
     const renderProviderVideoCallAvailability = () => (
       <ProviderVideoCallAvailabilityContainer>
@@ -142,19 +142,21 @@ class ProviderCard extends Component {
 }
 
 ProviderCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  specialty: PropTypes.string.isRequired,
-  licenseNumber: PropTypes.string.isRequired,
-  videoCallAvailability: PropTypes.bool,
-  phoneNumber: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  experience: PropTypes.string,
-  healthInsurance: PropTypes.string,
-  videoCallPlatform: PropTypes.string,
-  city: PropTypes.string,
-  state: PropTypes.string,
-  address: PropTypes.string,
+  provider: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    specialty: PropTypes.string.isRequired,
+    licenseNumber: PropTypes.string.isRequired,
+    videoCallAvailability: PropTypes.bool,
+    phoneNumber: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    experience: PropTypes.string,
+    healthInsurance: PropTypes.string,
+    videoCallPlatform: PropTypes.string,
+    city: PropTypes.string,
+    state: PropTypes.string,
+    address: PropTypes.string,
+  }).isRequired,
 }
 
 export { ProviderCard }
