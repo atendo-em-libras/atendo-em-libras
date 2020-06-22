@@ -123,47 +123,49 @@ exports[`ErrorCard tests Render correctly 1`] = `
   }
 }
 
-<div
-  class="c0"
-  role="error"
->
+<div>
   <div
-    class="c0 Card-hurxuz-0 c1"
+    class="c0"
+    role="error"
   >
     <div
-      class="c2 c3"
+      class="c0 Card-hurxuz-0 c1"
     >
-      <img
-        alt="warningIcon"
-        class="c4"
-        src="warning.svg"
-      />
-    </div>
-    <p
-      class="c5"
-    >
-      Ops, tivemos um problema e infelizmente não conseguimos carregar a lista.
-    </p>
-    <p
-      class="c5"
-    >
-      <strong>
-        Tente novamente.
-      </strong>
-    </p>
-    <button
-      aria-label="reload"
-      class="c6"
-    >
-      <span>
+      <div
+        class="c2 c3"
+      >
         <img
-          alt="refreshIcon"
-          class="IconText-sc-1u6m2iw-0 c7"
-          src="ic_refresh.svg"
+          alt="warningIcon"
+          class="c4"
+          src="warning.svg"
         />
-      </span>
-      Recarregar página
-    </button>
+      </div>
+      <p
+        class="c5"
+      >
+        Ops, tivemos um problema e infelizmente não conseguimos carregar a lista.
+      </p>
+      <p
+        class="c5"
+      >
+        <strong>
+          Tente novamente.
+        </strong>
+      </p>
+      <button
+        aria-label="reload"
+        class="c6"
+      >
+        <span>
+          <img
+            alt="refreshIcon"
+            class="IconText-sc-1u6m2iw-0 c7"
+            src="ic_refresh.svg"
+          />
+        </span>
+        Recarregar página
+      </button>
+    </div>
   </div>
 </div>
 `;

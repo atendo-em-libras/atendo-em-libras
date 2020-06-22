@@ -1,59 +1,60 @@
 import React from 'react'
 import { CategoryBadge } from './CategoryBadge'
 import { render } from '@testing-library/react'
+import 'jest-styled-components'
 
 describe('CategoryBadge', () => {
   it('renders medicine correctly', () => {
-    const medicineBadge = render(<CategoryBadge category="Medicina" />)
+    const { container } = render(<CategoryBadge category="Medicina" />)
 
-    expect(medicineBadge).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 
   it('renders advocacia as default correctly', () => {
-    const lawyerBadge = render(<CategoryBadge category="Advocacia" />)
+    const { container } = render(<CategoryBadge category="Advocacia" />)
 
-    expect(lawyerBadge).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 
   it('renders pessoa cuidadora correctly', () => {
-    const careGiverBadge = render(<CategoryBadge category="Pessoa Cuidadora" />)
+    const { container } = render(<CategoryBadge category="Pessoa Cuidadora" />)
 
-    expect(careGiverBadge).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 
   it('renders psicologia case correctly', () => {
-    const psychology = render(<CategoryBadge category="Psicologia" />)
+    const { container } = render(<CategoryBadge category="Psicologia" />)
 
-    expect(psychology).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 
   it('renders enfermagem case correctly', () => {
-    const nursing = render(<CategoryBadge category="Enfermagem" />)
+    const { container } = render(<CategoryBadge category="Enfermagem" />)
 
-    expect(nursing).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 
   it('renders fisioterapia case correctly', () => {
-    const physiotherapy = render(<CategoryBadge category="Fisioterapia" />)
+    const { container } = render(<CategoryBadge category="Fisioterapia" />)
 
-    expect(physiotherapy).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 
   it('renders odontologia case correctly', () => {
-    const dentistry = render(<CategoryBadge category="Odontologia" />)
+    const { container } = render(<CategoryBadge category="Odontologia" />)
 
-    expect(dentistry).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 
   it('renders fonoaudiologia case correctly', () => {
-    const speechTherapy = render(<CategoryBadge category="Fonoaudiologia" />)
+    const { container } = render(<CategoryBadge category="Fonoaudiologia" />)
 
-    expect(speechTherapy).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 
   it('renders nutrição case correctly', () => {
-    const nutrition = render(<CategoryBadge category="Nutrição" />)
+    const { container } = render(<CategoryBadge category="Nutrição" />)
 
-    expect(nutrition).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
   })
 })
