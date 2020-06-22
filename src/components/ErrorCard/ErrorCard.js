@@ -4,7 +4,7 @@ import { IconText } from '../IconText'
 import errorImage from '../../assets/images/img_erro.svg'
 import { refreshIcon, warningIcon } from '../../assets/icons'
 import { Paragraph, Box } from 'grommet'
-import { Button } from '../Button'
+import { PrimaryButton } from '../Buttons'
 import styled from 'styled-components/macro'
 
 const RefreshIcon = styled(IconText)`
@@ -44,12 +44,12 @@ export const ErrorCard = ({ onClick }) => (
       <Paragraph size="large">
         <strong>Tente novamente.</strong>
       </Paragraph>
-      <Button onClick={onClick} aria-label="reload">
+      <PrimaryButton onClick={onClick} aria-label="reload">
         <span>
           <RefreshIcon src={refreshIcon} alt="refreshIcon" />
         </span>
         Recarregar página
-      </Button>
+      </PrimaryButton>
     </ErrorContainer>
   </Box>
 )

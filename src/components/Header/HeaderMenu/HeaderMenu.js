@@ -1,13 +1,14 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import styled from 'styled-components/macro'
 
 import { Container } from '../../Container'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg'
-import { Button } from '../../Button'
+import { videoIcon } from '../../../assets/icons'
+import { PrimaryButton, IconButton } from '../../Buttons'
+import { ResponsiveContext } from 'grommet'
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(PrimaryButton)`
   border-radius: 20px 20px 20px 0;
-  margin-top: 0;
 `
 
 class HeaderMenu extends PureComponent {
@@ -15,16 +16,35 @@ class HeaderMenu extends PureComponent {
     return (
       <Container>
         <header className={this.props.className}>
-          <img src={logo} alt={'Logo projeto Atendo em Libras'}></img>
-          <h2>É profissional de saúde ou conhece alguém da área?</h2>
-          <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
-            <StyledButton>Cadastre Aqui</StyledButton>
-          </a>
+          <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />
+          <ResponsiveContext.Consumer>
+            {(responsive) =>
+              responsive === 'small' ? (
+                <IconButton>
+                  <img src={videoIcon} alt="Menu Icon" width="36px" height="36px" />
+                </IconButton>
+              ) : (
+                <Fragment>
+                  <h2>É profissional de saúde ou conhece alguém da área?</h2>
+                  <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
+                    <StyledButton>Cadastre Aqui</StyledButton>
+                  </a>
+                </Fragment>
+              )
+            }
+          </ResponsiveContext.Consumer>
         </header>
       </Container>
     )
   }
 }
+
+const Logo = styled.img`
+  @media (max-width: 800px) {
+    height: auto;
+    width: 40%;
+  }
+`
 
 const StyledHeaderMenu = styled(HeaderMenu)`
   width: 100%;
@@ -35,9 +55,6 @@ const StyledHeaderMenu = styled(HeaderMenu)`
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
-  img {
-    height: 5em;
-  }
   h2 {
     height: 5rem;
     padding: 0 3rem;

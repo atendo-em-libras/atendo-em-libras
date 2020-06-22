@@ -50,23 +50,30 @@ const StyledHeaderBanner = styled(HeaderBanner)`
     }
   }
   h1 {
-    font-size: 3.2em;
+    margin-top: 1em;
+    font-size: 2em;
     font-weight: 400;
-    line-height: 1.5em;
-    text-align: center;
+    line-height: 1.2em;
+    text-align: left;
     @media (min-width: 800px) {
+      margin-top: 0;
       width: 80%;
+      font-size: 3.2em;
+      line-height: 1.5em;
       text-align: left;
     }
   }
   p {
     margin-top: 1em;
+    margin-bottom: 2.5em;
     font-size: 1.4em;
     font-weight: 400;
-    line-height: 1.5em;
-    text-align: center;
+    line-height: 1.3em;
+    text-align: left;
     @media (min-width: 800px) {
+      margin: 0;
       width: 80%;
+      line-height: 1.5em;
       text-align: left;
     }
   }
