@@ -1,152 +1,198 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer component renders footer correctly 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <footer
-        class="FooterStyles__StyledFooter-cu8dia-0 kLAChd"
-      >
-        <div
-          class="Container-kkckgz-0 fUhoJX"
-        >
-          <section
-            class="FooterStyles__FooterContent-cu8dia-1 hgnYaG"
-          >
-            <img
-              alt="Logo Atendo em Libras"
-              class="FooterStyles__FooterLogo-cu8dia-2 czmqnf"
-              src="img_atendo_em_libras_logo_blue.svg"
-            />
-            <div
-              class="FooterStyles__FooterDetails-cu8dia-3 jwGOZB"
-            >
-              <div
-                class="FooterStyles__InfoBox-cu8dia-4 kcjrWR"
-              >
-                <p>
-                  Apoio:
-                </p>
-                <img
-                  alt="Logo ThoughtWorks"
-                  src="img_thoughtworks_logo_black.svg"
-                />
-              </div>
-              <div
-                class="FooterStyles__InfoBox-cu8dia-4 kcjrWR"
-              >
-                <p>
-                  Dúvidas? Entre em contato em:
-                </p>
-                <a
-                  href="mailto:atendoemlibras@gmail.com"
-                >
-                  atendoemlibras@gmail.com
-                </a>
-              </div>
-            </div>
-          </section>
-        </div>
-      </footer>
-    </div>
-  </body>,
-  "container": <div>
-    <footer
-      class="FooterStyles__StyledFooter-cu8dia-0 kLAChd"
-    >
-      <div
-        class="Container-kkckgz-0 fUhoJX"
-      >
-        <section
-          class="FooterStyles__FooterContent-cu8dia-1 hgnYaG"
-        >
-          <img
-            alt="Logo Atendo em Libras"
-            class="FooterStyles__FooterLogo-cu8dia-2 czmqnf"
-            src="img_atendo_em_libras_logo_blue.svg"
-          />
-          <div
-            class="FooterStyles__FooterDetails-cu8dia-3 jwGOZB"
-          >
-            <div
-              class="FooterStyles__InfoBox-cu8dia-4 kcjrWR"
-            >
-              <p>
-                Apoio:
-              </p>
-              <img
-                alt="Logo ThoughtWorks"
-                src="img_thoughtworks_logo_black.svg"
-              />
-            </div>
-            <div
-              class="FooterStyles__InfoBox-cu8dia-4 kcjrWR"
-            >
-              <p>
-                Dúvidas? Entre em contato em:
-              </p>
-              <a
-                href="mailto:atendoemlibras@gmail.com"
-              >
-                atendoemlibras@gmail.com
-              </a>
-            </div>
-          </div>
-        </section>
-      </div>
-    </footer>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
+.c0 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: white;
+  background-color: #ffffff;
+  border-top: solid #0000001a 1px;
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  margin-top: 50px;
 }
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c3 {
+  height: 5em;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c5 {
+  height: 5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c5 img {
+  height: 1.8em;
+}
+
+.c5 p,
+.c5 a {
+  color: black;
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+.c5 *:last-child {
+  font-weight: 400;
+}
+
+.c5:first-child {
+  margin-right: 100px;
+}
+
+.c1 {
+  max-width: 1500px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 80px;
+  margin: 0 auto;
+}
+
+@media (max-width:800px) {
+  .c2 {
+    -webkit-flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    margin: 58px 0 58px 0;
+  }
+}
+
+@media (min-width:801px) {
+  .c2 {
+    height: 20vh;
+  }
+}
+
+@media (max-width:800px) {
+  .c4 {
+    -webkit-flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width:800px) {
+  .c5 {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width:800px) {
+  .c1 {
+    padding: 0 10vw;
+  }
+}
+
+<div>
+  <footer
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <section
+        class="c2"
+      >
+        <img
+          alt="Logo Atendo em Libras"
+          class="c3"
+          src="img_atendo_em_libras_logo_blue.svg"
+        />
+        <div
+          class="c4"
+        >
+          <div
+            class="c5"
+          >
+            <p>
+              Apoio:
+            </p>
+            <img
+              alt="Logo ThoughtWorks"
+              src="img_thoughtworks_logo_black.svg"
+            />
+          </div>
+          <div
+            class="c5"
+          >
+            <p>
+              Dúvidas? Entre em contato em:
+            </p>
+            <a
+              href="mailto:atendoemlibras@gmail.com"
+            >
+              atendoemlibras@gmail.com
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </footer>
+</div>
 `;

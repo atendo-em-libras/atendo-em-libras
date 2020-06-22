@@ -6,8 +6,8 @@ import 'jest-styled-components'
 describe('ErrorCard tests', () => {
   it('Render correctly', () => {
     let onClick = jest.fn()
-    render(<ErrorCard onClick={onClick} />)
-    expect(screen.getByRole('error')).toMatchSnapshot()
+    const { container } = render(<ErrorCard onClick={onClick} />)
+    expect(container).toMatchSnapshot()
   })
 
   it('Call reload function when button is clicked', () => {
