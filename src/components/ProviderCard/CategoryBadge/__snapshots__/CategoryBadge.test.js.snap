@@ -230,7 +230,7 @@ exports[`CategoryBadge renders pessoa cuidadora correctly 1`] = `
   padding: 0.2em 2em;
   border-radius: 1.5em;
   line-height: 1.8em;
-  background-color: #5A8DED;
+  background-color: #EAC276;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -241,9 +241,9 @@ exports[`CategoryBadge renders pessoa cuidadora correctly 1`] = `
 <div>
   <p
     class="c0"
-    color="#5A8DED"
+    color="#EAC276"
   >
-    Pessoa Cuidadora
+    Pessoa cuidadora
   </p>
 </div>
 `;
