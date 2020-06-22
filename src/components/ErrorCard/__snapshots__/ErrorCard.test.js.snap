@@ -42,18 +42,17 @@ exports[`ErrorCard tests Render correctly 1`] = `
 }
 
 .c6 {
+  font-size: 1.4em;
+  font-weight: 600;
+  cursor: pointer;
   padding: 20px;
   background-color: #5996f7;
   border-radius: 17px;
   border: 0;
   color: white;
-  font-size: 1.4em;
-  font-weight: 600;
-  cursor: pointer;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  margin-top: 38px;
 }
 
 .c6:hover {
@@ -131,9 +130,29 @@ exports[`ErrorCard tests Render correctly 1`] = `
     <div
       class="c0 Card-hurxuz-0 c1"
     >
-      <div
-        class="c2 c3"
-      >
+      <img
+        alt="warningIcon"
+        class="c4"
+        src="warning.svg"
+      />
+    </div>
+    <p
+      class="c5"
+    >
+      Ops, tivemos um problema e infelizmente não conseguimos carregar a lista.
+    </p>
+    <p
+      class="c5"
+    >
+      <strong>
+        Tente novamente.
+      </strong>
+    </p>
+    <button
+      aria-label="reload"
+      class="Buttons__Button-nr8h4a-0 c6"
+    >
+      <span>
         <img
           alt="warningIcon"
           class="c4"
