@@ -66,8 +66,8 @@ class ProviderCard extends Component {
       email,
       experience,
       healthInsurance,
-      videoCallPlatform,
       city,
+      videoCallPlatform,
       state,
       address,
     } = this.props.provider
@@ -81,6 +81,61 @@ class ProviderCard extends Component {
       </ProviderVideoCallAvailabilityContainer>
     )
 
+    const renderDetailsInfo = () => (
+      <>
+        <ProviderName>{name}</ProviderName>
+        <ProviderSpecialty>{specialty}</ProviderSpecialty>
+        <License>
+          <p className="title">REGISTRO</p>
+          {licenseNumber ? <p className="number">{licenseNumber}</p> : <p className="number">-</p>}
+        </License>
+        {experience && <ExerienceText size="small">{experience}</ExerienceText>}
+        <SectionBlock>
+          {city && state && (
+            <SectionTitle>
+              <IconText src={addressIcon} alt="address icon" />
+              {`${city} - ${state}`}
+            </SectionTitle>
+          )}
+          <Paragraph size="small">{address}</Paragraph>
+        </SectionBlock>
+      </>
+    )
+
+    const renderContactInfo = () => (
+      <SectionBlock>
+        <SectionTitle>Contato</SectionTitle>
+        <p>
+          <IconText src={phoneIcon} alt="phone icon" />
+          <span> {phoneNumber}</span>
+        </p>
+        <Paragraph size="small">
+          <IconText src={emailIcon} alt="e-mail icon" />
+          <span> {email}</span>
+        </Paragraph>
+      </SectionBlock>
+    )
+
+    const renderCallPlatform = () => (
+      <SectionBlock>
+        <SectionTitle>Atendimento online</SectionTitle>
+        <p>
+          <IconText src={videoIcon} alt="video icon" />
+          {videoCallPlatform ? <span>{videoCallPlatform}</span> : <span>Não informado</span>}
+        </p>
+      </SectionBlock>
+    )
+
+    const renderHealthInsurance = () => (
+      <SectionBlock>
+        <SectionTitle>Planos de saúde</SectionTitle>
+        <p>
+          <IconText src={healthInsuranceIcon} alt="card icon" />
+          {healthInsurance ? <span>{healthInsurance}</span> : <span>Não informado</span>}
+        </p>
+      </SectionBlock>
+    )
+
     return (
       <Card className="providerCard" role="provider">
         <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
@@ -89,51 +144,12 @@ class ProviderCard extends Component {
             <CategoryBadge category={category} />
           </Box>
           <Box gridArea="first" className="providerCardColumn">
-            <ProviderName>{name}</ProviderName>
-            <ProviderSpecialty>{specialty}</ProviderSpecialty>
-            <License>
-              <p className="title">REGISTRO</p>
-              {licenseNumber ? <p className="number">{licenseNumber}</p> : <p className="number">-</p>}
-            </License>
-            {experience && <ExerienceText size="small">{experience}</ExerienceText>}
-            <SectionBlock>
-              {city && state && (
-                <SectionTitle>
-                  <IconText src={addressIcon} alt="address icon" />
-                  {`${city} - ${state}`}
-                </SectionTitle>
-              )}
-              <Paragraph size="small">{address}</Paragraph>
-            </SectionBlock>
+            {renderDetailsInfo()}
           </Box>
           <Box gridArea="second" className="providerCardColumn">
-            <SectionBlock>
-              <SectionTitle>Contato</SectionTitle>
-              <p>
-                <IconText src={phoneIcon} alt="phone icon" />
-                <span> {phoneNumber}</span>
-              </p>
-              <Paragraph size="small">
-                <IconText src={emailIcon} alt="e-mail icon" />
-                <span> {email}</span>
-              </Paragraph>
-            </SectionBlock>
-            {videoCallAvailability && (
-              <SectionBlock>
-                <SectionTitle>Atendimento online</SectionTitle>
-                <p>
-                  <IconText src={videoIcon} alt="video icon" />
-                  {videoCallPlatform ? <span>{videoCallPlatform}</span> : <span>Não informado</span>}
-                </p>
-              </SectionBlock>
-            )}
-            <SectionBlock>
-              <SectionTitle>Planos de saúde</SectionTitle>
-              <p>
-                <IconText src={healthInsuranceIcon} alt="card icon" />
-                {healthInsurance ? <span>{healthInsurance}</span> : <span>Não informado</span>}
-              </p>
-            </SectionBlock>
+            {renderContactInfo()}
+            {videoCallAvailability && renderCallPlatform()}
+            {renderHealthInsurance()}
           </Box>
         </ResponsiveGrid>
       </Card>
