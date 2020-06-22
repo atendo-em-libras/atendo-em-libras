@@ -11,17 +11,21 @@ const ProviderSpecialty = styled.p`
 
 const ProviderVideoCallAvailabilityContainer = styled(Box)`
   width: 100%;
+  @media (max-width: 440px) {
+    margin-top: 40px;
+  }
 `
 
 const ProviderVideoCallAvailability = styled.span`
   color: #5996f7;
   background-color: #c7ddfd;
-  width: 172px;
-  margin: 0 0 17px auto;
   border-radius: 0px 15px;
   font-size: 1.4em;
   font-weight: 600;
   padding: 0.5em 1em;
+  position: absolute;
+  right: 0;
+  top: 0;
 `
 
 const ProviderName = styled.p`
