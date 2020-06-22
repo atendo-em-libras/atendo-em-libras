@@ -1,1 +1,1 @@
-export { CategoryBadge } from './CategoryBadge'
+export { CategoryBadge, categoryColors } from './CategoryBadge'
