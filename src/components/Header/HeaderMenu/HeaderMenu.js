@@ -3,36 +3,61 @@ import styled from 'styled-components/macro'
 
 import { Container } from '../../Container'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg'
+
 import { videoIcon } from '../../../assets/icons'
 import { PrimaryButton, IconButton } from '../../Buttons'
 import { ResponsiveContext } from 'grommet'
+import { HeaderMobile } from '../HeaderMobile/HeaderMobile'
+import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 
 const StyledButton = styled(PrimaryButton)`
   border-radius: 20px 20px 20px 0;
 `
 
 class HeaderMenu extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = { showModal: false }
+  }
+
   render = () => {
-    return (
+    const mainMenuDesktopButton = () => (
+      <Fragment>
+        <h2>É profissional de saúde ou conhece alguém da área?</h2>
+        <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
+          <StyledButton>Cadastre Aqui</StyledButton>
+        </a>
+      </Fragment>
+    )
+
+    const mainMenuMobileButton = () => (
+      <IconButton
+        aria-label="Menu Button"
+        onClick={() => {
+          this.setState({ showModal: true })
+        }}
+      >
+        <img src={videoIcon} alt="Menu Icon" width="36px" height="36px" />
+      </IconButton>
+    )
+
+    return this.state.showModal ? (
+      <HeaderMobile />
+    ) : (
       <Container>
         <header className={this.props.className}>
           <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />
-          <ResponsiveContext.Consumer>
-            {(responsive) =>
-              responsive === 'small' ? (
-                <IconButton>
-                  <img src={videoIcon} alt="Menu Icon" width="36px" height="36px" />
-                </IconButton>
+          <FeatureTogglesContext.Consumer>
+            {(toggles) =>
+              toggles.SHOW_RESPONSIVE_HEADER ? (
+                <ResponsiveContext.Consumer>
+                  {(responsive) => (responsive === 'small' ? mainMenuMobileButton() : mainMenuDesktopButton())}
+                </ResponsiveContext.Consumer>
               ) : (
-                <Fragment>
-                  <h2>É profissional de saúde ou conhece alguém da área?</h2>
-                  <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
-                    <StyledButton>Cadastre Aqui</StyledButton>
-                  </a>
-                </Fragment>
+                mainMenuDesktopButton()
               )
             }
-          </ResponsiveContext.Consumer>
+          </FeatureTogglesContext.Consumer>
         </header>
       </Container>
     )
