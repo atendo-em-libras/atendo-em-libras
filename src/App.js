@@ -6,16 +6,20 @@ import { ProviderList } from './components/ProviderList'
 import { Container } from './components/Container'
 import { Grommet } from 'grommet'
 import { DEFAULT_THEME } from './constants'
+import { FeatureTogglesContext } from './FeatureTogglesContext'
+import { toggles } from './constants'
 
 function App() {
   return (
     <div className="App">
       <Grommet plain theme={DEFAULT_THEME}>
-        <Header />
-        <Container>
-          <ProviderList />
-        </Container>
-        <Footer />
+        <FeatureTogglesContext.Provider value={toggles}>
+          <Header />
+          <Container>
+            <ProviderList />
+          </Container>
+          <Footer />
+        </FeatureTogglesContext.Provider>
       </Grommet>
     </div>
   )
