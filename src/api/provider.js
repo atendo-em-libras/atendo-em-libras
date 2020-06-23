@@ -21,7 +21,7 @@ const mapJsonToProviders = (json) => {
       city: provider['Cidade '],
       state: provider['Estado '],
       address: provider['Endereço de atendimento '],
-      healthInsurance: provider['Planos de saúde aceitos'],
+      healthInsurance: provider['Planos de saúde aceitos '],
       experience: provider['Apresentação '],
       videoCallPlatform: provider['Plataforma de Atendimento '],
       showCard: provider['Exibir site '] === 'Sim' ? true : false,
