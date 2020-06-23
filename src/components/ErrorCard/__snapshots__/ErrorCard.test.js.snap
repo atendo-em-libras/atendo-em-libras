@@ -42,7 +42,7 @@ exports[`ErrorCard tests Render correctly 1`] = `
 }
 
 .c6 {
-  font-size: 1.4em;
+  font-size: 1.4rem;
   font-weight: 600;
   cursor: pointer;
   padding: 20px;
@@ -130,29 +130,9 @@ exports[`ErrorCard tests Render correctly 1`] = `
     <div
       class="c0 Card-hurxuz-0 c1"
     >
-      <img
-        alt="warningIcon"
-        class="c4"
-        src="warning.svg"
-      />
-    </div>
-    <p
-      class="c5"
-    >
-      Ops, tivemos um problema e infelizmente não conseguimos carregar a lista.
-    </p>
-    <p
-      class="c5"
-    >
-      <strong>
-        Tente novamente.
-      </strong>
-    </p>
-    <button
-      aria-label="reload"
-      class="Buttons__Button-nr8h4a-0 c6"
-    >
-      <span>
+      <div
+        class="c2 c3"
+      >
         <img
           alt="warningIcon"
           class="c4"
@@ -173,7 +153,7 @@ exports[`ErrorCard tests Render correctly 1`] = `
       </p>
       <button
         aria-label="reload"
-        class="c6"
+        class="Buttons__Button-nr8h4a-0 c6"
       >
         <span>
           <img
