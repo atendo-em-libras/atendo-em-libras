@@ -46,6 +46,7 @@ describe('HeaderMenu component', () => {
       })
     })
   })
+
   describe('when feature toggle SHOW_RESPONSIVE_HEADER is false', () => {
     beforeEach(() => {
       view = render(<HeaderMenu />)

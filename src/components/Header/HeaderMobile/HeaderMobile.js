@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
-import { PrimaryButton } from '../../Buttons'
+import { PrimaryButton, IconButton } from '../../Buttons'
 import { Layer } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg'
+import { closeIcon } from '../../../assets/icons'
 
 const StyledButton = styled(PrimaryButton)`
   color: #5996f7;
@@ -29,20 +30,39 @@ const Wrapper = styled.div`
   padding: 30px;
 `
 
-const Header = styled.div``
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 
-const Footer = styled.div``
+const Footer = styled.div`
+  h2 {
+    width: 80%;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.6em;
+    margin-bottom: 21px;
+  }
+`
 class HeaderMobile extends PureComponent {
   render = () => {
+    const { onClose } = this.props
+
     return (
       <MainMenuModal modal plain full>
         <Wrapper>
           <Header>
             <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />
+            <IconButton aria-label="Close Menu Button" onClick={onClose}>
+              <img src={closeIcon} alt="Close Icon" width="18px" height="18px" />
+            </IconButton>
           </Header>
           <Footer>
+            <h2>É profissional de saúde ou conhece alguém da área?</h2>
             <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
-              <StyledButton>Cadastre Aqui</StyledButton>
+              <StyledButton>Cadastre-se aqui</StyledButton>
             </a>
           </Footer>
         </Wrapper>
