@@ -13,11 +13,20 @@ import { IconText } from '../IconText'
 import { Card } from '../Card'
 import PropTypes from 'prop-types'
 import { CategoryBadge } from './CategoryBadge'
-import { Paragraph, Box } from 'grommet'
+import { Paragraph, Box, ResponsiveContext, Button, Collapsible, Text } from 'grommet'
+import { FormDown, FormNext } from 'grommet-icons'
 import { videoIcon, phoneIcon, emailIcon, addressIcon, healthInsuranceIcon } from '../../assets/icons'
 import { ResponsiveGrid } from '../ResponsiveGrid'
 
 class ProviderCard extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      open: false,
+    }
+  }
+
   render() {
     const columns = {
       small: ['auto'],
@@ -54,6 +63,11 @@ class ProviderCard extends Component {
         { name: 'first', start: [0, 1], end: [0, 1] },
         { name: 'second', start: [1, 1], end: [1, 1] },
       ],
+    }
+
+    const colors = {
+      open: '#5A8DED',
+      close: '#FF7B7B',
     }
 
     const {
@@ -136,6 +150,26 @@ class ProviderCard extends Component {
       </SectionBlock>
     )
 
+    const renderMoreInfoBox = () => (
+      <>
+        {videoCallAvailability && renderCallPlatform()}
+        {renderHealthInsurance()}
+      </>
+    )
+
+    const ToggleButton = ({ label, Icon, color, onClick }) => {
+      return (
+        <Button hoverIndicator="background" onClick={onClick}>
+          <Box direction="row" align="center" pad="xsmall">
+            <Text size="small" color={color}>
+              {label}
+            </Text>
+            <Icon color={color} />
+          </Box>
+        </Button>
+      )
+    }
+
     return (
       <Card className="providerCard" role="provider">
         <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
@@ -143,14 +177,50 @@ class ProviderCard extends Component {
             {videoCallAvailability && renderProviderVideoCallAvailability()}
             <CategoryBadge category={category} />
           </Box>
-          <Box gridArea="first" className="providerCardColumn">
-            {renderDetailsInfo()}
-          </Box>
-          <Box gridArea="second" className="providerCardColumn">
-            {renderContactInfo()}
-            {videoCallAvailability && renderCallPlatform()}
-            {renderHealthInsurance()}
-          </Box>
+
+          <ResponsiveContext.Consumer>
+            {(responsive) =>
+              responsive === 'small' ? (
+                <Box gridArea="first" className="providerCardColumn">
+                  {renderDetailsInfo()}
+                  {renderContactInfo()}
+                  <Box align="center">
+                    <h2>
+                      {!this.state.open && (
+                        <ToggleButton
+                          Icon={FormNext}
+                          label="Saiba Mais"
+                          color={colors.open}
+                          onClick={() => this.setState({ open: !this.state.open })}
+                        />
+                      )}
+                    </h2>
+                    <Collapsible open={this.state.open} {...this.props}>
+                      <Box background={{ color: '#FFFFFF' }}>{renderMoreInfoBox()}</Box>
+                    </Collapsible>
+                    {this.state.open && (
+                      <ToggleButton
+                        Icon={FormDown}
+                        label="Fechar"
+                        color={colors.close}
+                        onClick={() => this.setState({ open: !this.state.open })}
+                      />
+                    )}
+                  </Box>
+                </Box>
+              ) : (
+                <>
+                  <Box gridArea="first" className="providerCardColumn">
+                    {renderDetailsInfo()}
+                  </Box>
+                  <Box gridArea="second" className="providerCardColumn">
+                    {renderContactInfo()}
+                    {renderMoreInfoBox()}
+                  </Box>
+                </>
+              )
+            }
+          </ResponsiveContext.Consumer>
         </ResponsiveGrid>
       </Card>
     )
