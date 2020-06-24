@@ -14,7 +14,7 @@ import { Card } from '../Card'
 import PropTypes from 'prop-types'
 import { CategoryBadge } from './CategoryBadge'
 import { Paragraph, Box, ResponsiveContext, Button, Collapsible, Text } from 'grommet'
-import { FormDown, FormNext } from 'grommet-icons'
+import { FormDown, FormUp } from 'grommet-icons'
 import { videoIcon, phoneIcon, emailIcon, addressIcon, healthInsuranceIcon } from '../../assets/icons'
 import { ResponsiveGrid } from '../ResponsiveGrid'
 
@@ -185,27 +185,26 @@ class ProviderCard extends Component {
                   {renderDetailsInfo()}
                   {renderContactInfo()}
                   <Box align="center">
+                    <Collapsible open={this.state.open} {...this.props}>
+                      <Box background={{ color: '#FFFFFF' }}>{renderMoreInfoBox()}</Box>
+                    </Collapsible>
                     <h2>
-                      {!this.state.open && (
+                      {this.state.open ? (
                         <ToggleButton
-                          Icon={FormNext}
+                          Icon={FormUp}
+                          label="Fechar"
+                          color={colors.close}
+                          onClick={() => this.setState({ open: !this.state.open })}
+                        />
+                      ) : (
+                        <ToggleButton
+                          Icon={FormDown}
                           label="Saiba Mais"
                           color={colors.open}
                           onClick={() => this.setState({ open: !this.state.open })}
                         />
                       )}
                     </h2>
-                    <Collapsible open={this.state.open} {...this.props}>
-                      <Box background={{ color: '#FFFFFF' }}>{renderMoreInfoBox()}</Box>
-                    </Collapsible>
-                    {this.state.open && (
-                      <ToggleButton
-                        Icon={FormDown}
-                        label="Fechar"
-                        color={colors.close}
-                        onClick={() => this.setState({ open: !this.state.open })}
-                      />
-                    )}
                   </Box>
                 </Box>
               ) : (
