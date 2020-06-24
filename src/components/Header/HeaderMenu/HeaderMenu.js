@@ -20,6 +20,10 @@ class HeaderMenu extends PureComponent {
     this.state = { showModal: false }
   }
 
+  onCloseHeaderMobile = () => {
+    this.setState({ showModal: false })
+  }
+
   render = () => {
     const mainMenuDesktopButton = () => (
       <Fragment>
@@ -42,7 +46,7 @@ class HeaderMenu extends PureComponent {
     )
 
     return this.state.showModal ? (
-      <HeaderMobile />
+      <HeaderMobile onClose={this.onCloseHeaderMobile} />
     ) : (
       <Container>
         <header className={this.props.className}>
