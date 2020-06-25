@@ -17,6 +17,7 @@ import { Paragraph, Box, ResponsiveContext, Button, Collapsible, Text } from 'gr
 import { FormDown, FormUp } from 'grommet-icons'
 import { videoIcon, phoneIcon, emailIcon, addressIcon, healthInsuranceIcon } from '../../assets/icons'
 import { ResponsiveGrid } from '../ResponsiveGrid'
+import styled from 'styled-components'
 
 class ProviderCard extends Component {
   constructor(props) {
@@ -157,19 +158,19 @@ class ProviderCard extends Component {
       </>
     )
 
-    const ToggleButton = ({ label, Icon, color, onClick }) => {
-      return (
-        <Button hoverIndicator="background" onClick={onClick}>
-          <Box direction="row" align="center" pad="xsmall">
-            <Text size="small" color={color}>
-              {label}
-            </Text>
-            <Icon color={color} />
-          </Box>
-        </Button>
-      )
-    }
+    const ToggleButton = ({ className, label, Icon, color, onClick }) => (
+      <Button hoverIndicator="background" className={className} onClick={onClick}>
+        <Box direction="row" align="center" pad="xsmall">
+          <Text size="small">{label}</Text>
+          <Icon color={color} />
+        </Box>
+      </Button>
+    )
 
+    const ToggleButtonStyled = styled(ToggleButton)`
+      background-color: ${this.state.open ? '#ffe8e8' : '#c7ddfd'};
+      color: ${this.state.open ? colors.close : colors.open};
+    `
     return (
       <Card className="providerCard" role="provider">
         <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
@@ -190,14 +191,14 @@ class ProviderCard extends Component {
                     </Collapsible>
                     <h2>
                       {this.state.open ? (
-                        <ToggleButton
+                        <ToggleButtonStyled
                           Icon={FormUp}
                           label="Fechar"
                           color={colors.close}
                           onClick={() => this.setState({ open: !this.state.open })}
                         />
                       ) : (
-                        <ToggleButton
+                        <ToggleButtonStyled
                           Icon={FormDown}
                           label="Saiba Mais"
                           color={colors.open}
