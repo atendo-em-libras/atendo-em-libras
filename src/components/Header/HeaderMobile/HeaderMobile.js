@@ -52,7 +52,7 @@ class HeaderMobile extends PureComponent {
 
     return (
       <MainMenuModal modal plain full>
-        <Wrapper>
+        <Wrapper role="menu">
           <Header>
             <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />
             <IconButton aria-label="Close Menu Button" onClick={onClose}>
