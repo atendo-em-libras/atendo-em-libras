@@ -29,7 +29,7 @@ describe('HeaderMenu component', () => {
         expect(view.getByRole('button', { name: 'Menu Button' })).toBeInTheDocument()
       })
 
-      it('displays register button on modal', () => {
+      it('displays menu when menu button is clicked', () => {
         view.rerender(
           <FeatureTogglesContext.Provider value={{ SHOW_RESPONSIVE_HEADER: true }}>
             <ResponsiveContext.Provider value={'small'}>
@@ -40,9 +40,9 @@ describe('HeaderMenu component', () => {
 
         const button = view.getByRole('button', { name: 'Menu Button' })
 
-        expect(view.queryByRole('button', { name: 'Cadastre Aqui' })).toBeNull()
+        expect(view.queryByRole('menu')).toBeNull()
         fireEvent.click(button)
-        expect(view.getByRole('button', { name: 'Cadastre Aqui' })).toBeInTheDocument()
+        expect(view.getByRole('menu')).toBeInTheDocument()
       })
     })
   })
