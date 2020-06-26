@@ -1,7 +1,9 @@
 import React from 'react'
 import { ProviderCard } from './ProviderCard'
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import mockProviders from '../../mocks/providers'
+import { ResponsiveContext } from 'grommet'
+import 'jest-styled-components'
 
 describe('ProviderCard tests', () => {
   let view
@@ -77,5 +79,40 @@ describe('ProviderCard tests', () => {
     view.rerender(<ProviderCard provider={{ ...provider, videoCallAvailability: false }} />)
 
     expect(screen.queryByText(provider.videoCallPlatform)).toBeNull()
+  })
+
+  it('Component should render correctly', () => {
+    const { container } = view
+    expect(container).toMatchSnapshot()
+  })
+
+  describe('when mobile', () => {
+    it('Component should render correctly', () => {
+      view.rerender(
+        <ResponsiveContext.Provider value={'small'}>
+          <ProviderCard provider={provider} />
+        </ResponsiveContext.Provider>
+      )
+      const { container } = view
+      expect(container).toMatchSnapshot()
+    })
+
+    it('Should show and hide more info', () => {
+      view.rerender(
+        <ResponsiveContext.Provider value={'small'}>
+          <ProviderCard provider={provider} />
+        </ResponsiveContext.Provider>
+      )
+
+      expect(screen.getByText('Saiba Mais')).toBeInTheDocument()
+
+      const buttonSaibaMais = screen.getByRole('button')
+      fireEvent.click(buttonSaibaMais)
+      expect(screen.getByText('Fechar')).toBeInTheDocument()
+
+      const buttonFechar = screen.getByRole('button')
+      fireEvent.click(buttonFechar)
+      expect(screen.getByText('Saiba Mais')).toBeInTheDocument()
+    })
   })
 })
