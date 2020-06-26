@@ -8,16 +8,26 @@ import {
   ProviderVideoCallAvailabilityContainer,
   ProviderVideoCallAvailability,
   ProviderSpecialty,
+  ProviderCardWrapper,
 } from './ProviderCardStyles'
 import { IconText } from '../IconText'
-import { Card } from '../Card'
 import PropTypes from 'prop-types'
 import { CategoryBadge } from './CategoryBadge'
-import { Paragraph, Box } from 'grommet'
+import { Paragraph, Box, ResponsiveContext, Button, Collapsible, Text } from 'grommet'
+import { FormDown, FormUp } from 'grommet-icons'
 import { videoIcon, phoneIcon, emailIcon, addressIcon, healthInsuranceIcon } from '../../assets/icons'
 import { ResponsiveGrid } from '../ResponsiveGrid'
+import styled from 'styled-components'
 
 class ProviderCard extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      open: false,
+    }
+  }
+
   render() {
     const columns = {
       small: ['auto'],
@@ -54,6 +64,11 @@ class ProviderCard extends Component {
         { name: 'first', start: [0, 1], end: [0, 1] },
         { name: 'second', start: [1, 1], end: [1, 1] },
       ],
+    }
+
+    const colors = {
+      open: '#5A8DED',
+      close: '#FF7B7B',
     }
 
     const {
@@ -136,23 +151,93 @@ class ProviderCard extends Component {
       </SectionBlock>
     )
 
+    const renderMoreInfoBox = () => (
+      <>
+        {videoCallAvailability && renderCallPlatform()}
+        {renderHealthInsurance()}
+      </>
+    )
+
+    const ToggleButton = ({ className, label, Icon, color, onClick }) => (
+      <Button hoverIndicator="background" className={className} onClick={onClick}>
+        <Text size="small">
+          {label}
+          <Icon color={color} />
+        </Text>
+      </Button>
+    )
+
+    const ToggleButtonStyled = styled(ToggleButton)`
+      background-color: ${this.state.open ? '#ffe8e8' : '#c7ddfd'};
+      color: ${this.state.open ? colors.close : colors.open};
+      width: 100%;
+      height: 100%;
+      padding: 20px 0 20px 0;
+
+      & svg {
+        vertical-align: middle;
+      }
+    `
+
+    const H2 = styled.h2`
+      width: 100%;
+      background-color: ${this.state.open ? '#ffe8e8' : '#c7ddfd'};
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+    `
+
     return (
-      <Card className="providerCard" role="provider">
+      <ProviderCardWrapper className="providerCard" role="provider">
         <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
           <Box gridArea="header">
             {videoCallAvailability && renderProviderVideoCallAvailability()}
             <CategoryBadge category={category} />
           </Box>
-          <Box gridArea="first" className="providerCardColumn">
-            {renderDetailsInfo()}
-          </Box>
-          <Box gridArea="second" className="providerCardColumn">
-            {renderContactInfo()}
-            {videoCallAvailability && renderCallPlatform()}
-            {renderHealthInsurance()}
-          </Box>
+
+          <ResponsiveContext.Consumer>
+            {(responsive) =>
+              responsive === 'small' ? (
+                <Box gridArea="first" className="providerCardColumn">
+                  {renderDetailsInfo()}
+                  {renderContactInfo()}
+                  <Collapsible open={this.state.open} {...this.props}>
+                    {renderMoreInfoBox()}
+                  </Collapsible>
+                  <H2>
+                    {this.state.open ? (
+                      <ToggleButtonStyled
+                        Icon={FormUp}
+                        label="Fechar"
+                        color={colors.close}
+                        onClick={() => this.setState({ open: !this.state.open })}
+                      />
+                    ) : (
+                      <ToggleButtonStyled
+                        Icon={FormDown}
+                        label="Saiba Mais"
+                        color={colors.open}
+                        onClick={() => this.setState({ open: !this.state.open })}
+                      />
+                    )}
+                  </H2>
+                </Box>
+              ) : (
+                <>
+                  <Box gridArea="first" className="providerCardColumn">
+                    {renderDetailsInfo()}
+                  </Box>
+                  <Box gridArea="second" className="providerCardColumn">
+                    {renderContactInfo()}
+                    {renderMoreInfoBox()}
+                  </Box>
+                </>
+              )
+            }
+          </ResponsiveContext.Consumer>
         </ResponsiveGrid>
-      </Card>
+      </ProviderCardWrapper>
     )
   }
 }

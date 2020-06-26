@@ -1,5 +1,12 @@
 import styled from 'styled-components/macro'
 import { Box } from 'grommet'
+import { Card } from '../Card'
+
+const ProviderCardWrapper = styled(Card)`
+  @media (max-width: 800px) {
+    padding-bottom: 10em;
+  }
+`
 
 const ProviderSpecialty = styled.p`
   color: #0f1423;
@@ -38,6 +45,7 @@ const SectionBlock = styled.div`
   border-bottom: #f5f5f5 1.5px solid;
   padding-bottom: 2em;
   margin-bottom: 2em;
+
   font-size: 1.4em;
 
   &:last-child {
@@ -46,12 +54,14 @@ const SectionBlock = styled.div`
     margin-bottom: 0;
   }
 
-  @media (max-width: 700px) {
-    &:first-child {
-      border-top: #f5f5f5 1.5px solid;
-      padding-top: 2em;
-      margin-top: 2em;
-    }
+  @media (max-width: 800px) {
+    border-top: rgba(15, 20, 35, 0.2) 1.4px dashed;
+    padding-top: 1em;
+    margin-top: 2em;
+
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 `
 
@@ -80,7 +90,10 @@ const ExerienceText = styled.p`
   line-height: 1.5em;
   color: #0f1423;
   opacity: 0.57;
-  margin-bottom: 1.5em;
+
+  @media (min-width: 801px) {
+    margin-bottom: 1.5em;
+  }
 `
 
 export {
@@ -92,4 +105,5 @@ export {
   ProviderVideoCallAvailabilityContainer,
   ProviderVideoCallAvailability,
   ProviderSpecialty,
+  ProviderCardWrapper,
 }
