@@ -6,9 +6,12 @@ import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg'
 import { closeIcon } from '../../../assets/icons'
 
 const StyledButton = styled(PrimaryButton)`
-  color: #5996f7;
   border-radius: 20px 20px 20px 0;
   background-color: white;
+  a {
+    color: #5996f7;
+    text-decoration: none;
+  }
 `
 
 const MainMenuModal = styled(Layer)`
@@ -61,9 +64,12 @@ class HeaderMobile extends PureComponent {
           </Header>
           <Footer>
             <h2>É profissional de saúde ou conhece alguém da área?</h2>
-            <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
-              <StyledButton>Cadastre-se aqui</StyledButton>
-            </a>
+
+            <StyledButton>
+              <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
+                Cadastre-se aqui
+              </a>
+            </StyledButton>
           </Footer>
         </Wrapper>
       </MainMenuModal>

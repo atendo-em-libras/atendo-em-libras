@@ -6,5 +6,16 @@ import healthInsuranceIcon from './ic_card.svg'
 import refreshIcon from './ic_refresh.svg'
 import warningIcon from './warning.svg'
 import closeIcon from './ic_close.svg'
+import mobileHamburgerIcon from './ic_menu.svg'
 
-export { videoIcon, phoneIcon, emailIcon, addressIcon, healthInsuranceIcon, refreshIcon, warningIcon, closeIcon }
+export {
+  videoIcon,
+  phoneIcon,
+  emailIcon,
+  addressIcon,
+  healthInsuranceIcon,
+  refreshIcon,
+  warningIcon,
+  closeIcon,
+  mobileHamburgerIcon,
+}
