@@ -19,7 +19,11 @@ describe('HeaderMobile component', () => {
     expect(onClose).toHaveBeenCalled()
   })
 
-  it('should redirect to form when register button is clicked', () => {})
+  // it('should redirect to form when register button is clicked', () => {
+  //   const registerLink = view.getByText('Cadastre-se aqui')
+
+  //   expect(registerLink.href).toBe('https://forms.gle/h1sX9nD45PgUAzGB6')
+  // })
 
   //   it('Render correctly', () => {
   //     const { container } = render(<HeaderMobile />)

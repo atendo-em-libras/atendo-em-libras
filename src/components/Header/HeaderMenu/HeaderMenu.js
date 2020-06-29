@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 import { Container } from '../../Container'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg'
 
-import { videoIcon } from '../../../assets/icons'
+import { mobileHamburgerIcon } from '../../../assets/icons'
 import { PrimaryButton, IconButton } from '../../Buttons'
 import { ResponsiveContext } from 'grommet'
 import { HeaderMobile } from '../HeaderMobile/HeaderMobile'
@@ -40,7 +40,7 @@ class HeaderMenu extends PureComponent {
         this.setState({ showModal: true })
       }}
     >
-      <img src={videoIcon} alt="Menu Icon" width="36px" height="36px" />
+      <img src={mobileHamburgerIcon} alt="Menu Icon" />
     </IconButton>
   )
 
@@ -80,7 +80,7 @@ const Logo = styled.img`
 const StyledHeaderMenu = styled(HeaderMenu)`
   width: 100%;
   height: auto;
-  margin-top: 2.5vh;
+  margin-top: 3.6rem;
   box-sizing: border-box;
   display: flex;
   flex-flow: row;
