@@ -67,8 +67,14 @@ class ProviderCard extends Component {
     }
 
     const colors = {
-      open: '#5A8DED',
-      close: '#FF7B7B',
+      open: {
+        font: '#5A8DED',
+        background: '#C7DDFD',
+      },
+      close: {
+        font: '#FF7B7B',
+        background: '#FFE8E8',
+      },
     }
 
     const {
@@ -158,18 +164,24 @@ class ProviderCard extends Component {
       </>
     )
 
-    const ToggleButton = ({ className, label, Icon, color, onClick }) => (
-      <Button hoverIndicator="background" className={className} onClick={onClick}>
-        <Text size="small">
-          {label}
-          <Icon color={color} />
-        </Text>
-      </Button>
-    )
+    const ToggleButton = ({ isOpen, labelClose, labelOpen, iconClose, iconOpen, className, onClick }) => {
+      const Icon = isOpen ? iconClose : iconOpen
+
+      return (
+        <H2>
+          <Button hoverIndicator="background" className={className} onClick={onClick}>
+            <Text size="small">
+              {isOpen ? labelClose : labelOpen}
+              <Icon color={isOpen ? colors.close.font : colors.open.font} />
+            </Text>
+          </Button>
+        </H2>
+      )
+    }
 
     const ToggleButtonStyled = styled(ToggleButton)`
-      background-color: ${this.state.open ? '#ffe8e8' : '#c7ddfd'};
-      color: ${this.state.open ? colors.close : colors.open};
+      background-color: ${(props) => (props.isOpen ? colors.close.background : colors.open.background)};
+      color: ${(props) => (props.isOpen ? colors.close.font : colors.open.font)};
       width: 100%;
       height: 100%;
       padding: 20px 0 20px 0;
@@ -181,7 +193,7 @@ class ProviderCard extends Component {
 
     const H2 = styled.h2`
       width: 100%;
-      background-color: ${this.state.open ? '#ffe8e8' : '#c7ddfd'};
+      background-color: ${(props) => (props.isOpen ? colors.close.background : colors.open.background)};
       position: absolute;
       bottom: 0;
       left: 0;
@@ -205,23 +217,14 @@ class ProviderCard extends Component {
                   <Collapsible open={this.state.open} {...this.props}>
                     {renderMoreInfoBox()}
                   </Collapsible>
-                  <H2>
-                    {this.state.open ? (
-                      <ToggleButtonStyled
-                        Icon={FormUp}
-                        label="Fechar"
-                        color={colors.close}
-                        onClick={() => this.setState({ open: !this.state.open })}
-                      />
-                    ) : (
-                      <ToggleButtonStyled
-                        Icon={FormDown}
-                        label="Saiba Mais"
-                        color={colors.open}
-                        onClick={() => this.setState({ open: !this.state.open })}
-                      />
-                    )}
-                  </H2>
+                  <ToggleButtonStyled
+                    isOpen={this.state.open}
+                    labelClose="Fechar"
+                    labelOpen="Saiba Mais"
+                    iconClose={FormUp}
+                    iconOpen={FormDown}
+                    onClick={() => this.setState({ open: !this.state.open })}
+                  />
                 </Box>
               ) : (
                 <>
