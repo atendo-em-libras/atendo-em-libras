@@ -7,18 +7,45 @@ import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 describe('HeaderMenu component', () => {
   let view
 
-  describe('when feature toggle SHOW_RESPONSIVE_HEADER is true', () => {
-    beforeEach(() => {
-      view = render(<HeaderMenu />)
+  describe('when view is desktop', () => {
+    describe('when feature toggle SHOW_RESPONSIVE_HEADER is true', () => {
+      it('should render register message', () => {
+        view = render(
+          <FeatureTogglesContext.Provider value={{ SHOW_RESPONSIVE_HEADER: true }}>
+            <HeaderMenu />
+          </FeatureTogglesContext.Provider>
+        )
+        expect(view.getByText('É profissional de saúde ou conhece alguém da área?')).toBeInTheDocument()
+      })
     })
-
-    it('should render register message', () => {
-      expect(view.getByText('É profissional de saúde ou conhece alguém da área?')).toBeInTheDocument()
+    describe('when feature toggle SHOW_RESPONSIVE_HEADER is false', () => {
+      it('should render register message', () => {
+        view = render(
+          <FeatureTogglesContext.Provider value={{ SHOW_RESPONSIVE_HEADER: false }}>
+            <HeaderMenu />
+          </FeatureTogglesContext.Provider>
+        )
+        expect(view.getByText('É profissional de saúde ou conhece alguém da área?')).toBeInTheDocument()
+      })
     })
+  })
 
-    describe('when mobile', () => {
+  describe('when view is mobile', () => {
+    describe('when feature toggle SHOW_RESPONSIVE_HEADER is false', () => {
+      it('should render register message', () => {
+        view = render(
+          <FeatureTogglesContext.Provider value={{ SHOW_RESPONSIVE_HEADER: false }}>
+            <ResponsiveContext.Provider value={'small'}>
+              <HeaderMenu />
+            </ResponsiveContext.Provider>
+          </FeatureTogglesContext.Provider>
+        )
+        expect(view.getByText('É profissional de saúde ou conhece alguém da área?')).toBeInTheDocument()
+      })
+    })
+    describe('when feature toggle SHOW_RESPONSIVE_HEADER is true', () => {
       it('displays a hamburger icon for main menu', () => {
-        view.rerender(
+        let view = render(
           <FeatureTogglesContext.Provider value={{ SHOW_RESPONSIVE_HEADER: true }}>
             <ResponsiveContext.Provider value={'small'}>
               <HeaderMenu />
@@ -30,7 +57,7 @@ describe('HeaderMenu component', () => {
       })
 
       it('displays menu when menu button is clicked', () => {
-        view.rerender(
+        let view = render(
           <FeatureTogglesContext.Provider value={{ SHOW_RESPONSIVE_HEADER: true }}>
             <ResponsiveContext.Provider value={'small'}>
               <HeaderMenu />
@@ -44,16 +71,6 @@ describe('HeaderMenu component', () => {
         fireEvent.click(button)
         expect(view.getByRole('menu')).toBeInTheDocument()
       })
-    })
-  })
-
-  describe('when feature toggle SHOW_RESPONSIVE_HEADER is false', () => {
-    beforeEach(() => {
-      view = render(<HeaderMenu />)
-    })
-
-    it('should render register message', () => {
-      expect(view.getByText('É profissional de saúde ou conhece alguém da área?')).toBeInTheDocument()
     })
   })
 })

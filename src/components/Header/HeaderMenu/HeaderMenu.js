@@ -24,27 +24,27 @@ class HeaderMenu extends PureComponent {
     this.setState({ showModal: false })
   }
 
+  mainMenuDesktopButton = () => (
+    <Fragment>
+      <h2>É profissional de saúde ou conhece alguém da área?</h2>
+      <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
+        <StyledButton>Cadastre Aqui</StyledButton>
+      </a>
+    </Fragment>
+  )
+
+  mainMenuMobileButton = () => (
+    <IconButton
+      aria-label="Menu Button"
+      onClick={() => {
+        this.setState({ showModal: true })
+      }}
+    >
+      <img src={videoIcon} alt="Menu Icon" width="36px" height="36px" />
+    </IconButton>
+  )
+
   render = () => {
-    const mainMenuDesktopButton = () => (
-      <Fragment>
-        <h2>É profissional de saúde ou conhece alguém da área?</h2>
-        <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
-          <StyledButton>Cadastre Aqui</StyledButton>
-        </a>
-      </Fragment>
-    )
-
-    const mainMenuMobileButton = () => (
-      <IconButton
-        aria-label="Menu Button"
-        onClick={() => {
-          this.setState({ showModal: true })
-        }}
-      >
-        <img src={videoIcon} alt="Menu Icon" width="36px" height="36px" />
-      </IconButton>
-    )
-
     return this.state.showModal ? (
       <HeaderMobile onClose={this.onCloseHeaderMobile} />
     ) : (
@@ -55,10 +55,12 @@ class HeaderMenu extends PureComponent {
             {(toggles) =>
               toggles.SHOW_RESPONSIVE_HEADER ? (
                 <ResponsiveContext.Consumer>
-                  {(responsive) => (responsive === 'small' ? mainMenuMobileButton() : mainMenuDesktopButton())}
+                  {(responsive) =>
+                    responsive === 'small' ? this.mainMenuMobileButton() : this.mainMenuDesktopButton()
+                  }
                 </ResponsiveContext.Consumer>
               ) : (
-                mainMenuDesktopButton()
+                this.mainMenuDesktopButton()
               )
             }
           </FeatureTogglesContext.Consumer>
