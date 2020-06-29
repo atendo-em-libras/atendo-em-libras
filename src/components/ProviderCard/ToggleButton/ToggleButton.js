@@ -26,14 +26,18 @@ class ToggleButton extends Component {
 
     const { isOpen, labelClose, labelOpen, iconClose, iconOpen, className, onClick } = this.props
 
-    const Icon = isOpen ? iconClose : iconOpen
+    const info = isOpen
+      ? { label: labelClose, icon: iconClose, font: colors.close.font }
+      : { label: labelOpen, icon: iconOpen, font: colors.open.font }
+
+    const Icon = info.icon
 
     return (
       <H2>
         <Button hoverIndicator="background" className={className} onClick={onClick}>
           <Text size="small">
-            {isOpen ? labelClose : labelOpen}
-            <Icon color={isOpen ? colors.close.font : colors.open.font} />
+            {info.label}
+            <Icon color={info.font} />
           </Text>
         </Button>
       </H2>
