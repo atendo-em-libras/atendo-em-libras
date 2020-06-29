@@ -13,11 +13,11 @@ import {
 import { IconText } from '../IconText'
 import PropTypes from 'prop-types'
 import { CategoryBadge } from './CategoryBadge'
-import { Paragraph, Box, ResponsiveContext, Button, Collapsible, Text } from 'grommet'
+import { Paragraph, Box, ResponsiveContext, Collapsible } from 'grommet'
 import { FormDown, FormUp } from 'grommet-icons'
 import { videoIcon, phoneIcon, emailIcon, addressIcon, healthInsuranceIcon } from '../../assets/icons'
 import { ResponsiveGrid } from '../ResponsiveGrid'
-import styled from 'styled-components'
+import { ToggleButton } from './ToggleButton'
 
 class ProviderCard extends Component {
   constructor(props) {
@@ -66,17 +66,6 @@ class ProviderCard extends Component {
       ],
     }
 
-    const colors = {
-      open: {
-        font: '#5A8DED',
-        background: '#C7DDFD',
-      },
-      close: {
-        font: '#FF7B7B',
-        background: '#FFE8E8',
-      },
-    }
-
     const {
       name,
       category,
@@ -93,7 +82,7 @@ class ProviderCard extends Component {
       address,
     } = this.props.provider
 
-    const renderProviderVideoCallAvailability = () => (
+    const ProviderVideoCallAvailabilityLabel = () => (
       <ProviderVideoCallAvailabilityContainer>
         <ProviderVideoCallAvailability role="note">
           <IconText src={videoIcon} alt="video icon" />
@@ -102,7 +91,7 @@ class ProviderCard extends Component {
       </ProviderVideoCallAvailabilityContainer>
     )
 
-    const renderDetailsInfo = () => (
+    const DetailsInfo = () => (
       <>
         <ProviderName>{name}</ProviderName>
         <ProviderSpecialty>{specialty}</ProviderSpecialty>
@@ -123,7 +112,7 @@ class ProviderCard extends Component {
       </>
     )
 
-    const renderContactInfo = () => (
+    const ContactInfo = () => (
       <SectionBlock>
         <SectionTitle>Contato</SectionTitle>
         <p>
@@ -137,7 +126,7 @@ class ProviderCard extends Component {
       </SectionBlock>
     )
 
-    const renderCallPlatform = () => (
+    const CallPlatform = () => (
       <SectionBlock>
         <SectionTitle>Atendimento online</SectionTitle>
         <p>
@@ -147,7 +136,7 @@ class ProviderCard extends Component {
       </SectionBlock>
     )
 
-    const renderHealthInsurance = () => (
+    const HealthInsurance = () => (
       <SectionBlock>
         <SectionTitle>Planos de saúde</SectionTitle>
         <p>
@@ -157,54 +146,18 @@ class ProviderCard extends Component {
       </SectionBlock>
     )
 
-    const renderMoreInfoBox = () => (
+    const MoreInfoBox = () => (
       <>
-        {videoCallAvailability && renderCallPlatform()}
-        {renderHealthInsurance()}
+        {videoCallAvailability && <CallPlatform />}
+        <HealthInsurance />
       </>
     )
-
-    const ToggleButton = ({ isOpen, labelClose, labelOpen, iconClose, iconOpen, className, onClick }) => {
-      const Icon = isOpen ? iconClose : iconOpen
-
-      return (
-        <H2>
-          <Button hoverIndicator="background" className={className} onClick={onClick}>
-            <Text size="small">
-              {isOpen ? labelClose : labelOpen}
-              <Icon color={isOpen ? colors.close.font : colors.open.font} />
-            </Text>
-          </Button>
-        </H2>
-      )
-    }
-
-    const ToggleButtonStyled = styled(ToggleButton)`
-      background-color: ${(props) => (props.isOpen ? colors.close.background : colors.open.background)};
-      color: ${(props) => (props.isOpen ? colors.close.font : colors.open.font)};
-      width: 100%;
-      height: 100%;
-      padding: 20px 0 20px 0;
-
-      & svg {
-        vertical-align: middle;
-      }
-    `
-
-    const H2 = styled.h2`
-      width: 100%;
-      background-color: ${(props) => (props.isOpen ? colors.close.background : colors.open.background)};
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      text-align: center;
-    `
 
     return (
       <ProviderCardWrapper className="providerCard" role="provider">
         <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
           <Box gridArea="header">
-            {videoCallAvailability && renderProviderVideoCallAvailability()}
+            {videoCallAvailability && <ProviderVideoCallAvailabilityLabel />}
             <CategoryBadge category={category} />
           </Box>
 
@@ -212,12 +165,12 @@ class ProviderCard extends Component {
             {(responsive) =>
               responsive === 'small' ? (
                 <Box gridArea="first" className="providerCardColumn">
-                  {renderDetailsInfo()}
-                  {renderContactInfo()}
+                  <DetailsInfo />
+                  <ContactInfo />
                   <Collapsible open={this.state.open} {...this.props}>
-                    {renderMoreInfoBox()}
+                    <MoreInfoBox />
                   </Collapsible>
-                  <ToggleButtonStyled
+                  <ToggleButton
                     isOpen={this.state.open}
                     labelClose="Fechar"
                     labelOpen="Saiba Mais"
@@ -229,11 +182,11 @@ class ProviderCard extends Component {
               ) : (
                 <>
                   <Box gridArea="first" className="providerCardColumn">
-                    {renderDetailsInfo()}
+                    <DetailsInfo />
                   </Box>
                   <Box gridArea="second" className="providerCardColumn">
-                    {renderContactInfo()}
-                    {renderMoreInfoBox()}
+                    <ContactInfo />
+                    <MoreInfoBox />
                   </Box>
                 </>
               )
