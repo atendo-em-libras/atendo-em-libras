@@ -8,7 +8,7 @@ async function getSpreadSheetResource(spreadSheetKey, sheetName) {
 }
 
 export async function getServiceProviders() {
-  const professionalsSpreadSheetKey = process.env.REACT_APP_PROFESSIONAL_SPREADSHEET_KEY
+  const professionalsSpreadSheetKey = process.env.REACT_APP_PROFESSIONAL_SPREADSHEET_KEY_TESTE
   const professionalsSheetName = process.env.REACT_APP_PROFESSIONAL_SHEET_NAME
   try {
     return await getSpreadSheetResource(professionalsSpreadSheetKey, professionalsSheetName)
