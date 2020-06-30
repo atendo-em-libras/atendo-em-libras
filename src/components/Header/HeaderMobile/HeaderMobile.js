@@ -50,11 +50,21 @@ const Footer = styled.div`
   }
 `
 class HeaderMobile extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.myRef = React.createRef()
+  }
+
+  componentWillUnmount() {
+    const node = this.myRef.current
+    node.parentNode.removeChild(node)
+  }
+
   render = () => {
     const { onClose } = this.props
 
     return (
-      <MainMenuModal modal plain full>
+      <MainMenuModal ref={this.myRef} modal plain full>
         <Wrapper role="menu">
           <Header>
             <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />

@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderMobile component Render correctly 1`] = `
+<body
+  style=""
+>
+  <div
+    aria-hidden="false"
+  />
+  <div
+    aria-hidden="false"
+    id="layerClone"
+  >
+    <div
+      aria-hidden="false"
+    >
+      <div
+        class="StyledLayer-rmtehz-0 XIVyE"
+        tabindex="-1"
+      >
+        <div
+          class="StyledLayer__StyledOverlay-rmtehz-1 iYoWaV"
+        />
+      </div>
+    </div>
+  </div>
+  <div />
+  <div
+    aria-hidden="false"
+    id="layerClone"
+  >
+    <div
+      aria-hidden="false"
+    >
+      <div
+        class="StyledLayer-rmtehz-0 XIVyE"
+        tabindex="-1"
+      >
+        <div
+          class="StyledLayer__StyledOverlay-rmtehz-1 iYoWaV"
+        />
+      </div>
+    </div>
+  </div>
+  <div />
+  <div>
+    <div
+      aria-hidden="false"
+    >
+      <div
+        class="StyledLayer-rmtehz-0 XIVyE"
+        tabindex="-1"
+      >
+        <div
+          class="StyledLayer__StyledOverlay-rmtehz-1 iYoWaV"
+        />
+        <div
+          class="StyledLayer__StyledContainer-rmtehz-2 XzyFh sc-AxirZ gSTnQM"
+        >
+          <a
+            aria-hidden="true"
+            class="LayerContainer__HiddenAnchor-sc-1srj14c-0 jJnknU"
+            tabindex="-1"
+          />
+          <div
+            class="sc-AxhCb ELOvK"
+            role="menu"
+          >
+            <div
+              class="sc-AxhUy jLBNZr"
+            >
+              <img
+                alt="Logo projeto Atendo em Libras"
+                class="sc-AxiKw gumsuF"
+                src="img_atendo_em_libras_logo_white.svg"
+              />
+              <button
+                aria-label="Close Menu Button"
+                class="Buttons__Button-nr8h4a-0 Buttons__IconButton-nr8h4a-2 kTnqFQ"
+              >
+                <img
+                  alt="Close Icon"
+                  height="18px"
+                  src="ic_close.svg"
+                  width="18px"
+                />
+              </button>
+            </div>
+            <div
+              class="sc-AxgMl bvrjqM"
+            >
+              <h2>
+                É profissional de saúde ou conhece alguém da área?
+              </h2>
+              <button
+                class="Buttons__Button-nr8h4a-0 Buttons__PrimaryButton-nr8h4a-1 sc-AxjAm hzymyX"
+              >
+                <a
+                  href="https://forms.gle/h1sX9nD45PgUAzGB6"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Cadastre-se aqui
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
