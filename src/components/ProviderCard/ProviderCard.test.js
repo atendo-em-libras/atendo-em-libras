@@ -59,6 +59,14 @@ describe('ProviderCard tests', () => {
     expect(screen.getByText(`${provider.city} - ${provider.state}`)).toBeInTheDocument()
   })
 
+  it('Component should render only state when city is not informed', () => {
+    provider.city = ''
+
+    view.rerender(<ProviderCard provider={provider} />)
+
+    expect(screen.getByText(`${provider.state}`)).toBeInTheDocument()
+  })
+
   it('Component should render address', () => {
     expect(screen.getByText(provider.address)).toBeInTheDocument()
   })
