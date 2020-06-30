@@ -315,7 +315,8 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
               class="c6"
               src="ic_pin.svg"
             />
-            Uberlândia - Minas Gerais (MG)
+            
+            Minas Gerais (MG)
           </p>
           <p
             class="c15"
@@ -792,7 +793,8 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
               class="c6"
               src="ic_pin.svg"
             />
-            Uberlândia - Minas Gerais (MG)
+            
+            Minas Gerais (MG)
           </p>
           <p
             class="c15"

@@ -101,10 +101,11 @@ class ProviderCard extends Component {
         </License>
         {experience && <ExerienceText size="small">{experience}</ExerienceText>}
         <SectionBlock>
-          {city && state && (
+          {state && (
             <SectionTitle>
               <IconText src={addressIcon} alt="address icon" />
-              {`${city} - ${state}`}
+              {city && `${city} - `}
+              {`${state}`}
             </SectionTitle>
           )}
           <Paragraph size="small">{address}</Paragraph>
