@@ -1,6 +1,194 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HeaderMobile component Render correctly 1`] = `
+.c8 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #5996f7;
+}
+
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+  outline: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.c1 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  pointer-events: all;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 48px;
+  outline: none;
+  pointer-events: all;
+  z-index: 15;
+  position: absolute;
+  max-height: calc(100% - 0px - 0px);
+  max-width: calc(100% - 0px - 0px);
+  border-radius: 0;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  -webkit-animation: gVgDGd 0.2s ease-in-out forwards;
+  animation: gVgDGd 0.2s ease-in-out forwards;
+}
+
+.c4 {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.c10 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 20px;
+  background-color: #5996f7;
+  border-radius: 17px;
+  border: 0;
+  color: white;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 20px 20px 20px 0;
+  background-color: white;
+}
+
+.c10:hover {
+  background-color: #96bfff;
+}
+
+.c10:focus {
+  outline: none;
+  outline-offset: 0;
+}
+
+.c10 a {
+  color: #5996f7;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3 {
+  background-color: #5996f7;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c9 h2 {
+  width: 80%;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.6em;
+  margin-bottom: 21px;
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    position: relative;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c2 {
+    position: relative;
+    max-height: none;
+    max-width: none;
+    border-radius: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    -webkit-animation: none;
+    animation: none;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+@media (max-width:800px) {
+  .c7 {
+    height: auto;
+    width: 40%;
+  }
+}
+
 <body
   style=""
 >
@@ -15,11 +203,11 @@ exports[`HeaderMobile component Render correctly 1`] = `
       aria-hidden="false"
     >
       <div
-        class="StyledLayer-rmtehz-0 XIVyE"
+        class="c0"
         tabindex="-1"
       >
         <div
-          class="StyledLayer__StyledOverlay-rmtehz-1 iYoWaV"
+          class="c1"
         />
       </div>
     </div>
@@ -33,11 +221,11 @@ exports[`HeaderMobile component Render correctly 1`] = `
       aria-hidden="false"
     >
       <div
-        class="StyledLayer-rmtehz-0 XIVyE"
+        class="c0"
         tabindex="-1"
       >
         <div
-          class="StyledLayer__StyledOverlay-rmtehz-1 iYoWaV"
+          class="c1"
         />
       </div>
     </div>
@@ -48,35 +236,35 @@ exports[`HeaderMobile component Render correctly 1`] = `
       aria-hidden="false"
     >
       <div
-        class="StyledLayer-rmtehz-0 XIVyE"
+        class="c0"
         tabindex="-1"
       >
         <div
-          class="StyledLayer__StyledOverlay-rmtehz-1 iYoWaV"
+          class="c1"
         />
         <div
-          class="StyledLayer__StyledContainer-rmtehz-2 XzyFh sc-AxirZ gSTnQM"
+          class="c2 c3"
         >
           <a
             aria-hidden="true"
-            class="LayerContainer__HiddenAnchor-sc-1srj14c-0 jJnknU"
+            class="c4"
             tabindex="-1"
           />
           <div
-            class="sc-AxhCb ELOvK"
+            class="c5"
             role="menu"
           >
             <div
-              class="sc-AxhUy jLBNZr"
+              class="c6"
             >
               <img
                 alt="Logo projeto Atendo em Libras"
-                class="sc-AxiKw gumsuF"
+                class="c7"
                 src="img_atendo_em_libras_logo_white.svg"
               />
               <button
                 aria-label="Close Menu Button"
-                class="Buttons__Button-nr8h4a-0 Buttons__IconButton-nr8h4a-2 kTnqFQ"
+                class="Buttons__Button-nr8h4a-0 c8"
               >
                 <img
                   alt="Close Icon"
@@ -87,13 +275,13 @@ exports[`HeaderMobile component Render correctly 1`] = `
               </button>
             </div>
             <div
-              class="sc-AxgMl bvrjqM"
+              class="c9"
             >
               <h2>
                 É profissional de saúde ou conhece alguém da área?
               </h2>
               <button
-                class="Buttons__Button-nr8h4a-0 Buttons__PrimaryButton-nr8h4a-1 sc-AxjAm hzymyX"
+                class="Buttons__Button-nr8h4a-0 Buttons__PrimaryButton-nr8h4a-1 c10"
               >
                 <a
                   href="https://forms.gle/h1sX9nD45PgUAzGB6"

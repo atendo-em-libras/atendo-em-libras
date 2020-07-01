@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { HeaderMobile } from './HeaderMobile'
+import 'jest-styled-components'
 
 describe('HeaderMobile component', () => {
   let view
