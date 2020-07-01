@@ -8,16 +8,26 @@ import {
   ProviderVideoCallAvailabilityContainer,
   ProviderVideoCallAvailability,
   ProviderSpecialty,
+  ProviderCardWrapper,
 } from './ProviderCardStyles'
 import { IconText } from '../IconText'
-import { Card } from '../Card'
 import PropTypes from 'prop-types'
 import { CategoryBadge } from './CategoryBadge'
-import { Paragraph, Box } from 'grommet'
+import { Paragraph, Box, ResponsiveContext, Collapsible } from 'grommet'
+import { FormDown, FormUp } from 'grommet-icons'
 import { videoIcon, phoneIcon, emailIcon, addressIcon, healthInsuranceIcon } from '../../assets/icons'
 import { ResponsiveGrid } from '../ResponsiveGrid'
+import { ToggleButton } from './ToggleButton'
 
 class ProviderCard extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      open: false,
+    }
+  }
+
   render() {
     const columns = {
       small: ['auto'],
@@ -72,7 +82,7 @@ class ProviderCard extends Component {
       address,
     } = this.props.provider
 
-    const renderProviderVideoCallAvailability = () => (
+    const ProviderVideoCallAvailabilityLabel = () => (
       <ProviderVideoCallAvailabilityContainer>
         <ProviderVideoCallAvailability role="note">
           <IconText src={videoIcon} alt="video icon" />
@@ -81,7 +91,7 @@ class ProviderCard extends Component {
       </ProviderVideoCallAvailabilityContainer>
     )
 
-    const renderDetailsInfo = () => (
+    const DetailsInfo = () => (
       <>
         <ProviderName>{name}</ProviderName>
         <ProviderSpecialty>{specialty}</ProviderSpecialty>
@@ -91,10 +101,11 @@ class ProviderCard extends Component {
         </License>
         {experience && <ExerienceText size="small">{experience}</ExerienceText>}
         <SectionBlock>
-          {city && state && (
+          {state && (
             <SectionTitle>
               <IconText src={addressIcon} alt="address icon" />
-              {`${city} - ${state}`}
+              {city && `${city} - `}
+              {`${state}`}
             </SectionTitle>
           )}
           <Paragraph size="small">{address}</Paragraph>
@@ -102,7 +113,7 @@ class ProviderCard extends Component {
       </>
     )
 
-    const renderContactInfo = () => (
+    const ContactInfo = () => (
       <SectionBlock>
         <SectionTitle>Contato</SectionTitle>
         <p>
@@ -116,7 +127,7 @@ class ProviderCard extends Component {
       </SectionBlock>
     )
 
-    const renderCallPlatform = () => (
+    const CallPlatform = () => (
       <SectionBlock>
         <SectionTitle>Atendimento online</SectionTitle>
         <p>
@@ -126,7 +137,7 @@ class ProviderCard extends Component {
       </SectionBlock>
     )
 
-    const renderHealthInsurance = () => (
+    const HealthInsurance = () => (
       <SectionBlock>
         <SectionTitle>Planos de saúde</SectionTitle>
         <p>
@@ -136,23 +147,54 @@ class ProviderCard extends Component {
       </SectionBlock>
     )
 
+    const MoreInfoBox = () => (
+      <>
+        {videoCallAvailability && <CallPlatform />}
+        <HealthInsurance />
+      </>
+    )
+
     return (
-      <Card className="providerCard" role="provider">
+      <ProviderCardWrapper className="providerCard" role="provider">
         <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
           <Box gridArea="header">
-            {videoCallAvailability && renderProviderVideoCallAvailability()}
+            {videoCallAvailability && <ProviderVideoCallAvailabilityLabel />}
             <CategoryBadge category={category} />
           </Box>
-          <Box gridArea="first" className="providerCardColumn">
-            {renderDetailsInfo()}
-          </Box>
-          <Box gridArea="second" className="providerCardColumn">
-            {renderContactInfo()}
-            {videoCallAvailability && renderCallPlatform()}
-            {renderHealthInsurance()}
-          </Box>
+
+          <ResponsiveContext.Consumer>
+            {(responsive) =>
+              responsive === 'small' ? (
+                <Box gridArea="first" className="providerCardColumn">
+                  <DetailsInfo />
+                  <ContactInfo />
+                  <Collapsible open={this.state.open} {...this.props}>
+                    <MoreInfoBox />
+                  </Collapsible>
+                  <ToggleButton
+                    isOpen={this.state.open}
+                    labelClose="Fechar"
+                    labelOpen="Saiba Mais"
+                    iconClose={FormUp}
+                    iconOpen={FormDown}
+                    onClick={() => this.setState({ open: !this.state.open })}
+                  />
+                </Box>
+              ) : (
+                <>
+                  <Box gridArea="first" className="providerCardColumn">
+                    <DetailsInfo />
+                  </Box>
+                  <Box gridArea="second" className="providerCardColumn">
+                    <ContactInfo />
+                    <MoreInfoBox />
+                  </Box>
+                </>
+              )
+            }
+          </ResponsiveContext.Consumer>
         </ResponsiveGrid>
-      </Card>
+      </ProviderCardWrapper>
     )
   }
 }
