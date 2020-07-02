@@ -6,7 +6,6 @@ import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg'
 import { closeIcon } from '../../../assets/icons'
 
 const StyledButton = styled(PrimaryButton)`
-  color: #5996f7;
   border-radius: 20px 20px 20px 0;
   background-color: white;
   a {
