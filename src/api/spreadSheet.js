@@ -4,7 +4,6 @@ import axios from 'axios'
 async function getSpreadSheetResource(spreadSheetKey, sheetName) {
   const spreadSheetUrl = `https://docs.google.com/spreadsheets/d/${spreadSheetKey}/gviz/tq?tqx=out:csv&sheet=${sheetName}`
   const result = await axios.get(spreadSheetUrl)
-  const test = 'test'
   return toJson().fromString(result.data)
 }
 
