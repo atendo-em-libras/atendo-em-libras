@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import { PrimaryButton, IconButton } from '../../Buttons'
 import { Layer } from 'grommet'
-import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg'
+import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
 import { closeIcon } from '../../../assets/icons'
 
 const StyledButton = styled(PrimaryButton)`
