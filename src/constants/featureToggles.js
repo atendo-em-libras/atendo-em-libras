@@ -1,5 +1,5 @@
 const toggles = {
-  SHOW_RESPONSIVE_HEADER: false,
+  SHOW_RESPONSIVE_HEADER: true,
 }
 
 export { toggles }
