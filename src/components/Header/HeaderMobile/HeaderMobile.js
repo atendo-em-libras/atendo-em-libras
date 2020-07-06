@@ -19,10 +19,8 @@ const MainMenuModal = styled(Layer)`
 `
 
 const Logo = styled.img`
-  @media (max-width: 800px) {
-    height: auto;
-    width: 40%;
-  }
+  height: auto;
+  width: 100px;
 `
 
 const Wrapper = styled.div`

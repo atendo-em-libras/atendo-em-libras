@@ -105,6 +105,11 @@ exports[`HeaderMobile component Render correctly 1`] = `
   background-color: #5996f7;
 }
 
+.c7 {
+  height: auto;
+  width: 100px;
+}
+
 .c5 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -179,13 +184,6 @@ exports[`HeaderMobile component Render correctly 1`] = `
     animation: none;
     height: 100vh;
     width: 100vw;
-  }
-}
-
-@media (max-width:800px) {
-  .c7 {
-    height: auto;
-    width: 40%;
   }
 }
 
