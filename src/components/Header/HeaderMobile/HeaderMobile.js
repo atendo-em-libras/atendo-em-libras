@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import { PrimaryButton, IconButton } from '../../Buttons'
 import { Layer } from 'grommet'
-import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg'
+import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
 import { closeIcon } from '../../../assets/icons'
 
 const StyledButton = styled(PrimaryButton)`
@@ -19,10 +19,8 @@ const MainMenuModal = styled(Layer)`
 `
 
 const Logo = styled.img`
-  @media (max-width: 800px) {
-    height: auto;
-    width: 40%;
-  }
+  height: auto;
+  width: 100px;
 `
 
 const Wrapper = styled.div`

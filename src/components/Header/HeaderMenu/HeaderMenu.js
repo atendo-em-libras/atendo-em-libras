@@ -73,7 +73,7 @@ class HeaderMenu extends PureComponent {
 const Logo = styled.img`
   @media (max-width: 800px) {
     height: auto;
-    width: 40%;
+    width: 100px;
   }
 `
 

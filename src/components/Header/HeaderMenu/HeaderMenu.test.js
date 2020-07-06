@@ -29,6 +29,7 @@ describe('HeaderMenu component', () => {
       })
     })
   })
+
   describe('when view is mobile', () => {
     describe('when feature toggle SHOW_RESPONSIVE_HEADER is false', () => {
       it('should render register message', () => {
