@@ -69,14 +69,15 @@ class HeaderMobile extends PureComponent {
           </Header>
           <Footer>
             <h2>É profissional de saúde ou conhece alguém da área?</h2>
-            <a
+
+            <StyledButton
+              href="https://forms.gle/h1sX9nD45PgUAzGB6"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="register form"
-              href="https://forms.gle/h1sX9nD45PgUAzGB6"
             >
-              <StyledButton>Cadastre-se aqui</StyledButton>
-            </a>
+              Cadastre-se aqui
+            </StyledButton>
           </Footer>
         </Wrapper>
       </MainMenuModal>

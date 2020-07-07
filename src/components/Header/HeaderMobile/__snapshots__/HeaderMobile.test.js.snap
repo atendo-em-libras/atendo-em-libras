@@ -292,16 +292,12 @@ exports[`HeaderMobile component Render correctly 1`] = `
               </h2>
               <a
                 aria-label="register form"
+                class="c8 c9 Buttons__PrimaryButton-nr8h4a-1 c12"
                 href="https://forms.gle/h1sX9nD45PgUAzGB6"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <button
-                  class="c8 c9 Buttons__PrimaryButton-nr8h4a-1 c12"
-                  type="button"
-                >
-                  Cadastre-se aqui
-                </button>
+                Cadastre-se aqui
               </a>
             </div>
           </div>
