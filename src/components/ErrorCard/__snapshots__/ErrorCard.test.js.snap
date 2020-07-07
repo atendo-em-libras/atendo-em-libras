@@ -35,16 +35,36 @@ exports[`ErrorCard tests Render correctly 1`] = `
   flex-direction: column;
 }
 
+.c6 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+}
+
 .c5 {
   font-size: 22px;
   line-height: 28px;
   max-width: 528px;
 }
 
-.c6 {
+.c7 {
   font-size: 1.4rem;
   font-weight: 600;
-  cursor: pointer;
+}
+
+.c8 {
   padding: 20px;
   background-color: #5996f7;
   border-radius: 17px;
@@ -55,16 +75,16 @@ exports[`ErrorCard tests Render correctly 1`] = `
   width: max-content;
 }
 
-.c6:hover {
+.c8:hover {
   background-color: #96bfff;
 }
 
-.c6:focus {
+.c8:focus {
   outline: none;
   outline-offset: 0;
 }
 
-.c7 {
+.c9 {
   vertical-align: middle;
   margin-right: 5px;
   margin-right: 8px;
@@ -153,12 +173,13 @@ exports[`ErrorCard tests Render correctly 1`] = `
       </p>
       <button
         aria-label="reload"
-        class="Buttons__Button-nr8h4a-0 c6"
+        class="c6 c7 c8"
+        type="button"
       >
         <span>
           <img
             alt="refreshIcon"
-            class="IconText-sc-1u6m2iw-0 c7"
+            class="IconText-sc-1u6m2iw-0 c9"
             src="ic_refresh.svg"
           />
         </span>

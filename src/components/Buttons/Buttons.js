@@ -1,10 +1,15 @@
+import React from 'react'
 import styled from 'styled-components/macro'
+import { Button as GrommetButton } from 'grommet'
 
-const Button = styled.button`
+const BaseButton = styled(GrommetButton)`
   font-size: 1.4rem;
   font-weight: 600;
-  cursor: pointer;
 `
+
+const Button = ({ 'aria-label': ariaLabel, ...props }) => {
+  return <BaseButton plain a11yTitle={ariaLabel} {...props} />
+}
 
 const PrimaryButton = styled(Button)`
   padding: 20px;
@@ -25,9 +30,10 @@ const PrimaryButton = styled(Button)`
 `
 
 const IconButton = styled(Button)`
+  padding: 10px;
   border: none;
   background-color: transparent;
   color: #5996f7;
 `
 
-export { PrimaryButton, IconButton }
+export { Button, PrimaryButton, IconButton }

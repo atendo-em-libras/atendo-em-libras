@@ -2,12 +2,21 @@
 
 exports[`HeaderMobile component Render correctly 1`] = `
 .c8 {
-  font-size: 1.4rem;
-  font-weight: 600;
+  display: inline-block;
+  box-sizing: border-box;
   cursor: pointer;
+  outline: none;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
   border: none;
-  background-color: transparent;
-  color: #5996f7;
+  padding: 0;
+  text-align: inherit;
 }
 
 .c0 {
@@ -70,10 +79,19 @@ exports[`HeaderMobile component Render correctly 1`] = `
   position: absolute;
 }
 
-.c10 {
+.c9 {
   font-size: 1.4rem;
   font-weight: 600;
-  cursor: pointer;
+}
+
+.c10 {
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  color: #5996f7;
+}
+
+.c12 {
   padding: 20px;
   background-color: #5996f7;
   border-radius: 17px;
@@ -87,11 +105,11 @@ exports[`HeaderMobile component Render correctly 1`] = `
   color: #5996f7;
 }
 
-.c10:hover {
+.c12:hover {
   background-color: #96bfff;
 }
 
-.c10:focus {
+.c12:focus {
   outline: none;
   outline-offset: 0;
 }
@@ -138,7 +156,7 @@ exports[`HeaderMobile component Render correctly 1`] = `
   align-items: center;
 }
 
-.c9 h2 {
+.c11 h2 {
   width: 80%;
   color: white;
   font-size: 1.8rem;
@@ -255,7 +273,8 @@ exports[`HeaderMobile component Render correctly 1`] = `
               />
               <button
                 aria-label="Close Menu Button"
-                class="Buttons__Button-nr8h4a-0 c8"
+                class="c8 c9 c10"
+                type="button"
               >
                 <img
                   alt="Close Icon"
@@ -266,7 +285,7 @@ exports[`HeaderMobile component Render correctly 1`] = `
               </button>
             </div>
             <div
-              class="c9"
+              class="c11"
             >
               <h2>
                 É profissional de saúde ou conhece alguém da área?
@@ -278,7 +297,8 @@ exports[`HeaderMobile component Render correctly 1`] = `
                 target="_blank"
               >
                 <button
-                  class="Buttons__Button-nr8h4a-0 Buttons__PrimaryButton-nr8h4a-1 c10"
+                  class="c8 c9 Buttons__PrimaryButton-nr8h4a-1 c12"
+                  type="button"
                 >
                   Cadastre-se aqui
                 </button>
