@@ -1,6 +1,6 @@
 {
     "all": true,
     "showCode": true,
-    "failOn": "critical",
+    "failOn": "critical|high",
     "modules": ["files-contents", "files-entropy", "files-secrets", "node-npmaudit", "node-npmoutdated"]
 }
