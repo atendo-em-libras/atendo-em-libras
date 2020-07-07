@@ -182,9 +182,7 @@ exports[`HeaderMobile component Render correctly 1`] = `
   }
 }
 
-<body
-  style=""
->
+<body>
   <div
     aria-hidden="false"
   />
