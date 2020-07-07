@@ -17,6 +17,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run lint
       - run: npm test -- --coverage
+      - run: npx hawkeye scan
   deploy-staging:
     docker:
       - image: buildpack-deps:trusty
