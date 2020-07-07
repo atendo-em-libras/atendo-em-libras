@@ -84,6 +84,7 @@ exports[`HeaderMobile component Render correctly 1`] = `
   width: max-content;
   border-radius: 20px 20px 20px 0;
   background-color: white;
+  color: #5996f7;
 }
 
 .c10:hover {
@@ -93,12 +94,6 @@ exports[`HeaderMobile component Render correctly 1`] = `
 .c10:focus {
   outline: none;
   outline-offset: 0;
-}
-
-.c10 a {
-  color: #5996f7;
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 .c3 {
@@ -187,7 +182,9 @@ exports[`HeaderMobile component Render correctly 1`] = `
   }
 }
 
-<body>
+<body
+  style=""
+>
   <div
     aria-hidden="false"
   />
@@ -276,17 +273,18 @@ exports[`HeaderMobile component Render correctly 1`] = `
               <h2>
                 É profissional de saúde ou conhece alguém da área?
               </h2>
-              <button
-                class="Buttons__Button-nr8h4a-0 Buttons__PrimaryButton-nr8h4a-1 c10"
+              <a
+                aria-label="register form"
+                href="https://forms.gle/h1sX9nD45PgUAzGB6"
+                rel="noopener noreferrer"
+                target="_blank"
               >
-                <a
-                  href="https://forms.gle/h1sX9nD45PgUAzGB6"
-                  rel="noopener noreferrer"
-                  target="_blank"
+                <button
+                  class="Buttons__Button-nr8h4a-0 Buttons__PrimaryButton-nr8h4a-1 c10"
                 >
                   Cadastre-se aqui
-                </a>
-              </button>
+                </button>
+              </a>
             </div>
           </div>
         </div>

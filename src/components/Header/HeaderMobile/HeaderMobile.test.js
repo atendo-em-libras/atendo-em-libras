@@ -21,7 +21,7 @@ describe('HeaderMobile component', () => {
   })
 
   it('should redirect to form when register button is clicked', () => {
-    const registerLink = view.getByText('Cadastre-se aqui')
+    const registerLink = view.getByLabelText('register form')
 
     expect(registerLink.href).toBe('https://forms.gle/h1sX9nD45PgUAzGB6')
   })

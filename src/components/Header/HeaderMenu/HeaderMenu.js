@@ -28,7 +28,7 @@ class HeaderMenu extends PureComponent {
     <Fragment>
       <h2>É profissional de saúde ou conhece alguém da área?</h2>
       <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
-        <StyledButton>Cadastre Aqui</StyledButton>
+        <StyledButton>Cadastre-se aqui</StyledButton>
       </a>
     </Fragment>
   )

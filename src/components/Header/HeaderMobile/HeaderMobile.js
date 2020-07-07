@@ -8,10 +8,7 @@ import { closeIcon } from '../../../assets/icons'
 const StyledButton = styled(PrimaryButton)`
   border-radius: 20px 20px 20px 0;
   background-color: white;
-  a {
-    color: #5996f7;
-    text-decoration: none;
-  }
+  color: #5996f7;
 `
 
 const MainMenuModal = styled(Layer)`
@@ -72,12 +69,14 @@ class HeaderMobile extends PureComponent {
           </Header>
           <Footer>
             <h2>É profissional de saúde ou conhece alguém da área?</h2>
-
-            <StyledButton>
-              <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
-                Cadastre-se aqui
-              </a>
-            </StyledButton>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="register form"
+              href="https://forms.gle/h1sX9nD45PgUAzGB6"
+            >
+              <StyledButton>Cadastre-se aqui</StyledButton>
+            </a>
           </Footer>
         </Wrapper>
       </MainMenuModal>
