@@ -10,7 +10,7 @@ describe('Header component', () => {
   })
 
   it('should render register button', () => {
-    expect(headerElement.getByRole('button')).toBeInTheDocument()
+    expect(headerElement.getByRole('link')).toBeInTheDocument()
   })
 
   it('should render description heading', () => {

@@ -27,9 +27,9 @@ class HeaderMenu extends PureComponent {
   mainMenuDesktopButton = () => (
     <Fragment>
       <h2>É profissional de saúde ou conhece alguém da área?</h2>
-      <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
-        <StyledButton>Cadastre-se aqui</StyledButton>
-      </a>
+      <StyledButton target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
+        Cadastre-se aqui
+      </StyledButton>
     </Fragment>
   )
 
