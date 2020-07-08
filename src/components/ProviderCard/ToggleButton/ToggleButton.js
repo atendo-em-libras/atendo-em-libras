@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Text } from 'grommet'
+import { Text } from 'grommet'
+import { Button } from '../../Buttons'
 import styled from 'styled-components'
 
 const colors = {
