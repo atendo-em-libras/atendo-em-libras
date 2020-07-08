@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="322" height="205" viewBox="0 0 322 205">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_83" data-name="Rectangle 83" width="322" height="205" transform="translate(25 748)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_3" data-name="Mask Group 3" transform="translate(-25 -748)" clip-path="url(#clip-path)">
+    <g id="Group_139" data-name="Group 139" transform="translate(-421 -121)">
+      <g id="img_erro" transform="translate(415 863)">
+        <ellipse id="Ellipse_6" data-name="Ellipse 6" cx="3.5" cy="3" rx="3.5" ry="3" transform="translate(66 175)" fill="#2cdea3" opacity="0.477"/>
+        <ellipse id="Ellipse_10" data-name="Ellipse 10" cx="3.5" cy="3" rx="3.5" ry="3" transform="translate(310 175)" fill="#2cdea3" opacity="0.292"/>
+        <g id="Group_108" data-name="Group 108" transform="translate(0 0)">
+          <g id="Group_107" data-name="Group 107" transform="translate(126.683 53.299)">
+            <g id="Group_107-2" data-name="Group 107" transform="translate(0 0)" opacity="0.299">
+              <rect id="Rectangle_70" data-name="Rectangle 70" width="133" height="98" rx="9" transform="translate(0.317 -0.299)" fill="#5996f7"/>
+              <rect id="Rectangle_71" data-name="Rectangle 71" width="123" height="86" rx="11" transform="translate(5.317 5.701)" fill="#bbd7ff"/>
+              <rect id="Rectangle_72" data-name="Rectangle 72" width="37" height="17" transform="translate(48.317 94.701)" fill="#5996f7"/>
+              <rect id="Rectangle_73" data-name="Rectangle 73" width="62.411" height="8.557" rx="2" transform="translate(35.713 107.506)" fill="#5996f7"/>
+            </g>
+          </g>
+          <ellipse id="Ellipse_4" data-name="Ellipse 4" cx="3.5" cy="3" rx="3.5" ry="3" transform="translate(40 28)" fill="#2cdea3" opacity="0.489"/>
+          <ellipse id="Ellipse_5" data-name="Ellipse 5" cx="3.5" cy="3" rx="3.5" ry="3" transform="translate(0 105)" fill="#2cdea3" opacity="0.489"/>
+          <ellipse id="Ellipse_7" data-name="Ellipse 7" cx="3" cy="3.5" rx="3" ry="3.5" transform="translate(190)" fill="#2cdea3" opacity="0.489"/>
+          <circle id="Ellipse_8" data-name="Ellipse 8" cx="3.5" cy="3.5" r="3.5" transform="translate(380 101)" fill="#2cdea3" opacity="0.489"/>
+          <circle id="Ellipse_9" data-name="Ellipse 9" cx="3.5" cy="3.5" r="3.5" transform="translate(321 21)" fill="#2cdea3" opacity="0.489"/>
+          <path id="Path_83" data-name="Path 83" d="M3924,780.642s4.362-37.909,46.4-52.343,54.855-47.538,39.469-93.473" transform="translate(-3920.568 -623.82)" fill="none" stroke="#5996f7" stroke-width="1" opacity="0.137"/>
+          <path id="Path_84" data-name="Path 84" d="M3924,634.826s4.361,37.909,46.4,52.343,54.855,47.538,39.469,93.473" transform="translate(-3653.701 -607.516)" fill="none" stroke="#5996f7" stroke-width="1" opacity="0.137"/>
+        </g>
+      </g>
+      <g id="warning" transform="translate(587.476 947.951)" opacity="0.374">
+        <g id="Group_110" data-name="Group 110" transform="translate(0 0)">
+          <g id="Group_109" data-name="Group 109" transform="translate(0 0)">
+            <path id="Path_85" data-name="Path 85" d="M40.816,59.836a1.613,1.613,0,1,0-3,1.2,3.447,3.447,0,0,1-.368,3.212,3.4,3.4,0,0,1-2.858,1.511H6.7A3.464,3.464,0,0,1,3.755,60.47L17.7,37.887a3.458,3.458,0,0,1,5.886,0L33.9,54.589a1.613,1.613,0,0,0,2.744-1.695l-10.316-16.7a6.683,6.683,0,0,0-11.374,0L1.011,58.775A6.689,6.689,0,0,0,6.7,68.98h27.9a6.582,6.582,0,0,0,5.528-2.927A6.669,6.669,0,0,0,40.816,59.836Z" transform="translate(0 -33.02)" fill="#5996f7"/>
+            <path id="Path_86" data-name="Path 86" d="M237.659,363.216a1.613,1.613,0,0,0,0-3.225h0a1.613,1.613,0,0,0,0,3.225Z" transform="translate(-217.012 -333.625)" fill="#5996f7"/>
+            <path id="Path_87" data-name="Path 87" d="M239.267,156.475V144.623a1.613,1.613,0,0,0-3.225,0v11.852a1.613,1.613,0,0,0,3.225,0Z" transform="translate(-217.008 -134.141)" fill="#5996f7"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
