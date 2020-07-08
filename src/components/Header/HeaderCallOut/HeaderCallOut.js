@@ -29,12 +29,17 @@ const StyledHeaderCallOut = styled(HeaderCallOut)`
     border-radius: 4px;
   }
   h2 {
-    max-width: 480px;
+    max-width: 80%;
     color: #000000;
     text-align: center;
-    font-size: 30px;
+    font-size: 2rem;
     font-weight: 400;
-    line-height: 50px;
+    line-height: 2.8rem;
+    @media (min-width: 800px) {
+      max-width: 50%;
+      font-size: 3.2em;
+      line-height: 5rem;
+    }
   }
 `
 export { StyledHeaderCallOut as HeaderCallOut }
