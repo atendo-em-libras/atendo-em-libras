@@ -8,10 +8,12 @@ import { Grommet } from 'grommet'
 import { DEFAULT_THEME } from './constants'
 import { FeatureTogglesContext } from './FeatureTogglesContext'
 import { toggles } from './constants'
+import GlobalStyle from './globalStyles'
 
 function App() {
   return (
     <div className="App">
+      <GlobalStyle />
       <Grommet plain theme={DEFAULT_THEME}>
         <FeatureTogglesContext.Provider value={toggles}>
           <Header />
