@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
-import { PrimaryButton, IconButton } from '../../Buttons'
+import { PrimaryButton, Button } from '../../Buttons'
 import { Layer } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
 import { closeIcon } from '../../../assets/icons'
@@ -63,9 +63,12 @@ class HeaderMobile extends PureComponent {
         <Wrapper role="menu">
           <Header>
             <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />
-            <IconButton aria-label="Close Menu Button" onClick={onClose}>
-              <img src={closeIcon} alt="Close Icon" width="18px" height="18px" />
-            </IconButton>
+            <Button
+              aria-label="Close Menu Button"
+              onClick={onClose}
+              icon={<img src={closeIcon} alt="Close Icon" width="18px" height="18px" />}
+              size="small"
+            ></Button>
           </Header>
           <Footer>
             <h2>É profissional de saúde ou conhece alguém da área?</h2>

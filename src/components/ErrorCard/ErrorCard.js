@@ -45,12 +45,13 @@ export const ErrorCard = ({ onClick }) => (
             <Paragraph size={responsive === 'small' ? 'small' : 'large'} margin={{ bottom: 'medium' }}>
               <strong>Tente novamente.</strong>
             </Paragraph>
-            <PrimaryButton onClick={onClick} aria-label="reload">
-              <span>
-                <RefreshIcon src={refreshIcon} alt="refreshIcon" />
-              </span>
-              Recarregar página
-            </PrimaryButton>
+            <PrimaryButton
+              onClick={onClick}
+              aria-label="reload"
+              icon={<RefreshIcon src={refreshIcon} alt="refreshIcon" />}
+              label="Recarregar página"
+              size={responsive === 'small' ? 'small' : 'medium'}
+            />
           </ErrorContainer>
         </Box>
       )

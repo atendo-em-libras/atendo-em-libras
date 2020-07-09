@@ -17,6 +17,25 @@ exports[`HeaderMobile component Render correctly 1`] = `
   border: none;
   padding: 0;
   text-align: inherit;
+  line-height: 0;
+}
+
+.c12 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  text-align: inherit;
 }
 
 .c0 {
@@ -85,31 +104,24 @@ exports[`HeaderMobile component Render correctly 1`] = `
 }
 
 .c10 {
-  padding: 10px;
-  border: none;
-  background-color: transparent;
-  color: #5996f7;
+  padding: 12px 22px;
 }
 
-.c12 {
-  padding: 20px;
+.c13 {
+  padding: 14px 30px;
   background-color: #5996f7;
   border-radius: 17px;
-  border: 0;
   color: white;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
   border-radius: 20px 20px 20px 0;
   background-color: white;
   color: #5996f7;
 }
 
-.c12:hover {
+.c13:hover {
   background-color: #96bfff;
 }
 
-.c12:focus {
+.c13:focus {
   outline: none;
   outline-offset: 0;
 }
@@ -292,7 +304,7 @@ exports[`HeaderMobile component Render correctly 1`] = `
               </h2>
               <a
                 aria-label="register form"
-                class="c8 c9 Buttons__PrimaryButton-nr8h4a-1 c12"
+                class="c12 c9 Buttons__PrimaryButton-nr8h4a-1 c13"
                 href="https://forms.gle/h1sX9nD45PgUAzGB6"
                 rel="noopener noreferrer"
                 target="_blank"

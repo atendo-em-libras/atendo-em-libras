@@ -5,13 +5,14 @@ import { Container } from '../../Container'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg'
 
 import { mobileHamburgerIcon } from '../../../assets/icons'
-import { PrimaryButton, IconButton } from '../../Buttons'
+import { PrimaryButton, Button } from '../../Buttons'
 import { ResponsiveContext } from 'grommet'
 import { HeaderMobile } from '../HeaderMobile/HeaderMobile'
 import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 
 const StyledButton = styled(PrimaryButton)`
-  border-radius: 20px 20px 20px 0;
+  border-radius: 17px 17px 17px 0;
+  padding: 22px;
 `
 
 class HeaderMenu extends PureComponent {
@@ -27,21 +28,21 @@ class HeaderMenu extends PureComponent {
   mainMenuDesktopButton = () => (
     <Fragment>
       <h2>É profissional de saúde ou conhece alguém da área?</h2>
-      <StyledButton target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
+      <StyledButton size="medium" target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
         Cadastre-se aqui
       </StyledButton>
     </Fragment>
   )
 
   mainMenuMobileButton = () => (
-    <IconButton
+    <Button
       aria-label="Menu Button"
       onClick={() => {
         this.setState({ showModal: true })
       }}
-    >
-      <img src={mobileHamburgerIcon} alt="Menu Icon" />
-    </IconButton>
+      icon={<img src={mobileHamburgerIcon} alt="Menu Icon" />}
+      size="small"
+    ></Button>
   )
 
   render = () => {
