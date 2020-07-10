@@ -8,7 +8,6 @@ import { mobileHamburgerIcon } from '../../../assets/icons'
 import { PrimaryButton, Button } from '../../Buttons'
 import { ResponsiveContext } from 'grommet'
 import { HeaderMobile } from '../HeaderMobile/HeaderMobile'
-import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 
 const StyledButton = styled(PrimaryButton)`
   border-radius: 17px 17px 17px 0;
@@ -52,19 +51,9 @@ class HeaderMenu extends PureComponent {
       <Container>
         <header className={this.props.className}>
           <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />
-          <FeatureTogglesContext.Consumer>
-            {(toggles) =>
-              toggles.SHOW_RESPONSIVE_HEADER ? (
-                <ResponsiveContext.Consumer>
-                  {(responsive) =>
-                    responsive === 'small' ? this.mainMenuMobileButton() : this.mainMenuDesktopButton()
-                  }
-                </ResponsiveContext.Consumer>
-              ) : (
-                this.mainMenuDesktopButton()
-              )
-            }
-          </FeatureTogglesContext.Consumer>
+          <ResponsiveContext.Consumer>
+            {(responsive) => (responsive === 'small' ? this.mainMenuMobileButton() : this.mainMenuDesktopButton())}
+          </ResponsiveContext.Consumer>
         </header>
       </Container>
     )

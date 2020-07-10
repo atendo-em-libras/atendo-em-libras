@@ -1,5 +1,3 @@
-const toggles = {
-  SHOW_RESPONSIVE_HEADER: true,
-}
+const toggles = {}
 
 export { toggles }
