@@ -18,18 +18,9 @@ const ErrorContainer = styled(Card)`
   padding-bottom: 54px;
 `
 
-const ErrorImage = styled(Box)`
-  position: relative;
+const ErrorImage = styled.img`
+  object-fit: cover;
   width: 100%;
-  height: 320px;
-  margin-top: 5%;
-  background: transparent url(${errorIcon}) no-repeat padding-box;
-  background-size: contain;
-  background-position: center;
-
-  @media (max-width: 800px) {
-    height: 165px;
-  }
 `
 
 export const ErrorCard = ({ onClick }) => (
@@ -38,7 +29,7 @@ export const ErrorCard = ({ onClick }) => (
       return (
         <Box align="center" role="error">
           <ErrorContainer align="center">
-            <ErrorImage aling="center" margin={{ bottom: 'medium' }} />
+            <ErrorImage src={errorIcon} alt="Computer screen with a warning icon" />
             <Paragraph size={responsive === 'small' ? 'small' : 'large'}>
               Ops, tivemos um problema e infelizmente não conseguimos carregar a lista.
             </Paragraph>
