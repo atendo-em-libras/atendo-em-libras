@@ -35,6 +35,13 @@ const Header = styled.div`
 `
 
 const Footer = styled.div`
+  flex-grow: 1;
+  margin-top: 230px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
   h2 {
     width: 80%;
     color: white;
@@ -43,8 +50,6 @@ const Footer = styled.div`
     line-height: 1.6em;
     margin-bottom: 21px;
   }
-
-  margin-bottom: 50px;
 `
 class HeaderMobile extends PureComponent {
   constructor(props) {
@@ -61,7 +66,7 @@ class HeaderMobile extends PureComponent {
     const { onClose } = this.props
 
     return (
-      <MainMenuModal ref={this.myRef} modal plain>
+      <MainMenuModal ref={this.myRef} modal plain full>
         <Wrapper role="menu">
           <Header>
             <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />
