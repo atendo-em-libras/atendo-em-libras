@@ -135,8 +135,9 @@ exports[`HeaderMobile component Render correctly 1`] = `
 }
 
 .c3 {
+  position: fixed;
+  height: 100%;
   background-color: #5996f7;
-  height: 768px;
 }
 
 .c7 {
@@ -274,7 +275,6 @@ exports[`HeaderMobile component Render correctly 1`] = `
         />
         <div
           class="c2 c3"
-          height="768"
         >
           <a
             aria-hidden="true"

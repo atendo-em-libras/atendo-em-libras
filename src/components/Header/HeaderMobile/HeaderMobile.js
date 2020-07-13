@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
-import { withResponsiveHeight } from './utils/withMobileResponsiveHeight'
 import { PrimaryButton, Button } from '../../Buttons'
 import { Layer } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
@@ -12,9 +11,13 @@ const StyledButton = styled(PrimaryButton)`
   color: #5996f7;
 `
 
+// height and position are handled manually to prevent
+// fullscreen modal issue on mobile browsers. For more info read:
+// https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 const MainMenuModal = styled(Layer)`
+  position: fixed;
+  height: 100%;
   background-color: #5996f7;
-  height: ${(props) => props.height}px;
 `
 
 const Logo = styled.img`
@@ -61,9 +64,6 @@ class HeaderMobile extends PureComponent {
     const { onClose, height } = this.props
 
     return (
-      // height is handled manually because of fullscreen modal issue
-      // on mobile browsers. For more info read:
-      // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
       <MainMenuModal ref={this.myRef} modal plain full height={height}>
         <Wrapper role="menu">
           <Header>
@@ -92,6 +92,5 @@ class HeaderMobile extends PureComponent {
     )
   }
 }
-const HeaderMobileWithResponsiveHeight = withResponsiveHeight(HeaderMobile)
 
-export { HeaderMobileWithResponsiveHeight as HeaderMobile }
+export { HeaderMobile }
