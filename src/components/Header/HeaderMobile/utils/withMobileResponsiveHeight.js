@@ -16,8 +16,9 @@ function withResponsiveHeight(WrappedHeaderMobile) {
       this.state = {
         height: window.innerHeight,
       }
-      // To prevent performance issues we only rerender every 1000ms
-      this.debouncedOnResize = debounce(this.onResize, 1000)
+      // To prevent performance issues we only rerender every 200ms
+      this.debounceTime = 50
+      this.debouncedOnResize = debounce(this.onResize, this.debounceTime)
     }
 
     onResize = () => {
