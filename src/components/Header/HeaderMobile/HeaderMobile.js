@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
-import { withResponsiveHeight } from './utils/withMobileResponsiveHeight'
 import { PrimaryButton, Button } from '../../Buttons'
 import { Layer } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
@@ -12,9 +11,12 @@ const StyledButton = styled(PrimaryButton)`
   color: #5996f7;
 `
 
+// innerHeight is used instead of vh because of fullscreen mobile modal issues.
+// For more info read:
+// https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 const MainMenuModal = styled(Layer)`
   background-color: #5996f7;
-  height: ${(props) => props.height}px;
+  min-height: ${() => window.innerHeight}px;
 `
 
 const Logo = styled.img`
@@ -58,13 +60,10 @@ class HeaderMobile extends PureComponent {
   }
 
   render = () => {
-    const { onClose, height } = this.props
+    const { onClose } = this.props
 
     return (
-      // height is handled manually because of fullscreen modal issue
-      // on mobile browsers. For more info read:
-      // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
-      <MainMenuModal ref={this.myRef} modal plain full height={height}>
+      <MainMenuModal ref={this.myRef} modal plain full>
         <Wrapper role="menu">
           <Header>
             <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />
@@ -92,6 +91,5 @@ class HeaderMobile extends PureComponent {
     )
   }
 }
-const HeaderMobileWithResponsiveHeight = withResponsiveHeight(HeaderMobile)
 
-export { HeaderMobileWithResponsiveHeight as HeaderMobile }
+export { HeaderMobile }
