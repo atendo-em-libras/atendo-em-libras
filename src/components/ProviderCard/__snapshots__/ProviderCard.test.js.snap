@@ -406,7 +406,7 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
 `;
 
 exports[`ProviderCard tests when mobile Component should render correctly 1`] = `
-.c23 {
+.c22 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -417,25 +417,25 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
   stroke: #5A8DED;
 }
 
-.c23 g {
+.c22 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c23 *:not([stroke])[fill="none"] {
+.c22 *:not([stroke])[fill="none"] {
   stroke-width: 0;
 }
 
-.c23 *[stroke*="#"],
-.c23 *[STROKE*="#"] {
+.c22 *[stroke*="#"],
+.c22 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
-.c23 *[fill-rule],
-.c23 *[FILL-RULE],
-.c23 *[fill*="#"],
-.c23 *[FILL*="#"] {
+.c22 *[fill-rule],
+.c22 *[FILL-RULE],
+.c22 *[fill*="#"],
+.c22 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
@@ -516,7 +516,7 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
   overflow: hidden;
 }
 
-.c22 {
+.c21 {
   font-size: 14px;
   line-height: 20px;
 }
@@ -662,10 +662,6 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
 }
 
 .c20 {
-  padding: 14px 30px;
-}
-
-.c21 {
   background-color: #C7DDFD;
   color: #5A8DED;
   width: 100%;
@@ -673,7 +669,7 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
   padding: 20px 0 20px 0;
 }
 
-.c21 svg {
+.c20 svg {
   vertical-align: middle;
 }
 
@@ -891,16 +887,16 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
           class="c17"
         >
           <button
-            class="c18 c19 c20 c21"
+            class="c18 c19 c20"
             type="button"
           >
             <span
-              class="c22"
+              class="c21"
             >
               Saiba Mais
               <svg
                 aria-label="FormDown"
-                class="c23"
+                class="c22"
                 viewBox="0 0 24 24"
               >
                 <polyline

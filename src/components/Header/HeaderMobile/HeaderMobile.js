@@ -78,9 +78,9 @@ class HeaderMobile extends PureComponent {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="register form"
-            >
-              Cadastre-se aqui
-            </StyledButton>
+              label="Cadastre-se aqui"
+              size="medium"
+            />
           </Footer>
         </Wrapper>
       </MainMenuModal>

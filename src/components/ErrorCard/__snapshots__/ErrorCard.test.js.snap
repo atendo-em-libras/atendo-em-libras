@@ -65,10 +65,22 @@ exports[`ErrorCard tests Render correctly 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  text-align: inherit;
+  border: 2px solid #7D4CDB;
+  border-radius: 18px;
+  color: #444444;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.c5:hover {
+  box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
 .c3 {
@@ -90,7 +102,6 @@ exports[`ErrorCard tests Render correctly 1`] = `
 }
 
 .c7 {
-  padding: 14px 30px;
   background-color: #5996f7;
   border-radius: 17px;
   color: white;
@@ -179,7 +190,7 @@ exports[`ErrorCard tests Render correctly 1`] = `
       </p>
       <button
         aria-label="reload"
-        class="c5 c6 sc-AxjAm c7"
+        class="c5 c6 c7"
         type="button"
       >
         <div

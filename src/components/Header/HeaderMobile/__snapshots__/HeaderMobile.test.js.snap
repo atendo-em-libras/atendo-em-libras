@@ -18,9 +18,10 @@ exports[`HeaderMobile component Render correctly 1`] = `
   padding: 0;
   text-align: inherit;
   line-height: 0;
+  padding: 12px;
 }
 
-.c12 {
+.c11 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -32,10 +33,22 @@ exports[`HeaderMobile component Render correctly 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  text-align: inherit;
+  border: 2px solid #7D4CDB;
+  border-radius: 18px;
+  color: #444444;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.c11:hover {
+  box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
 .c0 {
@@ -103,12 +116,7 @@ exports[`HeaderMobile component Render correctly 1`] = `
   font-weight: 600;
 }
 
-.c10 {
-  padding: 12px 22px;
-}
-
-.c13 {
-  padding: 14px 30px;
+.c12 {
   background-color: #5996f7;
   border-radius: 17px;
   color: white;
@@ -117,11 +125,11 @@ exports[`HeaderMobile component Render correctly 1`] = `
   color: #5996f7;
 }
 
-.c13:hover {
+.c12:hover {
   background-color: #96bfff;
 }
 
-.c13:focus {
+.c12:focus {
   outline: none;
   outline-offset: 0;
 }
@@ -168,7 +176,7 @@ exports[`HeaderMobile component Render correctly 1`] = `
   align-items: center;
 }
 
-.c11 h2 {
+.c10 h2 {
   width: 80%;
   color: white;
   font-size: 1.8rem;
@@ -285,7 +293,7 @@ exports[`HeaderMobile component Render correctly 1`] = `
               />
               <button
                 aria-label="Close Menu Button"
-                class="c8 c9 c10"
+                class="c8 c9"
                 type="button"
               >
                 <img
@@ -297,14 +305,14 @@ exports[`HeaderMobile component Render correctly 1`] = `
               </button>
             </div>
             <div
-              class="c11"
+              class="c10"
             >
               <h2>
                 É profissional de saúde ou conhece alguém da área?
               </h2>
               <a
                 aria-label="register form"
-                class="c12 c9 Buttons__PrimaryButton-nr8h4a-1 c13"
+                class="c11 c9 Buttons__PrimaryButton-nr8h4a-1 c12"
                 href="https://forms.gle/h1sX9nD45PgUAzGB6"
                 rel="noopener noreferrer"
                 target="_blank"

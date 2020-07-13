@@ -41,7 +41,7 @@ export const ErrorCard = ({ onClick }) => (
               aria-label="reload"
               icon={<RefreshIcon src={refreshIcon} alt="refreshIcon" />}
               label="Recarregar página"
-              size={responsive === 'small' ? 'small' : 'medium'}
+              size="medium"
             />
           </ErrorContainer>
         </Box>

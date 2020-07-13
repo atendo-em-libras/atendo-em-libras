@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { Button as GrommetButton } from 'grommet'
-import { withSizes } from './utils/withSizes'
 
 const BaseButton = styled(GrommetButton)`
   font-size: 1.4rem;
@@ -9,11 +8,10 @@ const BaseButton = styled(GrommetButton)`
 `
 
 const Button = ({ 'aria-label': ariaLabel, ...props }) => {
-  return <BaseButton plain a11yTitle={ariaLabel} {...props} />
+  return <BaseButton a11yTitle={ariaLabel} {...props} />
 }
-const ButtonWithSizes = withSizes(Button)
 
-const PrimaryButton = styled(ButtonWithSizes)`
+const PrimaryButton = styled(Button)`
   background-color: #5996f7;
   border-radius: 17px;
   color: white;
@@ -28,4 +26,4 @@ const PrimaryButton = styled(ButtonWithSizes)`
   }
 `
 
-export { ButtonWithSizes as Button, PrimaryButton }
+export { Button, PrimaryButton }
