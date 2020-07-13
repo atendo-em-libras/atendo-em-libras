@@ -43,6 +43,8 @@ const Footer = styled.div`
     line-height: 1.6em;
     margin-bottom: 21px;
   }
+
+  margin-bottom: 50px;
 `
 class HeaderMobile extends PureComponent {
   constructor(props) {
@@ -59,7 +61,7 @@ class HeaderMobile extends PureComponent {
     const { onClose } = this.props
 
     return (
-      <MainMenuModal ref={this.myRef} modal plain full>
+      <MainMenuModal ref={this.myRef} modal plain>
         <Wrapper role="menu">
           <Header>
             <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />

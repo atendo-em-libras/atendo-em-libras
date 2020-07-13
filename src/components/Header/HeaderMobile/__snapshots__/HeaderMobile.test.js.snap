@@ -96,12 +96,13 @@ exports[`HeaderMobile component Render correctly 1`] = `
   max-height: calc(100% - 0px - 0px);
   max-width: calc(100% - 0px - 0px);
   border-radius: 0;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  -webkit-animation: gVgDGd 0.2s ease-in-out forwards;
-  animation: gVgDGd 0.2s ease-in-out forwards;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  -webkit-animation: hWAzxx 0.2s ease-in-out forwards;
+  animation: hWAzxx 0.2s ease-in-out forwards;
 }
 
 .c4 {
@@ -174,6 +175,10 @@ exports[`HeaderMobile component Render correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c10 {
+  margin-bottom: 50px;
 }
 
 .c10 h2 {
