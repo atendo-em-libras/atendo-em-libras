@@ -16,7 +16,7 @@ const StyledButton = styled(PrimaryButton)`
 // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 const MainMenuModal = styled(Layer)`
   background-color: #5996f7;
-  min-height: ${() => window.innerHeight}px;
+  min-height: ${() => window.outerHeight}px;
 `
 
 const Logo = styled.img`
