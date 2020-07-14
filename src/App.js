@@ -2,13 +2,12 @@ import React from 'react'
 
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
-import { ProviderList } from './components/ProviderList'
-import { Container } from './components/Container'
 import { Grommet } from 'grommet'
 import { DEFAULT_THEME } from './constants'
 import { FeatureTogglesContext } from './FeatureTogglesContext'
 import { toggles } from './constants'
 import GlobalStyle from './globalStyles'
+import Routes from './routes/router'
 
 function App() {
   return (
@@ -17,9 +16,7 @@ function App() {
       <Grommet plain theme={DEFAULT_THEME}>
         <FeatureTogglesContext.Provider value={toggles}>
           <Header />
-          <Container>
-            <ProviderList />
-          </Container>
+          <Routes />
           <Footer />
         </FeatureTogglesContext.Provider>
       </Grommet>
