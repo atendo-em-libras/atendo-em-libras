@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import { Router } from 'react-router-dom'
 import history from './history'
-import ReactGA from 'react-ga'
+import { initializeAnalytics } from './utils/analytics'
 
-ReactGA.initialize('UA-172748177-1')
+initializeAnalytics({ environment: process.env.NODE_ENV })
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
