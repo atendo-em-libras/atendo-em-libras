@@ -1,85 +1,78 @@
+
 # Atendo em Libras [![atendo-em-libras](https://circleci.com/gh/atendo-em-libras/atendo-em-libras.svg?style=svg&circle-token=a7cef95254e2d78b3647a4c3e4af177e8e9ec56b)](https://app.circleci.com/pipelines/github/atendo-em-libras/atendo-em-libras)
+  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### What is it?
 
-## Available Scripts
+In today's pandemic times, deaf people often depend on people interpreting signs to be seen by health professionals. This project focuses on providing a platform for registering such medical professionals in all areas of activity, including nutritionists, psychologists, etc.
+  
+You able to see the project in production [here]([https://atendo-em-libras.herokuapp.com/](https://atendo-em-libras.herokuapp.com/)). 
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+### Frameworks
+- ReactJS
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Utils
+- Styled Components (CSS in JS)
+- Grommet (Component Library)
+- CircleCI (Continuous Integration)
+- Hawkeye (Dependency checker)
+- SonarCloud (Catch bugs and security vulnerabilities)
+- Google Analytics 
+  
+### Tests
+- React Testing Library
+- Jest
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Environments
+We are using two environments in our process of development cycle:
 
-### `npm test`
+- ### [Staging](https://atendo-em-libras-staging.herokuapp.com/)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ### [Production](https://atendo-em-libras.herokuapp.com/) 
 
-### `npm run build`
+## How to execute the project
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In the project directory, to install the dependencies you can use the following command: 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+``` npm install ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+And you can run the app in development mode executing the following command:
 
-### `npm run eject`
+```npm start ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## How test the app
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```npm test```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Launches the test runner in the interactive watch mode.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## How to contribute
 
-## Learn More
+### Commit Message Standards 
+  
+We are using [gitmoji](https://gitmoji.carloscuesta.me/):
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Feature: :sparkles:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Chore: :construction:
 
-### Code Splitting
+- Test: :white\_check\_mark:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- Refactoring: :recycle:
 
-### Analyzing the Bundle Size
+- Bug-fix: :bug:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- Hot-fix: :ambulance:
 
-### Making a Progressive Web App
+- Style: :lipstick:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Docs: :pencil:
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+And we are also using a commit message standard:
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-### Commit Message Standards ### 
-
-We are using [Conventional Commmit](https://www.conventionalcommits.org/en/v1.0.0/) as a commit message standard. 
-
-We are also utilizing [gitmoji](https://gitmoji.carloscuesta.me/)
-
-feature       :sparkles:
-chore         :construction:
-test          :white\_check\_mark:
-refactoring   :recycle:
-bug-fix       :bug:
-hot-fix       :ambulance:
-style:        :lipstick:
-docs          :pencil:
+```
+<gitmoji icon>(<component>): description what the commit is
+```
