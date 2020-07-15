@@ -16,9 +16,7 @@ describe('initializeAnalytics()', () => {
     it('does NOT initialize in testMode', () => {
       initializeAnalytics({ environment: 'production' })
 
-      console.log('em produção:')
-      console.log(ReactGA.initialize.mock.calls)
-      expect(ReactGA.initialize.mock.calls[0][1]).toEqual({})
+      expect(ReactGA.initialize.mock.calls[0][1]).toEqual({ testMode: false })
     })
   })
   describe("when environment is NOT 'production'", () => {
