@@ -1,5 +1,5 @@
 import ReactGA from 'react-ga'
-import { initializeAnalytics } from './core'
+import { initialize, pageview } from './core'
 jest.mock('react-ga')
 
 describe('initializeAnalytics()', () => {
@@ -9,26 +9,40 @@ describe('initializeAnalytics()', () => {
 
   describe("when environment is 'production'", () => {
     it('initializes ReactGA', () => {
-      initializeAnalytics({ environment: 'production' })
+      initialize({ environment: 'production' })
 
       expect(ReactGA.initialize).toHaveBeenCalledTimes(1)
     })
     it('does NOT initialize in testMode', () => {
-      initializeAnalytics({ environment: 'production' })
+      initialize({ environment: 'production' })
 
       expect(ReactGA.initialize.mock.calls[0][1]).toEqual({ testMode: false })
     })
   })
   describe("when environment is NOT 'production'", () => {
     it('initializes ReactGA', () => {
-      initializeAnalytics({ environment: 'test' })
+      initialize({ environment: 'test' })
 
       expect(ReactGA.initialize).toHaveBeenCalledTimes(1)
     })
     it('initializes in testMode', () => {
-      initializeAnalytics({ environment: 'test' })
+      initialize({ environment: 'test' })
 
       expect(ReactGA.initialize.mock.calls[0][1]).toEqual({ testMode: true })
     })
+  })
+})
+
+describe('pageview()', () => {
+  beforeEach(() => {
+    ReactGA.pageview.mockClear()
+  })
+
+  it('calls ReactGA pageview()', () => {
+    const targetPage = '/AnyPage'
+    pageview(targetPage)
+
+    expect(ReactGA.pageview).toHaveBeenCalledTimes(1)
+    expect(ReactGA.pageview.mock.calls[0][0]).toEqual(targetPage)
   })
 })

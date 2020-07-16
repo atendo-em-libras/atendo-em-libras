@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactGA from 'react-ga'
+import Analytics from '../utils/analytics'
 
 function withAnalytics(WrappedComponent) {
   return class extends React.Component {
@@ -8,7 +8,7 @@ function withAnalytics(WrappedComponent) {
         location: { pathname: page },
       } = this.props
 
-      ReactGA.pageview(page)
+      Analytics.pageview(page)
     }
 
     render() {
