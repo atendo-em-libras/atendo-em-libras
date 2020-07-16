@@ -3,7 +3,7 @@
 exports[`Home component renders home correctly 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": .c0 {
+  "baseElement": .c1 {
   max-width: 1500px;
   width: 100%;
   box-sizing: border-box;
@@ -11,9 +11,57 @@ Object {
   margin: 0 auto;
 }
 
+.c0 {
+  width: 100%;
+  min-height: 220px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: content-box;
+  background-color: #ffffff;
+}
+
+.c0:before {
+  content: '';
+  height: 8px;
+  width: 65px;
+  margin-bottom: 32px;
+  background-color: #5996f7;
+  border-radius: 4px;
+}
+
+.c0 h2 {
+  max-width: 80%;
+  color: #000000;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+}
+
 @media (max-width:800px) {
-  .c0 {
+  .c1 {
     padding: 0 10vw;
+  }
+}
+
+@media (min-width:800px) {
+  .c0 h2 {
+    max-width: 50%;
+    font-size: 3.2em;
+    line-height: 5rem;
   }
 }
 
@@ -22,6 +70,13 @@ Object {
       <div
         class="c0"
       >
+        <h2>
+          Profissionais de diversas áreas da saúde prontos para te atender
+        </h2>
+      </div>
+      <div
+        class="c1"
+      >
         <div
           data-testid="emptyList"
         />
@@ -29,6 +84,13 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <div
+      class="HomeCallOut__StyledHomeCallOut-sc-8y0p5g-0 inrJok"
+    >
+      <h2>
+        Profissionais de diversas áreas da saúde prontos para te atender
+      </h2>
+    </div>
     <div
       class="Container-kkckgz-0 fUhoJX"
     >

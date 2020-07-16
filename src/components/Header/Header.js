@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components/macro'
 
-import { HeaderCallOut } from './HeaderCallOut'
 import { HeaderMenu } from './HeaderMenu'
 import { HeaderBanner } from './HeaderBanner'
 
@@ -11,7 +10,6 @@ class Header extends PureComponent {
       <div className={this.props.className}>
         <HeaderMenu />
         <HeaderBanner />
-        <HeaderCallOut />
       </div>
     )
   }

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components/macro'
 
-class HeaderCallOut extends PureComponent {
+class HomeCallOut extends PureComponent {
   render() {
     return (
       <div className={this.props.className}>
@@ -11,7 +11,7 @@ class HeaderCallOut extends PureComponent {
   }
 }
 
-const StyledHeaderCallOut = styled(HeaderCallOut)`
+const StyledHomeCallOut = styled(HomeCallOut)`
   width: 100%;
   min-height: 220px;
   display: flex;
@@ -42,4 +42,4 @@ const StyledHeaderCallOut = styled(HeaderCallOut)`
     }
   }
 `
-export { StyledHeaderCallOut as HeaderCallOut }
+export { StyledHomeCallOut as HomeCallOut }
