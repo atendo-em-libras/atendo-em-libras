@@ -19,9 +19,10 @@ const HomeWrapper = styled.div`
 class Home extends React.Component {
   render() {
     return (
-      <><HomeWrapper>
-        <HomeBanner />
-        <HomeCallOut />
+      <>
+        <HomeWrapper>
+          <HomeBanner />
+          <HomeCallOut />
         </HomeWrapper>
         <Container>
           <ProviderList />
