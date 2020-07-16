@@ -9,12 +9,21 @@ import ReactGA from 'react-ga'
   This was done to grant us more control over the API, allowing
   us to extend its behavior if we desire.
  */
-export function initialize({ environment }) {
+export function setUpAndInitialize() {
+  const options = {
+    environment: process.env.NODE_ENV,
+    analyticsKey: process.env.REACT_APP_GOOGLE_ANALYTICS_KEY,
+  }
+
+  initialize(options)
+}
+
+export function initialize({ environment, analyticsKey }) {
   const options = {
     testMode: !(environment === 'production'),
   }
 
-  ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_KEY, options)
+  ReactGA.initialize(analyticsKey, options)
 }
 
 export function pageview(page) {

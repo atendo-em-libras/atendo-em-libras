@@ -5,7 +5,7 @@ import { Router } from 'react-router-dom'
 import history from './history'
 import Analytics from './utils/analytics'
 
-Analytics.initialize({ environment: process.env.NODE_ENV })
+Analytics.setUpAndInitialize()
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
