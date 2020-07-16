@@ -1,21 +1,21 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { HeaderBanner } from './HeaderBanner'
+import { HomeBanner } from './HomeBanner'
 
-describe('HeaderBanner component', () => {
-  let headerBannerContainer
+describe('HomeBanner component', () => {
+  let homeBannerContainer
 
   beforeEach(() => {
-    headerBannerContainer = render(<HeaderBanner />)
+    homeBannerContainer = render(<HomeBanner />)
   })
 
   it('should render description heading', () => {
-    expect(headerBannerContainer.getByText('Conheça profissionais de saúde que atendem em Libras')).toBeInTheDocument()
+    expect(homeBannerContainer.getByText('Conheça profissionais de saúde que atendem em Libras')).toBeInTheDocument()
   })
 
   it('should render description test', () => {
     expect(
-      headerBannerContainer.getByText(
+      homeBannerContainer.getByText(
         'Sabemos da dificuldade de encontrar um profissional de saúde que se comunique em Libras e no atual momento em que vivemos isso se torna ainda mais difícil. Pensando nisso trouxemos alguns profissionais que atendem em Libras.'
       )
     ).toBeInTheDocument()

@@ -11,7 +11,7 @@ Object {
   margin: 0 auto;
 }
 
-.c0 {
+.c3 {
   width: 100%;
   min-height: 220px;
   display: -webkit-box;
@@ -33,7 +33,7 @@ Object {
   background-color: #ffffff;
 }
 
-.c0:before {
+.c3:before {
   content: '';
   height: 8px;
   width: 65px;
@@ -42,13 +42,81 @@ Object {
   border-radius: 4px;
 }
 
-.c0 h2 {
+.c3 h2 {
   max-width: 80%;
   color: #000000;
   text-align: center;
   font-size: 2rem;
   font-weight: 400;
   line-height: 2.8rem;
+}
+
+.c2 {
+  width: 100%;
+  height: auto;
+  padding: 2em 0;
+  box-sizing: border-box;
+  background-color: #0f1423;
+  color: white;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c2 img {
+  width: 45%;
+  max-height: 100%;
+  left: 0;
+  padding: 0 0 2em 0;
+  box-sizing: border-box;
+}
+
+.c2 h1 {
+  margin-top: 1rem;
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 1.2em;
+  text-align: left;
+}
+
+.c2 p {
+  margin: 1rem 3rem 2.5rem 0;
+  font-size: 1.4em;
+  font-weight: 400;
+  line-height: 1.3em;
+  text-align: left;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  background-color: #0f1423;
+  color: white;
+  font-family: Open Sans,sans-serif;
+  text-align: left;
 }
 
 @media (max-width:800px) {
@@ -58,10 +126,48 @@ Object {
 }
 
 @media (min-width:800px) {
-  .c0 h2 {
+  .c3 h2 {
     max-width: 50%;
     font-size: 3.2em;
     line-height: 5rem;
+  }
+}
+
+@media (min-width:800px) {
+  .c2 {
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    padding-left: 45%;
+    min-height: 50vh;
+    max-height: 500px;
+  }
+}
+
+@media (min-width:800px) {
+  .c2 img {
+    padding: 2em 4vw 2em 0;
+    position: absolute;
+  }
+}
+
+@media (min-width:800px) {
+  .c2 h1 {
+    margin-top: 0;
+    width: 80%;
+    font-size: 3.2em;
+    line-height: 1.5em;
+    text-align: left;
+  }
+}
+
+@media (min-width:800px) {
+  .c2 p {
+    margin: 0;
+    width: 80%;
+    line-height: 1.5em;
+    text-align: left;
   }
 }
 
@@ -70,9 +176,31 @@ Object {
       <div
         class="c0"
       >
-        <h2>
-          Profissionais de diversas áreas da saúde prontos para te atender
-        </h2>
+        <div
+          class="c1"
+        >
+          <div
+            class="c2"
+          >
+            <img
+              alt="Ilustração projeto Atendo em Libras"
+              src="img_atendo_em_libras_illustration.svg"
+            />
+            <h1>
+              Conheça profissionais de saúde que atendem em Libras
+            </h1>
+            <p>
+              Sabemos da dificuldade de encontrar um profissional de saúde que se comunique em Libras e no atual momento em que vivemos isso se torna ainda mais difícil. Pensando nisso trouxemos alguns profissionais que atendem em Libras.
+            </p>
+          </div>
+        </div>
+        <div
+          class="c3"
+        >
+          <h2>
+            Profissionais de diversas áreas da saúde prontos para te atender
+          </h2>
+        </div>
       </div>
       <div
         class="c1"
@@ -85,11 +213,33 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="HomeCallOut__StyledHomeCallOut-sc-8y0p5g-0 inrJok"
+      class="Home__HomeWrapper-b5m6jg-0 gJfiEg"
     >
-      <h2>
-        Profissionais de diversas áreas da saúde prontos para te atender
-      </h2>
+      <div
+        class="Container-kkckgz-0 fUhoJX"
+      >
+        <div
+          class="HomeBanner__StyledHomeBanner-sc-1mh502r-0 dfBkTw"
+        >
+          <img
+            alt="Ilustração projeto Atendo em Libras"
+            src="img_atendo_em_libras_illustration.svg"
+          />
+          <h1>
+            Conheça profissionais de saúde que atendem em Libras
+          </h1>
+          <p>
+            Sabemos da dificuldade de encontrar um profissional de saúde que se comunique em Libras e no atual momento em que vivemos isso se torna ainda mais difícil. Pensando nisso trouxemos alguns profissionais que atendem em Libras.
+          </p>
+        </div>
+      </div>
+      <div
+        class="HomeCallOut__StyledHomeCallOut-sc-8y0p5g-0 inrJok"
+      >
+        <h2>
+          Profissionais de diversas áreas da saúde prontos para te atender
+        </h2>
+      </div>
     </div>
     <div
       class="Container-kkckgz-0 fUhoJX"

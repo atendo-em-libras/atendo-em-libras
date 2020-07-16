@@ -12,16 +12,4 @@ describe('Header component', () => {
   it('should render register button', () => {
     expect(headerElement.getByRole('link')).toBeInTheDocument()
   })
-
-  it('should render description heading', () => {
-    expect(headerElement.getByText('Conheça profissionais de saúde que atendem em Libras')).toBeInTheDocument()
-  })
-
-  it('should render description test', () => {
-    expect(
-      headerElement.getByText(
-        'Sabemos da dificuldade de encontrar um profissional de saúde que se comunique em Libras e no atual momento em que vivemos isso se torna ainda mais difícil. Pensando nisso trouxemos alguns profissionais que atendem em Libras.'
-      )
-    ).toBeInTheDocument()
-  })
 })

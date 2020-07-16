@@ -2,14 +2,12 @@ import React, { PureComponent } from 'react'
 import styled from 'styled-components/macro'
 
 import { HeaderMenu } from './HeaderMenu'
-import { HeaderBanner } from './HeaderBanner'
 
 class Header extends PureComponent {
   render = () => {
     return (
       <div className={this.props.className}>
         <HeaderMenu />
-        <HeaderBanner />
       </div>
     )
   }

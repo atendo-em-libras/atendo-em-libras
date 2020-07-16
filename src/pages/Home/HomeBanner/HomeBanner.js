@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 import styled from 'styled-components/macro'
 
 import illustration from '../../../assets/images/img_atendo_em_libras_illustration.svg'
-import { Container } from '../../Container'
+import { Container } from '../../../components/Container'
 
-class HeaderBanner extends PureComponent {
+class HomeBanner extends PureComponent {
   render = () => {
     return (
       <Container>
@@ -22,11 +22,13 @@ class HeaderBanner extends PureComponent {
   }
 }
 
-const StyledHeaderBanner = styled(HeaderBanner)`
+const StyledHomeBanner = styled(HomeBanner)`
   width: 100%;
   height: auto;
   padding: 2em 0;
   box-sizing: border-box;
+  background-color: #0f1423;
+  color: white;
   position: relative;
   display: flex;
   flex-flow: column;
@@ -50,7 +52,7 @@ const StyledHeaderBanner = styled(HeaderBanner)`
     }
   }
   h1 {
-    margin-top: 1em;
+    margin-top: 1rem;
     font-size: 2em;
     font-weight: 400;
     line-height: 1.2em;
@@ -64,8 +66,7 @@ const StyledHeaderBanner = styled(HeaderBanner)`
     }
   }
   p {
-    margin-top: 1em;
-    margin-bottom: 2.5em;
+    margin: 1rem 3rem 2.5rem 0;
     font-size: 1.4em;
     font-weight: 400;
     line-height: 1.3em;
@@ -79,4 +80,4 @@ const StyledHeaderBanner = styled(HeaderBanner)`
   }
 `
 
-export { StyledHeaderBanner as HeaderBanner }
+export { StyledHomeBanner as HomeBanner }
