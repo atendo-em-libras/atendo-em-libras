@@ -42,6 +42,9 @@ And you can run the app in development mode executing the following command:
 
 ```npm start ```
 
+We are making use of `environment variables`, which you can get by asking one of your
+fellow devs!
+
 ## How test the app
 
 ```npm test```
