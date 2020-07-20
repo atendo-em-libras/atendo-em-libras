@@ -19,15 +19,31 @@ const SectionStyled = styled.section`
   flex-flow: row wrap;
   align-items: center;
   width: 100%;
-  height: 400px;
   font-family: Open Sans, sans-serif;
   text-align: left;
+  padding-bottom: 2em;
   @media (max-width: 800px) {
     flex-flow: column;
     p {
       width: 80%;
     }
   }
+  p {
+    padding-bottom: 2em;
+  }
+`
+const Title = styled.h1`
+  margin-top: 1rem;
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 1.2em;
+  text-align: left;
+  padding: 2em 0 2em 0;
+`
+const Video = styled.video`
+  width: 320px;
+  height: 240px;
+  border-radius: 14px;
 `
 
 class About extends React.Component {
@@ -39,28 +55,29 @@ class About extends React.Component {
         </AboutWrapper>
 
         <SectionStyled>
-          <h1>O Atendo em Libras</h1>
+          <Title>O Atendo em Libras</Title>
           <Paragraph>
             O Atendo em Libras é uma plataforma de cadastro e consulta de profissionais que sabem Libras, com a
             finalidade de disponibilizar à comunidade surda acesso aos serviços sem a necessidade de intérprete. Assim,
             as pessoas surdas podem cuidar de sua saúde com autonomia.
           </Paragraph>
+          <Video controls>Your browser does not support the Video tag.</Video>
         </SectionStyled>
-
         <SectionStyled>
-          <h1>Nosso propósito</h1>
+          <Title>Nosso propósito</Title>
           <Paragraph>
             Dar visibilidade aos profissionais que disponibilizam serviços de atendimento em Libras, trazendo
             acessibilidade à comunidade surda e, também, conceder a autonomia às pessoas surdas nos cuidados de saúde.
           </Paragraph>
+          <Video controls>Your browser does not support the Video tag.</Video>
         </SectionStyled>
 
         <SectionStyled>
-          <h1>As idealizadoras</h1>
+          <Title>As idealizadoras</Title>
         </SectionStyled>
 
         <SectionStyled>
-          <h1>Conheça quem faz parte</h1>
+          <Title>Conheça quem faz parte</Title>
         </SectionStyled>
       </>
     )
