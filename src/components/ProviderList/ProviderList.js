@@ -32,10 +32,10 @@ class ProviderList extends Component {
     }
   }
 
-  loadServiceProvicers = async () => {
-    const serviceProvidersJson = await ProviderApi.get()
-    this.setState({ isLoaded: true })
-    this.setState({ providers: serviceProvidersJson })
+  loadServiceProvicers = () => {
+    ProviderApi.get("WHERE D = 'Enfermagem'").then((providers) => {
+      this.setState({ isLoaded: true, providers: providers })
+    })
   }
 
   handleClick = () => {

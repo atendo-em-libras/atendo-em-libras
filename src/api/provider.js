@@ -1,32 +1,16 @@
-import { getServiceProviders } from './spreadSheet'
+import ProviderSpreadsheet from '../utils/ProviderSpreadsheet'
 
 const ProviderApi = {
-  get: async () => {
-    const serviceProvidersJson = await getServiceProviders()
+  get: (query = '') => {
+    return new Promise((resolveFn) => {
+      ProviderSpreadsheet.get(query).then((data) => {
+        console.log('data is: ', data)
+        const providers = ProviderSpreadsheet.convertDataToProviders(data)
 
-    return mapJsonToProviders(serviceProvidersJson)
+        resolveFn(providers)
+      })
+    })
   },
-}
-
-const mapJsonToProviders = (json) => {
-  return json.map((provider) => {
-    return {
-      name: provider['Nome do profissional '],
-      licenseNumber: provider['Número de cadastro profissional '],
-      category: provider['Categoria '],
-      specialty: provider['Especialidade '],
-      videoCallAvailability: provider['Atende por videochamada? '] === 'Sim' ? true : false,
-      phoneNumber: provider['Telefone '],
-      email: provider['E-mail '],
-      city: provider['Cidade '],
-      state: provider['Estado '],
-      address: provider['Endereço de atendimento '],
-      healthInsurance: provider['Planos de saúde aceitos '],
-      experience: provider['Apresentação '],
-      videoCallPlatform: provider['Plataforma de Atendimento '],
-      showCard: provider['Exibir site '] === 'Sim' ? true : false,
-    }
-  })
 }
 
 export default ProviderApi
