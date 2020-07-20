@@ -18,15 +18,11 @@ const SectionStyled = styled.section`
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  width: 100%;
   font-family: Open Sans, sans-serif;
-  text-align: left;
-  padding-bottom: 2em;
+  padding: 4em;
   @media (max-width: 800px) {
+    padding: 2em;
     flex-flow: column;
-    p {
-      width: 80%;
-    }
   }
   p {
     padding-bottom: 2em;
@@ -41,9 +37,20 @@ const Title = styled.h1`
   padding: 2em 0 2em 0;
 `
 const Video = styled.video`
-  width: 320px;
-  height: 240px;
+  width: 100%;
+  height: 300px;
   border-radius: 14px;
+  @media (min-width: 800px) {
+    width: 476px;
+    height: 338px;
+  }
+`
+
+const TitleAndParagraphWrapper = styled.div`
+  @media (min-width: 800px) {
+    display: flex;
+    flex-flow: column;
+  }
 `
 
 class About extends React.Component {
@@ -55,20 +62,25 @@ class About extends React.Component {
         </AboutWrapper>
 
         <SectionStyled>
-          <Title>O Atendo em Libras</Title>
-          <Paragraph>
-            O Atendo em Libras é uma plataforma de cadastro e consulta de profissionais que sabem Libras, com a
-            finalidade de disponibilizar à comunidade surda acesso aos serviços sem a necessidade de intérprete. Assim,
-            as pessoas surdas podem cuidar de sua saúde com autonomia.
-          </Paragraph>
+          <TitleAndParagraphWrapper>
+            <Title>O Atendo em Libras</Title>
+            <Paragraph>
+              O Atendo em Libras é uma plataforma de cadastro e consulta de profissionais que sabem Libras, com a
+              finalidade de disponibilizar à comunidade surda acesso aos serviços sem a necessidade de intérprete.
+              Assim, as pessoas surdas podem cuidar de sua saúde com autonomia.
+            </Paragraph>
+          </TitleAndParagraphWrapper>
           <Video controls>Your browser does not support the Video tag.</Video>
         </SectionStyled>
+
         <SectionStyled>
-          <Title>Nosso propósito</Title>
-          <Paragraph>
-            Dar visibilidade aos profissionais que disponibilizam serviços de atendimento em Libras, trazendo
-            acessibilidade à comunidade surda e, também, conceder a autonomia às pessoas surdas nos cuidados de saúde.
-          </Paragraph>
+          <TitleAndParagraphWrapper>
+            <Title>Nosso propósito</Title>
+            <Paragraph>
+              Dar visibilidade aos profissionais que disponibilizam serviços de atendimento em Libras, trazendo
+              acessibilidade à comunidade surda e, também, conceder a autonomia às pessoas surdas nos cuidados de saúde.
+            </Paragraph>
+          </TitleAndParagraphWrapper>
           <Video controls>Your browser does not support the Video tag.</Video>
         </SectionStyled>
 
