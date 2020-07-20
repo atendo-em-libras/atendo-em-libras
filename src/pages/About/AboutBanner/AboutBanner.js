@@ -17,7 +17,7 @@ class AboutBanner extends React.Component {
 
 const StyledAboutBanner = styled(AboutBanner)`
   width: 100%;
-  height: auto;
+  height: 200px;
   padding: 2em 0;
   box-sizing: border-box;
   background-color: #0f1423;
@@ -30,7 +30,7 @@ const StyledAboutBanner = styled(AboutBanner)`
   @media (min-width: 800px) {
     align-items: flex-start;
     padding-left: 45%;
-    min-height: 50vh;
+    min-height: 40vh;
     max-height: 500px;
   }
   img {

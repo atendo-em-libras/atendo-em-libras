@@ -1,7 +1,7 @@
 import React from 'react'
 import { AboutBanner } from './AboutBanner/AboutBanner'
 import styled from 'styled-components/macro'
-import { Grommet, Paragraph } from 'grommet'
+import { Paragraph } from 'grommet'
 
 const AboutWrapper = styled.div`
   display: flex;
@@ -15,12 +15,19 @@ const AboutWrapper = styled.div`
 `
 
 const SectionStyled = styled.section`
-  flex-flow: in-line;
+  display: flex;
+  flex-flow: row wrap;
   align-items: center;
   width: 100%;
   height: 400px;
   font-family: Open Sans, sans-serif;
   text-align: left;
+  @media (max-width: 800px) {
+    flex-flow: column;
+    p {
+      width: 80%;
+    }
+  }
 `
 
 class About extends React.Component {
