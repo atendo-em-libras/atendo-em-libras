@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { AboutBanner } from './AboutBanner/AboutBanner'
 import styled from 'styled-components/macro'
-import { Paragraph } from 'grommet'
+import { Paragraph, Box, ResponsiveContext } from 'grommet'
 
 const AboutWrapper = styled.div`
   display: flex;
@@ -15,14 +15,10 @@ const AboutWrapper = styled.div`
 `
 
 const SectionStyled = styled.section`
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
   font-family: Open Sans, sans-serif;
   padding: 4em;
   @media (max-width: 800px) {
     padding: 2em;
-    flex-flow: column;
   }
   p {
     padding-bottom: 2em;
@@ -53,15 +49,18 @@ const TitleAndParagraphWrapper = styled.div`
   }
 `
 
-class About extends React.Component {
-  render() {
-    return (
-      <>
-        <AboutWrapper>
-          <AboutBanner />
-        </AboutWrapper>
+const About = () => {
+  const screenSize = useContext(ResponsiveContext)
+  const idealizadorasContentDirection = screenSize === 'small' ? 'column' : 'row'
 
-        <SectionStyled>
+  return (
+    <>
+      <AboutWrapper>
+        <AboutBanner />
+      </AboutWrapper>
+
+      <SectionStyled>
+        <Box direction={idealizadorasContentDirection} pad="medium">
           <TitleAndParagraphWrapper>
             <Title>O Atendo em Libras</Title>
             <Paragraph>
@@ -71,9 +70,11 @@ class About extends React.Component {
             </Paragraph>
           </TitleAndParagraphWrapper>
           <Video controls>Your browser does not support the Video tag.</Video>
-        </SectionStyled>
+        </Box>
+      </SectionStyled>
 
-        <SectionStyled>
+      <SectionStyled>
+        <Box direction={idealizadorasContentDirection} pad="medium">
           <TitleAndParagraphWrapper>
             <Title>Nosso propósito</Title>
             <Paragraph>
@@ -82,18 +83,40 @@ class About extends React.Component {
             </Paragraph>
           </TitleAndParagraphWrapper>
           <Video controls>Your browser does not support the Video tag.</Video>
-        </SectionStyled>
+        </Box>
+      </SectionStyled>
 
-        <SectionStyled>
+      <SectionStyled>
+        <Box>
           <Title>As idealizadoras</Title>
-        </SectionStyled>
+          <Box direction={idealizadorasContentDirection} pad="medium">
+            <Box>
+              <img />
+              <h2>Beatriz Lonskis</h2>
+              <h3>lorem ipsimlorem ipsimlorem ipsim</h3>
+              <p>
+                lorem ipsim lorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem
+                ipsimlorem ipsimlorem ipsimlorem ipsim
+              </p>
+            </Box>
+            <Box>
+              <img />
+              <h2>Manuella Torrao</h2>
+              <h3>lorem ipsimlorem ipsimlorem ipsim</h3>
+              <p>
+                lorem ipsim lorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem
+                ipsimlorem ipsimlorem ipsimlorem ipsim
+              </p>
+            </Box>
+          </Box>
+        </Box>
+      </SectionStyled>
 
-        <SectionStyled>
-          <Title>Conheça quem faz parte</Title>
-        </SectionStyled>
-      </>
-    )
-  }
+      <SectionStyled>
+        <Title>Conheça quem faz parte</Title>
+      </SectionStyled>
+    </>
+  )
 }
 
 export { About }
