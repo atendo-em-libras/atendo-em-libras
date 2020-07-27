@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
 import { AboutBanner } from './AboutBanner/AboutBanner'
 import styled from 'styled-components/macro'
-import { Paragraph, Box, ResponsiveContext } from 'grommet'
+import { Paragraph, Box, ResponsiveContext, Avatar } from 'grommet'
+import FotoBeatriz from '../../assets/images/idealizadoras/beatriz.png'
+import FotoManuella from '../../assets/images/idealizadoras/manuella.png'
 
 const AboutWrapper = styled.div`
   display: flex;
@@ -15,11 +17,6 @@ const AboutWrapper = styled.div`
 `
 
 const SectionStyled = styled.section`
-  font-family: Open Sans, sans-serif;
-  padding: 4em;
-  @media (max-width: 800px) {
-    padding: 2em;
-  }
   p {
     padding-bottom: 2em;
   }
@@ -49,6 +46,27 @@ const TitleAndParagraphWrapper = styled.div`
   }
 `
 
+const DropletAvatar = styled(Avatar)`
+  border-top-right-radius: 0;
+`
+
+const idealizadoras = [
+  {
+    nome: 'Beatriz Lonskis',
+    role: 'Designer e idealizadora do projeto',
+    avatar: FotoBeatriz,
+    paragraph:
+      'lorem ipsim lorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsim',
+  },
+  {
+    nome: 'Manuella Torreão',
+    role: 'Desenvolvedora e idealizadora do projeto',
+    avatar: FotoManuella,
+    paragraph:
+      'lorem ipsim lorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsim',
+  },
+]
+
 const About = () => {
   const screenSize = useContext(ResponsiveContext)
   const idealizadorasContentDirection = screenSize === 'small' ? 'column' : 'row'
@@ -60,7 +78,7 @@ const About = () => {
       </AboutWrapper>
 
       <SectionStyled>
-        <Box direction={idealizadorasContentDirection} pad="medium">
+        <Box direction={idealizadorasContentDirection} pad="xlarge">
           <TitleAndParagraphWrapper>
             <Title>O Atendo em Libras</Title>
             <Paragraph>
@@ -74,7 +92,7 @@ const About = () => {
       </SectionStyled>
 
       <SectionStyled>
-        <Box direction={idealizadorasContentDirection} pad="medium">
+        <Box direction={idealizadorasContentDirection} pad="xlarge">
           <TitleAndParagraphWrapper>
             <Title>Nosso propósito</Title>
             <Paragraph>
@@ -87,27 +105,17 @@ const About = () => {
       </SectionStyled>
 
       <SectionStyled>
-        <Box>
+        <Box align="center">
           <Title>As idealizadoras</Title>
-          <Box direction={idealizadorasContentDirection} pad="medium">
-            <Box>
-              <img />
-              <h2>Beatriz Lonskis</h2>
-              <h3>lorem ipsimlorem ipsimlorem ipsim</h3>
-              <p>
-                lorem ipsim lorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem
-                ipsimlorem ipsimlorem ipsimlorem ipsim
-              </p>
-            </Box>
-            <Box>
-              <img />
-              <h2>Manuella Torrao</h2>
-              <h3>lorem ipsimlorem ipsimlorem ipsim</h3>
-              <p>
-                lorem ipsim lorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem
-                ipsimlorem ipsimlorem ipsimlorem ipsim
-              </p>
-            </Box>
+          <Box direction={idealizadorasContentDirection} pad="xlarge">
+            {idealizadoras.map((idealizadora) => (
+              <Box align="center">
+                <DropletAvatar size="xlarge" src={idealizadora.avatar} round="large" />
+                <h2>{idealizadora.nome}</h2>
+                <h3>{idealizadora.role}</h3>
+                <Paragraph textAlign="center">{idealizadora.paragraph}</Paragraph>
+              </Box>
+            ))}
           </Box>
         </Box>
       </SectionStyled>
