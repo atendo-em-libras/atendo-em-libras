@@ -69,7 +69,7 @@ const idealizadoras = [
 
 const About = () => {
   const screenSize = useContext(ResponsiveContext)
-  const idealizadorasContentDirection = screenSize === 'small' ? 'column' : 'row'
+  const contentDirection = screenSize === 'small' ? 'column' : 'row'
 
   return (
     <>
@@ -78,7 +78,7 @@ const About = () => {
       </AboutWrapper>
 
       <SectionStyled>
-        <Box direction={idealizadorasContentDirection} pad="xlarge">
+        <Box direction={contentDirection} pad="xlarge">
           <TitleAndParagraphWrapper>
             <Title>O Atendo em Libras</Title>
             <Paragraph>
@@ -92,7 +92,7 @@ const About = () => {
       </SectionStyled>
 
       <SectionStyled>
-        <Box direction={idealizadorasContentDirection} pad="xlarge">
+        <Box direction={contentDirection} pad="xlarge">
           <TitleAndParagraphWrapper>
             <Title>Nosso propósito</Title>
             <Paragraph>
@@ -107,7 +107,7 @@ const About = () => {
       <SectionStyled>
         <Box align="center">
           <Title>As idealizadoras</Title>
-          <Box direction={idealizadorasContentDirection} pad="xlarge">
+          <Box direction={contentDirection} pad="xlarge">
             {idealizadoras.map((idealizadora) => (
               <Box align="center">
                 <DropletAvatar size="xlarge" src={idealizadora.avatar} round="large" />
