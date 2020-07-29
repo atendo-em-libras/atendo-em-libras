@@ -150,8 +150,8 @@ const About = () => {
             {idealizadoras.map((idealizadora) => (
               <Box align="center">
                 <DropletAvatar size="xlarge" src={idealizadora.avatar} round="large" />
-                <Heading level="2">{idealizadora.nome}</Heading>
-                <Heading level="2">{idealizadora.role}</Heading>
+                <Heading level="3">{idealizadora.nome}</Heading>
+                <Heading level="4">{idealizadora.role}</Heading>
                 <Paragraph textAlign="center">{idealizadora.paragraph}</Paragraph>
               </Box>
             ))}
