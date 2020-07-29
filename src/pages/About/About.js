@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AboutBanner } from './AboutBanner/AboutBanner'
 import styled from 'styled-components/macro'
-import { Paragraph, Box, ResponsiveContext, Avatar } from 'grommet'
+import { Paragraph, Box, ResponsiveContext, Avatar, Heading } from 'grommet'
 import FotoBeatriz from '../../assets/images/idealizadoras/beatriz.png'
 import FotoManuella from '../../assets/images/idealizadoras/manuella.png'
 
@@ -65,6 +65,16 @@ const TitleAndParagraphWrapper = styled.div`
 
 const DropletAvatar = styled(Avatar)`
   border-top-right-radius: 0;
+`
+
+const BoxStyled = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  & div {
+    width: 120px;
+  }
 `
 
 const idealizadoras = [
@@ -157,7 +167,22 @@ const About = () => {
       </SectionStyled>
 
       <SectionStyled>
-        <Title>Conheça quem faz parte</Title>
+        <Box align="center">
+          <Title>Conheça quem faz parte</Title>
+          <BoxStyled justify="center" pad="large">
+            {participants.map((participant) => (
+              <Box align="center" margin="small">
+                <DropletAvatar size="xlarge" src={participant.avatar} round="large" />
+                <Heading level="3" textAlign="center">
+                  {participant.nome}
+                </Heading>
+                <Heading level="4" textAlign="center">
+                  {participant.role}
+                </Heading>
+              </Box>
+            ))}
+          </BoxStyled>
+        </Box>
       </SectionStyled>
     </>
   )
