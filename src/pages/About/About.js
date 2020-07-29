@@ -5,7 +5,7 @@ import { Paragraph, Box, ResponsiveContext, Avatar } from 'grommet'
 import FotoBeatriz from '../../assets/images/idealizadoras/beatriz.png'
 import FotoManuella from '../../assets/images/idealizadoras/manuella.png'
 
-import FotoAndressa from '../../assets/images/participantes/andressa.png'
+import FotoAndressa from '../../assets/images/participantes/andressa.jpg'
 import FotoCris from '../../assets/images/participantes/cris.png'
 import FotoFelipe from '../../assets/images/participantes/felipe.png'
 import FotoGuilherme from '../../assets/images/participantes/guilherme.png'
