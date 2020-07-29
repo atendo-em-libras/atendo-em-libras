@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { AboutBanner } from './AboutBanner/AboutBanner'
 import styled from 'styled-components/macro'
-import { Paragraph, Box, ResponsiveContext, Avatar, Heading } from 'grommet'
+import { Box, ResponsiveContext, Avatar } from 'grommet'
 import FotoBeatriz from '../../assets/images/idealizadoras/beatriz.png'
 import FotoManuella from '../../assets/images/idealizadoras/manuella.png'
-
+import { Paragraph } from '../../components/Typography/Paragraph'
+import { Heading } from '../../components/Typography/Heading'
 import FotoAndressa from '../../assets/images/participantes/andressa.jpg'
 import FotoCris from '../../assets/images/participantes/cris.png'
 import FotoFelipe from '../../assets/images/participantes/felipe.png'
@@ -37,14 +38,6 @@ const SectionStyled = styled.section`
   p {
     padding-bottom: 2em;
   }
-`
-const Title = styled.h1`
-  margin-top: 1rem;
-  font-size: 2em;
-  font-weight: 400;
-  line-height: 1.2em;
-  text-align: left;
-  padding: 2em 0 2em 0;
 `
 const Video = styled.video`
   width: 100%;
@@ -126,7 +119,7 @@ const About = () => {
       <SectionStyled>
         <Box direction={contentDirection} pad="xlarge">
           <TitleAndParagraphWrapper>
-            <Title>O Atendo em Libras</Title>
+            <Heading level="2">O Atendo em Libras</Heading>
             <Paragraph>
               O Atendo em Libras é uma plataforma de cadastro e consulta de profissionais que sabem Libras, com a
               finalidade de disponibilizar à comunidade surda acesso aos serviços sem a necessidade de intérprete.
@@ -140,7 +133,7 @@ const About = () => {
       <SectionStyled>
         <Box direction={contentDirection} pad="xlarge">
           <TitleAndParagraphWrapper>
-            <Title>Nosso propósito</Title>
+            <Heading level="2">Nosso propósito</Heading>
             <Paragraph>
               Dar visibilidade aos profissionais que disponibilizam serviços de atendimento em Libras, trazendo
               acessibilidade à comunidade surda e, também, conceder a autonomia às pessoas surdas nos cuidados de saúde.
@@ -152,13 +145,13 @@ const About = () => {
 
       <SectionStyled>
         <Box align="center">
-          <Title>As idealizadoras</Title>
+          <Heading level="2">As idealizadoras</Heading>
           <Box direction={contentDirection} pad="xlarge">
             {idealizadoras.map((idealizadora) => (
               <Box align="center">
                 <DropletAvatar size="xlarge" src={idealizadora.avatar} round="large" />
-                <h2>{idealizadora.nome}</h2>
-                <h3>{idealizadora.role}</h3>
+                <Heading level="2">{idealizadora.nome}</Heading>
+                <Heading level="2">{idealizadora.role}</Heading>
                 <Paragraph textAlign="center">{idealizadora.paragraph}</Paragraph>
               </Box>
             ))}
@@ -168,7 +161,7 @@ const About = () => {
 
       <SectionStyled>
         <Box align="center">
-          <Title>Conheça quem faz parte</Title>
+          <Heading level="2">Conheça quem faz parte</Heading>
           <BoxStyled justify="center" pad="large">
             {participants.map((participant) => (
               <Box align="center" margin="small">
