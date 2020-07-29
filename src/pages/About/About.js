@@ -5,6 +5,23 @@ import { Paragraph, Box, ResponsiveContext, Avatar } from 'grommet'
 import FotoBeatriz from '../../assets/images/idealizadoras/beatriz.png'
 import FotoManuella from '../../assets/images/idealizadoras/manuella.png'
 
+import FotoAndressa from '../../assets/images/participantes/andressa.png'
+import FotoCris from '../../assets/images/participantes/cris.png'
+import FotoFelipe from '../../assets/images/participantes/felipe.png'
+import FotoGuilherme from '../../assets/images/participantes/guilherme.png'
+import FotoHeitor from '../../assets/images/participantes/heitor.png'
+import FotoInessa from '../../assets/images/participantes/inessa.png'
+import FotoLaura from '../../assets/images/participantes/laura.png'
+import FotoLuana from '../../assets/images/participantes/luana.png'
+import FotoLuma from '../../assets/images/participantes/luma.png'
+import FotoMaira from '../../assets/images/participantes/maira.png'
+import FotoMarco from '../../assets/images/participantes/marco.png'
+import FotoMarcos from '../../assets/images/participantes/marcos.png'
+import FotoNicole from '../../assets/images/participantes/nicole.png'
+import FotoRicardo from '../../assets/images/participantes/ricardo.png'
+import FotoSophia from '../../assets/images/participantes/sophia.png'
+import FotoThomaz from '../../assets/images/participantes/thomaz.png'
+
 const AboutWrapper = styled.div`
   display: flex;
   flex-flow: column;
@@ -65,6 +82,25 @@ const idealizadoras = [
     paragraph:
       'lorem ipsim lorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsimlorem ipsim',
   },
+]
+
+const participants = [
+  { nome: 'Andressa Silva', role: 'Desenvolvedora', avatar: FotoAndressa },
+  { nome: 'Cris Brand', role: 'Business Analyst', avatar: FotoCris },
+  { nome: 'Felipe Fahrion', role: 'Desenvovledor', avatar: FotoFelipe },
+  { nome: 'Heitor Inhaquites', role: 'Desenvovledor', avatar: FotoHeitor },
+  { nome: 'Guilherme Vandresen', role: 'Business Analyst', avatar: FotoGuilherme },
+  { nome: 'Inessa Luerce', role: 'Desenvolvedora e Experience Designer', avatar: FotoInessa },
+  { nome: 'Laura Melo', role: 'Business Analyst', avatar: FotoLaura },
+  { nome: 'Luana Gayer', role: 'Business Analyst', avatar: FotoLuana },
+  { nome: 'Luma Beserra', role: 'Desenvolvedora', avatar: FotoLuma },
+  { nome: 'Maira Cerqueira', role: 'QA Analyst', avatar: FotoMaira },
+  { nome: 'Marco Beduschi', role: 'Desenvolvedor', avatar: FotoMarco },
+  { nome: 'Marcos Bezerra', role: 'Desenvolvedor', avatar: FotoMarcos },
+  { nome: 'Nicole Bianchin', role: 'Desenvolvedora', avatar: FotoNicole },
+  { nome: 'Ricardo Praxedes', role: 'Desenvolvedor', avatar: FotoRicardo },
+  { nome: 'Sophia Cavalcan', role: 'Experience Designer', avatar: FotoSophia },
+  { nome: 'Thomaz Zandonotto', role: 'Desenvolvedor', avatar: FotoThomaz },
 ]
 
 const About = () => {
