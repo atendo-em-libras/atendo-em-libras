@@ -54,6 +54,7 @@ const DropletAvatar = styled(Avatar)`
 const About = () => {
   const screenSize = useContext(ResponsiveContext)
   const contentDirection = screenSize === 'small' ? 'column' : 'row'
+  const textAlign = screenSize === 'small' ? 'center' : ''
 
   return (
     <>
@@ -76,7 +77,7 @@ const About = () => {
       </SectionStyled>
 
       <SectionStyled>
-        <Box direction={contentDirection} pad="xlarge" background="#F7F8FA ">
+        <Box direction={contentDirection} pad="xlarge" background="#F7F8FA">
           <TitleAndParagraphWrapper>
             <Heading level="2">Nosso propósito</Heading>
             <Paragraph>
@@ -93,15 +94,24 @@ const About = () => {
           <Heading level="2" margin={{ bottom: 'xlarge' }}>
             As idealizadoras
           </Heading>
-          <Box direction={contentDirection}>
+          <Box direction={contentDirection} justify="between">
             {idealizadoras.map((idealizadora) => (
-              <Box key={idealizadora.nome} align="center">
-                <DropletAvatar dropletDirection="top-right" size="xlarge" src={idealizadora.avatar} round="large" />
-                <Heading level="3">{idealizadora.nome}</Heading>
-                <Heading color="#5996F7" level="4">
-                  {idealizadora.role}
-                </Heading>
-                <Paragraph textAlign="center">{idealizadora.paragraph}</Paragraph>
+              <Box key={idealizadora.nome} align="center" direction={contentDirection} basis="48%">
+                <DropletAvatar
+                  dropletDirection="top-right"
+                  size="120px"
+                  src={idealizadora.avatar}
+                  round="large"
+                  margin={screenSize === 'small' ? {} : { right: 'small' }}
+                  flex={{ shrink: 0 }}
+                />
+                <Box align={textAlign}>
+                  <Heading level="3">{idealizadora.nome}</Heading>
+                  <Heading color="#5996F7" level="4">
+                    {idealizadora.role}
+                  </Heading>
+                  <Paragraph textAlign={textAlign}>{idealizadora.paragraph}</Paragraph>
+                </Box>
               </Box>
             ))}
           </Box>
@@ -113,15 +123,15 @@ const About = () => {
           <Heading level="2" margin={{ bottom: 'xlarge' }}>
             Conheça quem faz parte
           </Heading>
-          <Box direction="row" wrap>
+          <Box direction="row" wrap justify="between">
             {participantes.map((participant) => (
               <Box
                 key={participant.nome}
                 align="center"
-                basis={screenSize === 'small' ? '1/2' : 'small'}
+                basis={screenSize === 'small' ? '46%' : '18%'}
                 pad={{ bottom: 'large' }}
               >
-                <DropletAvatar dropletDirection="top-left" size="xlarge" src={participant.avatar} round="large" />
+                <DropletAvatar dropletDirection="top-left" size="120px" src={participant.avatar} round="large" />
                 <Heading level="3" textAlign="center">
                   {participant.nome}
                 </Heading>
