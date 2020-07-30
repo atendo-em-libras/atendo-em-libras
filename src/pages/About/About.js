@@ -98,7 +98,9 @@ const About = () => {
               <Box key={idealizadora.nome} align="center">
                 <DropletAvatar dropletDirection="top-right" size="xlarge" src={idealizadora.avatar} round="large" />
                 <Heading level="3">{idealizadora.nome}</Heading>
-                <Heading level="4">{idealizadora.role}</Heading>
+                <Heading color="#5996F7" level="4">
+                  {idealizadora.role}
+                </Heading>
                 <Paragraph textAlign="center">{idealizadora.paragraph}</Paragraph>
               </Box>
             ))}
@@ -123,7 +125,7 @@ const About = () => {
                 <Heading level="3" textAlign="center">
                   {participant.nome}
                 </Heading>
-                <Heading level="4" textAlign="center">
+                <Heading color="#5996F7" level="4" textAlign="center">
                   {participant.role}
                 </Heading>
               </Box>
