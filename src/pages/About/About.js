@@ -49,16 +49,6 @@ const DropletAvatar = styled(Avatar)`
   border-top-right-radius: 0;
 `
 
-const BoxStyled = styled(Box)`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  & div {
-    width: 120px;
-  }
-`
-
 const About = () => {
   const screenSize = useContext(ResponsiveContext)
   const contentDirection = screenSize === 'small' ? 'column' : 'row'
@@ -115,9 +105,9 @@ const About = () => {
       <SectionStyled>
         <Box align="center">
           <Heading level="2">Conheça quem faz parte</Heading>
-          <BoxStyled justify="center" pad="large">
+          <Box pad="xlarge" direction="row" wrap>
             {participantes.map((participant) => (
-              <Box align="center" margin="small">
+              <Box align="center" basis={screenSize === 'small' ? '1/2' : 'small'} pad={{ bottom: 'large' }}>
                 <DropletAvatar size="xlarge" src={participant.avatar} round="large" />
                 <Heading level="3" textAlign="center">
                   {participant.nome}
@@ -127,7 +117,7 @@ const About = () => {
                 </Heading>
               </Box>
             ))}
-          </BoxStyled>
+          </Box>
         </Box>
       </SectionStyled>
     </>
