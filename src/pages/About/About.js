@@ -74,7 +74,7 @@ const About = () => {
       </SectionStyled>
 
       <SectionStyled>
-        <Box direction={contentDirection} pad="xlarge">
+        <Box direction={contentDirection} pad="xlarge" background="#F7F8FA ">
           <TitleAndParagraphWrapper>
             <Heading level="2">Nosso propósito</Heading>
             <Paragraph>
@@ -87,9 +87,11 @@ const About = () => {
       </SectionStyled>
 
       <SectionStyled>
-        <Box align="center">
-          <Heading level="2">As idealizadoras</Heading>
-          <Box direction={contentDirection} pad="xlarge">
+        <Box align="center" pad="xlarge">
+          <Heading level="2" pad={{ bottom: 'xlarge' }}>
+            As idealizadoras
+          </Heading>
+          <Box direction={contentDirection}>
             {idealizadoras.map((idealizadora) => (
               <Box align="center">
                 <DropletAvatar size="xlarge" src={idealizadora.avatar} round="large" />
@@ -103,9 +105,11 @@ const About = () => {
       </SectionStyled>
 
       <SectionStyled>
-        <Box align="center">
-          <Heading level="2">Conheça quem faz parte</Heading>
-          <Box pad="xlarge" direction="row" wrap>
+        <Box align="center" pad="xlarge">
+          <Heading level="2" margin={{ bottom: 'xlarge' }}>
+            Conheça quem faz parte
+          </Heading>
+          <Box direction="row" wrap>
             {participantes.map((participant) => (
               <Box align="center" basis={screenSize === 'small' ? '1/2' : 'small'} pad={{ bottom: 'large' }}>
                 <DropletAvatar size="xlarge" src={participant.avatar} round="large" />
