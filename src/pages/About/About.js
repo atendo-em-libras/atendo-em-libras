@@ -45,9 +45,11 @@ const TitleAndParagraphWrapper = styled.div`
   `}
 `
 
+/* stylelint-disable property-no-unknown */
 const DropletAvatar = styled(Avatar)`
-  border-top-right-radius: 0;
+  border-${(props) => props.direction}-radius: 0; 
 `
+/* stylelint-enable property-no-unkown */
 
 const About = () => {
   const screenSize = useContext(ResponsiveContext)
@@ -88,13 +90,13 @@ const About = () => {
 
       <SectionStyled>
         <Box align="center" pad="xlarge">
-          <Heading level="2" pad={{ bottom: 'xlarge' }}>
+          <Heading level="2" margin={{ bottom: 'xlarge' }}>
             As idealizadoras
           </Heading>
           <Box direction={contentDirection}>
             {idealizadoras.map((idealizadora) => (
               <Box align="center">
-                <DropletAvatar size="xlarge" src={idealizadora.avatar} round="large" />
+                <DropletAvatar direction="top-right" size="xlarge" src={idealizadora.avatar} round="large" />
                 <Heading level="3">{idealizadora.nome}</Heading>
                 <Heading level="4">{idealizadora.role}</Heading>
                 <Paragraph textAlign="center">{idealizadora.paragraph}</Paragraph>
@@ -112,7 +114,7 @@ const About = () => {
           <Box direction="row" wrap>
             {participantes.map((participant) => (
               <Box align="center" basis={screenSize === 'small' ? '1/2' : 'small'} pad={{ bottom: 'large' }}>
-                <DropletAvatar size="xlarge" src={participant.avatar} round="large" />
+                <DropletAvatar direction="top-left" size="xlarge" src={participant.avatar} round="large" />
                 <Heading level="3" textAlign="center">
                   {participant.nome}
                 </Heading>
