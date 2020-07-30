@@ -15,8 +15,9 @@ function App() {
       <GlobalStyle />
       <Grommet plain theme={DEFAULT_THEME}>
         <FeatureTogglesContext.Provider value={toggles}>
-          <Header />
-          <Routes />
+          <Routes>
+            <Header />
+          </Routes>
           <Footer />
         </FeatureTogglesContext.Provider>
       </Grommet>
