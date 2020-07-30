@@ -47,7 +47,7 @@ const TitleAndParagraphWrapper = styled.div`
 
 /* stylelint-disable property-no-unknown */
 const DropletAvatar = styled(Avatar)`
-  border-${(props) => props.direction}-radius: 0; 
+  border-${(props) => props.dropletDirection}-radius: 0; 
 `
 /* stylelint-enable property-no-unkown */
 
@@ -95,8 +95,8 @@ const About = () => {
           </Heading>
           <Box direction={contentDirection}>
             {idealizadoras.map((idealizadora) => (
-              <Box align="center">
-                <DropletAvatar direction="top-right" size="xlarge" src={idealizadora.avatar} round="large" />
+              <Box key={idealizadora.nome} align="center">
+                <DropletAvatar dropletDirection="top-right" size="xlarge" src={idealizadora.avatar} round="large" />
                 <Heading level="3">{idealizadora.nome}</Heading>
                 <Heading level="4">{idealizadora.role}</Heading>
                 <Paragraph textAlign="center">{idealizadora.paragraph}</Paragraph>
@@ -113,8 +113,13 @@ const About = () => {
           </Heading>
           <Box direction="row" wrap>
             {participantes.map((participant) => (
-              <Box align="center" basis={screenSize === 'small' ? '1/2' : 'small'} pad={{ bottom: 'large' }}>
-                <DropletAvatar direction="top-left" size="xlarge" src={participant.avatar} round="large" />
+              <Box
+                key={participant.nome}
+                align="center"
+                basis={screenSize === 'small' ? '1/2' : 'small'}
+                pad={{ bottom: 'large' }}
+              >
+                <DropletAvatar dropletDirection="top-left" size="xlarge" src={participant.avatar} round="large" />
                 <Heading level="3" textAlign="center">
                   {participant.nome}
                 </Heading>
