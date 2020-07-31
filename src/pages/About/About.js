@@ -5,7 +5,7 @@ import { AboutBanner } from './AboutBanner/AboutBanner'
 import styled from 'styled-components/macro'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 
-import { Box, ResponsiveContext, Avatar, Image } from 'grommet'
+import { Box, ResponsiveContext, Avatar } from 'grommet'
 import { Paragraph } from '../../components/Typography/Paragraph'
 import { Heading } from '../../components/Typography/Heading'
 
