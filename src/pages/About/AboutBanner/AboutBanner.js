@@ -2,75 +2,29 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 import { Container } from '../../../components/Container/Container'
+import { Heading } from '../../../components/Typography/Heading'
+import BannerImage from '../../../assets/images/pages/about/about-sobre-o-projeto.svg'
+import { Box, Image } from 'grommet'
 
-class AboutBanner extends React.Component {
-  render = () => {
-    return (
-      <Container>
-        <div className={this.props.className}>
-          <h1>Sobre o projeto</h1>
-        </div>
-      </Container>
-    )
-  }
-}
-
-const StyledAboutBanner = styled(AboutBanner)`
-  width: 100%;
-  height: 200px;
-  padding: 2em 0;
-  box-sizing: border-box;
-  background-color: #0f1423;
-  color: white;
-  position: relative;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  @media (min-width: 800px) {
-    align-items: flex-start;
-    padding-left: 45%;
-    min-height: 40vh;
-    max-height: 500px;
-  }
-  img {
-    width: 45%;
-    max-height: 100%;
-    left: 0;
-    padding: 0 0 2em 0;
-    box-sizing: border-box;
-    @media (min-width: 800px) {
-      padding: 2em 4vw 2em 0;
-      position: absolute;
-    }
-  }
-  h1 {
-    margin-top: 1rem;
-    font-size: 2em;
-    font-weight: 400;
-    line-height: 1.2em;
-    text-align: left;
-    @media (min-width: 800px) {
-      margin-top: 0;
-      width: 80%;
-      font-size: 3.2em;
-      line-height: 1.5em;
-      text-align: left;
-    }
-  }
-  p {
-    margin: 1rem 3rem 2.5rem 0;
-    font-size: 1.4em;
-    font-weight: 400;
-    line-height: 1.3em;
-    text-align: left;
-    @media (min-width: 800px) {
-      margin: 0;
-      width: 80%;
-      line-height: 1.5em;
-      text-align: left;
-    }
-  }
+const Line = styled.hr`
+  width: 40px;
+  height: 2px;
+  background-color: white;
+  margin: 24px 0;
 `
 
-export { StyledAboutBanner as AboutBanner }
+const AboutBanner = () => {
+  return (
+    <Container>
+      <Box align="center" margin={{ vertical: 'large' }}>
+        <Box height="66px" width="66px" align="center">
+          <Image src={BannerImage} alt="Sobre o Projeto" />
+        </Box>
+        <Line />
+        <Heading level="1">Sobre o projeto</Heading>
+      </Box>
+    </Container>
+  )
+}
+
+export { AboutBanner }

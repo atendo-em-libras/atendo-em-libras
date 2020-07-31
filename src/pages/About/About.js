@@ -54,7 +54,7 @@ const DropletAvatar = styled(Avatar)`
 const About = () => {
   const screenSize = useContext(ResponsiveContext)
   const contentDirection = screenSize === 'small' ? 'column' : 'row'
-  const textAlign = screenSize === 'small' ? 'center' : ''
+  const textAlign = screenSize === 'small' ? 'center' : undefined
 
   return (
     <>
