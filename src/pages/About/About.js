@@ -5,7 +5,7 @@ import { AboutBanner } from './AboutBanner/AboutBanner'
 import styled from 'styled-components/macro'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 
-import { Box, ResponsiveContext, Avatar } from 'grommet'
+import { Box, ResponsiveContext, Avatar, Image } from 'grommet'
 import { Paragraph } from '../../components/Typography/Paragraph'
 import { Heading } from '../../components/Typography/Heading'
 
@@ -45,6 +45,13 @@ const TitleAndParagraphWrapper = styled.div`
   `}
 `
 
+const Square = styled(Box)`
+  width: 45px;
+  height: 45px;
+  box-shadow: 0px 10px 32px #00000029;
+  border-radius: 0px 20px 20px 20px;
+`
+
 /* stylelint-disable property-no-unknown */
 const DropletAvatar = styled(Avatar)`
   border-${(props) => props.dropletDirection}-radius: 0; 
@@ -65,8 +72,11 @@ const About = () => {
       <SectionStyled>
         <Box direction={contentDirection} pad="xlarge">
           <TitleAndParagraphWrapper>
-            <Heading level="2">O Atendo em Libras</Heading>
-            <Paragraph>
+            <Box direction="row" align="center" margin={{ bottom: 'large' }}>
+              <Square margin={{ right: 'medium' }} background="white" />
+              <Heading level="2">O Atendo em Libras</Heading>
+            </Box>
+            <Paragraph fill>
               O Atendo em Libras é uma plataforma de cadastro e consulta de profissionais que sabem Libras, com a
               finalidade de disponibilizar à comunidade surda acesso aos serviços sem a necessidade de intérprete.
               Assim, as pessoas surdas podem cuidar de sua saúde com autonomia.
@@ -79,8 +89,11 @@ const About = () => {
       <SectionStyled>
         <Box direction={contentDirection} pad="xlarge" background="#F7F8FA">
           <TitleAndParagraphWrapper>
-            <Heading level="2">Nosso propósito</Heading>
-            <Paragraph>
+            <Box direction="row" align="center" margin={{ bottom: 'large' }}>
+              <Square margin={{ right: 'medium' }} background="#5996F7" />
+              <Heading level="2">Nosso propósito</Heading>
+            </Box>
+            <Paragraph fill>
               Dar visibilidade aos profissionais que disponibilizam serviços de atendimento em Libras, trazendo
               acessibilidade à comunidade surda e, também, conceder a autonomia às pessoas surdas nos cuidados de saúde.
             </Paragraph>
