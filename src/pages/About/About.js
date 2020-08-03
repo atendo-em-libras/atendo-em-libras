@@ -57,6 +57,12 @@ const AspectRatioBox = styled(Box)`
   `}
 `
 
+const ParagraphStyled = styled(Paragraph)`
+  ${respondTo.desktop`
+    line-height: ${(props) => props.lineHeight};
+  `}
+`
+
 /* stylelint-disable property-no-unknown */
 const DropletAvatar = styled(Avatar)`
   border-${(props) => props.dropletDirection}-radius: 0; 
@@ -88,13 +94,13 @@ const About = () => {
               </Square>
               <Heading level="2">O Atendo em Libras</Heading>
             </Box>
-            <Paragraph fill>
+            <ParagraphStyled lineHeight="35px" fill>
               O Atendo em Libras é uma plataforma online e gratuita, que centraliza informações de profissionais que
               atendem utilizando a Língua Brasileira de Sinais (Libras). As informações são alimentadas pela própria
               comunidade e pelos profissionais que visam diminuir barreiras na comunicação com quem precisa de
               atendimento. Dessa forma, suas principais funcionalidades são o cadastro e a busca destes profissionais,
               facilitando o acesso das pessoas surdas aos serviços e proporcionando a divulgação dos profissionais.
-            </Paragraph>
+            </ParagraphStyled>
           </Box>
           <AspectRatioBox ratio="3/4" basis="33%">
             <Video src="https://www.youtube.com/embed/0if71HOyVjY" controls>
@@ -110,6 +116,7 @@ const About = () => {
           justify="between"
           pad="xlarge"
           background="#F7F8FA"
+          align={screenSize === 'small' ? undefined : 'center'}
         >
           <Box basis="60%">
             <Box direction="row" align="center" margin={{ bottom: 'large' }}>
@@ -118,13 +125,13 @@ const About = () => {
               </Square>
               <Heading level="2">Nosso propósito</Heading>
             </Box>
-            <Paragraph fill>
+            <ParagraphStyled lineHeight="35px" fill>
               O Atendo em Libras é um projeto que teve seus primeiros passos motivados pelas novas necessidades de
               atendimento impostas pela pandemia do coronavírus. Contudo, não se limita a elas. Portanto, a iniciativa
               tem como objetivo promover o acesso a profissionais preparadas para atender a comunidade surda com
               comunicação humanizada em Libras, trazendo autonomia e independência para as pessoas surdas no atendimento
               às suas necessidades.
-            </Paragraph>
+            </ParagraphStyled>
           </Box>
           <AspectRatioBox ratio="3/4" basis="33%">
             <Video src="https://www.youtube.com/embed/0if71HOyVjY" controls>
@@ -151,13 +158,15 @@ const About = () => {
                   flex={{ shrink: 0 }}
                 />
                 <Box align={textAlign}>
-                  <Heading level="3" textAlign={textAlign}>
+                  <Heading level="3" textAlign={textAlign} margin={{ bottom: 'xsmall' }}>
                     {idealizadora.nome}
                   </Heading>
-                  <Heading color="#5996F7" level="4" textAlign={textAlign}>
+                  <Heading color="#5996F7" level="4" textAlign={textAlign} margin={{ bottom: 'xsmall' }}>
                     {idealizadora.role}
                   </Heading>
-                  <Paragraph textAlign={textAlign}>{idealizadora.paragraph}</Paragraph>
+                  <ParagraphStyled lineHeight="25px" textAlign={textAlign}>
+                    {idealizadora.paragraph}
+                  </ParagraphStyled>
                 </Box>
               </Box>
             ))}
