@@ -142,17 +142,17 @@ const About = () => {
       </SectionStyled>
 
       <SectionStyled>
-        <Box align="center" pad="xlarge">
+        <Box align="center" pad={screenSize === 'small' ? { vertical: 'small' } : 'xlarge'}>
           <Heading level="2" margin={{ bottom: 'xlarge' }}>
             Conheça quem faz parte
           </Heading>
-          <Box direction="row" wrap justify="between">
+          <Box direction="row" wrap justify="center">
             {participantes.map((participant) => (
               <Box
                 key={participant.nome}
                 align="center"
                 basis={screenSize === 'small' ? '46%' : '18%'}
-                pad={{ bottom: 'large' }}
+                pad={{ bottom: 'large', left: 'small', right: 'small' }}
               >
                 <DropletAvatar dropletDirection="top-left" size="120px" src={participant.avatar} round="large" />
                 <Heading level="3" textAlign="center">

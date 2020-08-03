@@ -19,9 +19,9 @@ import FotoThomaz from '../../assets/images/participantes/thomaz.png'
 const participantes = [
   { nome: 'Andressa Silva', role: 'Desenvolvedora', avatar: FotoAndressa },
   { nome: 'Cris Brand', role: 'Business Analyst', avatar: FotoCris },
-  { nome: 'Débora Pereira', role: 'Interprete de Libras', avatar: FotoDebora },
-  { nome: 'Felipe Fahrion', role: 'Desenvovledor', avatar: FotoFelipe },
-  { nome: 'Heitor Inhaquites', role: 'Desenvovledor', avatar: FotoHeitor },
+  { nome: 'Débora Pereira', role: 'Intérprete de Libras', avatar: FotoDebora },
+  { nome: 'Felipe Fahrion', role: 'Desenvolvedor', avatar: FotoFelipe },
+  { nome: 'Heitor Inhaquites', role: 'Desenvolvedor', avatar: FotoHeitor },
   { nome: 'Guilherme Vandresen', role: 'Business Analyst', avatar: FotoGuilherme },
   { nome: 'Inessa Luerce', role: 'Desenvolvedora e Experience Designer', avatar: FotoInessa },
   { nome: 'Laura Melo', role: 'Business Analyst', avatar: FotoLaura },
