@@ -39,13 +39,6 @@ const Video = styled.video`
   `}
 `
 
-const TitleAndParagraphWrapper = styled.div`
-  ${respondTo.desktop`
-    display: flex;
-    flex-flow: column;
-  `}
-`
-
 const Square = styled(Box)`
   box-shadow: 0px 10px 32px #00000029;
   border-radius: 0px 20px 20px 20px;
@@ -75,7 +68,7 @@ const About = () => {
 
       <SectionStyled>
         <Box direction={contentDirection} pad="xlarge">
-          <TitleAndParagraphWrapper>
+          <Box basis="1/2">
             <Box direction="row" align="center" margin={{ bottom: 'large' }}>
               <Square margin={{ right: 'medium' }} background="white">
                 <Image src={missionIcon} fill />
@@ -83,18 +76,22 @@ const About = () => {
               <Heading level="2">O Atendo em Libras</Heading>
             </Box>
             <Paragraph fill>
-              O Atendo em Libras é uma plataforma de cadastro e consulta de profissionais que sabem Libras, com a
-              finalidade de disponibilizar à comunidade surda acesso aos serviços sem a necessidade de intérprete.
-              Assim, as pessoas surdas podem cuidar de sua saúde com autonomia.
+              O Atendo em Libras é uma plataforma online e gratuita, que centraliza informações de profissionais que
+              atendem utilizando a Língua Brasileira de Sinais (Libras). As informações são alimentadas pela própria
+              comunidade e pelos profissionais que visam diminuir barreiras na comunicação com quem precisa de
+              atendimento. Dessa forma, suas principais funcionalidades são o cadastro e a busca destes profissionais,
+              facilitando o acesso das pessoas surdas aos serviços e proporcionando a divulgação dos profissionais.
             </Paragraph>
-          </TitleAndParagraphWrapper>
-          <Video controls>Your browser does not support the Video tag.</Video>
+          </Box>
+          <Box basis="1/2">
+            <Video controls>Your browser does not support the Video tag.</Video>
+          </Box>
         </Box>
       </SectionStyled>
 
       <SectionStyled>
-        <Box direction={contentDirection} pad="xlarge" background="#F7F8FA">
-          <TitleAndParagraphWrapper>
+        <Box direction={screenSize === 'small' ? 'column' : 'row-reverse'} pad="xlarge" background="#F7F8FA">
+          <Box basis="1/2">
             <Box direction="row" align="center" margin={{ bottom: 'large' }}>
               <Square margin={{ right: 'medium' }} background="#5996F7">
                 <Image src={missionIcon} fill />
@@ -102,11 +99,16 @@ const About = () => {
               <Heading level="2">Nosso propósito</Heading>
             </Box>
             <Paragraph fill>
-              Dar visibilidade aos profissionais que disponibilizam serviços de atendimento em Libras, trazendo
-              acessibilidade à comunidade surda e, também, conceder a autonomia às pessoas surdas nos cuidados de saúde.
+              O Atendo em Libras é um projeto que teve seus primeiros passos motivados pelas novas necessidades de
+              atendimento impostas pela pandemia do coronavírus. Contudo, não se limita a elas. Portanto, a iniciativa
+              tem como objetivo promover o acesso a profissionais preparadas para atender a comunidade surda com
+              comunicação humanizada em Libras, trazendo autonomia e independência para as pessoas surdas no atendimento
+              às suas necessidades.
             </Paragraph>
-          </TitleAndParagraphWrapper>
-          <Video controls>Your browser does not support the Video tag.</Video>
+          </Box>
+          <Box basis="1/2">
+            <Video controls>Your browser does not support the Video tag.</Video>
+          </Box>
         </Box>
       </SectionStyled>
 
