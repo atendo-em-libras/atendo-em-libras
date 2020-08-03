@@ -1,5 +1,6 @@
 import FotoAndressa from '../../assets/images/participantes/andressa.jpg'
 import FotoCris from '../../assets/images/participantes/cris.png'
+import FotoDebora from '../../assets/images/participantes/debora.jpg'
 import FotoFelipe from '../../assets/images/participantes/felipe.png'
 import FotoGuilherme from '../../assets/images/participantes/guilherme.png'
 import FotoHeitor from '../../assets/images/participantes/heitor.png'
@@ -18,6 +19,7 @@ import FotoThomaz from '../../assets/images/participantes/thomaz.png'
 const participantes = [
   { nome: 'Andressa Silva', role: 'Desenvolvedora', avatar: FotoAndressa },
   { nome: 'Cris Brand', role: 'Business Analyst', avatar: FotoCris },
+  { nome: 'Débora Pereira', role: 'Interprete de Libras', avatar: FotoDebora },
   { nome: 'Felipe Fahrion', role: 'Desenvovledor', avatar: FotoFelipe },
   { nome: 'Heitor Inhaquites', role: 'Desenvovledor', avatar: FotoHeitor },
   { nome: 'Guilherme Vandresen', role: 'Business Analyst', avatar: FotoGuilherme },
