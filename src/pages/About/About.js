@@ -29,14 +29,13 @@ const SectionStyled = styled.section`
     padding-bottom: 2em;
   }
 `
-const Video = styled.video`
+const Video = styled.iframe`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 300px;
+  height: 100%;
   border-radius: 14px;
-  ${respondTo.desktop`
-    width: 476px;
-    height: 338px;
-  `}
 `
 
 const Square = styled(Box)`
@@ -47,6 +46,15 @@ const Square = styled(Box)`
   ${respondTo.desktop`
   width: 50px;
 `}
+`
+
+const AspectRatioBox = styled(Box)`
+  padding-top: ${(props) => `calc(${props.ratio} * 100%)`};
+  height: 0;
+  position: relative;
+  ${respondTo.desktop`
+    padding-top: ${(props) => `calc(( ${props.ratio} * 100% ) / 3)`};
+  `}
 `
 
 /* stylelint-disable property-no-unknown */
@@ -67,8 +75,13 @@ const About = () => {
       </AboutWrapper>
 
       <SectionStyled>
-        <Box direction={contentDirection} pad="xlarge">
-          <Box basis="1/2">
+        <Box
+          direction={contentDirection}
+          justify="between"
+          pad="xlarge"
+          align={screenSize === 'small' ? undefined : 'center'}
+        >
+          <Box basis="60%">
             <Box direction="row" align="center" margin={{ bottom: 'large' }}>
               <Square margin={{ right: 'medium' }} background="white">
                 <Image src={missionIcon} fill />
@@ -83,15 +96,22 @@ const About = () => {
               facilitando o acesso das pessoas surdas aos serviços e proporcionando a divulgação dos profissionais.
             </Paragraph>
           </Box>
-          <Box basis="1/2">
-            <Video controls>Your browser does not support the Video tag.</Video>
-          </Box>
+          <AspectRatioBox ratio="3/4" basis="33%">
+            <Video src="https://www.youtube.com/embed/0if71HOyVjY" controls>
+              Your browser does not support the Video tag.
+            </Video>
+          </AspectRatioBox>
         </Box>
       </SectionStyled>
 
       <SectionStyled>
-        <Box direction={screenSize === 'small' ? 'column' : 'row-reverse'} pad="xlarge" background="#F7F8FA">
-          <Box basis="1/2">
+        <Box
+          direction={screenSize === 'small' ? 'column' : 'row-reverse'}
+          justify="between"
+          pad="xlarge"
+          background="#F7F8FA"
+        >
+          <Box basis="60%">
             <Box direction="row" align="center" margin={{ bottom: 'large' }}>
               <Square margin={{ right: 'medium' }} background="#5996F7">
                 <Image src={missionIcon} fill />
@@ -106,9 +126,11 @@ const About = () => {
               às suas necessidades.
             </Paragraph>
           </Box>
-          <Box basis="1/2">
-            <Video controls>Your browser does not support the Video tag.</Video>
-          </Box>
+          <AspectRatioBox ratio="3/4" basis="33%">
+            <Video src="https://www.youtube.com/embed/0if71HOyVjY" controls>
+              Your browser does not support the Video tag.
+            </Video>
+          </AspectRatioBox>
         </Box>
       </SectionStyled>
 
