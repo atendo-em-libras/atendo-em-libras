@@ -5,12 +5,13 @@ import { AboutBanner } from './AboutBanner/AboutBanner'
 import styled from 'styled-components/macro'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 
-import { Box, ResponsiveContext, Avatar } from 'grommet'
+import { Box, ResponsiveContext, Avatar, Image } from 'grommet'
 import { Paragraph } from '../../components/Typography/Paragraph'
 import { Heading } from '../../components/Typography/Heading'
 
 import { participantes } from './participantes'
 import { idealizadoras } from './idealizadoras'
+import { missionIcon } from '../../assets/icons'
 
 const AboutWrapper = styled.div`
   display: flex;
@@ -46,10 +47,13 @@ const TitleAndParagraphWrapper = styled.div`
 `
 
 const Square = styled(Box)`
-  width: 45px;
-  height: 45px;
   box-shadow: 0px 10px 32px #00000029;
   border-radius: 0px 20px 20px 20px;
+  width: 45px;
+  padding: 14px;
+  ${respondTo.desktop`
+  width: 50px;
+`}
 `
 
 /* stylelint-disable property-no-unknown */
@@ -73,7 +77,9 @@ const About = () => {
         <Box direction={contentDirection} pad="xlarge">
           <TitleAndParagraphWrapper>
             <Box direction="row" align="center" margin={{ bottom: 'large' }}>
-              <Square margin={{ right: 'medium' }} background="white" />
+              <Square margin={{ right: 'medium' }} background="white">
+                <Image src={missionIcon} fill />
+              </Square>
               <Heading level="2">O Atendo em Libras</Heading>
             </Box>
             <Paragraph fill>
@@ -90,7 +96,9 @@ const About = () => {
         <Box direction={contentDirection} pad="xlarge" background="#F7F8FA">
           <TitleAndParagraphWrapper>
             <Box direction="row" align="center" margin={{ bottom: 'large' }}>
-              <Square margin={{ right: 'medium' }} background="#5996F7" />
+              <Square margin={{ right: 'medium' }} background="#5996F7">
+                <Image src={missionIcon} fill />
+              </Square>
               <Heading level="2">Nosso propósito</Heading>
             </Box>
             <Paragraph fill>
