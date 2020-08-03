@@ -113,13 +113,13 @@ const About = () => {
       </SectionStyled>
 
       <SectionStyled>
-        <Box align="center" pad="xlarge">
+        <Box pad="xlarge" align={screenSize === 'small' ? 'center' : 'between'}>
           <Heading level="2" margin={{ bottom: 'xlarge' }}>
             As idealizadoras
           </Heading>
           <Box direction={contentDirection} justify="between">
             {idealizadoras.map((idealizadora) => (
-              <Box key={idealizadora.nome} align="center" direction={contentDirection} basis="48%">
+              <Box key={idealizadora.nome} align="center" direction={contentDirection}>
                 <DropletAvatar
                   dropletDirection="top-right"
                   size="120px"
@@ -129,8 +129,10 @@ const About = () => {
                   flex={{ shrink: 0 }}
                 />
                 <Box align={textAlign}>
-                  <Heading level="3">{idealizadora.nome}</Heading>
-                  <Heading color="#5996F7" level="4">
+                  <Heading level="3" textAlign={textAlign}>
+                    {idealizadora.nome}
+                  </Heading>
+                  <Heading color="#5996F7" level="4" textAlign={textAlign}>
                     {idealizadora.role}
                   </Heading>
                   <Paragraph textAlign={textAlign}>{idealizadora.paragraph}</Paragraph>
