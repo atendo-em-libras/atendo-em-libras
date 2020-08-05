@@ -12,6 +12,7 @@ import { Heading } from '../../components/Typography/Heading'
 import { participantes } from './participantes'
 import { idealizadoras } from './idealizadoras'
 import { missionIcon, logoIcon } from '../../assets/icons'
+import logoLarge from '../../assets/images/pages/about/logo_large.svg'
 
 const AboutWrapper = styled.div`
   display: flex;
@@ -28,6 +29,15 @@ const SectionStyled = styled.section`
   p {
     padding-bottom: 2em;
   }
+
+  background-color: ${(props) => props.backgroundColor};
+
+  ${respondTo.desktop`
+    background: ${(props) =>
+      props.backgroundImg ? `url(${props.backgroundImg}) no-repeat ${props.backgroundColor}` : ''};
+    background-position-x: -275px;
+    background-size: contain;
+  `}
 `
 const Video = styled.iframe`
   position: absolute;
@@ -112,12 +122,11 @@ const About = () => {
         </Box>
       </SectionStyled>
 
-      <SectionStyled>
+      <SectionStyled backgroundImg={logoLarge} backgroundColor="#F7F8FA">
         <Box
           direction={screenSize === 'small' ? 'column' : 'row-reverse'}
           justify="between"
           pad="xlarge"
-          background="#F7F8FA"
           align={screenSize === 'small' ? undefined : 'center'}
         >
           <Box basis="60%">
