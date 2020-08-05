@@ -8,6 +8,7 @@ import closeIcon from './ic_close.svg'
 import errorIcon from './ic_error.svg'
 import mobileHamburgerIcon from './ic_menu.svg'
 import missionIcon from './ic_mission.svg'
+import logoIcon from './ic_logo.svg'
 
 export {
   videoIcon,
@@ -20,4 +21,5 @@ export {
   errorIcon,
   mobileHamburgerIcon,
   missionIcon,
+  logoIcon,
 }

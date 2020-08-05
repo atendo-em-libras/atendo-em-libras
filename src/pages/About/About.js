@@ -11,7 +11,7 @@ import { Heading } from '../../components/Typography/Heading'
 
 import { participantes } from './participantes'
 import { idealizadoras } from './idealizadoras'
-import { missionIcon } from '../../assets/icons'
+import { missionIcon, logoIcon } from '../../assets/icons'
 
 const AboutWrapper = styled.div`
   display: flex;
@@ -42,10 +42,12 @@ const Square = styled(Box)`
   box-shadow: 0px 10px 32px #00000029;
   border-radius: 0px 20px 20px 20px;
   width: 45px;
-  padding: 14px;
+  height: 45px;
+  padding: 10px;
   ${respondTo.desktop`
-  width: 50px;
-`}
+    width: 50px;
+    height: 50px;
+  `}
 `
 
 const AspectRatioBox = styled(Box)`
@@ -90,7 +92,7 @@ const About = () => {
           <Box basis="60%">
             <Box direction="row" align="center" margin={{ bottom: 'large' }}>
               <Square margin={{ right: 'medium' }} background="white">
-                <Image src={missionIcon} fill />
+                <Image src={logoIcon} fill />
               </Square>
               <Heading level="2">O Atendo em Libras</Heading>
             </Box>
