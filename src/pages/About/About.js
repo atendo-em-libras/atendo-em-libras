@@ -153,11 +153,11 @@ const About = () => {
       </SectionStyled>
 
       <SectionStyled>
-        <Box pad="xlarge" align={screenSize === 'small' ? 'center' : 'between'}>
+        <Box pad="xlarge" align="center">
           <Heading level="2" margin={{ bottom: 'xlarge' }}>
             As idealizadoras
           </Heading>
-          <Box direction={contentDirection} justify="between">
+          <Box direction={contentDirection}>
             {idealizadoras.map((idealizadora) => (
               <Box key={idealizadora.nome} align="center" direction={contentDirection}>
                 <DropletAvatar
