@@ -115,7 +115,7 @@ const About = () => {
             </ParagraphStyled>
           </Box>
           <AspectRatioBox ratio="3/4" basis="33%">
-            <Video src="https://www.youtube.com/embed/0if71HOyVjY" controls>
+            <Video src="https://www.youtube.com/embed/0if71HOyVjY" controls allowFullScreen>
               Your browser does not support the Video tag.
             </Video>
           </AspectRatioBox>
@@ -145,7 +145,7 @@ const About = () => {
             </ParagraphStyled>
           </Box>
           <AspectRatioBox ratio="3/4" basis="33%">
-            <Video src="https://www.youtube.com/embed/0if71HOyVjY" controls>
+            <Video src="https://www.youtube.com/embed/0if71HOyVjY" controls allowFullScreen>
               Your browser does not support the Video tag.
             </Video>
           </AspectRatioBox>
