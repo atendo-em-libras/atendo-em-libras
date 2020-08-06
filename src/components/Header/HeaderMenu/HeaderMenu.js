@@ -2,7 +2,7 @@ import React, { PureComponent, Fragment } from 'react'
 import styled from 'styled-components/macro'
 
 import { Container } from '../../Container'
-import logo from '../../../assets/images/img_atendo_em_libras_logo_white.svg'
+import { logoIcon } from '../../../assets/icons'
 
 import { mobileHamburgerIcon } from '../../../assets/icons'
 import { PrimaryButton, Button } from '../../Buttons'
@@ -50,7 +50,13 @@ class HeaderMenu extends PureComponent {
     ) : (
       <Container>
         <header className={this.props.className}>
-          <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />
+          <StyledSection>
+            <Logo src={logoIcon} alt={'Logo projeto Atendo em Libras'} />
+            <StyledTitle>
+              Atendo <br />
+              em Libras
+            </StyledTitle>
+          </StyledSection>
           <ResponsiveContext.Consumer>
             {(responsive) => (responsive === 'small' ? this.mainMenuMobileButton() : this.mainMenuDesktopButton())}
           </ResponsiveContext.Consumer>
@@ -61,9 +67,27 @@ class HeaderMenu extends PureComponent {
 }
 
 const Logo = styled.img`
+  width: 38px;
   @media (max-width: 800px) {
     height: auto;
-    width: 100px;
+    width: 30px;
+  }
+`
+
+const StyledTitle = styled.h1`
+  font-size: 2.4em;
+  padding-left: 10px;
+  font-weight: normal;
+  @media (max-width: 800px) {
+    font-size: 2em;
+  }
+`
+
+const StyledSection = styled.section`
+  display: flex;
+  flex-flow: row;
+  @media (max-width: 800px) {
+    justify-content: flex-start;
   }
 `
 
