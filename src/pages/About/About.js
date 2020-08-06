@@ -13,6 +13,7 @@ import { participantes } from './participantes'
 import { idealizadoras } from './idealizadoras'
 import { missionIcon, logoIcon } from '../../assets/icons'
 import logoLarge from '../../assets/images/pages/about/logo_large.svg'
+import librasGesture from '../../assets/images/pages/about/about-libras-gesture.png'
 
 const AboutWrapper = styled.div`
   display: flex;
@@ -75,6 +76,17 @@ const ParagraphStyled = styled(Paragraph)`
   `}
 `
 
+const OverlaidImage = styled(Image)`
+  position: absolute;
+  top: 0;
+  left: 29px;
+  width: 35px;
+  ${respondTo.desktop`
+    left: 36px;
+    width: 74px;
+  `}
+`
+
 /* stylelint-disable property-no-unknown */
 const DropletAvatar = styled(Avatar)`
   border-${(props) => props.dropletDirection}-radius: 0; 
@@ -115,9 +127,10 @@ const About = () => {
             </ParagraphStyled>
           </Box>
           <AspectRatioBox ratio="3/4" basis="33%">
-            <Video src="https://www.youtube.com/embed/0if71HOyVjY" controls allowFullScreen>
+            <Video src="https://www.youtube.com/embed/JMUucdKsQeI" controls allowFullScreen>
               Your browser does not support the Video tag.
             </Video>
+            <OverlaidImage src={librasGesture} />
           </AspectRatioBox>
         </Box>
       </SectionStyled>
@@ -148,6 +161,7 @@ const About = () => {
             <Video src="https://www.youtube.com/embed/0if71HOyVjY" controls allowFullScreen>
               Your browser does not support the Video tag.
             </Video>
+            <OverlaidImage src={librasGesture} />
           </AspectRatioBox>
         </Box>
       </SectionStyled>
