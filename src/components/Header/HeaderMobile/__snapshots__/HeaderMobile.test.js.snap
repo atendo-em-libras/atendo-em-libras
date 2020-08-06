@@ -1,6 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HeaderMobile component Render correctly 1`] = `
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
 .c8 {
   display: inline-block;
   box-sizing: border-box;
@@ -33,6 +65,26 @@ exports[`HeaderMobile component Render correctly 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  color: #FDFDFD;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+}
+
+.c15 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
   border: 2px solid #7D4CDB;
   border-radius: 18px;
   color: #444444;
@@ -47,7 +99,7 @@ exports[`HeaderMobile component Render correctly 1`] = `
   transition-timing-function: ease-in-out;
 }
 
-.c11:hover {
+.c15:hover {
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
@@ -111,12 +163,18 @@ exports[`HeaderMobile component Render correctly 1`] = `
   position: absolute;
 }
 
+.c13 {
+  font-size: 22px;
+  line-height: 28px;
+  max-width: 528px;
+}
+
 .c9 {
   font-size: 1.4rem;
   font-weight: 600;
 }
 
-.c12 {
+.c16 {
   background-color: #5996f7;
   border-radius: 17px;
   color: white;
@@ -125,11 +183,11 @@ exports[`HeaderMobile component Render correctly 1`] = `
   color: #5996f7;
 }
 
-.c12:hover {
+.c16:hover {
   background-color: #96bfff;
 }
 
-.c12:focus {
+.c16:focus {
   outline: none;
   outline-offset: 0;
 }
@@ -178,13 +236,20 @@ exports[`HeaderMobile component Render correctly 1`] = `
   align-items: center;
 }
 
-.c10 h2 {
+.c14 h2 {
   width: 80%;
   color: white;
   font-size: 1.8rem;
   font-weight: 400;
   line-height: 1.6em;
   margin-bottom: 21px;
+}
+
+@media only screen and (max-width:768px) {
+  .c12 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 }
 
 @media only screen and (max-width:768px) {
@@ -309,12 +374,44 @@ exports[`HeaderMobile component Render correctly 1`] = `
             <div
               class="c10"
             >
+              <button
+                class="c11 c9"
+                type="button"
+              >
+                <div
+                  class="c12"
+                >
+                  <p
+                    class="c13"
+                  >
+                    Home
+                  </p>
+                </div>
+              </button>
+              <button
+                class="c11 c9"
+                type="button"
+              >
+                <div
+                  class="c12"
+                >
+                  <p
+                    class="c13"
+                  >
+                    Sobre
+                  </p>
+                </div>
+              </button>
+            </div>
+            <div
+              class="c14"
+            >
               <h2>
                 É profissional de saúde ou conhece alguém da área?
               </h2>
               <a
                 aria-label="register form"
-                class="c11 c9 Buttons__PrimaryButton-nr8h4a-1 c12"
+                class="c15 c9 Buttons__PrimaryButton-nr8h4a-1 c16"
                 href="https://forms.gle/h1sX9nD45PgUAzGB6"
                 rel="noopener noreferrer"
                 target="_blank"
