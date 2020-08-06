@@ -1,55 +1,11 @@
 import React, { PureComponent } from 'react'
-import styled from 'styled-components'
-import { PrimaryButton, Button } from '../../Buttons'
-import { Layer, Box } from 'grommet'
+import { Button } from '../../Buttons'
+import { Box } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
 import { closeIcon } from '../../../assets/icons'
 import { Paragraph } from '../../Typography/Paragraph'
+import { StyledButton, MainMenuModal, Logo, Wrapper, Header, Footer } from './HeaderMobileStyles'
 
-const StyledButton = styled(PrimaryButton)`
-  border-radius: 20px 20px 20px 0;
-  background-color: white;
-  color: #5996f7;
-`
-
-// height and position are handled manually to prevent
-// fullscreen modal issue on mobile browsers. For more info read:
-// https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
-const MainMenuModal = styled(Layer)`
-  position: fixed;
-  height: 100%;
-  background-color: #5996f7;
-`
-
-const Logo = styled.img`
-  height: auto;
-  width: 100px;
-`
-
-const Wrapper = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 30px;
-`
-
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
-
-const Footer = styled.div`
-  h2 {
-    width: 80%;
-    color: white;
-    font-size: 1.8rem;
-    font-weight: 400;
-    line-height: 1.6em;
-    margin-bottom: 21px;
-  }
-`
 class HeaderMobile extends PureComponent {
   constructor(props) {
     super(props)
