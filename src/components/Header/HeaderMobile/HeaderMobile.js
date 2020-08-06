@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import { PrimaryButton, Button } from '../../Buttons'
-import { Layer } from 'grommet'
+import { Layer, Box } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
 import { closeIcon } from '../../../assets/icons'
+import { Paragraph } from '../../Typography/Paragraph'
 
 const StyledButton = styled(PrimaryButton)`
   border-radius: 20px 20px 20px 0;
@@ -75,6 +76,18 @@ class HeaderMobile extends PureComponent {
               size="small"
             ></Button>
           </Header>
+          <Box>
+            <Button color="#FDFDFD" size="large" onClick={() => {}} margin={{ vertical: 'small' }}>
+              <Box pad={{ vertical: 'medium' }}>
+                <Paragraph size="large">Home</Paragraph>
+              </Box>
+            </Button>
+            <Button color="#FDFDFD" size="large" onClick={() => {}} margin={{ vertical: 'small' }}>
+              <Box pad={{ vertical: 'medium' }}>
+                <Paragraph size="large">Sobre</Paragraph>
+              </Box>
+            </Button>
+          </Box>
           <Footer>
             <h2>É profissional de saúde ou conhece alguém da área?</h2>
 
