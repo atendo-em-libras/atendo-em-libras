@@ -1,14 +1,14 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
-import { HeaderMenu } from './HeaderMenu'
+import { HeaderNav } from './HeaderNav'
 import { ResponsiveContext } from 'grommet'
 
-describe('HeaderMenu component', () => {
+describe('HeaderNav component', () => {
   let view
 
   describe('when view is desktop', () => {
     it('should render register message', () => {
-      view = render(<HeaderMenu />)
+      view = render(<HeaderNav />)
       expect(view.getByText('É profissional de saúde ou conhece alguém da área?')).toBeInTheDocument()
     })
   })
@@ -17,7 +17,7 @@ describe('HeaderMenu component', () => {
     it('displays a hamburger icon for main menu', () => {
       let view = render(
         <ResponsiveContext.Provider value={'small'}>
-          <HeaderMenu />
+          <HeaderNav />
         </ResponsiveContext.Provider>
       )
 
@@ -27,7 +27,7 @@ describe('HeaderMenu component', () => {
     it('displays menu when menu button is clicked', () => {
       let view = render(
         <ResponsiveContext.Provider value={'small'}>
-          <HeaderMenu />
+          <HeaderNav />
         </ResponsiveContext.Provider>
       )
 

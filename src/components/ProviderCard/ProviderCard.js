@@ -171,7 +171,6 @@ const ProviderCard = (props) => {
                   iconClose={FormUp}
                   iconOpen={FormDown}
                   onClick={() => {
-                    console.log(open)
                     setOpen(!open)
                   }}
                 />

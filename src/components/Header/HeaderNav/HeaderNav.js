@@ -14,7 +14,7 @@ const StyledButton = styled(PrimaryButton)`
   padding: 22px;
 `
 
-class HeaderMenu extends PureComponent {
+class HeaderNav extends PureComponent {
   constructor(props) {
     super(props)
     this.state = { showModal: false }
@@ -91,7 +91,7 @@ const StyledSection = styled.section`
   }
 `
 
-const StyledHeaderMenu = styled(HeaderMenu)`
+const StyledHeaderMenu = styled(HeaderNav)`
   width: 100%;
   height: auto;
   margin-top: 3.6rem;
@@ -116,4 +116,4 @@ const StyledHeaderMenu = styled(HeaderMenu)`
   }
 `
 
-export { StyledHeaderMenu as HeaderMenu }
+export { StyledHeaderMenu as HeaderNav }

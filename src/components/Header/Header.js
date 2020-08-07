@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components/macro'
 
-import { HeaderMenu } from './HeaderMenu'
+import { HeaderNav } from './HeaderNav'
 
 class Header extends PureComponent {
   render = () => {
     return (
       <div className={this.props.className}>
-        <HeaderMenu />
+        <HeaderNav />
       </div>
     )
   }
