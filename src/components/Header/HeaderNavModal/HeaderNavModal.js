@@ -4,9 +4,9 @@ import { Box } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
 import { closeIcon } from '../../../assets/icons'
 import { Paragraph } from '../../Typography/Paragraph'
-import { StyledButton, MainMenuModal, Logo, Wrapper, Header, Footer } from './HeaderMobileStyles'
+import { StyledButton, MainMenuModal, Logo, Wrapper, Header, Footer } from './HeaderNavModalStyles'
 
-class HeaderMobile extends PureComponent {
+class HeaderNavModal extends PureComponent {
   constructor(props) {
     super(props)
     this.myRef = React.createRef()
@@ -62,4 +62,4 @@ class HeaderMobile extends PureComponent {
   }
 }
 
-export { HeaderMobile }
+export { HeaderNavModal }

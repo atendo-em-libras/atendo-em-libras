@@ -7,7 +7,7 @@ import { logoIcon } from '../../../assets/icons'
 import { mobileHamburgerIcon } from '../../../assets/icons'
 import { PrimaryButton, Button } from '../../Buttons'
 import { ResponsiveContext } from 'grommet'
-import { HeaderMobile } from '../HeaderMobile/HeaderMobile'
+import { HeaderNavModal } from '../HeaderNavModal/HeaderNavModal'
 
 const StyledButton = styled(PrimaryButton)`
   border-radius: 17px 17px 17px 0;
@@ -20,7 +20,7 @@ class HeaderNav extends PureComponent {
     this.state = { showModal: false }
   }
 
-  onCloseHeaderMobile = () => {
+  onCloseHeaderNavModal = () => {
     this.setState({ showModal: false })
   }
 
@@ -46,7 +46,7 @@ class HeaderNav extends PureComponent {
 
   render = () => {
     return this.state.showModal ? (
-      <HeaderMobile onClose={this.onCloseHeaderMobile} />
+      <HeaderNavModal onClose={this.onCloseHeaderNavModal} />
     ) : (
       <Container>
         <header className={this.props.className}>

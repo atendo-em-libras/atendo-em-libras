@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeaderMobile component Render correctly 1`] = `
+exports[`HeaderNavModal component Render correctly 1`] = `
 .c10 {
   display: -webkit-box;
   display: -webkit-flex;

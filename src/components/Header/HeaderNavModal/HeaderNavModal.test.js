@@ -1,15 +1,15 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
-import { HeaderMobile } from './HeaderMobile'
+import { HeaderNavModal } from './HeaderNavModal'
 import 'jest-styled-components'
 
-describe('HeaderMobile component', () => {
+describe('HeaderNavModal component', () => {
   let view
   let onClose
 
   beforeEach(() => {
     onClose = jest.fn()
-    view = render(<HeaderMobile onClose={onClose} />)
+    view = render(<HeaderNavModal onClose={onClose} />)
   })
 
   it('should execute callback function when close button is clicked', () => {
