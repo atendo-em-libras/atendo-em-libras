@@ -66,12 +66,11 @@ const ParagraphStyled = styled(Paragraph)`
 
 const OverlaidImage = styled(Image)`
   position: absolute;
-  top: 0;
-  left: 29px;
-  width: 35px;
+  top: 0px;
+  left: 7px;
+  width: 52px;
   ${respondTo.desktop`
-    left: 36px;
-    width: 74px;
+    left: 8px;
   `}
 `
 
