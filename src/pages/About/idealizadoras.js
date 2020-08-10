@@ -7,7 +7,7 @@ const idealizadoras = [
     role: 'Designer e idealizadora do projeto',
     avatar: FotoBeatriz,
     paragraph:
-      'Surda de nascença, designer há 15 anos, mãe e integrante de família surda. Faz parte da comunidade surda e ativamente busca por soluções que possibilitem maior autonomia para as pessoas surdas, quebrando barreiras de comunicação.',
+      'Surda, designer, mãe e integrante de família surda. Ama ler livros, cozinhar, viajar. Busca incansavelmente as soluções que possibilitem maior autonomia para as pessoas surdas, quebrando barreiras de comunicação.',
   },
   {
     nome: 'Manuella Torreão',
