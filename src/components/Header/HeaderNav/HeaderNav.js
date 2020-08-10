@@ -15,14 +15,9 @@ const StyledButton = styled(PrimaryButton)`
   padding: 22px;
 `
 
-const NavBar = styled.nav`
-  width: 100%;
-`
-
 const List = styled.ol`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 `
 
 const ListItem = styled.li`
@@ -48,7 +43,7 @@ class HeaderNav extends PureComponent {
       <FeatureTogglesContext.Consumer>
         {({ navbar }) => {
           return navbar ? (
-            <NavBar>
+            <nav>
               <List>
                 <ListItem>
                   <Button>
@@ -75,7 +70,7 @@ class HeaderNav extends PureComponent {
                   </StyledButton>
                 </ListItem>
               </List>
-            </NavBar>
+            </nav>
           ) : (
             <Fragment>
               <h2>É profissional de saúde ou conhece alguém da área?</h2>

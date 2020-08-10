@@ -17,6 +17,16 @@ describe('HeaderNav component', () => {
         expect(view.getByRole('navigation')).toBeInTheDocument()
       })
 
+      it('renders a list of navigational links', () => {
+        let view = render(
+          <FeatureTogglesContext.Provider value={{ navbar: true }}>
+            <HeaderNav />
+          </FeatureTogglesContext.Provider>
+        )
+
+        expect(view.findAllByRole('listitem')).not.toBe([])
+      })
+
       it('renders a Home button', () => {
         let view = render(
           <FeatureTogglesContext.Provider value={{ navbar: true }}>
