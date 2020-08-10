@@ -6,12 +6,31 @@ import { logoIcon } from '../../../assets/icons'
 
 import { mobileHamburgerIcon } from '../../../assets/icons'
 import { PrimaryButton, Button } from '../../Buttons'
-import { ResponsiveContext } from 'grommet'
+import { ResponsiveContext, Box, Text } from 'grommet'
 import { HeaderNavModal } from '../HeaderNavModal/HeaderNavModal'
+import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 
 const StyledButton = styled(PrimaryButton)`
   border-radius: 17px 17px 17px 0;
   padding: 22px;
+`
+
+const NavBar = styled.nav`
+  width: 100%;
+`
+
+const List = styled.ol`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`
+
+const ListItem = styled.li`
+  margin-right: 30px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 `
 
 class HeaderNav extends PureComponent {
@@ -26,10 +45,52 @@ class HeaderNav extends PureComponent {
 
   mainMenuDesktopButton = () => (
     <Fragment>
-      <h2>É profissional de saúde ou conhece alguém da área?</h2>
-      <StyledButton size="medium" target="_blank" rel="noopener noreferrer" href="https://forms.gle/h1sX9nD45PgUAzGB6">
-        Cadastre-se aqui
-      </StyledButton>
+      <FeatureTogglesContext.Consumer>
+        {({ navbar }) => {
+          return navbar ? (
+            <NavBar>
+              <List>
+                <ListItem>
+                  <Button>
+                    <Box margin="small">
+                      <Text size="small">Home</Text>
+                    </Box>
+                  </Button>
+                </ListItem>
+                <ListItem>
+                  <Button>
+                    <Box margin="small">
+                      <Text size="small">Sobre Nós</Text>
+                    </Box>
+                  </Button>
+                </ListItem>
+                <ListItem>
+                  <StyledButton
+                    size="medium"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://forms.gle/h1sX9nD45PgUAzGB6"
+                  >
+                    Cadastre-se aqui
+                  </StyledButton>
+                </ListItem>
+              </List>
+            </NavBar>
+          ) : (
+            <Fragment>
+              <h2>É profissional de saúde ou conhece alguém da área?</h2>
+              <StyledButton
+                size="medium"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://forms.gle/h1sX9nD45PgUAzGB6"
+              >
+                Cadastre-se aqui
+              </StyledButton>
+            </Fragment>
+          )
+        }}
+      </FeatureTogglesContext.Consumer>
     </Fragment>
   )
 
