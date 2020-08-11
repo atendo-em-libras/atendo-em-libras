@@ -2,13 +2,13 @@ import React, { PureComponent, Fragment } from 'react'
 import styled from 'styled-components/macro'
 
 import { Container } from '../../Container'
-import { logoIcon } from '../../../assets/icons'
 
 import { mobileHamburgerIcon } from '../../../assets/icons'
 import { PrimaryButton, Button } from '../../Buttons'
 import { ResponsiveContext, Box, Text } from 'grommet'
 import { HeaderNavModal } from '../HeaderNavModal/HeaderNavModal'
 import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
+import { HeaderLogo } from '../HeaderLogo/HeaderLogo'
 
 const StyledButton = styled(PrimaryButton)`
   border-radius: 17px 17px 17px 0;
@@ -105,11 +105,7 @@ class HeaderNav extends PureComponent {
       <Container>
         <header className={this.props.className}>
           <StyledSection>
-            <Logo src={logoIcon} alt={'Logo projeto Atendo em Libras'} />
-            <StyledTitle>
-              Atendo <br />
-              em Libras
-            </StyledTitle>
+            <HeaderLogo />
           </StyledSection>
           <ResponsiveContext.Consumer>
             {(responsive) => (responsive === 'small' ? this.mainMenuMobileButton() : this.mainMenuDesktopButton())}
@@ -119,23 +115,6 @@ class HeaderNav extends PureComponent {
     )
   }
 }
-
-const Logo = styled.img`
-  width: 38px;
-  @media (max-width: 800px) {
-    height: auto;
-    width: 30px;
-  }
-`
-
-const StyledTitle = styled.h1`
-  font-size: 2.4em;
-  padding-left: 10px;
-  font-weight: normal;
-  @media (max-width: 800px) {
-    font-size: 2em;
-  }
-`
 
 const StyledSection = styled.section`
   display: flex;
@@ -154,20 +133,6 @@ const StyledHeaderMenu = styled(HeaderNav)`
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
-  h2 {
-    height: 5rem;
-    padding: 0 3rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-grow: 1;
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 1.6em;
-    @media (max-width: 800px) {
-      display: none;
-    }
-  }
 `
 
 export { StyledHeaderMenu as HeaderNav }
