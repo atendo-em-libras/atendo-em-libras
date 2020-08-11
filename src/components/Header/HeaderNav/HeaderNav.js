@@ -9,6 +9,7 @@ import { ResponsiveContext, Box, Text } from 'grommet'
 import { HeaderNavModal } from '../HeaderNavModal/HeaderNavModal'
 import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { HeaderLogo } from '../HeaderLogo/HeaderLogo'
+import { NavLink } from '../../NavLink/NavLink'
 
 const StyledButton = styled(PrimaryButton)`
   border-radius: 17px 17px 17px 0;
@@ -45,18 +46,18 @@ class HeaderNav extends PureComponent {
           <nav>
             <List>
               <ListItem>
-                <Button>
+                <NavLink to="/">
                   <Box margin="small">
                     <Text size="small">Home</Text>
                   </Box>
-                </Button>
+                </NavLink>
               </ListItem>
               <ListItem>
-                <Button>
+                <NavLink to="/sobre">
                   <Box margin="small">
-                    <Text size="small">Sobre Nós</Text>
+                    <Text size="small">Sobre o Projeto</Text>
                   </Box>
-                </Button>
+                </NavLink>
               </ListItem>
               <ListItem>
                 <StyledButton
