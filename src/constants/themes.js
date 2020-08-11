@@ -1,5 +1,5 @@
 import { BREAKPOINTS } from './breakpoints'
-import { BUTTONS } from './buttons'
+import { BUTTONS, ANCHORS } from './buttons'
 import { TYPOGRAPHY } from './typography'
 
 // This follows Grommet's theme structure.
@@ -8,5 +8,6 @@ import { TYPOGRAPHY } from './typography'
 export const DEFAULT_THEME = {
   global: { breakpoints: BREAKPOINTS },
   button: BUTTONS,
+  anchor: ANCHORS,
   heading: TYPOGRAPHY.heading,
 }

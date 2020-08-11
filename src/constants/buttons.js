@@ -1,5 +1,6 @@
 // This follows Grommet's theme structure.
 // For more info on which attributes are available
+
 // visit https://v2.grommet.io/button
 export const BUTTONS = {
   size: {
@@ -20,4 +21,8 @@ export const BUTTONS = {
   border: {
     width: 0,
   },
+}
+
+export const ANCHORS = {
+  color: 'white',
 }

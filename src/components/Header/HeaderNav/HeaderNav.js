@@ -5,11 +5,11 @@ import { Container } from '../../Container'
 
 import { mobileHamburgerIcon } from '../../../assets/icons'
 import { PrimaryButton, Button } from '../../Buttons'
-import { ResponsiveContext, Box, Text } from 'grommet'
+import { ResponsiveContext } from 'grommet'
 import { HeaderNavModal } from '../HeaderNavModal/HeaderNavModal'
 import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { HeaderLogo } from '../HeaderLogo/HeaderLogo'
-import { NavLink } from '../../NavLink/NavLink'
+import { AnchorLink } from '../../AnchorLink/AnchorLink'
 
 const StyledButton = styled(PrimaryButton)`
   border-radius: 17px 17px 17px 0;
@@ -46,18 +46,10 @@ class HeaderNav extends PureComponent {
           <nav>
             <List>
               <ListItem>
-                <NavLink to="/">
-                  <Box margin="small">
-                    <Text size="small">Home</Text>
-                  </Box>
-                </NavLink>
+                <AnchorLink to="/" label="Home" />
               </ListItem>
               <ListItem>
-                <NavLink to="/sobre">
-                  <Box margin="small">
-                    <Text size="small">Sobre o Projeto</Text>
-                  </Box>
-                </NavLink>
+                <AnchorLink to="/sobre" label="Sobre o Projeto" />
               </ListItem>
               <ListItem>
                 <StyledButton
