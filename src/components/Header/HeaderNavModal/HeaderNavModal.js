@@ -1,10 +1,9 @@
 import React, { PureComponent } from 'react'
 import { Button } from '../../Buttons'
-import { Box } from 'grommet'
+import { Box, Heading } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
 import { closeIcon } from '../../../assets/icons'
-import { Paragraph } from '../../Typography/Paragraph'
-import { StyledButton, MainMenuModal, Logo, Wrapper, Header, Footer } from './HeaderNavModalStyles'
+import { StyledButton, Modal, Logo } from './HeaderNavModalStyles'
 
 class HeaderNavModal extends PureComponent {
   constructor(props) {
@@ -18,12 +17,12 @@ class HeaderNavModal extends PureComponent {
   }
 
   render = () => {
-    const { onClose, height } = this.props
+    const { onClose } = this.props
 
     return (
-      <MainMenuModal ref={this.myRef} modal plain full height={height}>
-        <Wrapper role="menu">
-          <Header>
+      <Modal ref={this.myRef} modal plain full>
+        <Box role="menu" flex="grow" justify="between" pad="large">
+          <Box direction="row" justify="between">
             <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />
             <Button
               aria-label="Close Menu Button"
@@ -31,21 +30,11 @@ class HeaderNavModal extends PureComponent {
               icon={<img src={closeIcon} alt="Close Icon" width="18px" height="18px" />}
               size="small"
             ></Button>
-          </Header>
-          <Box>
-            <Button color="#FDFDFD" size="large" onClick={() => {}} margin={{ vertical: 'small' }}>
-              <Box pad={{ vertical: 'medium' }}>
-                <Paragraph size="large">Home</Paragraph>
-              </Box>
-            </Button>
-            <Button color="#FDFDFD" size="large" onClick={() => {}} margin={{ vertical: 'small' }}>
-              <Box pad={{ vertical: 'medium' }}>
-                <Paragraph size="large">Sobre</Paragraph>
-              </Box>
-            </Button>
           </Box>
-          <Footer>
-            <h2>É profissional de saúde ou conhece alguém da área?</h2>
+          <Box align="start">
+            <Heading level="3" color="white" margin={{ bottom: 'medium' }}>
+              É profissional de saúde ou conhece alguém da área?
+            </Heading>
 
             <StyledButton
               href="https://forms.gle/h1sX9nD45PgUAzGB6"
@@ -55,9 +44,9 @@ class HeaderNavModal extends PureComponent {
               label="Cadastre-se aqui"
               size="medium"
             />
-          </Footer>
-        </Wrapper>
-      </MainMenuModal>
+          </Box>
+        </Box>
+      </Modal>
     )
   }
 }

@@ -39,54 +39,52 @@ class HeaderNav extends PureComponent {
   }
 
   mainMenuDesktopButton = () => (
-    <Fragment>
-      <FeatureTogglesContext.Consumer>
-        {({ navbar }) => {
-          return navbar ? (
-            <nav>
-              <List>
-                <ListItem>
-                  <Button>
-                    <Box margin="small">
-                      <Text size="small">Home</Text>
-                    </Box>
-                  </Button>
-                </ListItem>
-                <ListItem>
-                  <Button>
-                    <Box margin="small">
-                      <Text size="small">Sobre Nós</Text>
-                    </Box>
-                  </Button>
-                </ListItem>
-                <ListItem>
-                  <StyledButton
-                    size="medium"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://forms.gle/h1sX9nD45PgUAzGB6"
-                  >
-                    Cadastre-se aqui
-                  </StyledButton>
-                </ListItem>
-              </List>
-            </nav>
-          ) : (
-            <Fragment>
-              <h2>É profissional de saúde ou conhece alguém da área?</h2>
-              <StyledButton
-                size="medium"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://forms.gle/h1sX9nD45PgUAzGB6"
-              >
-                Cadastre-se aqui
-              </StyledButton>
-            </Fragment>
-          )
-        }}
-      </FeatureTogglesContext.Consumer>
-    </Fragment>
+    <FeatureTogglesContext.Consumer>
+      {({ navbar }) => {
+        return navbar ? (
+          <nav>
+            <List>
+              <ListItem>
+                <Button>
+                  <Box margin="small">
+                    <Text size="small">Home</Text>
+                  </Box>
+                </Button>
+              </ListItem>
+              <ListItem>
+                <Button>
+                  <Box margin="small">
+                    <Text size="small">Sobre Nós</Text>
+                  </Box>
+                </Button>
+              </ListItem>
+              <ListItem>
+                <StyledButton
+                  size="medium"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://forms.gle/h1sX9nD45PgUAzGB6"
+                >
+                  Cadastre-se aqui
+                </StyledButton>
+              </ListItem>
+            </List>
+          </nav>
+        ) : (
+          <Fragment>
+            <h2>É profissional de saúde ou conhece alguém da área?</h2>
+            <StyledButton
+              size="medium"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://forms.gle/h1sX9nD45PgUAzGB6"
+            >
+              Cadastre-se aqui
+            </StyledButton>
+          </Fragment>
+        )
+      }}
+    </FeatureTogglesContext.Consumer>
   )
 
   mainMenuMobileButton = () => (
