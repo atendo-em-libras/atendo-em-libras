@@ -2,10 +2,10 @@ import React, { PureComponent, Fragment } from 'react'
 import styled from 'styled-components/macro'
 
 import { Container } from '../../Container'
-
+import { Paragraph } from '../../Typography/Paragraph'
 import { mobileHamburgerIcon } from '../../../assets/icons'
 import { PrimaryButton, Button } from '../../Buttons'
-import { ResponsiveContext } from 'grommet'
+import { ResponsiveContext, Box } from 'grommet'
 import { HeaderNavModal } from '../HeaderNavModal/HeaderNavModal'
 import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { HeaderLogo } from '../HeaderLogo/HeaderLogo'
@@ -65,15 +65,17 @@ class HeaderNav extends PureComponent {
           </nav>
         ) : (
           <Fragment>
-            <h2>É profissional de saúde ou conhece alguém da área?</h2>
-            <StyledButton
-              size="medium"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://forms.gle/h1sX9nD45PgUAzGB6"
-            >
-              Cadastre-se aqui
-            </StyledButton>
+            <Box direction="row" align="center">
+              <Paragraph margin={{ right: 'small' }}>É profissional de saúde ou conhece alguém da área?</Paragraph>
+              <StyledButton
+                size="medium"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://forms.gle/h1sX9nD45PgUAzGB6"
+              >
+                Cadastre-se aqui
+              </StyledButton>
+            </Box>
           </Fragment>
         )
       }}
