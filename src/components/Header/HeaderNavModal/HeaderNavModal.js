@@ -6,6 +6,7 @@ import { closeIcon } from '../../../assets/icons'
 import { StyledButton, Modal, Logo } from './HeaderNavModalStyles'
 import styled from 'styled-components'
 import { AnchorLink } from '../../AnchorLink/AnchorLink'
+import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 
 const List = styled.ol`
   display: flex;
@@ -45,18 +46,26 @@ class HeaderNavModal extends PureComponent {
               size="small"
             ></Button>
           </Box>
-          <Box flex="grow" pad={{ top: 'xlarge' }}>
-            <nav>
-              <List>
-                <ListItem>
-                  <AnchorLink to="/" exact label="Home" size="medium" />
-                </ListItem>
-                <ListItem>
-                  <AnchorLink to="/sobre" label="Sobre o Projeto" size="medium" />
-                </ListItem>
-              </List>
-            </nav>
-          </Box>
+          <FeatureTogglesContext.Consumer>
+            {({ navbar }) => {
+              return (
+                navbar && (
+                  <Box flex="grow" pad={{ top: 'xlarge' }}>
+                    <nav>
+                      <List>
+                        <ListItem>
+                          <AnchorLink to="/" exact label="Home" size="medium" />
+                        </ListItem>
+                        <ListItem>
+                          <AnchorLink to="/sobre" label="Sobre o Projeto" size="medium" />
+                        </ListItem>
+                      </List>
+                    </nav>
+                  </Box>
+                )
+              )
+            }}
+          </FeatureTogglesContext.Consumer>
           <Box align="start">
             <Heading level="3" color="white" margin={{ bottom: 'medium' }}>
               É profissional de saúde ou conhece alguém da área?
