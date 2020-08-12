@@ -49,7 +49,7 @@ class HeaderNavModal extends PureComponent {
             <nav>
               <List>
                 <ListItem>
-                  <AnchorLink to="/" label="Home" size="medium" />
+                  <AnchorLink to="/" exact label="Home" size="medium" />
                 </ListItem>
                 <ListItem>
                   <AnchorLink to="/sobre" label="Sobre o Projeto" size="medium" />

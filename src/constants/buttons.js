@@ -23,6 +23,14 @@ export const BUTTONS = {
   },
 }
 
+// visit https://v2.grommet.io/anchor
 export const ANCHORS = {
   color: 'white',
+  hover: {
+    textDecoration: 'none',
+    extend: `
+      color: #5996f7;
+      border-bottom: 2px solid #5996f7;
+    `,
+  },
 }

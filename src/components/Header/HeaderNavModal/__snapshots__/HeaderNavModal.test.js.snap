@@ -456,8 +456,10 @@ exports[`HeaderNavModal component Render correctly 1`] = `
                     class="c12"
                   >
                     <a
-                      class="c13"
+                      aria-current="page"
+                      class="c13 active"
                       href="/sobre"
+                      style="color: rgb(89, 150, 247); border-bottom: 2px solid #5996f7;"
                       theme="[object Object]"
                     >
                       Sobre o Projeto
