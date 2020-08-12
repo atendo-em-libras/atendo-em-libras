@@ -3,10 +3,11 @@ import { Button } from '../../Buttons'
 import { Box, Heading } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
 import { closeIcon } from '../../../assets/icons'
-import { StyledButton, Modal, Logo } from './HeaderNavModalStyles'
+import { StyledButton, Logo } from './HeaderNavModalStyles'
 import styled from 'styled-components'
 import { AnchorLink } from '../../AnchorLink/AnchorLink'
 import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
+import { Modal } from '../../Modal/Modal'
 
 const List = styled.ol`
   display: flex;
@@ -36,7 +37,7 @@ class HeaderNavModal extends PureComponent {
 
     return (
       <Modal ref={this.myRef} modal plain full>
-        <Box role="menu" flex="grow" justify="between" pad="large">
+        <Box role="menu" flex="grow" justify="between" pad="large" background="#5996f7">
           <Box direction="row" justify="between">
             <Logo src={logo} alt={'Logo projeto Atendo em Libras'} />
             <Button

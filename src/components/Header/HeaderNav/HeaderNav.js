@@ -35,7 +35,7 @@ class HeaderNav extends PureComponent {
     this.state = { showModal: false }
   }
 
-  onCloseHeaderNavModal = () => {
+  handleCloseModal = () => {
     this.setState({ showModal: false })
   }
 
@@ -94,19 +94,20 @@ class HeaderNav extends PureComponent {
   )
 
   render = () => {
-    return this.state.showModal ? (
-      <HeaderNavModal onClose={this.onCloseHeaderNavModal} />
-    ) : (
-      <Container>
-        <header className={this.props.className}>
-          <StyledSection>
-            <HeaderLogo />
-          </StyledSection>
-          <ResponsiveContext.Consumer>
-            {(responsive) => (responsive === 'small' ? this.mainMenuMobileButton() : this.mainMenuDesktopButton())}
-          </ResponsiveContext.Consumer>
-        </header>
-      </Container>
+    return (
+      <>
+        {this.state.showModal && <HeaderNavModal onClose={this.handleCloseModal} />}
+        <Container>
+          <header className={this.props.className}>
+            <StyledSection>
+              <HeaderLogo />
+            </StyledSection>
+            <ResponsiveContext.Consumer>
+              {(responsive) => (responsive === 'small' ? this.mainMenuMobileButton() : this.mainMenuDesktopButton())}
+            </ResponsiveContext.Consumer>
+          </header>
+        </Container>
+      </>
     )
   }
 }
