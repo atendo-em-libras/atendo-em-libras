@@ -51,6 +51,25 @@ exports[`HeaderNavModal component Render correctly 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  padding-top: 96px;
+}
+
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -82,7 +101,7 @@ exports[`HeaderNavModal component Render correctly 1`] = `
   padding: 12px;
 }
 
-.c12 {
+.c16 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -108,17 +127,34 @@ exports[`HeaderNavModal component Render correctly 1`] = `
   transition-timing-function: ease-in-out;
 }
 
-.c12:hover {
+.c16:hover {
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
-.c11 {
+.c15 {
   margin-bottom: 24px;
   font-size: 26px;
   line-height: 32px;
   max-width: 624px;
   font-weight: 600;
   color: #FFFFFF;
+}
+
+.c13 {
+  box-sizing: border-box;
+  font-size: 18px;
+  line-height: 24px;
+  color: #7D4CDB;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.c13:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .c0 {
@@ -186,7 +222,7 @@ exports[`HeaderNavModal component Render correctly 1`] = `
   font-weight: 600;
 }
 
-.c13 {
+.c17 {
   background-color: #5996f7;
   border-radius: 17px;
   color: white;
@@ -195,11 +231,11 @@ exports[`HeaderNavModal component Render correctly 1`] = `
   color: #5996f7;
 }
 
-.c13:hover {
+.c17:hover {
   background-color: #96bfff;
 }
 
-.c13:focus {
+.c17:focus {
   outline: none;
   outline-offset: 0;
 }
@@ -215,6 +251,24 @@ exports[`HeaderNavModal component Render correctly 1`] = `
   width: 100px;
 }
 
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c12 {
+  margin-bottom: 40px;
+}
+
+.c12:last-child {
+  margin-bottom: 0;
+}
+
 @media only screen and (max-width:768px) {
   .c5 {
     padding: 24px;
@@ -222,13 +276,19 @@ exports[`HeaderNavModal component Render correctly 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c11 {
+  .c10 {
+    padding-top: 48px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c15 {
     margin-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c11 {
+  .c15 {
     font-size: 18px;
     line-height: 24px;
     max-width: 432px;
@@ -271,6 +331,26 @@ exports[`HeaderNavModal component Render correctly 1`] = `
 }
 
 <body>
+  <div
+    aria-hidden="false"
+  />
+  <div
+    aria-hidden="false"
+    id="layerClone"
+  >
+    <div
+      aria-hidden="false"
+    >
+      <div
+        class="c0"
+        tabindex="-1"
+      >
+        <div
+          class="c1"
+        />
+      </div>
+    </div>
+  </div>
   <div
     aria-hidden="false"
   />
@@ -357,14 +437,46 @@ exports[`HeaderNavModal component Render correctly 1`] = `
             <div
               class="c10"
             >
+              <nav>
+                <ol
+                  class="c11"
+                >
+                  <li
+                    class="c12"
+                  >
+                    <a
+                      class="c13"
+                      href="/"
+                      theme="[object Object]"
+                    >
+                      Home
+                    </a>
+                  </li>
+                  <li
+                    class="c12"
+                  >
+                    <a
+                      class="c13"
+                      href="/sobre"
+                      theme="[object Object]"
+                    >
+                      Sobre o Projeto
+                    </a>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+            <div
+              class="c14"
+            >
               <h3
-                class="c11"
+                class="c15"
               >
                 É profissional de saúde ou conhece alguém da área?
               </h3>
               <a
                 aria-label="register form"
-                class="c12 c9 Buttons__PrimaryButton-nr8h4a-1 c13"
+                class="c16 c9 Buttons__PrimaryButton-nr8h4a-1 c17"
                 href="https://forms.gle/h1sX9nD45PgUAzGB6"
                 rel="noopener noreferrer"
                 target="_blank"
