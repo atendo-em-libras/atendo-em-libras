@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { PureComponent } from 'react'
 import styled from 'styled-components/macro'
 
 import { Container } from '../../Container'
@@ -64,19 +64,17 @@ class HeaderNav extends PureComponent {
             </List>
           </nav>
         ) : (
-          <Fragment>
-            <Box direction="row" align="center">
-              <Paragraph margin={{ right: 'small' }}>É profissional de saúde ou conhece alguém da área?</Paragraph>
-              <StyledButton
-                size="medium"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://forms.gle/h1sX9nD45PgUAzGB6"
-              >
-                Cadastre-se aqui
-              </StyledButton>
-            </Box>
-          </Fragment>
+          <Box direction="row" align="center">
+            <Paragraph margin={{ right: 'small' }}>É profissional de saúde ou conhece alguém da área?</Paragraph>
+            <StyledButton
+              size="medium"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://forms.gle/h1sX9nD45PgUAzGB6"
+            >
+              Cadastre-se aqui
+            </StyledButton>
+          </Box>
         )
       }}
     </FeatureTogglesContext.Consumer>
