@@ -13,10 +13,6 @@ const DESKTOP_ACTIVE_LINK_STYLE = {
   borderBottom: '2px solid #5996f7',
 }
 
-const MOBILE_ACTIVE_LINK_STYLE = {
-  borderBottom: '2px solid white',
-}
-
 const NavLinkStyled = styled(NavLink)`
   color: white;
 
@@ -41,12 +37,7 @@ const AnchorLink = (props) => {
     <Anchor
       // remove unecessary props to avoid prop leaking
       as={({ colorProp, hasIcon, hasLabel, focus, ...props }) => {
-        return (
-          <NavLinkStyled
-            {...props}
-            activeStyle={screenSize === 'large' ? DESKTOP_ACTIVE_LINK_STYLE : MOBILE_ACTIVE_LINK_STYLE}
-          />
-        )
+        return <NavLinkStyled {...props} activeStyle={screenSize === 'large' ? DESKTOP_ACTIVE_LINK_STYLE : undefined} />
       }}
       {...enhancedProps}
     />
