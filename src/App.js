@@ -11,7 +11,7 @@ import Routes from './routes/router'
 
 function App() {
   return (
-    <div className="App" http-equiv="Content-Language" content="pt-br">
+    <div className="App" httpEquiv="Content-Language" content="pt-br">
       <GlobalStyle />
       <Grommet plain theme={DEFAULT_THEME}>
         <FeatureTogglesContext.Provider value={toggles}>
