@@ -9,24 +9,11 @@ import { ResponsiveContext, Box } from 'grommet'
 import { HeaderNavModal } from '../HeaderNavModal/HeaderNavModal'
 import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { HeaderLogo } from '../HeaderLogo/HeaderLogo'
-import { AnchorLink } from '../../AnchorLink/AnchorLink'
+import { HeaderNavLinks } from '../HeaderNavLinks/HeaderNavLinks'
 
 const StyledButton = styled(PrimaryButton)`
   border-radius: 17px 17px 17px 0;
   padding: 22px;
-`
-
-const List = styled.ol`
-  display: flex;
-  align-items: center;
-`
-
-const ListItem = styled.li`
-  margin-right: 30px;
-
-  &:last-child {
-    margin-right: 0;
-  }
 `
 
 class HeaderNav extends PureComponent {
@@ -44,24 +31,18 @@ class HeaderNav extends PureComponent {
       {({ navbar }) => {
         return navbar ? (
           <nav>
-            <List>
-              <ListItem>
-                <AnchorLink to="/" exact label="Home" />
-              </ListItem>
-              <ListItem>
-                <AnchorLink to="/sobre" label="Sobre o Projeto" />
-              </ListItem>
-              <ListItem>
-                <StyledButton
-                  size="medium"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://forms.gle/h1sX9nD45PgUAzGB6"
-                >
-                  Cadastre-se aqui
-                </StyledButton>
-              </ListItem>
-            </List>
+            <Box direction="row">
+              <HeaderNavLinks />
+              <StyledButton
+                size="medium"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://forms.gle/h1sX9nD45PgUAzGB6"
+                margin={{ left: 'medium' }}
+              >
+                Cadastre-se aqui
+              </StyledButton>
+            </Box>
           </nav>
         ) : (
           <Box direction="row" align="center">

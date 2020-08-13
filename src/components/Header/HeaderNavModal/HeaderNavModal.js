@@ -4,23 +4,10 @@ import { Box, Heading } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
 import { closeIcon } from '../../../assets/icons'
 import { StyledButton, Logo } from './HeaderNavModalStyles'
-import styled from 'styled-components'
-import { AnchorLink } from '../../AnchorLink/AnchorLink'
 import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { Modal } from '../../Modal/Modal'
+import { HeaderNavLinks } from '../HeaderNavLinks/HeaderNavLinks'
 
-const List = styled.ol`
-  display: flex;
-  flex-direction: column;
-`
-
-const ListItem = styled.li`
-  margin-bottom: 40px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-`
 class HeaderNavModal extends PureComponent {
   constructor(props) {
     super(props)
@@ -53,14 +40,7 @@ class HeaderNavModal extends PureComponent {
                 navbar && (
                   <Box flex="grow" pad={{ top: 'xlarge' }}>
                     <nav>
-                      <List>
-                        <ListItem>
-                          <AnchorLink to="/" exact label="Home" size="medium" />
-                        </ListItem>
-                        <ListItem>
-                          <AnchorLink to="/sobre" label="Sobre o Projeto" size="medium" />
-                        </ListItem>
-                      </List>
+                      <HeaderNavLinks direction="column" />
                     </nav>
                   </Box>
                 )
