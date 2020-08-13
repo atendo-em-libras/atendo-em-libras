@@ -7,6 +7,7 @@ import { StyledButton, Logo } from './HeaderNavModalStyles'
 import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { Modal } from '../../Modal/Modal'
 import { HeaderNavLinks } from '../HeaderNavLinks/HeaderNavLinks'
+import PropTypes from 'prop-types'
 
 class HeaderNavModal extends PureComponent {
   constructor(props) {
@@ -65,6 +66,10 @@ class HeaderNavModal extends PureComponent {
       </Modal>
     )
   }
+}
+
+HeaderNavModal.propTypes = {
+  onClose: PropTypes.func.isRequired,
 }
 
 export { HeaderNavModal }
