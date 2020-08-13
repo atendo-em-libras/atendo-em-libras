@@ -1,5 +1,5 @@
 const toggles = {
-  navbar: false,
+  navbar: true,
 }
 
 export { toggles }
