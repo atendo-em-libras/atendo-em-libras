@@ -1,11 +1,4 @@
 import styled from 'styled-components'
-import { PrimaryButton } from '../../Buttons'
-
-const StyledButton = styled(PrimaryButton)`
-  border-radius: 20px 20px 20px 0;
-  background-color: white;
-  color: #5996f7;
-`
 
 const Logo = styled.img`
   height: auto;
@@ -20,4 +13,4 @@ const Wrapper = styled.div`
   padding: 30px;
 `
 
-export { StyledButton, Logo, Wrapper }
+export { Logo, Wrapper }

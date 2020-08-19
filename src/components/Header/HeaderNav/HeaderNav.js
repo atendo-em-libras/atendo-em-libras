@@ -11,11 +11,6 @@ import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { HeaderLogo } from '../HeaderLogo/HeaderLogo'
 import { HeaderNavLinks } from '../HeaderNavLinks/HeaderNavLinks'
 
-const StyledButton = styled(PrimaryButton)`
-  border-radius: 17px 17px 17px 0;
-  padding: 22px;
-`
-
 class HeaderNav extends PureComponent {
   constructor(props) {
     super(props)
@@ -33,28 +28,28 @@ class HeaderNav extends PureComponent {
           <nav>
             <Box direction="row">
               <HeaderNavLinks />
-              <StyledButton
+              <PrimaryButton
                 size="medium"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://forms.gle/h1sX9nD45PgUAzGB6"
                 margin={{ left: 'medium' }}
-              >
-                Cadastre-se aqui
-              </StyledButton>
+                label="Cadastre-se aqui"
+                droplet="bottom-left"
+              />
             </Box>
           </nav>
         ) : (
           <Box direction="row" align="center">
             <Paragraph margin={{ right: 'small' }}>É profissional de saúde ou conhece alguém da área?</Paragraph>
-            <StyledButton
+            <PrimaryButton
               size="medium"
               target="_blank"
               rel="noopener noreferrer"
               href="https://forms.gle/h1sX9nD45PgUAzGB6"
             >
               Cadastre-se aqui
-            </StyledButton>
+            </PrimaryButton>
           </Box>
         )
       }}

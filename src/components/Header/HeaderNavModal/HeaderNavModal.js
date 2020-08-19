@@ -3,11 +3,12 @@ import { Button } from '../../Buttons'
 import { Box, Heading } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
 import { closeIcon } from '../../../assets/icons'
-import { StyledButton, Logo } from './HeaderNavModalStyles'
+import { Logo } from './HeaderNavModalStyles'
 import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { Modal } from '../../Modal/Modal'
 import { HeaderNavLinks } from '../HeaderNavLinks/HeaderNavLinks'
 import PropTypes from 'prop-types'
+import { WhiteButton } from '../../Buttons/Buttons'
 
 class HeaderNavModal extends PureComponent {
   constructor(props) {
@@ -53,13 +54,14 @@ class HeaderNavModal extends PureComponent {
               É profissional de saúde ou conhece alguém da área?
             </Heading>
 
-            <StyledButton
+            <WhiteButton
               href="https://forms.gle/h1sX9nD45PgUAzGB6"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="register form"
               label="Cadastre-se aqui"
               size="medium"
+              droplet="bottom-left"
             />
           </Box>
         </Box>
