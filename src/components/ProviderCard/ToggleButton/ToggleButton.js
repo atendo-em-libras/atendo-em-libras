@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { Text } from 'grommet'
 import { Button } from '../../Buttons'
 import styled from 'styled-components'
+import { COLORS } from '../../../constants/colors'
 
 const colors = {
   open: {
-    font: '#5A8DED',
+    font: COLORS.brand,
     background: '#C7DDFD',
   },
   close: {

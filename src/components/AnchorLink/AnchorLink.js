@@ -3,14 +3,15 @@ import { Anchor, ResponsiveContext } from 'grommet'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
+import { COLORS } from '../../constants/colors'
 
 const DEFAULT_PROPS = {
   size: 'small',
 }
 
 const DESKTOP_ACTIVE_LINK_STYLE = {
-  color: '#5996f7',
-  borderBottom: '2px solid #5996f7',
+  color: COLORS.brand,
+  borderBottom: `2px solid ${COLORS.brand}`,
 }
 
 const NavLinkStyled = styled(NavLink)`
@@ -23,8 +24,8 @@ const NavLinkStyled = styled(NavLink)`
 
   ${respondTo.desktop`
     :hover {
-      color: #5996f7;
-      border-bottom: 2px solid #5996f7;
+      color: ${COLORS.brand};
+      border-bottom: 2px solid ${COLORS.brand};
     }
   `}
 `

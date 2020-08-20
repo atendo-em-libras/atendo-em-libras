@@ -409,8 +409,8 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  fill: #5A8DED;
-  stroke: #5A8DED;
+  fill: #5996f7;
+  stroke: #5996f7;
 }
 
 .c22 g {
@@ -659,7 +659,7 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
 
 .c20 {
   background-color: #C7DDFD;
-  color: #5A8DED;
+  color: #5996f7;
   width: 100%;
   height: 100%;
   padding: 20px 0 20px 0;
