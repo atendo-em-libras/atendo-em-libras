@@ -6,7 +6,7 @@
     "@testing-library/dom": "^7.20.0",
     "axios": "^0.19.2",
     "csvtojson": "^2.0.10",
-    "grommet": "^2.13.0",
+    "grommet": "^2.14.0",
     "husky": "^4.2.5",
     "lint": "^0.7.0",
     "lint-staged": "^10.2.9",
