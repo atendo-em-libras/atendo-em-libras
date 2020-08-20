@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 import { Container } from '../../Container'
 import { Paragraph } from '../../Typography/Paragraph'
 import { mobileHamburgerIcon } from '../../../assets/icons'
-import { PrimaryButton, Button } from '../../Buttons'
+import { Button } from '../../Buttons'
 import { ResponsiveContext, Box } from 'grommet'
 import { HeaderNavModal } from '../HeaderNavModal/HeaderNavModal'
 import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
@@ -28,28 +28,30 @@ class HeaderNav extends PureComponent {
           <nav>
             <Box direction="row">
               <HeaderNavLinks />
-              <PrimaryButton
+              <Button
+                primary
                 size="medium"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://forms.gle/h1sX9nD45PgUAzGB6"
                 margin={{ left: 'medium' }}
-                label="Cadastre-se aqui"
                 droplet="bottom-left"
+                label="Cadastre-se aqui"
               />
             </Box>
           </nav>
         ) : (
           <Box direction="row" align="center">
             <Paragraph margin={{ right: 'small' }}>É profissional de saúde ou conhece alguém da área?</Paragraph>
-            <PrimaryButton
+            <Button
+              primary
               size="medium"
               target="_blank"
               rel="noopener noreferrer"
               href="https://forms.gle/h1sX9nD45PgUAzGB6"
-            >
-              Cadastre-se aqui
-            </PrimaryButton>
+              label="Cadastre-se aqui"
+              droplet="bottom-left"
+            />
           </Box>
         )
       }}

@@ -22,26 +22,8 @@ const Button = ({ 'aria-label': ariaLabel, ...props }) => {
   return <BaseButton a11yTitle={ariaLabel} {...props} />
 }
 
-const PrimaryButton = styled(Button)`
-  background-color: #5996f7;
-  color: white;
-
-  &:hover {
-    background-color: #96bfff;
-  }
-
-  &:focus {
-    outline: none;
-    outline-offset: 0;
-  }
-`
-const WhiteButton = styled(Button)`
-  background-color: white;
-  color: #5996f7;
-`
-
 Button.propTypes = {
   droplet: PropTypes.oneOf(['bottom-left', 'bottom-right', 'top-left', 'top-right']),
 }
 
-export { Button, PrimaryButton, WhiteButton }
+export { Button }

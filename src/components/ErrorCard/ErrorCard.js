@@ -4,7 +4,7 @@ import { IconText } from '../IconText'
 import { errorIcon } from '../../assets/icons'
 import { refreshIcon } from '../../assets/icons'
 import { Paragraph, Box, ResponsiveContext } from 'grommet'
-import { PrimaryButton } from '../Buttons'
+import { Button } from '../Buttons'
 import styled from 'styled-components/macro'
 
 const RefreshIcon = styled(IconText)`
@@ -36,12 +36,13 @@ export const ErrorCard = ({ onClick }) => (
             <Paragraph size={responsive === 'small' ? 'small' : 'large'} margin={{ bottom: 'medium' }}>
               <strong>Tente novamente.</strong>
             </Paragraph>
-            <PrimaryButton
+            <Button
+              primary
               onClick={onClick}
               aria-label="reload"
               icon={<RefreshIcon src={refreshIcon} alt="refreshIcon" />}
-              label="Recarregar página"
               size="medium"
+              label="Recarregar página"
             />
           </ErrorContainer>
         </Box>

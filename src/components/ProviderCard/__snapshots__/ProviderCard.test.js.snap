@@ -7,7 +7,6 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
-  outline: none;
   max-width: 100%;
   min-width: 0;
   min-height: 0;
@@ -22,7 +21,6 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
-  outline: none;
   max-width: 100%;
   grid-area: header;
   min-width: 0;
@@ -38,7 +36,6 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
-  outline: none;
   max-width: 100%;
   grid-area: first;
   min-width: 0;
@@ -54,7 +51,6 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
-  outline: none;
   max-width: 100%;
   grid-area: second;
   min-width: 0;
@@ -446,7 +442,6 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
-  outline: none;
   max-width: 100%;
   min-width: 0;
   min-height: 0;
@@ -461,7 +456,6 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
-  outline: none;
   max-width: 100%;
   grid-area: header;
   min-width: 0;
@@ -477,7 +471,6 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
-  outline: none;
   max-width: 100%;
   grid-area: first;
   min-width: 0;
@@ -491,7 +484,6 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
-  outline: none;
   font: inherit;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -500,6 +492,7 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
   overflow: visible;
   text-transform: none;
   color: inherit;
+  outline: none;
   border: none;
   padding: 0;
   text-align: inherit;
@@ -511,9 +504,11 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
 }
 
 .c16 {
-  max-height: 0;
-  visibility: hidden;
+  -webkit-transition: max-height 200ms,opacity 200ms;
+  transition: max-height 200ms,opacity 200ms;
+  opacity: 0;
   overflow: hidden;
+  max-height: 0;
 }
 
 .c21 {
@@ -659,6 +654,7 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
 .c19 {
   font-size: 1.4rem;
   font-weight: 600;
+  border-radius: 17px;
 }
 
 .c20 {

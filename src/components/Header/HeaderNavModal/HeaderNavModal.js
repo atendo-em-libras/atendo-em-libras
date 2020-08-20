@@ -8,7 +8,6 @@ import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { Modal } from '../../Modal/Modal'
 import { HeaderNavLinks } from '../HeaderNavLinks/HeaderNavLinks'
 import PropTypes from 'prop-types'
-import { WhiteButton } from '../../Buttons/Buttons'
 
 class HeaderNavModal extends PureComponent {
   constructor(props) {
@@ -54,7 +53,9 @@ class HeaderNavModal extends PureComponent {
               É profissional de saúde ou conhece alguém da área?
             </Heading>
 
-            <WhiteButton
+            <Button
+              secondary
+              color="light-1"
               href="https://forms.gle/h1sX9nD45PgUAzGB6"
               target="_blank"
               rel="noopener noreferrer"

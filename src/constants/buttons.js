@@ -1,8 +1,19 @@
 // This follows Grommet's theme structure.
 // For more info on which attributes are available
 
+import { COLORS } from './colors'
+
 // visit https://v2.grommet.io/button
 export const BUTTONS = {
+  primary: {
+    background: COLORS.brand,
+    color: 'white',
+  },
+  secondary: {
+    background: 'white',
+    color: COLORS.brand,
+  },
+  default: {},
   size: {
     small: {
       pad: {
@@ -25,7 +36,6 @@ export const BUTTONS = {
 
 // visit https://v2.grommet.io/anchor
 export const ANCHORS = {
-  color: 'white',
   hover: {
     textDecoration: 'none',
     extend: `

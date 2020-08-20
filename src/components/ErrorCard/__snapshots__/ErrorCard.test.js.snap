@@ -7,7 +7,6 @@ exports[`ErrorCard tests Render correctly 1`] = `
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
-  outline: none;
   max-width: 100%;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -20,13 +19,12 @@ exports[`ErrorCard tests Render correctly 1`] = `
   flex-direction: column;
 }
 
-.c8 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
-  outline: none;
   max-width: 100%;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -43,7 +41,7 @@ exports[`ErrorCard tests Render correctly 1`] = `
   justify-content: center;
 }
 
-.c10 {
+.c9 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -57,7 +55,6 @@ exports[`ErrorCard tests Render correctly 1`] = `
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
-  outline: none;
   font: inherit;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -71,6 +68,9 @@ exports[`ErrorCard tests Render correctly 1`] = `
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
+  background-color: #7D4CDB;
+  color: #f8f8f8;
+  border-radius: 18px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;
   -webkit-transition-duration: 0.1s;
@@ -99,24 +99,10 @@ exports[`ErrorCard tests Render correctly 1`] = `
 .c6 {
   font-size: 1.4rem;
   font-weight: 600;
-}
-
-.c7 {
-  background-color: #5996f7;
   border-radius: 17px;
-  color: white;
 }
 
-.c7:hover {
-  background-color: #96bfff;
-}
-
-.c7:focus {
-  outline: none;
-  outline-offset: 0;
-}
-
-.c9 {
+.c8 {
   vertical-align: middle;
   margin-right: 5px;
   margin-right: 8px;
@@ -190,19 +176,20 @@ exports[`ErrorCard tests Render correctly 1`] = `
       </p>
       <button
         aria-label="reload"
-        class="c5 c6 c7"
+        class="c5 c6"
         type="button"
       >
         <div
-          class="c8"
+          class="c7"
         >
           <img
             alt="refreshIcon"
-            class="IconText-sc-1u6m2iw-0 c9"
+            class="IconText-sc-1u6m2iw-0 c8"
+            color="#f8f8f8"
             src="ic_refresh.svg"
           />
           <div
-            class="c10"
+            class="c9"
           />
           Recarregar página
         </div>
