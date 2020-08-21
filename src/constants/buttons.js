@@ -9,10 +9,6 @@ export const BUTTONS = {
     background: COLORS.brand,
     color: 'white',
   },
-  secondary: {
-    background: 'white',
-    color: COLORS.brand,
-  },
   default: {},
   size: {
     small: {

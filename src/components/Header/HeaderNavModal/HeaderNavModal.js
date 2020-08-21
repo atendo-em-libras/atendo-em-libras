@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Button } from '../../Buttons'
-import { Box, Heading } from 'grommet'
+import { Box, Heading, Text } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
 import { closeIcon } from '../../../assets/icons'
 import { Logo } from './HeaderNavModalStyles'
@@ -8,6 +8,7 @@ import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { Modal } from '../../Modal/Modal'
 import { HeaderNavLinks } from '../HeaderNavLinks/HeaderNavLinks'
 import PropTypes from 'prop-types'
+import { COLORS } from '../../../constants/colors'
 
 class HeaderNavModal extends PureComponent {
   constructor(props) {
@@ -54,13 +55,17 @@ class HeaderNavModal extends PureComponent {
             </Heading>
 
             <Button
-              secondary
+              primary
               color="light-1"
               href="https://forms.gle/h1sX9nD45PgUAzGB6"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="register form"
-              label="Cadastre-se aqui"
+              label={
+                <Text size="small" color={COLORS.brand}>
+                  Cadastre-se aqui
+                </Text>
+              }
               size="medium"
               droplet="bottom-left"
             />
