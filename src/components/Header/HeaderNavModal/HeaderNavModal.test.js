@@ -4,7 +4,6 @@ import { HeaderNavModal } from './HeaderNavModal'
 import 'jest-styled-components'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
-import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 
 describe('HeaderNavModal component', () => {
   const history = createMemoryHistory()

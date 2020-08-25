@@ -7,7 +7,7 @@ import { createMemoryHistory } from 'history'
 describe('Header component', () => {
   let headerElement
   const history = createMemoryHistory()
-  
+
   beforeEach(() => {
     headerElement = render(
       <Router history={history}>

@@ -4,7 +4,6 @@ import { Box, Heading, Text } from 'grommet'
 import logo from '../../../assets/images/img_atendo_em_libras_logo_all_white.svg'
 import { closeIcon } from '../../../assets/icons'
 import { Logo } from './HeaderNavModalStyles'
-import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { Modal } from '../../Modal/Modal'
 import { HeaderNavLinks } from '../HeaderNavLinks/HeaderNavLinks'
 import PropTypes from 'prop-types'
@@ -42,7 +41,7 @@ class HeaderNavModal extends PureComponent {
               <HeaderNavLinks direction="column" />
             </nav>
           </Box>
-          
+
           <Box align="start">
             <Heading level="3" color="white" margin={{ bottom: 'medium' }}>
               É profissional de saúde ou conhece alguém da área?

@@ -2,12 +2,10 @@ import React, { PureComponent } from 'react'
 import styled from 'styled-components/macro'
 
 import { Container } from '../../Container'
-import { Paragraph } from '../../Typography/Paragraph'
 import { mobileHamburgerIcon } from '../../../assets/icons'
 import { Button } from '../../Buttons'
 import { ResponsiveContext, Box } from 'grommet'
 import { HeaderNavModal } from '../HeaderNavModal/HeaderNavModal'
-import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { HeaderLogo } from '../HeaderLogo/HeaderLogo'
 import { HeaderNavLinks } from '../HeaderNavLinks/HeaderNavLinks'
 

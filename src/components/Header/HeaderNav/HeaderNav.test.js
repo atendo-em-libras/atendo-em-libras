@@ -2,7 +2,6 @@ import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { HeaderNav } from './HeaderNav'
 import { ResponsiveContext } from 'grommet'
-import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 import { createMemoryHistory } from 'history'
 import { Router } from 'react-router-dom'
 
