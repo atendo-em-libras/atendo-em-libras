@@ -8,6 +8,8 @@ import { ResponsiveContext, Box } from 'grommet'
 import { HeaderNavModal } from '../HeaderNavModal/HeaderNavModal'
 import { HeaderLogo } from '../HeaderLogo/HeaderLogo'
 import { HeaderNavLinks } from '../HeaderNavLinks/HeaderNavLinks'
+import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
+import { withRouter } from 'react-router'
 
 class HeaderNav extends PureComponent {
   constructor(props) {
@@ -19,20 +21,39 @@ class HeaderNav extends PureComponent {
     this.setState({ showModal: false })
   }
 
+  handleSignUpRoute = () => {
+    this.props.history.push('cadastrar')
+  }
+
   mainMenuDesktopButton = () => (
     <nav>
       <Box direction="row">
         <HeaderNavLinks />
-        <Button
-          primary
-          size="medium"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://forms.gle/h1sX9nD45PgUAzGB6"
-          margin={{ left: 'medium' }}
-          droplet="bottom-left"
-          label="Cadastre-se aqui"
-        />
+        <FeatureTogglesContext.Consumer>
+          {({ signUp }) =>
+            signUp ? (
+              <Button
+                primary
+                size="medium"
+                onClick={this.handleSignUpRoute}
+                margin={{ left: 'medium' }}
+                droplet="bottom-left"
+                label="Cadastre-se aqui"
+              />
+            ) : (
+              <Button
+                primary
+                size="medium"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://forms.gle/h1sX9nD45PgUAzGB6"
+                margin={{ left: 'medium' }}
+                droplet="bottom-left"
+                label="Cadastre-se aqui"
+              />
+            )
+          }
+        </FeatureTogglesContext.Consumer>
       </Box>
     </nav>
   )
@@ -75,7 +96,7 @@ const StyledSection = styled.section`
   }
 `
 
-const StyledHeaderMenu = styled(HeaderNav)`
+const StyledHeaderMenu = styled(withRouter(HeaderNav))`
   width: 100%;
   height: auto;
   margin-top: 3.6rem;
