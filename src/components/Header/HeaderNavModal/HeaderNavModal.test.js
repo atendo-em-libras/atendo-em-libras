@@ -7,88 +7,44 @@ import { createMemoryHistory } from 'history'
 import { FeatureTogglesContext } from '../../../FeatureTogglesContext'
 
 describe('HeaderNavModal component', () => {
-  describe("when feature toggle 'navbar' is active", () => {
-    const history = createMemoryHistory()
-    let view
-    let onClose
+  const history = createMemoryHistory()
+  let view
+  let onClose
 
-    beforeEach(() => {
-      onClose = jest.fn()
-      view = render(
-        <Router history={history}>
-          <FeatureTogglesContext.Provider value={{ navbar: true }}>
-            <HeaderNavModal onClose={onClose} />
-          </FeatureTogglesContext.Provider>
-        </Router>
-      )
-    })
-
-    it('should execute callback function when close button is clicked', () => {
-      const closeButton = view.getByLabelText('Close Menu Button')
-
-      expect(closeButton).toBeInTheDocument()
-      fireEvent.click(closeButton)
-      expect(onClose).toHaveBeenCalled()
-    })
-
-    it("menu displays a link to 'Home' that takes the user to '/'", () => {
-      history.push('/some-route')
-      fireEvent.click(view.getByText(/Home/i))
-
-      expect(history.location.pathname).toBe('/')
-    })
-
-    it("menu displays a link to 'Sobre o Projeto' that takes the user to '/about'", () => {
-      history.push('/some-route')
-      fireEvent.click(view.getByText(/Sobre o Projeto/i))
-
-      expect(history.location.pathname).toBe('/sobre')
-    })
-
-    it('should redirect to form when register button is clicked', () => {
-      const registerLink = view.getByLabelText('register form')
-
-      expect(registerLink.href).toBe('https://forms.gle/h1sX9nD45PgUAzGB6')
-    })
+  beforeEach(() => {
+    onClose = jest.fn()
+    view = render(
+      <Router history={history}>
+        <HeaderNavModal onClose={onClose} />
+      </Router>
+    )
   })
-  describe("when feature toggle 'navbar' is inactive", () => {
-    const history = createMemoryHistory()
-    let view
-    let onClose
 
-    beforeEach(() => {
-      onClose = jest.fn()
-      view = render(
-        <Router history={history}>
-          <HeaderNavModal onClose={onClose} />
-        </Router>
-      )
-    })
+  it('should execute callback function when close button is clicked', () => {
+    const closeButton = view.getByLabelText('Close Menu Button')
 
-    it('should execute callback function when close button is clicked', () => {
-      const closeButton = view.getByLabelText('Close Menu Button')
+    expect(closeButton).toBeInTheDocument()
+    fireEvent.click(closeButton)
+    expect(onClose).toHaveBeenCalled()
+  })
 
-      expect(closeButton).toBeInTheDocument()
-      fireEvent.click(closeButton)
-      expect(onClose).toHaveBeenCalled()
-    })
+  it("menu displays a link to 'Home' that takes the user to '/'", () => {
+    history.push('/some-route')
+    fireEvent.click(view.getByText(/Home/i))
 
-    it("menu does NOT display a link to 'Home'", () => {
-      const homeLink = view.queryByText(/Home/i)
+    expect(history.location.pathname).toBe('/')
+  })
 
-      expect(homeLink).not.toBeInTheDocument()
-    })
+  it("menu displays a link to 'Sobre o Projeto' that takes the user to '/about'", () => {
+    history.push('/some-route')
+    fireEvent.click(view.getByText(/Sobre o Projeto/i))
 
-    it("menu does NOT display a link to 'Sobre o Projeto'", () => {
-      const homeLink = view.queryByText(/Sobre o Projeto/i)
+    expect(history.location.pathname).toBe('/sobre')
+  })
 
-      expect(homeLink).not.toBeInTheDocument()
-    })
+  it('should redirect to form when register button is clicked', () => {
+    const registerLink = view.getByLabelText('register form')
 
-    it('should redirect to form when register button is clicked', () => {
-      const registerLink = view.getByLabelText('register form')
-
-      expect(registerLink.href).toBe('https://forms.gle/h1sX9nD45PgUAzGB6')
-    })
+    expect(registerLink.href).toBe('https://forms.gle/h1sX9nD45PgUAzGB6')
   })
 })

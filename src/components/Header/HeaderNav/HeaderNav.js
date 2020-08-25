@@ -22,40 +22,21 @@ class HeaderNav extends PureComponent {
   }
 
   mainMenuDesktopButton = () => (
-    <FeatureTogglesContext.Consumer>
-      {({ navbar }) => {
-        return navbar ? (
-          <nav>
-            <Box direction="row">
-              <HeaderNavLinks />
-              <Button
-                primary
-                size="medium"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://forms.gle/h1sX9nD45PgUAzGB6"
-                margin={{ left: 'medium' }}
-                droplet="bottom-left"
-                label="Cadastre-se aqui"
-              />
-            </Box>
-          </nav>
-        ) : (
-          <Box direction="row" align="center">
-            <Paragraph margin={{ right: 'small' }}>É profissional de saúde ou conhece alguém da área?</Paragraph>
-            <Button
-              primary
-              size="medium"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://forms.gle/h1sX9nD45PgUAzGB6"
-              label="Cadastre-se aqui"
-              droplet="bottom-left"
-            />
-          </Box>
-        )
-      }}
-    </FeatureTogglesContext.Consumer>
+    <nav>
+      <Box direction="row">
+        <HeaderNavLinks />
+        <Button
+          primary
+          size="medium"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://forms.gle/h1sX9nD45PgUAzGB6"
+          margin={{ left: 'medium' }}
+          droplet="bottom-left"
+          label="Cadastre-se aqui"
+        />
+      </Box>
+    </nav>
   )
 
   mainMenuMobileButton = () => (

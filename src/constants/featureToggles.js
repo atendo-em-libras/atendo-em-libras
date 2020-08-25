@@ -1,5 +1,3 @@
-const toggles = {
-  navbar: true,
-}
+const toggles = {}
 
 export { toggles }

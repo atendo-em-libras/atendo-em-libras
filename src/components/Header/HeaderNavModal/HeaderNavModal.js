@@ -36,19 +36,13 @@ class HeaderNavModal extends PureComponent {
               size="small"
             ></Button>
           </Box>
-          <FeatureTogglesContext.Consumer>
-            {({ navbar }) => {
-              return (
-                navbar && (
-                  <Box flex="grow" pad={{ top: 'xlarge' }}>
-                    <nav>
-                      <HeaderNavLinks direction="column" />
-                    </nav>
-                  </Box>
-                )
-              )
-            }}
-          </FeatureTogglesContext.Consumer>
+
+          <Box flex="grow" pad={{ top: 'xlarge' }}>
+            <nav>
+              <HeaderNavLinks direction="column" />
+            </nav>
+          </Box>
+          
           <Box align="start">
             <Heading level="3" color="white" margin={{ bottom: 'medium' }}>
               É profissional de saúde ou conhece alguém da área?
