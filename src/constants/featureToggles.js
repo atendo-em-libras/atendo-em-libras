@@ -1,3 +1,5 @@
-const toggles = {}
+const toggles = {
+  signUp: false
+}
 
 export { toggles }
