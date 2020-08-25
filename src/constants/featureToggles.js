@@ -1,5 +1,5 @@
 const toggles = {
-  signUp: false
+  signUp: false,
 }
 
 export { toggles }
