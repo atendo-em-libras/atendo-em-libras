@@ -15,6 +15,8 @@ import FotoNicole from '../../assets/images/participantes/nicole.png'
 import FotoRicardo from '../../assets/images/participantes/ricardo.png'
 import FotoSophia from '../../assets/images/participantes/sophia.png'
 import FotoThomaz from '../../assets/images/participantes/thomaz.png'
+import FotoMatheus from '../../assets/images/participantes/matheus.png'
+import FotoRamon from '../../assets/images/participantes/ramon.jpg'
 
 const participantes = [
   { nome: 'Andressa Silva', role: 'Desenvolvedora', avatar: FotoAndressa },
@@ -34,6 +36,8 @@ const participantes = [
   { nome: 'Ricardo Praxedes', role: 'Desenvolvedor', avatar: FotoRicardo },
   { nome: 'Sophia Cavalcan', role: 'Experience Designer', avatar: FotoSophia },
   { nome: 'Thomaz Zandonotto', role: 'Desenvolvedor', avatar: FotoThomaz },
+  { nome: 'Matheus Viana', role: 'Quality Analyst', avatar: FotoMatheus },
+  { nome: 'Ramon Costa', role: 'Desenvolvedor', avatar: FotoRamon },
 ]
 
 export { participantes }
