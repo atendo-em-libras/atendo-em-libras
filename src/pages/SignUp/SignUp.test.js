@@ -26,4 +26,52 @@ describe('SignUp', () => {
 
     expect(textbox).toBeTruthy()
   })
+
+  it('Has a Categoria field', () => {
+    const screen = render(<SignUp />)
+
+    const textbox = screen.getByLabelText('Categoria', { selector: 'input' })
+
+    expect(textbox).toBeTruthy()
+  })
+
+  it('Has a Especialidade field', () => {
+    const screen = render(<SignUp />)
+
+    const textbox = screen.getByLabelText('Especialidade', { selector: 'input' })
+
+    expect(textbox).toBeTruthy()
+  })
+
+  it('Has a Número de cadastro profissional field', () => {
+    const screen = render(<SignUp />)
+
+    const textbox = screen.getByLabelText('Número de cadastro profissional', { selector: 'input' })
+
+    expect(textbox).toBeTruthy()
+  })
+
+  it('Has a Número de cadastro profissional field', () => {
+    const screen = render(<SignUp />)
+
+    const textbox = screen.getByLabelText('Número de cadastro profissional', { selector: 'input' })
+
+    expect(textbox).toBeTruthy()
+  })
+
+  it('Has a Apresentação field', () => {
+    const screen = render(<SignUp />)
+
+    const textbox = screen.getByLabelText('Apresentação', { selector: 'textarea' })
+
+    expect(textbox).toBeTruthy()
+  })
+
+  it('Has a Planos de saúde aceitos field', () => {
+    const screen = render(<SignUp />)
+
+    const textbox = screen.getByLabelText('Planos de saúde aceitos', { selector: 'input' })
+
+    expect(textbox).toBeTruthy()
+  })
 })
