@@ -74,4 +74,36 @@ describe('SignUp', () => {
 
     expect(textbox).toBeTruthy()
   })
+
+  it('Has a Online option', () => {
+    const screen = render(<SignUp />)
+
+    const button = screen.getByText('Online', { selector: 'button' })
+
+    expect(button).toBeTruthy()
+  })
+
+  it('Has a Em cliníca/hospital option', () => {
+    const screen = render(<SignUp />)
+
+    const button = screen.getByText('Em cliníca/hospital', { selector: 'button' })
+
+    expect(button).toBeTruthy()
+  })
+
+  it('Has a Domiciliar option', () => {
+    const screen = render(<SignUp />)
+
+    const button = screen.getByText('Domiciliar', { selector: 'button' })
+
+    expect(button).toBeTruthy()
+  })
+
+  //   it('Has a Domiciliar option', () => {
+  //     const screen = render(<SignUp />)
+
+  //     const button = screen.getByText('Domiciliar', { selector: 'button' })
+
+  //     expect(button).toBeTruthy()
+  //   })
 })

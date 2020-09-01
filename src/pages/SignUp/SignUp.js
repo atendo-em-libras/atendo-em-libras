@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { logoIcon } from '../../assets/icons'
-import { Box, Image, Heading, FormField, TextInput, Form, Select, Paragraph, TextArea } from 'grommet'
+import { Box, Image, Heading, FormField, TextInput, Form, Select, Paragraph, TextArea, Button } from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 
 const SignUpWrapper = styled.div`
@@ -24,8 +24,14 @@ const Square = styled(Box)`
   `}
 `
 
+const SelectableButton = styled(Button)`
+  background-color: #5996f7;
+  border-radius: 20px 20px 20px 0;
+  color: white;
+`
+
 const SignUp = () => {
-  const [value] = useState({ name: '' })
+  const [value, setValue] = useState({ name: '' })
 
   return (
     <>
@@ -38,7 +44,12 @@ const SignUp = () => {
             <Heading level="2">Cadastrar</Heading>
           </Box>
 
-          <Form value={value}>
+          <Form
+            value={value}
+            onChange={(nextValue) => setValue(nextValue)}
+            onReset={() => setValue({})}
+            onSubmit={({ value }) => {}}
+          >
             <Heading color="#5996F7" level="4">
               Informações pessoais
             </Heading>
@@ -78,6 +89,11 @@ const SignUp = () => {
               Atendimento
             </Heading>
             <Paragraph>Escolha o tipo de atendimento</Paragraph>
+            <Box direction="row">
+              <SelectableButton label="Online"></SelectableButton>
+              <SelectableButton label="Em cliníca/hospital"></SelectableButton>
+              <SelectableButton label="Domiciliar"></SelectableButton>
+            </Box>
           </Form>
         </Box>
       </SignUpWrapper>
