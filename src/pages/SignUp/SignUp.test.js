@@ -1,6 +1,6 @@
 import React from 'react'
 import { SignUp } from './SignUp'
-import { render } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 
 describe('SignUp', () => {
   it('Has a Nome Completo field', () => {
@@ -99,11 +99,29 @@ describe('SignUp', () => {
     expect(button).toBeTruthy()
   })
 
-  //   it('Has a Domiciliar option', () => {
-  //     const screen = render(<SignUp />)
+  it('Has a Atende por video chamada? option', () => {
+    const screen = render(<SignUp />)
 
-  //     const button = screen.getByText('Domiciliar', { selector: 'button' })
+    const groupRadioButton = screen.getByTestId('video-call-option')
+    const options = groupRadioButton.getElementsByTagName('input')
+    fireEvent.click(options[1])
+    const value = groupRadioButton.querySelector('input:checked').value
+    expect(value).toBe(options[1].value)
+  })
 
-  //     expect(button).toBeTruthy()
-  //   })
+  it('Has a Plataforma field', () => {
+    const screen = render(<SignUp />)
+
+    const textbox = screen.getByLabelText('Plataforma', { selector: 'input' })
+
+    expect(textbox).toBeTruthy()
+  })
+
+  it('Has a Contato field', () => {
+    const screen = render(<SignUp />)
+
+    const textbox = screen.getByLabelText('Contato', { selector: 'input' })
+
+    expect(textbox).toBeTruthy()
+  })
 })

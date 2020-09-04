@@ -1,7 +1,19 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { logoIcon } from '../../assets/icons'
-import { Box, Image, Heading, FormField, TextInput, Form, Select, Paragraph, TextArea, Button } from 'grommet'
+import {
+  Box,
+  Image,
+  Heading,
+  FormField,
+  TextInput,
+  Form,
+  Select,
+  Paragraph,
+  TextArea,
+  Button,
+  RadioButtonGroup,
+} from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 
 const SignUpWrapper = styled.div`
@@ -31,8 +43,10 @@ const SelectableButton = styled(Button)`
 `
 
 const SignUp = () => {
-  const [value, setValue] = useState({ name: '' })
+  const [value, setValue] = useState({ name: '', videoCall: true })
+  //   const  = () =>{
 
+  //   }
   return (
     <>
       <SignUpWrapper>
@@ -94,6 +108,28 @@ const SignUp = () => {
               <SelectableButton label="Em cliníca/hospital"></SelectableButton>
               <SelectableButton label="Domiciliar"></SelectableButton>
             </Box>
+            <Paragraph>Atende video por video chamada?</Paragraph>
+            <RadioButtonGroup
+              data-testid="video-call-option"
+              name="video-call-option"
+              options={[
+                { label: 'Sim', value: true, role: 'option', selected: true },
+                { label: 'Não', value: false, role: 'option' },
+              ]}
+              // value={value.videoCall}
+              onChange={(event) => {}}
+            />
+            <Box direction="row">
+              <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
+                <Select name="plataform" options={['Zoom', 'Whatsapp']} id="plataform" />
+              </FormField>
+              <FormField name="contact" htmlFor="contact" label="Contato" margin="0 0 5px 0">
+                <TextInput name="contact" id="contact" />
+              </FormField>
+            </Box>
+            <Heading color="#5996f7" level="4" onClick={() => {}}>
+              + Adiconar outra plataforma
+            </Heading>
           </Form>
         </Box>
       </SignUpWrapper>
