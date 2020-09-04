@@ -148,7 +148,7 @@ const ProviderCard = (props) => {
   )
 
   return (
-    <ProviderCardWrapper className="providerCard" role="provider">
+    <ProviderCardWrapper className="providerCard" role="listitem">
       <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
         <Box gridArea="header">
           {videoCallAvailability && <ProviderVideoCallAvailabilityLabel />}
