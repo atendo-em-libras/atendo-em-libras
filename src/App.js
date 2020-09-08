@@ -10,6 +10,8 @@ import GlobalStyle from './globalStyles'
 import Routes from './routes/router'
 
 function App() {
+  console.log('my env is: ' + process.env.NODE_ENV)
+
   return (
     <div className="App" httpEquiv="Content-Language" content="pt-br">
       <GlobalStyle />
