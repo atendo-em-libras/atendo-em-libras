@@ -12,7 +12,7 @@ describe('ProviderList tests', () => {
 
     render(<ProviderList />)
 
-    const providerList = await screen.findByText('doctor-who@tardis.com')
+    const providerList = await screen.findByText('user2@email.com')
     expect(providerList).toBeInTheDocument()
   })
 

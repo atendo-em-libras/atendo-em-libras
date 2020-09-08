@@ -9,6 +9,7 @@ const ProviderApi = {
 }
 
 const mapJsonToProviders = (json) => {
+  console.log(json)
   return json.map((provider) => {
     return {
       name: provider['Nome do profissional'],

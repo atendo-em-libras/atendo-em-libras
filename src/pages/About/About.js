@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 
 import { AboutBanner } from './AboutBanner/AboutBanner'
 
 import { Box, ResponsiveContext, Image } from 'grommet'
 import { Heading } from '../../components/Typography/Heading'
 
-import { participantes } from './participantes'
 import { idealizadoras } from './idealizadoras'
 import { missionIcon, logoIcon } from '../../assets/icons'
 import logoLarge from '../../assets/images/pages/about/logo_large.svg'
@@ -26,6 +25,18 @@ const About = () => {
   const screenSize = useContext(ResponsiveContext)
   const contentDirection = screenSize === 'small' ? 'column' : 'row'
   const textAlign = screenSize === 'small' ? 'center' : undefined
+
+  const [participantes, setParticipantes] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { participantes: data } = await import('./participantes')
+      setParticipantes(data)
+      setLoading(false)
+    }
+    fetchData()
+  }, [])
 
   return (
     <>
@@ -134,22 +145,23 @@ const About = () => {
             Conheça quem faz parte
           </Heading>
           <Box direction="row" wrap justify="center">
-            {participantes.map((participant) => (
-              <Box
-                key={participant.nome}
-                align="center"
-                basis={screenSize === 'small' ? '46%' : '18%'}
-                pad={{ bottom: 'large', left: 'small', right: 'small' }}
-              >
-                <DropletAvatar dropletDirection="top-left" size="120px" src={participant.avatar} round="large" />
-                <Heading level="3" textAlign="center">
-                  {participant.nome}
-                </Heading>
-                <Heading color="#5996F7" level="4" textAlign="center">
-                  {participant.role}
-                </Heading>
-              </Box>
-            ))}
+            {loading ||
+              participantes.map((participant) => (
+                <Box
+                  key={participant.nome}
+                  align="center"
+                  basis={screenSize === 'small' ? '46%' : '18%'}
+                  pad={{ bottom: 'large', left: 'small', right: 'small' }}
+                >
+                  <DropletAvatar dropletDirection="top-left" size="120px" src={participant.avatar} round="large" />
+                  <Heading level="3" textAlign="center">
+                    {participant.nome}
+                  </Heading>
+                  <Heading color="#5996F7" level="4" textAlign="center">
+                    {participant.role}
+                  </Heading>
+                </Box>
+              ))}
           </Box>
         </Box>
       </SectionStyled>
