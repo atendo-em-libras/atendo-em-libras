@@ -8,7 +8,7 @@ jest.mock('../../api/provider.js')
 
 describe('ProviderList tests', () => {
   it('Component should render a provider card when showCard column is yes', async () => {
-    // ProviderApi.get.mockResolvedValue(mockProviders.providers)
+    ProviderApi.get.mockResolvedValue(mockProviders.providers)
 
     render(<ProviderList />)
 
@@ -17,7 +17,7 @@ describe('ProviderList tests', () => {
   })
 
   it('Component should not render a provider card when showCard column is no', async () => {
-    // ProviderApi.get.mockResolvedValue(mockProviders.providers)
+    ProviderApi.get.mockResolvedValue(mockProviders.providers)
 
     render(<ProviderList />)
 
@@ -25,17 +25,17 @@ describe('ProviderList tests', () => {
     expect(providerList.length).toBeLessThanOrEqual(2)
   })
 
-  // it('Component should render error to find providers', async () => {
-  //   // ProviderApi.get.mockResolvedValue([])
+  it('Component should render error to find providers', async () => {
+    ProviderApi.get.mockResolvedValue([])
 
-  //   render(<ProviderList />)
+    render(<ProviderList />)
 
-  //   const providerList = await screen.findByRole('error')
-  //   expect(providerList).toBeInTheDocument()
-  // })
+    const providerList = await screen.findByRole('error')
+    expect(providerList).toBeInTheDocument()
+  })
 
   it('Component should show video call availability', async () => {
-    // ProviderApi.get.mockResolvedValue(mockProviders.providers)
+    ProviderApi.get.mockResolvedValue(mockProviders.providers)
 
     render(<ProviderList />)
 
@@ -44,7 +44,7 @@ describe('ProviderList tests', () => {
   })
 
   it('Component should show empty space before loading providers', async () => {
-    // ProviderApi.get.mockResolvedValue(mockProviders.providers)
+    ProviderApi.get.mockResolvedValue(mockProviders.providers)
 
     render(<ProviderList />)
 
