@@ -36,17 +36,9 @@ const Square = styled(Box)`
   `}
 `
 
-const SelectableButton = styled(Button)`
-  background-color: #5996f7;
-  border-radius: 20px 20px 20px 0;
-  color: white;
-`
-
 const SignUp = () => {
-  const [value, setValue] = useState({ name: '', videoCall: true })
-  //   const  = () =>{
+  const [formValue, setFormValue] = useState({ name: '' })
 
-  //   }
   return (
     <>
       <SignUpWrapper>
@@ -59,10 +51,12 @@ const SignUp = () => {
           </Box>
 
           <Form
-            value={value}
-            onChange={(nextValue) => setValue(nextValue)}
-            onReset={() => setValue({})}
-            onSubmit={({ value }) => {}}
+            value={formValue}
+            onChange={(nextValue) => setFormValue(nextValue)}
+            onReset={() => setFormValue({})}
+            onSubmit={({ value }) => {
+              console.log(value)
+            }}
           >
             <Heading color="#5996F7" level="4">
               Informações pessoais
@@ -104,9 +98,15 @@ const SignUp = () => {
             </Heading>
             <Paragraph>Escolha o tipo de atendimento</Paragraph>
             <Box direction="row">
-              <SelectableButton label="Online"></SelectableButton>
-              <SelectableButton label="Em cliníca/hospital"></SelectableButton>
-              <SelectableButton label="Domiciliar"></SelectableButton>
+              <RadioButtonGroup
+                data-testid="atendimento-option"
+                name="atendimento-option"
+                options={[
+                  { label: 'Online', value: tiposAtendimento.Online, role: 'option', selected: true },
+                  { label: 'Em clínica/hospital', value: tiposAtendimento.EmClinica, role: 'option' },
+                  { label: 'Domiciliar', value: tiposAtendimento.Domiciliar, role: 'option' },
+                ]}
+              />
             </Box>
             <Paragraph>Atende video por video chamada?</Paragraph>
             <RadioButtonGroup
@@ -116,8 +116,6 @@ const SignUp = () => {
                 { label: 'Sim', value: true, role: 'option', selected: true },
                 { label: 'Não', value: false, role: 'option' },
               ]}
-              // value={value.videoCall}
-              onChange={(event) => {}}
             />
             <Box direction="row">
               <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
@@ -130,6 +128,7 @@ const SignUp = () => {
             <Heading color="#5996f7" level="4" onClick={() => {}}>
               + Adiconar outra plataforma
             </Heading>
+            <Button type="submit" primary label="Submit" />
           </Form>
         </Box>
       </SignUpWrapper>
@@ -137,4 +136,10 @@ const SignUp = () => {
   )
 }
 
-export { SignUp }
+const tiposAtendimento = {
+  Online: 0,
+  EmClinica: 1,
+  Domiciliar: 2,
+}
+
+export { SignUp, tiposAtendimento }

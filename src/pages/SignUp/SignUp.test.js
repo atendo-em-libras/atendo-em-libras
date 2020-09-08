@@ -1,12 +1,12 @@
 import React from 'react'
-import { SignUp } from './SignUp'
+import { SignUp, tiposAtendimento } from './SignUp'
 import { render, fireEvent } from '@testing-library/react'
 
 describe('SignUp', () => {
   it('Has a Nome Completo field', () => {
     const screen = render(<SignUp />)
 
-    const textbox = screen.getByLabelText('Nome Completo', { selector: 'input' })
+    const textbox = screen.getByLabelText('Nome Completo')
 
     expect(textbox).toBeTruthy()
   })
@@ -75,28 +75,19 @@ describe('SignUp', () => {
     expect(textbox).toBeTruthy()
   })
 
-  it('Has a Online option', () => {
+  it('Has Atendimento options', () => {
     const screen = render(<SignUp />)
 
-    const button = screen.getByText('Online', { selector: 'button' })
+    const groupRadioButton = screen.getByTestId('atendimento-option')
+    const options = groupRadioButton.getElementsByTagName('input')
 
-    expect(button).toBeTruthy()
-  })
+    const online = parseInt(options[0].value)
+    const emClinica = parseInt(options[1].value)
+    const domiciliar = parseInt(options[2].value)
 
-  it('Has a Em cliníca/hospital option', () => {
-    const screen = render(<SignUp />)
-
-    const button = screen.getByText('Em cliníca/hospital', { selector: 'button' })
-
-    expect(button).toBeTruthy()
-  })
-
-  it('Has a Domiciliar option', () => {
-    const screen = render(<SignUp />)
-
-    const button = screen.getByText('Domiciliar', { selector: 'button' })
-
-    expect(button).toBeTruthy()
+    expect(online).toBe(tiposAtendimento.Online)
+    expect(emClinica).toBe(tiposAtendimento.EmClinica)
+    expect(domiciliar).toBe(tiposAtendimento.Domiciliar)
   })
 
   it('Has a Atende por video chamada? option', () => {
