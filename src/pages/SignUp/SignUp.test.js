@@ -75,20 +75,20 @@ describe('SignUp', () => {
     expect(textbox).toBeTruthy()
   })
 
-  it('Has Atendimento options', () => {
-    const screen = render(<SignUp />)
+  //   it('Has Atendimento options', () => {
+  //     const screen = render(<SignUp />)
 
-    const groupRadioButton = screen.getByTestId('atendimento-option')
-    const options = groupRadioButton.getElementsByTagName('input')
+  //     const groupRadioButton = screen.getByTestId('atendimento-option')
+  //     const options = groupRadioButton.getElementsByTagName('input')
 
-    const online = parseInt(options[0].value)
-    const emClinica = parseInt(options[1].value)
-    const domiciliar = parseInt(options[2].value)
+  //     const online = parseInt(options[0].value)
+  //     const emClinica = parseInt(options[1].value)
+  //     const domiciliar = parseInt(options[2].value)
 
-    expect(online).toBe(tiposAtendimento.Online)
-    expect(emClinica).toBe(tiposAtendimento.EmClinica)
-    expect(domiciliar).toBe(tiposAtendimento.Domiciliar)
-  })
+  //     expect(online).toBe(tiposAtendimento.Online)
+  //     expect(emClinica).toBe(tiposAtendimento.EmClinica)
+  //     expect(domiciliar).toBe(tiposAtendimento.Domiciliar)
+  //   })
 
   it('Has a Atende por video chamada? option', () => {
     const screen = render(<SignUp />)

@@ -16,6 +16,8 @@ import {
 } from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 
+import { RadioButtonGroup as RadioButtonGroupCustom } from '../../components/RadioButtonGroup/RadioButtonGroup'
+
 const SignUpWrapper = styled.div`
   width: 100%;
   margin: auto;
@@ -98,7 +100,7 @@ const SignUp = () => {
             </Heading>
             <Paragraph>Escolha o tipo de atendimento</Paragraph>
             <Box direction="row">
-              <RadioButtonGroup
+              {/* <RadioButtonGroup
                 data-testid="atendimento-option"
                 name="atendimento-option"
                 options={[
@@ -106,9 +108,19 @@ const SignUp = () => {
                   { label: 'Em clínica/hospital', value: tiposAtendimento.EmClinica, role: 'option' },
                   { label: 'Domiciliar', value: tiposAtendimento.Domiciliar, role: 'option' },
                 ]}
+              /> */}
+              <RadioButtonGroupCustom
+                data-testid="atendimento-option"
+                options={[
+                  { label: 'Online', value: tiposAtendimento.Online, role: 'option' },
+                  { label: 'Em clínica/hospital', value: tiposAtendimento.EmClinica, role: 'option' },
+                  { label: 'Domiciliar', value: tiposAtendimento.Domiciliar, role: 'option' },
+                ]}
+                onChange={() => {}}
               />
             </Box>
             <Paragraph>Atende video por video chamada?</Paragraph>
+
             <RadioButtonGroup
               data-testid="video-call-option"
               name="video-call-option"

@@ -1,16 +1,30 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 
 import { RadioButtonGroup } from './RadioButtonGroup'
 
 describe('RadioButtonGroup', () => {
   it('Should render the given options', () => {
-    const options = [<input type="radio" value="opcao1" key={1} />, <input type="radio" key={2} value="opcao2" />]
+    const options = [
+      { label: 'opcao1', value: 1 },
+      { label: 'opcao1', value: 2 },
+    ]
 
-    const component = render(<RadioButtonGroup data-testid="radio-button-group">{options}</RadioButtonGroup>)
-    const renderOptions = component.container.querySelectorAll('input')
+    const expectedValue = 2
 
-    expect(renderOptions[0].value).toBe('opcao1')
-    expect(renderOptions[1].value).toBe('opcao2')
+    let newValue = 0
+    const component = render(
+      <RadioButtonGroup
+        options={options}
+        onChange={(value) => {
+          newValue = value
+        }}
+      ></RadioButtonGroup>
+    )
+    const renderOptions = component.container.querySelectorAll('button')
+
+    fireEvent.click(renderOptions[1])
+
+    expect(newValue).toBe(expectedValue)
   })
 })
