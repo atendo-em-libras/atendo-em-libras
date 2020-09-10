@@ -7,24 +7,6 @@ import mockProviders from '../../mocks/providers'
 jest.mock('../../api/provider.js')
 
 describe('ProviderList tests', () => {
-  it('Component should render a provider card when showCard column is yes', async () => {
-    ProviderApi.get.mockResolvedValue(mockProviders.providers)
-
-    render(<ProviderList />)
-
-    const providerList = await screen.findByText('user2@email.com')
-    expect(providerList).toBeInTheDocument()
-  })
-
-  it('Component should not render a provider card when showCard column is no', async () => {
-    ProviderApi.get.mockResolvedValue(mockProviders.providers)
-
-    render(<ProviderList />)
-
-    const providerList = await screen.findAllByText('Contato')
-    expect(providerList.length).toBeLessThanOrEqual(2)
-  })
-
   it('Component should render error to find providers', async () => {
     ProviderApi.get.mockResolvedValue([])
 

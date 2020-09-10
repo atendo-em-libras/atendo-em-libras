@@ -1,5 +1,5 @@
 import React from 'react'
-import { SignUp, tiposAtendimento } from './SignUp'
+import { SignUp } from './SignUp'
 import { render, fireEvent } from '@testing-library/react'
 
 describe('SignUp', () => {

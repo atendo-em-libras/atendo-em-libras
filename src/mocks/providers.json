@@ -1,52 +1,67 @@
 {
   "providers": [
     {
+      "id": 1,
       "name": "Thaís Amorim",
-      "licenseNumber": "Crefito4 202323",
+      "registerNumber": "Crefito4 202323",
       "category": "Fisioterapia",
       "specialty": "Traumato-ortopedia",
-      "videoCallAvailability": false,
-      "phoneNumber": "34 999624855",
+      "attendance": {
+        "onlineAttendance": null,
+        "hospitalClinicAttendance": {
+          "city": "Uberlândia",
+          "state": "Minas Gerais (MG)",
+          "streetName": "R. Bernardo Cupertino, 423 - B. Martins"
+        },
+        "householdAttendance": null
+      },
+      "phone": "34 999624855",
       "email": "thais_amorim773@hotmail.com",
-      "city": "Uberlândia",
-      "state": "Minas Gerais (MG)",
       "healthInsurance": "Sul América, IPSM, Saúde Caixa, Cassi, Amil e Vitalis",
-      "experience": "Fisioterapeuta - Traumato Ortopedia",
-      "address": "R. Bernardo Cupertino, 423 - B. Martins",
-      "videoCallPlatform": "",
-      "showCard": false
+      "biography": "Fisioterapeuta - Traumato Ortopedia"
     },
     {
+      "id": 2,
       "name": "Marco Beduschi",
-      "licenseNumber": "NUM12345679",
+      "registerNumber": "NUM12345679",
       "category": "Psiquiatra",
       "specialty": "",
-      "videoCallAvailability": true,
-      "phoneNumber": "47 112233445",
+      "attendance": {
+        "onlineAttendance": {
+          "whatsAppNumber": "(47) 99999-9999",
+          "platforms": "Zoom"
+        },
+        "hospitalClinicAttendance": {
+          "city": "Blumenau",
+          "state": "SC",
+          "streetName": "Alameda Ralf Bruno Gross, 414"
+        },
+        "householdAttendance": null
+      },
+      "phone": "47 112233445",
       "email": "user2@email.com",
-      "city": "Blumenau",
-      "state": "SC",
       "healthInsurance": "",
-      "experience": "Serviço Social",
-      "address": "Alameda Ralf Bruno Gross, 414",
-      "videoCallPlatform": "Zoom",
-      "showCard": true
+      "biography": "Serviço Social"
     },
     {
+      "id": 3,
       "name": "Doctor Who",
-      "licenseNumber": "TARDIS42",
+      "registerNumber": "TARDIS42",
       "category": "Who Knows",
       "specialty": "Helping People",
-      "videoCallAvailability": false,
-      "phoneNumber": "99 000000001",
+      "attendance": {
+        "onlineAttendance": null,
+        "hospitalClinicAttendance": {
+          "city": "Galifrei",
+          "state": "GF",
+          "streetName": "Police Box 24"
+        },
+        "householdAttendance": null
+      },
+      "phone": "99 000000001",
       "email": "doctor-who@tardis.com",
-      "city": "Galifrei",
-      "state": "GF",
       "healthInsurance": "Health Regeneration",
-      "experience": "Flying around the Universe",
-      "address": "Police Box 24",
-      "videoCallPlatform": "Zoom",
-      "showCard": true
+      "biography": "Flying around the Universe"
     }
   ]
 }

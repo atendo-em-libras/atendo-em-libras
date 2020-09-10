@@ -27,11 +27,11 @@ describe('ProviderCard tests', () => {
   })
 
   it('Component should render license number', () => {
-    expect(screen.getByText(provider.licenseNumber)).toBeInTheDocument()
+    expect(screen.getByText(provider.registerNumber)).toBeInTheDocument()
   })
 
   it('Component should render phone number', () => {
-    expect(screen.getByText(provider.phoneNumber)).toBeInTheDocument()
+    expect(screen.getByText(provider.phone)).toBeInTheDocument()
   })
 
   it('Component should render email', () => {
@@ -39,7 +39,7 @@ describe('ProviderCard tests', () => {
   })
 
   it('Component should render experience', () => {
-    expect(screen.getByText(provider.experience)).toBeInTheDocument()
+    expect(screen.getByText(provider.biography)).toBeInTheDocument()
   })
 
   it('Component should render health insurence', () => {
@@ -47,46 +47,49 @@ describe('ProviderCard tests', () => {
   })
 
   it('Component should render video call platform', () => {
-    provider.videoCallPlatform = 'Zoom'
-    provider.videoCallAvailability = true
+    provider.attendance.onlineAttendance = {
+      platforms: 'Zoom',
+    }
 
     view.rerender(<ProviderCard provider={provider} />)
 
-    expect(screen.getByText(provider.videoCallPlatform)).toBeInTheDocument()
+    expect(screen.getByText(provider.attendance.onlineAttendance.platforms)).toBeInTheDocument()
   })
 
   it('Component should render city and state', () => {
-    expect(screen.getByText(`${provider.city} - ${provider.state}`)).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        `${provider.attendance.hospitalClinicAttendance.city} - ${provider.attendance.hospitalClinicAttendance.state}`
+      )
+    ).toBeInTheDocument()
   })
 
   it('Component should render only state when city is not informed', () => {
-    provider.city = ''
+    provider.attendance.hospitalClinicAttendance.city = ''
 
     view.rerender(<ProviderCard provider={provider} />)
 
-    expect(screen.getByText(`${provider.state}`)).toBeInTheDocument()
+    expect(screen.getByText(`${provider.attendance.hospitalClinicAttendance.state}`)).toBeInTheDocument()
   })
 
   it('Component should render address', () => {
-    expect(screen.getByText(provider.address)).toBeInTheDocument()
+    expect(screen.getByText(provider.attendance.hospitalClinicAttendance.streetName)).toBeInTheDocument()
   })
 
   it('Component should render video call avallability', () => {
-    view.rerender(<ProviderCard provider={{ ...provider, videoCallAvailability: true }} />)
+    view.rerender(
+      <ProviderCard provider={{ ...provider, attendance: { ...provider.attendance, onlineAttendance: {} } }} />
+    )
 
     expect(screen.getByText('Atende Online')).toBeInTheDocument()
   })
 
   it('Component should not render video call avallability', () => {
-    view.rerender(<ProviderCard provider={{ ...provider, videoCallAvailability: false }} />)
+    view.rerender(
+      <ProviderCard provider={{ ...provider, attendance: { ...provider.attendance, onlineAttendance: null } }} />
+    )
 
     expect(screen.queryByText('Atende Online')).toBeNull()
-  })
-
-  it('Component should not render video call platform', () => {
-    view.rerender(<ProviderCard provider={{ ...provider, videoCallAvailability: false }} />)
-
-    expect(screen.queryByText(provider.videoCallPlatform)).toBeNull()
   })
 
   it('Component should render correctly', () => {

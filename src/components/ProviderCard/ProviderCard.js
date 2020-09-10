@@ -63,18 +63,15 @@ const ProviderCard = (props) => {
     name,
     category,
     specialty,
-    licenseNumber,
-    videoCallAvailability,
-    phoneNumber,
+    registerNumber,
+    attendance,
+    phone,
     email,
-    experience,
+    biography,
     healthInsurance,
-    city,
-    videoCallPlatform,
-    state,
-    address,
   } = props.provider
 
+  const { onlineAttendance, hospitalClinicAttendance } = attendance
   const ProviderVideoCallAvailabilityLabel = () => (
     <ProviderVideoCallAvailabilityContainer>
       <ProviderVideoCallAvailability role="note">
@@ -90,18 +87,18 @@ const ProviderCard = (props) => {
       <ProviderSpecialty>{specialty}</ProviderSpecialty>
       <License>
         <p className="title">REGISTRO</p>
-        {licenseNumber ? <p className="number">{licenseNumber}</p> : <p className="number">-</p>}
+        {registerNumber ? <p className="number">{registerNumber}</p> : <p className="number">-</p>}
       </License>
-      {experience && <ExerienceText size="small">{experience}</ExerienceText>}
+      {biography && <ExerienceText size="small">{biography}</ExerienceText>}
       <SectionBlock>
-        {state && (
+        {hospitalClinicAttendance.state && (
           <SectionTitle>
             <IconText src={addressIcon} alt="address icon" />
-            {city && `${city} - `}
-            {`${state}`}
+            {hospitalClinicAttendance.city && `${hospitalClinicAttendance.city} - `}
+            {`${hospitalClinicAttendance.state}`}
           </SectionTitle>
         )}
-        <Paragraph size="small">{address}</Paragraph>
+        <Paragraph size="small">{hospitalClinicAttendance.streetName}</Paragraph>
       </SectionBlock>
     </>
   )
@@ -111,7 +108,7 @@ const ProviderCard = (props) => {
       <SectionTitle>Contato</SectionTitle>
       <p>
         <IconText src={phoneIcon} alt="phone icon" />
-        <span> {phoneNumber}</span>
+        <span> {phone}</span>
       </p>
       <Paragraph size="small">
         <IconText src={emailIcon} alt="e-mail icon" />
@@ -125,7 +122,7 @@ const ProviderCard = (props) => {
       <SectionTitle>Atendimento online</SectionTitle>
       <p>
         <IconText src={videoIcon} alt="video icon" />
-        {videoCallPlatform ? <span>{videoCallPlatform}</span> : <span>Não informado</span>}
+        {onlineAttendance.platforms ? <span>{onlineAttendance.platforms}</span> : <span>Não informado</span>}
       </p>
     </SectionBlock>
   )
@@ -142,7 +139,7 @@ const ProviderCard = (props) => {
 
   const MoreInfoBox = () => (
     <>
-      {videoCallAvailability && <CallPlatform />}
+      {onlineAttendance && <CallPlatform />}
       <HealthInsurance />
     </>
   )
@@ -151,7 +148,7 @@ const ProviderCard = (props) => {
     <ProviderCardWrapper className="providerCard" role="listitem">
       <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas}>
         <Box gridArea="header">
-          {videoCallAvailability && <ProviderVideoCallAvailabilityLabel />}
+          {onlineAttendance && <ProviderVideoCallAvailabilityLabel />}
           <CategoryBadge category={category} />
         </Box>
 
@@ -198,16 +195,22 @@ ProviderCard.propTypes = {
     name: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     specialty: PropTypes.string.isRequired,
-    licenseNumber: PropTypes.string.isRequired,
-    videoCallAvailability: PropTypes.bool,
-    phoneNumber: PropTypes.string.isRequired,
+    registerNumber: PropTypes.string.isRequired,
+    attendance: PropTypes.shape({
+      onlineAttendance: PropTypes.shape({
+        whatsAppNumber: PropTypes.string,
+        platforms: PropTypes.string,
+      }),
+      hospitalClinicAttendance: PropTypes.shape({
+        city: PropTypes.string,
+        state: PropTypes.string,
+        streetName: PropTypes.string,
+      }),
+    }),
+    phone: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    experience: PropTypes.string,
+    biography: PropTypes.string,
     healthInsurance: PropTypes.string,
-    videoCallPlatform: PropTypes.string,
-    city: PropTypes.string,
-    state: PropTypes.string,
-    address: PropTypes.string,
   }).isRequired,
 }
 
