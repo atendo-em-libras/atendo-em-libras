@@ -5,10 +5,8 @@ import { Text } from 'grommet'
 
 export const RadioButtonGroup = (props) => {
   const [selectedIndex, setSelectedIndex] = useState(0)
-  const [setSelectedValue] = useState(props.options[0].value)
 
   const toggleRadioButton = (value, i) => {
-    setSelectedValue(value)
     setSelectedIndex(i)
     props.onChange(value)
   }
