@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components/macro'
 import { logoIcon } from '../../assets/icons'
 import {
@@ -13,18 +13,11 @@ import {
   TextArea,
   Button,
   RadioButtonGroup,
+  ResponsiveContext,
 } from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 
 import { RadioButtonGroup as RadioButtonGroupCustom } from '../../components/RadioButtonGroup/RadioButtonGroup'
-
-const SignUpWrapper = styled.div`
-  width: 100%;
-  margin: auto;
-  ${respondTo.desktop`
-    width:900px;
-  `}
-`
 
 const Square = styled(Box)`
   box-shadow: 0px 10px 32px #00000029;
@@ -40,6 +33,8 @@ const Square = styled(Box)`
 
 const SignUp = () => {
   const [formValue, setFormValue] = useState({ name: '' })
+
+  const screenSize = useContext(ResponsiveContext)
 
   const PersonalInfo = () => (
     <>
@@ -86,8 +81,8 @@ const SignUp = () => {
 
   return (
     <>
-      <SignUpWrapper>
-        <Box fill="horizontal" margin={{ top: 'large' }}>
+      <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '30%' }}>
+        <Box>
           <Box direction="row" alignSelf="center">
             <Square margin={{ right: 'medium' }} background="white">
               <Image src={logoIcon} fill />
@@ -145,7 +140,7 @@ const SignUp = () => {
             <Button type="submit" primary label="Submit" />
           </Form>
         </Box>
-      </SignUpWrapper>
+      </Box>
     </>
   )
 }
