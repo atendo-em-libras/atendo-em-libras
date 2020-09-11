@@ -8,7 +8,7 @@ async function getSpreadSheetResource(spreadSheetKey, sheetName) {
   return toJson().fromString(result.data)
 }
 
-export async function getServiceProviders() {
+async function getServiceProviders() {
   const professionalsSpreadSheetKey = process.env.REACT_APP_PROFESSIONAL_SPREADSHEET_KEY
   const professionalsSheetName = process.env.REACT_APP_PROFESSIONAL_SHEET_NAME
   try {
@@ -17,3 +17,5 @@ export async function getServiceProviders() {
     return {}
   }
 }
+
+export default { getServiceProviders }

@@ -1,9 +1,15 @@
-import { getServiceProviders } from './spreadSheet'
+import spreadSheet from './spreadSheet'
+import { toggles } from '../constants/featureToggles'
+import Axios from 'axios'
 
 const ProviderApi = {
   get: async () => {
-    const serviceProvidersJson = await getServiceProviders()
-
+    console.log(toggles)
+    if (toggles.apiIntegration) {
+      let data = await Axios.get('http://localhost:8080/professionals/').data
+      return data
+    }
+    const serviceProvidersJson = await spreadSheet.getServiceProviders()
     return mapJsonToProviders(serviceProvidersJson)
   },
 }
