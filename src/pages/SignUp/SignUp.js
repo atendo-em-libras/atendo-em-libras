@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components/macro'
 import { logoIcon } from '../../assets/icons'
+import { Heading } from '../../components/Typography/Heading'
 import {
   Box,
   Image,
-  Heading,
   FormField,
   TextInput,
   Form,
@@ -31,6 +31,12 @@ const Square = styled(Box)`
   `}
 `
 
+const HeadingSectionCustom = (props) => (
+  <Heading color="#5996F7" level="2">
+    {props.children}
+  </Heading>
+)
+
 const SignUp = () => {
   const [formValue, setFormValue] = useState({ name: '' })
 
@@ -38,9 +44,7 @@ const SignUp = () => {
 
   const PersonalInfo = () => (
     <>
-      <Heading color="#5996F7" level="4">
-        Informações pessoais
-      </Heading>
+      <HeadingSectionCustom>Informações pessoais</HeadingSectionCustom>
       <FormField name="name" htmlFor="name" label="Nome Completo">
         <TextInput name="name" id="name" />
       </FormField>
@@ -55,7 +59,7 @@ const SignUp = () => {
 
   const ProfessionalInfo = () => (
     <>
-      <Heading>Informações profissionais</Heading>
+      <HeadingSectionCustom>Informações profissionais</HeadingSectionCustom>
       <FormField name="category" htmlFor="category__input" label="Categoria">
         <Select name="category" options={['Médico', 'Advogado']} id="category" />
       </FormField>
@@ -101,9 +105,7 @@ const SignUp = () => {
             <PersonalInfo />
             <ProfessionalInfo />
 
-            <Heading color="#5996F7" level="4">
-              Atendimento
-            </Heading>
+            <HeadingSectionCustom>Atendimento</HeadingSectionCustom>
             <Paragraph>Escolha o tipo de atendimento</Paragraph>
             <Box direction="row">
               <RadioButtonGroupCustom
@@ -116,6 +118,7 @@ const SignUp = () => {
                 onChange={() => {}}
               />
             </Box>
+            <TextInput name="name" id="name" />
             <Paragraph>Atende video por video chamada?</Paragraph>
 
             <RadioButtonGroup
