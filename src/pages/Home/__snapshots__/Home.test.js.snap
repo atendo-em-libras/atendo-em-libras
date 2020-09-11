@@ -4,14 +4,26 @@ exports[`Home component renders home correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .c1 {
-  max-width: 1500px;
-  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   box-sizing: border-box;
-  padding: 0 80px;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 1152px;
+}
+
+.c2 {
+  padding: 0 10vw;
   margin: 0 auto;
 }
 
-.c3 {
+.c4 {
   width: 100%;
   min-height: 220px;
   display: -webkit-box;
@@ -33,7 +45,7 @@ Object {
   background-color: #ffffff;
 }
 
-.c3:before {
+.c4:before {
   content: '';
   height: 8px;
   width: 65px;
@@ -42,7 +54,7 @@ Object {
   border-radius: 4px;
 }
 
-.c3 h2 {
+.c4 h2 {
   max-width: 80%;
   color: #000000;
   text-align: center;
@@ -51,7 +63,7 @@ Object {
   line-height: 2.8rem;
 }
 
-.c2 {
+.c3 {
   width: 100%;
   height: auto;
   padding: 2em 0;
@@ -76,7 +88,7 @@ Object {
   justify-content: center;
 }
 
-.c2 img {
+.c3 img {
   width: 45%;
   max-height: 100%;
   left: 0;
@@ -84,7 +96,7 @@ Object {
   box-sizing: border-box;
 }
 
-.c2 h1 {
+.c3 h1 {
   margin-top: 1rem;
   font-size: 2em;
   font-weight: 400;
@@ -92,7 +104,7 @@ Object {
   text-align: left;
 }
 
-.c2 p {
+.c3 p {
   margin: 1rem 3rem 2.5rem 0;
   font-size: 1.4em;
   font-weight: 400;
@@ -119,14 +131,14 @@ Object {
   text-align: left;
 }
 
-@media (max-width:800px) {
-  .c1 {
-    padding: 0 10vw;
+@media (min-width:801px) {
+  .c2 {
+    padding: 0 40px;
   }
 }
 
 @media (min-width:800px) {
-  .c3 h2 {
+  .c4 h2 {
     max-width: 50%;
     font-size: 3.2em;
     line-height: 5rem;
@@ -134,7 +146,7 @@ Object {
 }
 
 @media (min-width:800px) {
-  .c2 {
+  .c3 {
     -webkit-align-items: flex-start;
     -webkit-box-align: flex-start;
     -ms-flex-align: flex-start;
@@ -146,14 +158,14 @@ Object {
 }
 
 @media (min-width:800px) {
-  .c2 img {
+  .c3 img {
     padding: 2em 4vw 2em 0;
     position: absolute;
   }
 }
 
 @media (min-width:800px) {
-  .c2 h1 {
+  .c3 h1 {
     margin-top: 0;
     width: 80%;
     font-size: 3.2em;
@@ -163,7 +175,7 @@ Object {
 }
 
 @media (min-width:800px) {
-  .c2 p {
+  .c3 p {
     margin: 0;
     width: 80%;
     line-height: 1.5em;
@@ -177,10 +189,10 @@ Object {
         class="c0"
       >
         <div
-          class="c1"
+          class="c1 c2"
         >
           <div
-            class="c2"
+            class="c3"
           >
             <img
               alt="Ilustração projeto Atendo em Libras"
@@ -195,7 +207,7 @@ Object {
           </div>
         </div>
         <div
-          class="c3"
+          class="c4"
         >
           <h2>
             Profissionais de diversas áreas da saúde prontos para te atender
@@ -203,7 +215,7 @@ Object {
         </div>
       </div>
       <div
-        class="c1"
+        class="c1 c2"
       >
         <div
           data-testid="emptyList"
@@ -216,7 +228,7 @@ Object {
       class="Home__HomeWrapper-b5m6jg-0 gJfiEg"
     >
       <div
-        class="Container-kkckgz-0 fUhoJX"
+        class="StyledBox-sc-13pk1d4-0 esButh sc-AxjAm jRVstO"
       >
         <div
           class="HomeBanner__StyledHomeBanner-sc-1mh502r-0 dfBkTw"
@@ -242,7 +254,7 @@ Object {
       </div>
     </div>
     <div
-      class="Container-kkckgz-0 fUhoJX"
+      class="StyledBox-sc-13pk1d4-0 esButh sc-AxjAm jRVstO"
     >
       <div
         data-testid="emptyList"

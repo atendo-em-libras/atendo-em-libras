@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components/macro'
 
-import { Container } from '../../../components/Container/Container'
+import { Container } from '../../../components/Container'
 import { Heading } from '../../../components/Typography/Heading'
 import illustration from '../../../assets/images/img_atendo_em_libras_illustration.svg'
 import { Box, Image, ResponsiveContext } from 'grommet'
