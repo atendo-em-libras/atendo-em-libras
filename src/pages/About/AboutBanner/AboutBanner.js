@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components/macro'
 
-import { Container } from '../../../components/Container'
 import { Heading } from '../../../components/Typography/Heading'
 import illustration from '../../../assets/images/img_atendo_em_libras_illustration.svg'
 import { Box, Image, ResponsiveContext } from 'grommet'
@@ -17,15 +16,15 @@ const AboutBanner = () => {
   const screenSize = useContext(ResponsiveContext)
 
   return (
-    <Container>
-      <Box align="center" margin={{ vertical: 'large' }}>
-        <Box width={screenSize === 'small' ? '80px' : '128px'} align="center">
-          <Image src={illustration} alt="Sobre o Projeto" fill />
-        </Box>
-        <Line />
-        <Heading level="1">Sobre o projeto</Heading>
+    <Box align="center" margin={{ vertical: 'large' }}>
+      <Box width={screenSize === 'small' ? '80px' : '128px'} align="center">
+        <Image src={illustration} alt="Sobre o Projeto" fill />
       </Box>
-    </Container>
+      <Line />
+      <Heading level="1" color="white">
+        Sobre o projeto
+      </Heading>
+    </Box>
   )
 }
 
