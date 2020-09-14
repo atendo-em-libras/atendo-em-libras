@@ -20,7 +20,7 @@ exports[`Footer component renders footer correctly 1`] = `
   margin-top: 50px;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -38,11 +38,11 @@ exports[`Footer component renders footer correctly 1`] = `
   align-items: center;
 }
 
-.c3 {
+.c4 {
   height: 5em;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -61,7 +61,7 @@ exports[`Footer component renders footer correctly 1`] = `
   justify-content: space-between;
 }
 
-.c5 {
+.c6 {
   height: 5em;
   display: -webkit-box;
   display: -webkit-flex;
@@ -79,35 +79,47 @@ exports[`Footer component renders footer correctly 1`] = `
   justify-content: space-between;
 }
 
-.c5 img {
+.c6 img {
   height: 1.8em;
 }
 
-.c5 p,
-.c5 a {
+.c6 p,
+.c6 a {
   color: black;
   font-size: 1.6em;
   font-weight: 600;
 }
 
-.c5 *:last-child {
+.c6 *:last-child {
   font-weight: 400;
 }
 
-.c5:first-child {
+.c6:first-child {
   margin-right: 100px;
 }
 
 .c1 {
-  max-width: 1500px;
-  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   box-sizing: border-box;
-  padding: 0 80px;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 1152px;
+}
+
+.c2 {
+  padding: 0 10vw;
   margin: 0 auto;
 }
 
 @media (max-width:800px) {
-  .c2 {
+  .c3 {
     -webkit-flex-flow: column;
     -ms-flex-flow: column;
     flex-flow: column;
@@ -120,13 +132,13 @@ exports[`Footer component renders footer correctly 1`] = `
 }
 
 @media (min-width:801px) {
-  .c2 {
+  .c3 {
     height: 20vh;
   }
 }
 
 @media (max-width:800px) {
-  .c4 {
+  .c5 {
     -webkit-flex-flow: column;
     -ms-flex-flow: column;
     flex-flow: column;
@@ -138,14 +150,14 @@ exports[`Footer component renders footer correctly 1`] = `
 }
 
 @media (max-width:800px) {
-  .c5 {
+  .c6 {
     margin-top: 40px;
   }
 }
 
-@media (max-width:800px) {
-  .c1 {
-    padding: 0 10vw;
+@media (min-width:801px) {
+  .c2 {
+    padding: 0 40px;
   }
 }
 
@@ -154,21 +166,21 @@ exports[`Footer component renders footer correctly 1`] = `
     class="c0"
   >
     <div
-      class="c1"
+      class="c1 c2"
     >
       <section
-        class="c2"
+        class="c3"
       >
         <img
           alt="Logo Atendo em Libras"
-          class="c3"
+          class="c4"
           src="img_atendo_em_libras_logo_blue.svg"
         />
         <div
-          class="c4"
+          class="c5"
         >
           <div
-            class="c5"
+            class="c6"
           >
             <p>
               Apoio:
@@ -179,7 +191,7 @@ exports[`Footer component renders footer correctly 1`] = `
             />
           </div>
           <div
-            class="c5"
+            class="c6"
           >
             <p>
               Dúvidas? Entre em contato em:

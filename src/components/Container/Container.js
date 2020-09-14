@@ -1,14 +1,18 @@
-import styled from 'styled-components/macro'
+import { Box } from 'grommet'
+import React from 'react'
+import styled from 'styled-components'
+import { respondTo } from '../../utils/breakpoints/_respondTo'
 
-const Container = styled.div`
-  max-width: 1500px;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 80px;
+const StyledBox = styled(Box)`
+  padding: 0 10vw;
   margin: 0 auto;
-  @media (max-width: 800px) {
-    padding: 0 10vw;
-  }
+
+  ${respondTo.desktop`
+    padding: 0 40px;
+  `}
 `
+const Container = (props) => {
+  return <StyledBox width="xlarge" direction="row" {...props} />
+}
 
 export { Container }
