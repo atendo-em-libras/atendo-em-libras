@@ -5,7 +5,9 @@ jobs:
       - image: circleci/node:12.18.3-browsers
     working_directory: ~/repo
     steps:
+      - checkout
       - run: npm install
+      - run: npm run lint
       - run: npm test -- --coverage
       - run: npx hawkeye scan
   deploy-staging:
