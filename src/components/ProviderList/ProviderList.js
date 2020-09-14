@@ -51,14 +51,14 @@ class ProviderList extends Component {
     if (!isLoaded) {
       return <div data-testid="emptyList"></div>
     }
-    console.log(providers)
+
     return providers && providers.length > 0 ? (
       <ColumnsContainer>
         {providers.map((provider) => {
           return (
-            <Column>
+            <Column key={provider.id}>
               <Box margin={{ bottom: cardGap }}>
-                <ProviderCard key={provider.id} provider={provider} />
+                <ProviderCard provider={provider} />
               </Box>
             </Column>
           )
