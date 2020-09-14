@@ -503,26 +503,6 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
   color: #000000;
 }
 
-.c18:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c18:focus > circle,
-.c18:focus > ellipse,
-.c18:focus > line,
-.c18:focus > path,
-.c18:focus > polygon,
-.c18:focus > polyline,
-.c18:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c18:focus::-moz-focus-inner {
-  border: 0;
-}
-
 .c16 {
   -webkit-transition: max-height 200ms,opacity 200ms;
   transition: max-height 200ms,opacity 200ms;
