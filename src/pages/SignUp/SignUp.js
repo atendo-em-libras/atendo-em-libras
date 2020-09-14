@@ -14,6 +14,7 @@ import {
   Button,
   RadioButtonGroup,
   ResponsiveContext,
+  RadioButton,
 } from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 
@@ -32,15 +33,41 @@ const Square = styled(Box)`
 `
 
 const HeadingSectionCustom = (props) => (
-  <Heading color="#5996F7" level="2">
+  <Heading color="#5996F7" level="3">
     {props.children}
   </Heading>
 )
 
 const SignUp = () => {
   const [formValue, setFormValue] = useState({ name: '' })
+  const [checked, setChecked] = React.useState(false)
 
   const screenSize = useContext(ResponsiveContext)
+
+  const TermsAndConditions = () => (
+    <>
+      <HeadingSectionCustom>Termo de aceite</HeadingSectionCustom>
+      <Box>
+        <Paragraph size="small">
+          O site Atendo em Libras é uma iniciativa, sem fins lucrativos, que visa possibilitar maior visibilidade de
+          dados de contato de profissionais que sabem Libras. Contudo, seu conteúdo é construído de forma colaborativa
+          pela comunidade, não podendo assim o site garantir sua veracidade, exatidão, integridade ou qualidade das
+          informações aqui expostas. Dessa forma, isenta-se de qualquer responsabilidade quanto à utilização ou não
+          destas informações. Se você encontrou seus dados aqui expostos e deseja removê-los, envie um email para
+          atendoemlibras@gmail.com.
+        </Paragraph>
+      </Box>
+
+      <FormField>
+        <RadioButton
+          checked={checked}
+          label="Li e aceito"
+          name="termsAndConditions"
+          onChange={(event) => setChecked(event.target.checked)}
+        />
+      </FormField>
+    </>
+  )
 
   const PersonalInfo = () => (
     <>
@@ -83,6 +110,35 @@ const SignUp = () => {
     </>
   )
 
+  const OnlineAttendance = () => (
+    <>
+      <Paragraph>Atende video por video chamada?</Paragraph>
+
+      <RadioButtonGroup
+        data-testid="video-call-option"
+        name="video-call-option"
+        options={[
+          { label: 'Sim', value: true, role: 'option', selected: true },
+          { label: 'Não', value: false, role: 'option' },
+        ]}
+      />
+      <Box direction="row">
+        <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
+          <Select name="plataform" options={['Zoom', 'Whatsapp']} id="plataform" />
+        </FormField>
+        <FormField name="contact" htmlFor="contact" label="Contato" margin="0 0 5px 0">
+          <TextInput name="contact" id="contact" />
+        </FormField>
+      </Box>
+    </>
+  )
+
+  const HouseholdAttendace = () => <></>
+
+  const HospitalClinicAttendance = () => <></>
+
+  const Attendances = () => <></>
+
   return (
     <>
       <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '30%' }}>
@@ -102,8 +158,10 @@ const SignUp = () => {
               console.log(value)
             }}
           >
+            <TermsAndConditions />
             <PersonalInfo />
             <ProfessionalInfo />
+            {/* <Attendances /> */}
 
             <HeadingSectionCustom>Atendimento</HeadingSectionCustom>
             <Paragraph>Escolha o tipo de atendimento</Paragraph>
@@ -118,28 +176,11 @@ const SignUp = () => {
                 onChange={() => {}}
               />
             </Box>
-            <TextInput name="name" id="name" />
-            <Paragraph>Atende video por video chamada?</Paragraph>
 
-            <RadioButtonGroup
-              data-testid="video-call-option"
-              name="video-call-option"
-              options={[
-                { label: 'Sim', value: true, role: 'option', selected: true },
-                { label: 'Não', value: false, role: 'option' },
-              ]}
-            />
-            <Box direction="row">
-              <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
-                <Select name="plataform" options={['Zoom', 'Whatsapp']} id="plataform" />
-              </FormField>
-              <FormField name="contact" htmlFor="contact" label="Contato" margin="0 0 5px 0">
-                <TextInput name="contact" id="contact" />
-              </FormField>
-            </Box>
-            <Heading color="#5996f7" level="4" onClick={() => {}}>
-              + Adiconar outra plataforma
-            </Heading>
+            <OnlineAttendance />
+            <HouseholdAttendace />
+            <HospitalClinicAttendance />
+
             <Button type="submit" primary label="Submit" />
           </Form>
         </Box>
