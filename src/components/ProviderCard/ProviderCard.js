@@ -91,14 +91,14 @@ const ProviderCard = (props) => {
       </License>
       {biography && <ExerienceText size="small">{biography}</ExerienceText>}
       <SectionBlock>
-        {hospitalClinicAttendance.state && (
+        {hospitalClinicAttendance && hospitalClinicAttendance.state && (
           <SectionTitle>
             <IconText src={addressIcon} alt="address icon" />
             {hospitalClinicAttendance.city && `${hospitalClinicAttendance.city} - `}
             {`${hospitalClinicAttendance.state}`}
           </SectionTitle>
         )}
-        <Paragraph size="small">{hospitalClinicAttendance.streetName}</Paragraph>
+        <Paragraph size="small">{hospitalClinicAttendance && hospitalClinicAttendance.streetName}</Paragraph>
       </SectionBlock>
     </>
   )
@@ -194,7 +194,6 @@ ProviderCard.propTypes = {
   provider: PropTypes.shape({
     name: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
-    specialty: PropTypes.string.isRequired,
     registerNumber: PropTypes.string.isRequired,
     attendance: PropTypes.shape({
       onlineAttendance: PropTypes.shape({

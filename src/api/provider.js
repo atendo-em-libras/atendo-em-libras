@@ -4,10 +4,9 @@ import Axios from 'axios'
 
 const ProviderApi = {
   get: async () => {
-    console.log(toggles)
     if (toggles.apiIntegration) {
-      let data = await Axios.get('http://localhost:8080/professionals/').data
-      return data
+      let res = await Axios.get('http://localhost:8080/professionals/')
+      return res.data
     }
     const serviceProvidersJson = await spreadSheet.getServiceProviders()
     return mapJsonToProviders(serviceProvidersJson)
