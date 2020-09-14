@@ -83,6 +83,26 @@ exports[`ErrorCard tests Render correctly 1`] = `
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
+.c5:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c5:focus > circle,
+.c5:focus > ellipse,
+.c5:focus > line,
+.c5:focus > path,
+.c5:focus > polygon,
+.c5:focus > polyline,
+.c5:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c5:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .c3 {
   font-size: 22px;
   line-height: 28px;
