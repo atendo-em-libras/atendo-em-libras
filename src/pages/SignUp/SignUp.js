@@ -111,33 +111,61 @@ const SignUp = () => {
   )
 
   const OnlineAttendance = () => (
-    <>
+    <Box data-testid="online-attendance">
       <Paragraph>Atende video por video chamada?</Paragraph>
-
-      <RadioButtonGroup
-        data-testid="video-call-option"
-        name="video-call-option"
-        options={[
-          { label: 'Sim', value: true, role: 'option', selected: true },
-          { label: 'Não', value: false, role: 'option' },
-        ]}
-      />
       <Box direction="row">
         <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
-          <Select name="plataform" options={['Zoom', 'Whatsapp']} id="plataform" />
+          <Select name="plataform" multiple options={['Zoom', 'Whatsapp']} id="plataform" />
         </FormField>
-        <FormField name="contact" htmlFor="contact" label="Contato" margin="0 0 5px 0">
-          <TextInput name="contact" id="contact" />
+        <FormField name="whatsAppNumber" htmlFor="whatsAppNumber" label="Número do Whatsapp" margin="0 0 5px 0">
+          <TextInput name="whatsAppNumber" id="whatsAppNumber" />
         </FormField>
       </Box>
+    </Box>
+  )
+
+  const states = ['RS', 'SP', 'SC', 'RJ']
+  const cities = ['Porto Alegre', 'Belo Horizonte', 'São Paulo', 'Recife']
+
+  const HouseholdAttendace = () => (
+    <>
+      <FormField name="state" label="Estado">
+        <Select name="state" id="state" options={states} />
+      </FormField>
+      <FormField name="city" label="Cidade">
+        <Select name="city" id="city" options={cities} />
+      </FormField>
     </>
   )
 
-  const HouseholdAttendace = () => <></>
-
   const HospitalClinicAttendance = () => <></>
 
-  const Attendances = () => <></>
+  const Attendances = () => {
+    const [option, setOption] = useState(0)
+    return (
+      <>
+        <HeadingSectionCustom>Atendimento</HeadingSectionCustom>
+        <Paragraph>Escolha o tipo de atendimento</Paragraph>
+        <Box direction="row">
+          <RadioButtonGroupCustom
+            data-testid="atendimento-option"
+            options={[
+              { label: 'Online', value: tiposAtendimento.Online, role: 'option' },
+              { label: 'Em clínica/hospital', value: tiposAtendimento.EmClinica, role: 'option' },
+              { label: 'Domiciliar', value: tiposAtendimento.Domiciliar, role: 'option' },
+            ]}
+            onChange={(newOption) => {
+              setOption(newOption)
+            }}
+          />
+        </Box>
+
+        {option === tiposAtendimento.Online && <OnlineAttendance />}
+        {option === tiposAtendimento.Domiciliar && <HouseholdAttendace />}
+        {option === tiposAtendimento.EmClinica && <HospitalClinicAttendance />}
+      </>
+    )
+  }
 
   return (
     <>
@@ -152,7 +180,6 @@ const SignUp = () => {
 
           <Form
             value={formValue}
-            onChange={(nextValue) => setFormValue(nextValue)}
             onReset={() => setFormValue({})}
             onSubmit={({ value }) => {
               console.log(value)
@@ -161,25 +188,7 @@ const SignUp = () => {
             <TermsAndConditions />
             <PersonalInfo />
             <ProfessionalInfo />
-            {/* <Attendances /> */}
-
-            <HeadingSectionCustom>Atendimento</HeadingSectionCustom>
-            <Paragraph>Escolha o tipo de atendimento</Paragraph>
-            <Box direction="row">
-              <RadioButtonGroupCustom
-                data-testid="atendimento-option"
-                options={[
-                  { label: 'Online', value: tiposAtendimento.Online, role: 'option' },
-                  { label: 'Em clínica/hospital', value: tiposAtendimento.EmClinica, role: 'option' },
-                  { label: 'Domiciliar', value: tiposAtendimento.Domiciliar, role: 'option' },
-                ]}
-                onChange={() => {}}
-              />
-            </Box>
-
-            <OnlineAttendance />
-            <HouseholdAttendace />
-            <HospitalClinicAttendance />
+            <Attendances />
 
             <Button type="submit" primary label="Submit" />
           </Form>
