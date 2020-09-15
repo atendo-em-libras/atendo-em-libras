@@ -31,6 +31,10 @@ const Square = styled(Box)`
   `}
 `
 
+const SectionBox = styled(Box)`
+  margin-top: 50px;
+`
+
 const HeadingSectionCustom = (props) => (
   <Heading color="#5996F7" level="3">
     {props.children}
@@ -44,7 +48,7 @@ const SignUp = () => {
   const screenSize = useContext(ResponsiveContext)
 
   const TermsAndConditions = () => (
-    <>
+    <SectionBox>
       <HeadingSectionCustom>Termo de aceite</HeadingSectionCustom>
 
       <Paragraph size="small" fill>
@@ -56,19 +60,17 @@ const SignUp = () => {
         atendoemlibras@gmail.com.
       </Paragraph>
 
-      <FormField>
-        <RadioButton
-          checked={checked}
-          label="Li e aceito"
-          name="termsAndConditions"
-          onChange={(event) => setChecked(event.target.checked)}
-        />
-      </FormField>
-    </>
+      <RadioButton
+        checked={checked}
+        label="Li e aceito"
+        name="termsAndConditions"
+        onChange={(event) => setChecked(event.target.checked)}
+      />
+    </SectionBox>
   )
 
   const PersonalInfo = () => (
-    <>
+    <SectionBox>
       <HeadingSectionCustom>Informações pessoais</HeadingSectionCustom>
       <FormField name="name" htmlFor="name" label="Nome Completo">
         <TextInput name="name" id="name" />
@@ -79,11 +81,11 @@ const SignUp = () => {
       <FormField name="email" htmlFor="email" label="Email">
         <TextInput name="email" id="email" />
       </FormField>
-    </>
+    </SectionBox>
   )
 
   const ProfessionalInfo = () => (
-    <>
+    <SectionBox>
       <HeadingSectionCustom>Informações profissionais</HeadingSectionCustom>
       <FormField name="category" htmlFor="category__input" label="Categoria">
         <Select name="category" options={['Médico', 'Advogado']} id="category" />
@@ -105,11 +107,11 @@ const SignUp = () => {
       <FormField name="health_insurance_plans" htmlFor="health_insurance_plans" label="Planos de saúde aceitos">
         <TextInput name="health_insurance_plans" id="health_insurance_plans" />
       </FormField>
-    </>
+    </SectionBox>
   )
 
   const OnlineAttendance = () => (
-    <Box data-testid="online-attendance">
+    <SectionBox data-testid="online-attendance">
       <Paragraph>Atende video por video chamada?</Paragraph>
       <Box direction="row">
         <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
@@ -119,21 +121,21 @@ const SignUp = () => {
           <TextInput name="whatsAppNumber" id="whatsAppNumber" />
         </FormField>
       </Box>
-    </Box>
+    </SectionBox>
   )
 
   const states = ['RS', 'SP', 'SC', 'RJ']
   const cities = ['Porto Alegre', 'Belo Horizonte', 'São Paulo', 'Recife']
 
   const HouseholdAttendace = () => (
-    <>
+    <SectionBox>
       <FormField name="state" label="Estado">
         <Select name="state" id="state" options={states} />
       </FormField>
       <FormField name="city" label="Cidade">
         <Select name="city" id="city" options={cities} />
       </FormField>
-    </>
+    </SectionBox>
   )
 
   const HospitalClinicAttendance = () => <></>
@@ -141,7 +143,7 @@ const SignUp = () => {
   const Attendances = () => {
     const [option, setOption] = useState(0)
     return (
-      <>
+      <SectionBox>
         <HeadingSectionCustom>Atendimento</HeadingSectionCustom>
         <Paragraph>Escolha o tipo de atendimento</Paragraph>
         <Box direction="row">
@@ -161,7 +163,7 @@ const SignUp = () => {
         {option === tiposAtendimento.Online && <OnlineAttendance />}
         {option === tiposAtendimento.Domiciliar && <HouseholdAttendace />}
         {option === tiposAtendimento.EmClinica && <HospitalClinicAttendance />}
-      </>
+      </SectionBox>
     )
   }
 
@@ -183,12 +185,14 @@ const SignUp = () => {
               console.log(value)
             }}
           >
-            <TermsAndConditions />
             <PersonalInfo />
             <ProfessionalInfo />
             <Attendances />
+            <TermsAndConditions />
 
-            <Button type="submit" primary label="Submit" />
+            <SectionBox>
+              <Button type="submit" primary label="Cadastrar" />
+            </SectionBox>
           </Form>
         </Box>
       </Box>
