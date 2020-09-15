@@ -1,6 +1,6 @@
 const toggles = {
   signUp: true,
-  apiIntegration: false,
+  apiIntegration: true,
 }
 
 export { toggles }
