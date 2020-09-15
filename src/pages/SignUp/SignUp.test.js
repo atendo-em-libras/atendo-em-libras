@@ -1,6 +1,6 @@
 import React from 'react'
-import { SignUp, tiposAtendimento } from './SignUp'
-import { render, fireEvent, screen } from '@testing-library/react'
+import { SignUp } from './SignUp'
+import { render, fireEvent } from '@testing-library/react'
 
 describe('SignUp', () => {
   let wrapper
@@ -64,14 +64,32 @@ describe('SignUp', () => {
   })
 
   describe('Attendances', () => {
-    it('Has OnlineAttendences fields when Online is selected', () => {
+    it('Has OnlineAttendence fields when Online is selected', () => {
       const radioButtonGroup = wrapper.getByTestId('atendimento-option')
       const options = radioButtonGroup.getElementsByTagName('button')
       fireEvent.click(options[0])
 
-      const onlineTestAttendance = wrapper.getByTestId('online-attendance')
+      const onlineAttendance = wrapper.getByTestId('online-attendance')
 
-      expect(onlineTestAttendance).toBeVisible()
+      expect(onlineAttendance).toBeVisible()
+    })
+    it('Has HospitalClinicAttendence fields when Hospital Clinic is selected', () => {
+      const radioButtonGroup = wrapper.getByTestId('atendimento-option')
+      const options = radioButtonGroup.getElementsByTagName('button')
+      fireEvent.click(options[1])
+
+      const hospitalClinicAttendance = wrapper.getByTestId('hospitalclinic-attendance')
+
+      expect(hospitalClinicAttendance).toBeVisible()
+    })
+    it('Has HouseholdAttendance fields when Household is selected', () => {
+      const radioButtonGroup = wrapper.getByTestId('atendimento-option')
+      const options = radioButtonGroup.getElementsByTagName('button')
+      fireEvent.click(options[2])
+
+      const householdAttendance = wrapper.getByTestId('household-attendance')
+
+      expect(householdAttendance).toBeVisible()
     })
   })
 })

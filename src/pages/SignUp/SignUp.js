@@ -42,7 +42,6 @@ const HeadingSectionCustom = (props) => (
 )
 
 const SignUp = () => {
-  const [formValue, setFormValue] = useState({ name: '' })
   const [checked, setChecked] = React.useState(false)
 
   const screenSize = useContext(ResponsiveContext)
@@ -127,8 +126,8 @@ const SignUp = () => {
   const states = ['RS', 'SP', 'SC', 'RJ']
   const cities = ['Porto Alegre', 'Belo Horizonte', 'São Paulo', 'Recife']
 
-  const HouseholdAttendace = () => (
-    <SectionBox>
+  const HouseholdAttendance = () => (
+    <SectionBox data-testid="household-attendance">
       <FormField name="state" label="Estado">
         <Select name="state" id="state" options={states} />
       </FormField>
@@ -138,7 +137,37 @@ const SignUp = () => {
     </SectionBox>
   )
 
-  const HospitalClinicAttendance = () => <></>
+  const HospitalClinicAttendance = () => (
+    <SectionBox data-testid="hospitalclinic-attendance">
+      <FormField name="hospitalClinicName" label="Nome do local">
+        <TextInput name="hospitalClinicName" id="hospitalClinicName" />
+      </FormField>
+      <FormField name="cep" label="CEP">
+        <TextInput name="cep" id="cep" />
+      </FormField>
+      <FormField name="hospitalClinicState" label="Estado">
+        <Select name="hospitalClinicState" id="hospitalClinicState" options={states} />
+      </FormField>
+      <FormField name="hospitalClinicCity" label="Cidade">
+        <Select name="hospitalClinicCity" id="hospitalClinicCity" options={cities} />
+      </FormField>
+      <FormField name="streetName" label="Logradouro">
+        <TextInput name="streetName" id="streetName" />
+      </FormField>
+      <FormField name="streetNumber" label="Número">
+        <TextInput name="streetNumber" id="streetNumber" />
+      </FormField>
+      <FormField name="complementInfo" label="Complemento">
+        <TextInput name="complementInfo" id="complementInfo" />
+      </FormField>
+      <FormField name="hospitalClinicPhone" label="Telefone">
+        <TextInput name="hospitalClinicPhone" id="hospitalClinicPhone" />
+      </FormField>
+      <FormField name="hospitalClinicEmail" label="E-mail">
+        <TextInput name="hospitalClinicEmail" id="hospitalClinicEmail" />
+      </FormField>
+    </SectionBox>
+  )
 
   const Attendances = () => {
     const [option, setOption] = useState(0)
@@ -161,8 +190,8 @@ const SignUp = () => {
         </Box>
 
         {option === tiposAtendimento.Online && <OnlineAttendance />}
-        {option === tiposAtendimento.Domiciliar && <HouseholdAttendace />}
         {option === tiposAtendimento.EmClinica && <HospitalClinicAttendance />}
+        {option === tiposAtendimento.Domiciliar && <HouseholdAttendance />}
       </SectionBox>
     )
   }
@@ -179,8 +208,6 @@ const SignUp = () => {
           </Box>
 
           <Form
-            value={formValue}
-            onReset={() => setFormValue({})}
             onSubmit={({ value }) => {
               console.log(value)
             }}
