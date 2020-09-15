@@ -5,7 +5,6 @@ import { Heading } from '../../components/Typography/Heading'
 import {
   Box,
   Image,
-  FormField,
   TextInput,
   Form,
   Select,
@@ -18,6 +17,7 @@ import {
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 
 import { RadioButtonGroup as RadioButtonGroupCustom } from '../../components/RadioButtonGroup/RadioButtonGroup'
+import logoLarge from '../../assets/images/pages/singup/signup-logo.svg'
 
 const Square = styled(Box)`
   box-shadow: 0px 10px 32px #00000029;
@@ -36,45 +36,56 @@ const SectionBox = styled(Box)`
 `
 
 const HeadingSectionCustom = (props) => (
-  <Heading color="#5996F7" level="3">
+  <Heading color="#5996F7" level="3" margin={{ bottom: '24px' }}>
     {props.children}
   </Heading>
 )
+
+const FormBox = styled(Box)`
+  background-color: #f7f8fa;
+
+  ${respondTo.desktop`
+    background: url(${logoLarge}) no-repeat #f7f8fa;
+    background-position-x: -300px;
+    background-position-y: 320px;
+    background-size: 660px 550px;
+  `}
+`
+
+const FormField = (props) => {
+  const Label = styled.label`
+    font-size: 18px;
+    margin-bottom: 8px;
+  `
+
+  const Span = styled.span`
+    font-size: 14px;
+    font-style: italic;
+    opacity: 0.7;
+  `
+
+  return (
+    <Box margin={{ bottom: 'large' }}>
+      <Label>
+        {props.label} {props.required && <Span>Obrigatório</Span>}
+      </Label>
+      <Box>{props.children}</Box>
+    </Box>
+  )
+}
 
 const SignUp = () => {
   const [checked, setChecked] = React.useState(false)
 
   const screenSize = useContext(ResponsiveContext)
 
-  const TermsAndConditions = () => (
-    <SectionBox>
-      <HeadingSectionCustom>Termo de aceite</HeadingSectionCustom>
-
-      <Paragraph size="small" fill>
-        O site Atendo em Libras é uma iniciativa, sem fins lucrativos, que visa possibilitar maior visibilidade de dados
-        de contato de profissionais que sabem Libras. Contudo, seu conteúdo é construído de forma colaborativa pela
-        comunidade, não podendo assim o site garantir sua veracidade, exatidão, integridade ou qualidade das informações
-        aqui expostas. Dessa forma, isenta-se de qualquer responsabilidade quanto à utilização ou não destas
-        informações. Se você encontrou seus dados aqui expostos e deseja removê-los, envie um email para
-        atendoemlibras@gmail.com.
-      </Paragraph>
-
-      <RadioButton
-        checked={checked}
-        label="Li e aceito"
-        name="termsAndConditions"
-        onChange={(event) => setChecked(event.target.checked)}
-      />
-    </SectionBox>
-  )
-
   const PersonalInfo = () => (
     <SectionBox>
       <HeadingSectionCustom>Informações pessoais</HeadingSectionCustom>
-      <FormField name="name" htmlFor="name" label="Nome Completo">
+      <FormField name="name" htmlFor="name" label="Nome Completo" required>
         <TextInput name="name" id="name" />
       </FormField>
-      <FormField name="phone" htmlFor="phone" label="Telefone">
+      <FormField name="phone" htmlFor="phone" label="Telefone" required>
         <TextInput name="phone" id="phone" />
       </FormField>
       <FormField name="email" htmlFor="email" label="Email">
@@ -90,12 +101,11 @@ const SignUp = () => {
         <Select name="category" options={['Médico', 'Advogado']} id="category" />
       </FormField>
       <FormField name="expertise" htmlFor="expertise" label="Especialidade">
-        <TextInput name="expertise" id="expertise" />
+        <TextInput name="expertise" id="expertise" placeholder="Pediatra, Cardiologista, Traumatologista" />
       </FormField>
       <FormField name="register_number" htmlFor="register_number" label="Número de cadastro profissional">
-        <TextInput name="register_number" id="register_number" />
+        <TextInput name="register_number" id="register_number" placeholder="Exemplo: CRM, CRP" />
       </FormField>
-      <Paragraph size="small">Exemplo: CRM, CRP</Paragraph>
       <FormField name="presentation" htmlFor="presentation" label="Apresentação">
         <TextArea
           name="presentation"
@@ -196,34 +206,54 @@ const SignUp = () => {
     )
   }
 
+  const TermsAndConditions = () => (
+    <SectionBox>
+      <HeadingSectionCustom>Termo de aceite</HeadingSectionCustom>
+
+      <Paragraph size="small" fill>
+        O site Atendo em Libras é uma iniciativa, sem fins lucrativos, que visa possibilitar maior visibilidade de dados
+        de contato de profissionais que sabem Libras. Contudo, seu conteúdo é construído de forma colaborativa pela
+        comunidade, não podendo assim o site garantir sua veracidade, exatidão, integridade ou qualidade das informações
+        aqui expostas. Dessa forma, isenta-se de qualquer responsabilidade quanto à utilização ou não destas
+        informações. Se você encontrou seus dados aqui expostos e deseja removê-los, envie um email para
+        atendoemlibras@gmail.com.
+      </Paragraph>
+
+      <RadioButton
+        checked={checked}
+        label="Li e aceito"
+        name="termsAndConditions"
+        onChange={(event) => setChecked(event.target.checked)}
+      />
+    </SectionBox>
+  )
+
   return (
-    <>
-      <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '20%' }}>
-        <Box>
-          <Box direction="row" alignSelf="center">
-            <Square margin={{ right: 'medium' }} background="white">
-              <Image src={logoIcon} fill />
-            </Square>
-            <Heading level="2">Cadastrar</Heading>
-          </Box>
-
-          <Form
-            onSubmit={({ value }) => {
-              console.log(value)
-            }}
-          >
-            <PersonalInfo />
-            <ProfessionalInfo />
-            <Attendances />
-            <TermsAndConditions />
-
-            <SectionBox>
-              <Button type="submit" primary label="Cadastrar" />
-            </SectionBox>
-          </Form>
+    <FormBox>
+      <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '30%' }}>
+        <Box direction="row" alignSelf="center">
+          <Square margin={{ right: 'medium' }} background="white">
+            <Image src={logoIcon} fill />
+          </Square>
+          <Heading level="2">Cadastrar</Heading>
         </Box>
+
+        <Form
+          onSubmit={({ value }) => {
+            console.log(value)
+          }}
+        >
+          <PersonalInfo />
+          <ProfessionalInfo />
+          <Attendances />
+          <TermsAndConditions />
+
+          <SectionBox>
+            <Button type="submit" primary label="Cadastrar" />
+          </SectionBox>
+        </Form>
       </Box>
-    </>
+    </FormBox>
   )
 }
 
