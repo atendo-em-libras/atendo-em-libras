@@ -3,17 +3,6 @@ import { respondTo } from '../../utils/breakpoints/_respondTo'
 import { Paragraph } from '../../components/Typography/Paragraph'
 import { Box, Avatar, Image } from 'grommet'
 
-const AboutWrapper = styled.div`
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  width: 100%;
-  background-color: #0f1423;
-  color: white;
-  font-family: Open Sans, sans-serif;
-  text-align: left;
-`
-
 const SectionStyled = styled.section`
   p {
     padding-bottom: 2em;
@@ -80,4 +69,4 @@ const DropletAvatar = styled(Avatar)`
 `
 /* stylelint-enable property-no-unkown */
 
-export { AboutWrapper, SectionStyled, Video, Square, AspectRatioBox, ParagraphStyled, OverlaidImage, DropletAvatar }
+export { SectionStyled, Video, Square, AspectRatioBox, ParagraphStyled, OverlaidImage, DropletAvatar }

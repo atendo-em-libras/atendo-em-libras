@@ -63,38 +63,15 @@ describe('SignUp', () => {
     expect(textbox).toBeTruthy()
   })
 
-  // it('Has Atendimento options', () => {
-  //   const groupRadioButton = wrapper.getByTestId('atendimento-option')
-  //   const options = groupRadioButton.getElementsByTagName('button')
+  describe('Attendances', () => {
+    it('Has OnlineAttendences fields when Online is selected', () => {
+      const radioButtonGroup = wrapper.getByTestId('atendimento-option')
+      const options = radioButtonGroup.getElementsByTagName('button')
+      fireEvent.click(options[0])
 
-  //   console.log('%cSignUp.test.js line:70 object', 'color: #007acc;', options[0])
+      const onlineTestAttendance = wrapper.getByTestId('online-attendance')
 
-  //   const online = parseInt(options[0].key)
-  //   const emClinica = parseInt(options[1].key)
-  //   const domiciliar = parseInt(options[2].key)
-
-  //   // expect(online).toBe(tiposAtendimento.Online)
-  //   expect(emClinica).toBe(tiposAtendimento.EmClinica)
-  //   expect(domiciliar).toBe(tiposAtendimento.Domiciliar)
-  // })
-
-  // it('Has a Atende por video chamada? option', () => {
-  //   const groupRadioButton = wrapper.getByTestId('video-call-option')
-  //   const options = groupRadioButton.getElementsByTagName('input')
-  //   fireEvent.click(options[1])
-  //   const value = groupRadioButton.querySelector('input:checked').value
-  //   expect(value).toBe(options[1].value)
-  // })
-
-  it('Has a Plataforma field', () => {
-    const textbox = wrapper.getByLabelText('Plataforma', { selector: 'input' })
-
-    expect(textbox).toBeTruthy()
-  })
-
-  it('Has a Contato field', () => {
-    const textbox = wrapper.getByLabelText('Contato', { selector: 'input' })
-
-    expect(textbox).toBeTruthy()
+      expect(onlineTestAttendance).toBeVisible()
+    })
   })
 })
