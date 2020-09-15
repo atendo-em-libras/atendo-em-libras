@@ -2,6 +2,7 @@ import axios from 'axios'
 import ProviderApi from './provider'
 import spreadSheet from './spreadSheet'
 import { toggles } from '../constants/featureToggles'
+import Api from '../constants/api'
 
 jest.mock('axios')
 jest.mock('./spreadSheet')
@@ -15,15 +16,11 @@ describe('ProviderApi', () => {
         axios.get.mockResolvedValue({ data: [] })
 
         await ProviderApi.get()
-
-        expect(axios.get).toHaveBeenCalledWith('http://localhost:8080/professionals/')
+        expect(axios.get).toHaveBeenCalledWith(`${Api.url}/professionals/`)
       })
     })
 
     describe('When apiIntegration toggle is False', () => {
-      //   jest.mock('../constants/featureToggles', () => {
-      //     return { toggles: { apiIntegration: false } }
-      //   })
       it('Should fetch data from spreadsheet', async () => {
         toggles.apiIntegration = false
         spreadSheet.getServiceProviders.mockResolvedValue([])
