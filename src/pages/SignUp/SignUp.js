@@ -12,7 +12,6 @@ import {
   Paragraph,
   TextArea,
   Button,
-  RadioButtonGroup,
   ResponsiveContext,
   RadioButton,
 } from 'grommet'
@@ -47,16 +46,15 @@ const SignUp = () => {
   const TermsAndConditions = () => (
     <>
       <HeadingSectionCustom>Termo de aceite</HeadingSectionCustom>
-      <Box>
-        <Paragraph size="small">
-          O site Atendo em Libras é uma iniciativa, sem fins lucrativos, que visa possibilitar maior visibilidade de
-          dados de contato de profissionais que sabem Libras. Contudo, seu conteúdo é construído de forma colaborativa
-          pela comunidade, não podendo assim o site garantir sua veracidade, exatidão, integridade ou qualidade das
-          informações aqui expostas. Dessa forma, isenta-se de qualquer responsabilidade quanto à utilização ou não
-          destas informações. Se você encontrou seus dados aqui expostos e deseja removê-los, envie um email para
-          atendoemlibras@gmail.com.
-        </Paragraph>
-      </Box>
+
+      <Paragraph size="small" fill>
+        O site Atendo em Libras é uma iniciativa, sem fins lucrativos, que visa possibilitar maior visibilidade de dados
+        de contato de profissionais que sabem Libras. Contudo, seu conteúdo é construído de forma colaborativa pela
+        comunidade, não podendo assim o site garantir sua veracidade, exatidão, integridade ou qualidade das informações
+        aqui expostas. Dessa forma, isenta-se de qualquer responsabilidade quanto à utilização ou não destas
+        informações. Se você encontrou seus dados aqui expostos e deseja removê-los, envie um email para
+        atendoemlibras@gmail.com.
+      </Paragraph>
 
       <FormField>
         <RadioButton
@@ -169,7 +167,7 @@ const SignUp = () => {
 
   return (
     <>
-      <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '30%' }}>
+      <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '20%' }}>
         <Box>
           <Box direction="row" alignSelf="center">
             <Square margin={{ right: 'medium' }} background="white">
