@@ -199,7 +199,20 @@ const SignUp = () => {
     <SectionBox>
       <HeadingSectionCustom>Informações profissionais</HeadingSectionCustom>
       <FormField name="category" htmlFor="category__input" label="Categoria">
-        <Select name="category" options={['Psicologia', 'Odontologia']} id="category" />
+        <Select
+          name="category"
+          options={[
+            'Enfermagem',
+            'Fisioterapia',
+            'Fonoaudiologia',
+            'Medicina',
+            'Nutrição',
+            'Odontologia',
+            'Psicologia',
+            'Técnico de Enfermagem',
+          ]}
+          id="category"
+        />
       </FormField>
       <FormField name="expertise" htmlFor="expertise" label="Especialidade">
         <TextInput name="expertise" id="expertise" placeholder="Pediatra, Cardiologista, Traumatologista" />
