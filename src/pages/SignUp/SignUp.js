@@ -5,9 +5,9 @@ import { Heading } from '../../components/Typography/Heading'
 import {
   Box,
   Image,
-  TextInput,
+  TextInput as TextInputGrommet,
   Form,
-  Select,
+  Select as SelectGrommet,
   Paragraph,
   TextArea,
   Button,
@@ -36,7 +36,7 @@ const SectionBox = styled(Box)`
 `
 
 const HeadingSectionCustom = (props) => (
-  <Heading color="#5996F7" level="3" margin={{ bottom: '24px' }}>
+  <Heading color="#5996F7" level="2" size="20px" margin={{ bottom: '24px' }}>
     {props.children}
   </Heading>
 )
@@ -74,6 +74,9 @@ const FormField = (props) => {
   )
 }
 
+const TextInput = (props) => <TextInputGrommet {...props} size="medium" />
+const Select = (props) => <SelectGrommet {...props} size="medium" />
+
 const SignUp = () => {
   const [checked, setChecked] = React.useState(false)
 
@@ -107,7 +110,7 @@ const SignUp = () => {
         <TextInput name="register_number" id="register_number" placeholder="Exemplo: CRM, CRP" />
       </FormField>
       <FormField name="presentation" htmlFor="presentation" label="Apresentação">
-        <TextArea
+        <TextInput
           name="presentation"
           id="presentation"
           placeholder="Descreva um pouco a sua área profissional e de atendimento"
@@ -122,12 +125,12 @@ const SignUp = () => {
   const OnlineAttendance = () => (
     <SectionBox data-testid="online-attendance">
       <Paragraph>Atende video por video chamada?</Paragraph>
-      <Box direction="row">
-        <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
-          <Select name="plataform" multiple options={['Zoom', 'Whatsapp']} id="plataform" />
-        </FormField>
+      <Box direction="column">
         <FormField name="whatsAppNumber" htmlFor="whatsAppNumber" label="Número do Whatsapp" margin="0 0 5px 0">
           <TextInput name="whatsAppNumber" id="whatsAppNumber" />
+        </FormField>
+        <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
+          <Select name="plataform" multiple options={['Zoom', 'Whatsapp']} id="plataform" />
         </FormField>
       </Box>
     </SectionBox>
@@ -230,7 +233,7 @@ const SignUp = () => {
 
   return (
     <FormBox>
-      <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '30%' }}>
+      <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '35%' }}>
         <Box direction="row" alignSelf="center">
           <Square margin={{ right: 'medium' }} background="white">
             <Image src={logoIcon} fill />
