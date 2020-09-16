@@ -9,10 +9,10 @@ import {
   Form,
   Select as SelectGrommet,
   Paragraph,
-  TextArea,
   Button,
   ResponsiveContext,
   RadioButton,
+  MaskedInput,
 } from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 
@@ -76,6 +76,104 @@ const FormField = (props) => {
 
 const TextInput = (props) => <TextInputGrommet {...props} size="medium" />
 const Select = (props) => <SelectGrommet {...props} size="medium" />
+const MobilePhoneMaskedInput = (props) => (
+  <MaskedInput
+    mask={[
+      { fixed: '(' },
+      {
+        length: 2,
+        regexp: /^[0-9]{1,2}$/,
+        placeholder: '__',
+      },
+      { fixed: ')' },
+      { fixed: ' ' },
+      {
+        length: 5,
+        regexp: /^[0-9]{1,5}$/,
+        placeholder: '_____',
+      },
+      { fixed: '-' },
+      {
+        length: 4,
+        regexp: /^[0-9]{1,4}$/,
+        placeholder: '____',
+      },
+    ]}
+    {...props}
+    size="medium"
+  />
+)
+
+const PhoneMaskedInput = (props) => (
+  <MaskedInput
+    mask={[
+      { fixed: '(' },
+      {
+        length: 2,
+        regexp: /^[0-9]{1,2}$/,
+        placeholder: '__',
+      },
+      { fixed: ')' },
+      { fixed: ' ' },
+      {
+        length: 4,
+        regexp: /^[0-9]{1,4}$/,
+        placeholder: '____',
+      },
+      { fixed: '-' },
+      {
+        length: 4,
+        regexp: /^[0-9]{1,4}$/,
+        placeholder: '____',
+      },
+    ]}
+    {...props}
+    size="medium"
+  />
+)
+
+const EmailMaskedInput = (props) => (
+  <MaskedInput
+    mask={[
+      {
+        regexp: /^[\w\-_.]+$/,
+        placeholder: 'atendo',
+      },
+      { fixed: '@' },
+      {
+        regexp: /^[\w]+$/,
+        placeholder: 'libras',
+      },
+      { fixed: '.' },
+      {
+        regexp: /^[\w]+$/,
+        placeholder: 'com',
+      },
+    ]}
+    {...props}
+    size="medium"
+  />
+)
+
+const CepMaskedInput = (props) => (
+  <MaskedInput
+    mask={[
+      {
+        length: 5,
+        regexp: /^[0-9]{1,5}$/,
+        placeholder: '00000',
+      },
+      { fixed: '-' },
+      {
+        length: 3,
+        regexp: /^[0-9]{1,3}$/,
+        placeholder: '000',
+      },
+    ]}
+    {...props}
+    size="medium"
+  />
+)
 
 const SignUp = () => {
   const [checked, setChecked] = React.useState(false)
@@ -89,10 +187,10 @@ const SignUp = () => {
         <TextInput name="name" id="name" />
       </FormField>
       <FormField name="phone" htmlFor="phone" label="Telefone" required>
-        <TextInput name="phone" id="phone" />
+        <MobilePhoneMaskedInput name="phone" id="phone" />
       </FormField>
       <FormField name="email" htmlFor="email" label="Email">
-        <TextInput name="email" id="email" />
+        <EmailMaskedInput name="email" id="email" />
       </FormField>
     </SectionBox>
   )
@@ -101,7 +199,7 @@ const SignUp = () => {
     <SectionBox>
       <HeadingSectionCustom>Informações profissionais</HeadingSectionCustom>
       <FormField name="category" htmlFor="category__input" label="Categoria">
-        <Select name="category" options={['Médico', 'Advogado']} id="category" />
+        <Select name="category" options={['Psicologia', 'Advogado']} id="category" />
       </FormField>
       <FormField name="expertise" htmlFor="expertise" label="Especialidade">
         <TextInput name="expertise" id="expertise" placeholder="Pediatra, Cardiologista, Traumatologista" />
@@ -117,7 +215,11 @@ const SignUp = () => {
         />
       </FormField>
       <FormField name="health_insurance_plans" htmlFor="health_insurance_plans" label="Planos de saúde aceitos">
-        <TextInput name="health_insurance_plans" id="health_insurance_plans" />
+        <TextInput
+          name="health_insurance_plans"
+          id="health_insurance_plans"
+          placeholder="Particular, Unimed, SulAmerica"
+        />
       </FormField>
     </SectionBox>
   )
@@ -127,7 +229,7 @@ const SignUp = () => {
       <Paragraph>Atende video por video chamada?</Paragraph>
       <Box direction="column">
         <FormField name="whatsAppNumber" htmlFor="whatsAppNumber" label="Número do Whatsapp" margin="0 0 5px 0">
-          <TextInput name="whatsAppNumber" id="whatsAppNumber" />
+          <MobilePhoneMaskedInput name="whatsAppNumber" id="whatsAppNumber" />
         </FormField>
         <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
           <Select name="plataform" multiple options={['Zoom', 'Whatsapp']} id="plataform" />
@@ -156,7 +258,7 @@ const SignUp = () => {
         <TextInput name="hospitalClinicName" id="hospitalClinicName" />
       </FormField>
       <FormField name="cep" label="CEP">
-        <TextInput name="cep" id="cep" />
+        <CepMaskedInput name="cep" id="cep" />
       </FormField>
       <FormField name="hospitalClinicState" label="Estado">
         <Select name="hospitalClinicState" id="hospitalClinicState" options={states} />
@@ -174,10 +276,10 @@ const SignUp = () => {
         <TextInput name="complementInfo" id="complementInfo" />
       </FormField>
       <FormField name="hospitalClinicPhone" label="Telefone">
-        <TextInput name="hospitalClinicPhone" id="hospitalClinicPhone" />
+        <PhoneMaskedInput name="hospitalClinicPhone" id="hospitalClinicPhone" />
       </FormField>
       <FormField name="hospitalClinicEmail" label="E-mail">
-        <TextInput name="hospitalClinicEmail" id="hospitalClinicEmail" />
+        <EmailMaskedInput name="hospitalClinicEmail" id="hospitalClinicEmail" />
       </FormField>
     </SectionBox>
   )

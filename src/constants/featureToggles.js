@@ -1,5 +1,5 @@
 const toggles = {
-  signUp: true,
+  signUp: false,
   apiIntegration: true,
 }
 
