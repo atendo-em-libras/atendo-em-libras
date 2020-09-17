@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { COLORS } from '../../constants/colors'
 import { Button } from '../Buttons/'
 import { Text } from 'grommet'
+import styled from 'styled-components/macro'
 
 export const RadioButtonGroup = (props) => {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -11,10 +12,17 @@ export const RadioButtonGroup = (props) => {
     props.onChange(value)
   }
 
+  const ButtonStyled = styled(Button)`
+    border-style: solid;
+    border-width: 1px;
+    border-color: ${COLORS.brand};
+    margin-right: 12px;
+  `
+
   const options = props.options.map((option, i) => (
     <Button
       key={option.value}
-      primary
+      secondary
       color={i === selectedIndex ? undefined : 'light-1'}
       target="_blank"
       label={

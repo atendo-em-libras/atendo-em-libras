@@ -2,22 +2,23 @@ import React, { useState, useContext } from 'react'
 import styled from 'styled-components/macro'
 import { logoIcon } from '../../assets/icons'
 import { Heading } from '../../components/Typography/Heading'
-import {
-  Box,
-  Image,
-  TextInput as TextInputGrommet,
-  Form,
-  Select as SelectGrommet,
-  Paragraph,
-  Button,
-  ResponsiveContext,
-  RadioButton,
-  MaskedInput,
-} from 'grommet'
+import { Box, Image, Form, Paragraph, Button, ResponsiveContext, RadioButton } from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
+import {
+  FormField,
+  CepMaskedInput,
+  MobilePhoneMaskedInput,
+  PhoneMaskedInput,
+  EmailMaskedInput,
+  Select,
+  TextInput,
+} from '../../components/Form/FormComponents'
+import logoLarge from '../../assets/images/pages/singup/signup-logo.svg'
+import { cities } from './cities'
+import { states } from './states'
+import { tiposAtendimento } from './tiposAtendimento'
 
 import { RadioButtonGroup as RadioButtonGroupCustom } from '../../components/RadioButtonGroup/RadioButtonGroup'
-import logoLarge from '../../assets/images/pages/singup/signup-logo.svg'
 
 const Square = styled(Box)`
   box-shadow: 0px 10px 32px #00000029;
@@ -51,129 +52,6 @@ const FormBox = styled(Box)`
     background-size: 660px 550px;
   `}
 `
-
-const FormField = (props) => {
-  const Label = styled.label`
-    font-size: 18px;
-    margin-bottom: 8px;
-  `
-
-  const Span = styled.span`
-    font-size: 14px;
-    font-style: italic;
-    opacity: 0.7;
-  `
-
-  return (
-    <Box margin={{ bottom: 'large' }}>
-      <Label>
-        {props.label} {props.required && <Span>Obrigatório</Span>}
-      </Label>
-      <Box>{props.children}</Box>
-    </Box>
-  )
-}
-
-const TextInput = (props) => <TextInputGrommet {...props} size="medium" />
-const Select = (props) => <SelectGrommet {...props} size="medium" />
-const MobilePhoneMaskedInput = (props) => (
-  <MaskedInput
-    mask={[
-      { fixed: '(' },
-      {
-        length: 2,
-        regexp: /^[0-9]{1,2}$/,
-        placeholder: '__',
-      },
-      { fixed: ')' },
-      { fixed: ' ' },
-      {
-        length: 5,
-        regexp: /^[0-9]{1,5}$/,
-        placeholder: '_____',
-      },
-      { fixed: '-' },
-      {
-        length: 4,
-        regexp: /^[0-9]{1,4}$/,
-        placeholder: '____',
-      },
-    ]}
-    {...props}
-    size="medium"
-  />
-)
-
-const PhoneMaskedInput = (props) => (
-  <MaskedInput
-    mask={[
-      { fixed: '(' },
-      {
-        length: 2,
-        regexp: /^[0-9]{1,2}$/,
-        placeholder: '__',
-      },
-      { fixed: ')' },
-      { fixed: ' ' },
-      {
-        length: 4,
-        regexp: /^[0-9]{1,4}$/,
-        placeholder: '____',
-      },
-      { fixed: '-' },
-      {
-        length: 4,
-        regexp: /^[0-9]{1,4}$/,
-        placeholder: '____',
-      },
-    ]}
-    {...props}
-    size="medium"
-  />
-)
-
-const EmailMaskedInput = (props) => (
-  <MaskedInput
-    mask={[
-      {
-        regexp: /^[\w\-_.]+$/,
-        placeholder: 'atendo',
-      },
-      { fixed: '@' },
-      {
-        regexp: /^[\w]+$/,
-        placeholder: 'libras',
-      },
-      { fixed: '.' },
-      {
-        regexp: /^[\w]+$/,
-        placeholder: 'com',
-      },
-    ]}
-    {...props}
-    size="medium"
-  />
-)
-
-const CepMaskedInput = (props) => (
-  <MaskedInput
-    mask={[
-      {
-        length: 5,
-        regexp: /^[0-9]{1,5}$/,
-        placeholder: '00000',
-      },
-      { fixed: '-' },
-      {
-        length: 3,
-        regexp: /^[0-9]{1,3}$/,
-        placeholder: '000',
-      },
-    ]}
-    {...props}
-    size="medium"
-  />
-)
 
 const SignUp = () => {
   const [checked, setChecked] = React.useState(false)
@@ -239,7 +117,7 @@ const SignUp = () => {
 
   const OnlineAttendance = () => (
     <SectionBox data-testid="online-attendance">
-      <Paragraph>Atende video por video chamada?</Paragraph>
+      <HeadingSectionCustom>Online</HeadingSectionCustom>
       <Box direction="column">
         <FormField name="whatsAppNumber" htmlFor="whatsAppNumber" label="Número do Whatsapp" margin="0 0 5px 0">
           <MobilePhoneMaskedInput name="whatsAppNumber" id="whatsAppNumber" />
@@ -251,11 +129,9 @@ const SignUp = () => {
     </SectionBox>
   )
 
-  const states = ['RS', 'SP', 'SC', 'RJ']
-  const cities = ['Porto Alegre', 'Belo Horizonte', 'São Paulo', 'Recife']
-
   const HouseholdAttendance = () => (
     <SectionBox data-testid="household-attendance">
+      <HeadingSectionCustom>Domiciliar</HeadingSectionCustom>
       <FormField name="state" label="Estado">
         <Select name="state" id="state" options={states} />
       </FormField>
@@ -267,6 +143,7 @@ const SignUp = () => {
 
   const HospitalClinicAttendance = () => (
     <SectionBox data-testid="hospitalclinic-attendance">
+      <HeadingSectionCustom>Hospital ou Clínica</HeadingSectionCustom>
       <FormField name="hospitalClinicName" label="Nome do local">
         <TextInput name="hospitalClinicName" id="hospitalClinicName" />
       </FormField>
@@ -302,8 +179,8 @@ const SignUp = () => {
     return (
       <SectionBox>
         <HeadingSectionCustom>Atendimento</HeadingSectionCustom>
-        <Paragraph>Escolha o tipo de atendimento</Paragraph>
-        <Box direction="row">
+        {/*<Paragraph>Escolha o tipo de atendimento</Paragraph>
+         <Box direction="row">
           <RadioButtonGroupCustom
             data-testid="atendimento-option"
             options={[
@@ -319,7 +196,10 @@ const SignUp = () => {
 
         {option === tiposAtendimento.Online && <OnlineAttendance />}
         {option === tiposAtendimento.EmClinica && <HospitalClinicAttendance />}
-        {option === tiposAtendimento.Domiciliar && <HouseholdAttendance />}
+        {option === tiposAtendimento.Domiciliar && <HouseholdAttendance />} */}
+        <OnlineAttendance />
+        <HospitalClinicAttendance />
+        <HouseholdAttendance />
       </SectionBox>
     )
   }
@@ -346,14 +226,20 @@ const SignUp = () => {
     </SectionBox>
   )
 
+  const PageTitle = () => (
+    <>
+      <Square margin={{ right: 'medium' }} background="white">
+        <Image src={logoIcon} fill />
+      </Square>
+      <Heading level="2">Cadastrar</Heading>
+    </>
+  )
+
   return (
     <FormBox>
-      <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '35%' }}>
+      <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '20%' }}>
         <Box direction="row" alignSelf="center">
-          <Square margin={{ right: 'medium' }} background="white">
-            <Image src={logoIcon} fill />
-          </Square>
-          <Heading level="2">Cadastrar</Heading>
+          <PageTitle />
         </Box>
 
         <Form
@@ -375,10 +261,4 @@ const SignUp = () => {
   )
 }
 
-const tiposAtendimento = {
-  Online: 0,
-  EmClinica: 1,
-  Domiciliar: 2,
-}
-
-export { SignUp, tiposAtendimento }
+export { SignUp }
