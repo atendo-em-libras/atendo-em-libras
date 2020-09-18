@@ -1,6 +1,12 @@
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components/macro'
-import { Box, TextInput as TextInputGrommet, Select as SelectGrommet, MaskedInput } from 'grommet'
+import {
+  Box,
+  TextInput as TextInputGrommet,
+  Select as SelectGrommet,
+  MaskedInput,
+  FormField as FormFieldGrommet,
+} from 'grommet'
 
 const TextInput = (props) => <TextInputGrommet {...props} size="medium" />
 
@@ -18,12 +24,23 @@ const FormField = (props) => {
     opacity: 0.7;
   `
 
+  const FormFieldGrommetStyled = styled(FormFieldGrommet)`
+    & label {
+      margin-left: 0px;
+    }
+    & div {
+      border-bottom: 0;
+    }
+  `
+
+  const { label, ...formFieldProps } = props
+
   return (
     <Box margin={{ bottom: 'large' }}>
       <Label htmlFor={props.htmlFor}>
-        {props.label} {props.required && <Span>Obrigatório</Span>}
+        {label} {props.required && <Span>Obrigatório</Span>}
       </Label>
-      <Box>{props.children}</Box>
+      <FormFieldGrommetStyled {...formFieldProps}>{props.children}</FormFieldGrommetStyled>
     </Box>
   )
 }
