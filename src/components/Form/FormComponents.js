@@ -31,6 +31,12 @@ const FormField = (props) => {
     & div {
       border-bottom: 0;
     }
+
+    & span {
+      font-size: 14px;
+      font-style: italic;
+      margin-left: 0px;
+    }
   `
 
   const { label, ...formFieldProps } = props

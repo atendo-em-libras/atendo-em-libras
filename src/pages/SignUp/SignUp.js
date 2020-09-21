@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import styled from 'styled-components/macro'
 import { logoIcon } from '../../assets/icons'
 import { Heading } from '../../components/Typography/Heading'
-import { Box, Image, Form, Paragraph, Button, ResponsiveContext, RadioButton } from 'grommet'
+import { Box, Image, Form, Paragraph, Button, ResponsiveContext, RadioButton, RadioButtonGroup } from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 import {
   FormField,
@@ -197,6 +197,7 @@ const SignUp = () => {
         {option === tiposAtendimento.Online && <OnlineAttendance />}
         {option === tiposAtendimento.EmClinica && <HospitalClinicAttendance />}
         {option === tiposAtendimento.Domiciliar && <HouseholdAttendance />} */}
+
         <OnlineAttendance />
         <HospitalClinicAttendance />
         <HouseholdAttendance />
@@ -226,6 +227,28 @@ const SignUp = () => {
     </SectionBox>
   )
 
+  const YesOrNoSection = (props) => {
+    const [enabledAttendance, setEnabledAttendance] = useState('Sim')
+    return (
+      <SectionBox>
+        <FormField label={props.label} required>
+          <RadioButtonGroup
+            name={props.name}
+            value={enabledAttendance}
+            options={['Sim', 'Não']}
+            onChange={(event) => {
+              setEnabledAttendance(event.target.value)
+            }}
+            {...props}
+          />
+        </FormField>
+        {
+          //enabledAttendance && props.component}
+        }
+      </SectionBox>
+    )
+  }
+
   const PageTitle = () => (
     <>
       <Square margin={{ right: 'medium' }} background="white">
@@ -246,6 +269,7 @@ const SignUp = () => {
           onSubmit={({ value }) => {
             console.log(value)
           }}
+          messages={{ required: 'Campo obrigatório' }}
         >
           <PersonalInfo />
           <ProfessionalInfo />
