@@ -12,13 +12,11 @@ import {
   EmailMaskedInput,
   Select,
   TextInput,
+  HeadingSectionCustom,
 } from '../../components/Form/FormComponents'
 import logoLarge from '../../assets/images/pages/singup/signup-logo.svg'
 import { cities } from './cities'
 import { states } from './states'
-import { tiposAtendimento } from './tiposAtendimento'
-
-import { RadioButtonGroup as RadioButtonGroupCustom } from '../../components/RadioButtonGroup/RadioButtonGroup'
 
 const Square = styled(Box)`
   box-shadow: 0px 10px 32px #00000029;
@@ -35,12 +33,6 @@ const Square = styled(Box)`
 const SectionBox = styled(Box)`
   margin-top: 50px;
 `
-
-const HeadingSectionCustom = (props) => (
-  <Heading color="#5996F7" level="2" size="20px" margin={{ bottom: '24px' }}>
-    {props.children}
-  </Heading>
-)
 
 const FormBox = styled(Box)`
   background-color: #f7f8fa;
@@ -117,7 +109,6 @@ const SignUp = () => {
 
   const OnlineAttendance = () => (
     <SectionBox data-testid="online-attendance">
-      <HeadingSectionCustom>Online</HeadingSectionCustom>
       <Box direction="column">
         <FormField name="whatsAppNumber" htmlFor="whatsAppNumber" label="Número do Whatsapp" margin="0 0 5px 0">
           <MobilePhoneMaskedInput name="whatsAppNumber" id="whatsAppNumber" />
@@ -175,33 +166,27 @@ const SignUp = () => {
   )
 
   const Attendances = () => {
-    const [option, setOption] = useState(0)
     return (
-      <SectionBox>
-        <HeadingSectionCustom>Atendimento</HeadingSectionCustom>
-        {/*<Paragraph>Escolha o tipo de atendimento</Paragraph>
-         <Box direction="row">
-          <RadioButtonGroupCustom
-            data-testid="atendimento-option"
-            options={[
-              { label: 'Online', value: tiposAtendimento.Online, role: 'option' },
-              { label: 'Em clínica/hospital', value: tiposAtendimento.EmClinica, role: 'option' },
-              { label: 'Domiciliar', value: tiposAtendimento.Domiciliar, role: 'option' },
-            ]}
-            onChange={(newOption) => {
-              setOption(newOption)
-            }}
-          />
-        </Box>
-
-        {option === tiposAtendimento.Online && <OnlineAttendance />}
-        {option === tiposAtendimento.EmClinica && <HospitalClinicAttendance />}
-        {option === tiposAtendimento.Domiciliar && <HouseholdAttendance />} */}
-
-        <OnlineAttendance />
-        <HospitalClinicAttendance />
-        <HouseholdAttendance />
-      </SectionBox>
+      <Box>
+        <YesOrNoSection
+          label="Atende por video chamada?"
+          name="online-attendance"
+          header="Atendimento Online"
+          component={<OnlineAttendance />}
+        />
+        <YesOrNoSection
+          label="Atende em Clínica ou Hospital?"
+          name="hospitalClinic-attendance"
+          header="Atendimento em Clínica / Hospital"
+          component={<HospitalClinicAttendance />}
+        />
+        <YesOrNoSection
+          label="Atende em Domicílio?"
+          name="household-attendance"
+          header="Atendimento em Domicílio"
+          component={<HouseholdAttendance />}
+        />
+      </Box>
     )
   }
 
@@ -228,24 +213,30 @@ const SignUp = () => {
   )
 
   const YesOrNoSection = (props) => {
-    const [enabledAttendance, setEnabledAttendance] = useState('Sim')
-    return (
-      <SectionBox>
-        <FormField label={props.label} required>
+    const YesOrNo = (props) => {
+      const [enabledAttendance, setEnabledAttendance] = useState('Não')
+      return (
+        <>
           <RadioButtonGroup
             name={props.name}
-            value={enabledAttendance}
+            value={enabledAttendance[props.name]}
             options={['Sim', 'Não']}
             onChange={(event) => {
               setEnabledAttendance(event.target.value)
             }}
             {...props}
           />
+          {enabledAttendance === 'Sim' && props.component}
+        </>
+      )
+    }
+    return (
+      <Box>
+        <HeadingSectionCustom>{props.header}</HeadingSectionCustom>
+        <FormField label={props.label} required>
+          <YesOrNo name={props.name} {...props} />
         </FormField>
-        {
-          //enabledAttendance && props.component}
-        }
-      </SectionBox>
+      </Box>
     )
   }
 

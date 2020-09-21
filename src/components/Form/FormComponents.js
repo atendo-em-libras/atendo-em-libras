@@ -6,11 +6,18 @@ import {
   Select as SelectGrommet,
   MaskedInput,
   FormField as FormFieldGrommet,
+  Heading,
 } from 'grommet'
 
 const TextInput = (props) => <TextInputGrommet {...props} size="medium" />
 
 const Select = (props) => <SelectGrommet {...props} size="medium" />
+
+const HeadingSectionCustom = (props) => (
+  <Heading color="#5996F7" level="2" size="20px" margin={{ bottom: '24px' }}>
+    {props.children}
+  </Heading>
+)
 
 const FormField = (props) => {
   const Label = styled.label`
@@ -34,7 +41,6 @@ const FormField = (props) => {
 
     & span {
       font-size: 14px;
-      font-style: italic;
       margin-left: 0px;
     }
   `
@@ -150,4 +156,13 @@ const CepMaskedInput = (props) => (
   />
 )
 
-export { FormField, CepMaskedInput, MobilePhoneMaskedInput, PhoneMaskedInput, EmailMaskedInput, Select, TextInput }
+export {
+  FormField,
+  CepMaskedInput,
+  MobilePhoneMaskedInput,
+  PhoneMaskedInput,
+  EmailMaskedInput,
+  Select,
+  TextInput,
+  HeadingSectionCustom,
+}
