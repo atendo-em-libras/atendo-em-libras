@@ -107,85 +107,146 @@ const SignUp = () => {
     </SectionBox>
   )
 
-  const OnlineAttendance = () => (
-    <SectionBox data-testid="online-attendance">
-      <Box direction="column">
-        <FormField name="whatsAppNumber" htmlFor="whatsAppNumber" label="Número do Whatsapp" margin="0 0 5px 0">
-          <MobilePhoneMaskedInput name="whatsAppNumber" id="whatsAppNumber" />
-        </FormField>
-        <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
-          <Select name="plataform" multiple options={['Zoom', 'Whatsapp']} id="plataform" />
+  const OnlineAttendance = () => {
+    const YesOrNo = () => {
+      const [enabledAttendance, setEnabledAttendance] = React.useState('Sim')
+      return (
+        <>
+          <RadioButtonGroup
+            name={'online-attendance'}
+            value={enabledAttendance}
+            options={['Sim', 'Não']}
+            onChange={(event) => {
+              setEnabledAttendance(event.target.value)
+            }}
+          />
+          {enabledAttendance === 'Sim' && (
+            <SectionBox data-testid="online-attendance">
+              <Box direction="column">
+                <FormField name="whatsAppNumber" htmlFor="whatsAppNumber" label="Número do Whatsapp" margin="0 0 5px 0">
+                  <MobilePhoneMaskedInput name="whatsAppNumber" id="whatsAppNumber" />
+                </FormField>
+                <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
+                  <Select name="plataform" multiple options={['Zoom', 'Whatsapp']} id="plataform" />
+                </FormField>
+              </Box>
+            </SectionBox>
+          )}
+        </>
+      )
+    }
+
+    return (
+      <Box>
+        <HeadingSectionCustom>Atendimento Online</HeadingSectionCustom>
+        <FormField label="Atende por video chamada?" required>
+          <YesOrNo />
         </FormField>
       </Box>
-    </SectionBox>
-  )
+    )
+  }
 
-  const HouseholdAttendance = () => (
-    <SectionBox data-testid="household-attendance">
-      <HeadingSectionCustom>Domiciliar</HeadingSectionCustom>
-      <FormField name="state" label="Estado">
-        <Select name="state" id="state" options={states} />
-      </FormField>
-      <FormField name="city" label="Cidade">
-        <Select name="city" id="city" options={cities} />
-      </FormField>
-    </SectionBox>
-  )
+  const HouseholdAttendance = () => {
+    const YesOrNo = () => {
+      const [enabledHouseholdAttendance, setEnabledHouseholdAttendance] = React.useState('Sim')
+      return (
+        <>
+          <RadioButtonGroup
+            name={'household-attendance'}
+            value={enabledHouseholdAttendance}
+            options={['Sim', 'Não']}
+            onChange={(event) => {
+              setEnabledHouseholdAttendance(event.target.value)
+            }}
+          />
+          {enabledHouseholdAttendance === 'Sim' && (
+            <SectionBox data-testid="household-attendance">
+              <FormField name="state" label="Estado">
+                <Select name="state" id="state" options={states} />
+              </FormField>
+              <FormField name="city" label="Cidade">
+                <Select name="city" id="city" options={cities} />
+              </FormField>
+            </SectionBox>
+          )}
+        </>
+      )
+    }
 
-  const HospitalClinicAttendance = () => (
-    <SectionBox data-testid="hospitalclinic-attendance">
-      <HeadingSectionCustom>Hospital ou Clínica</HeadingSectionCustom>
-      <FormField name="hospitalClinicName" label="Nome do local">
-        <TextInput name="hospitalClinicName" id="hospitalClinicName" />
-      </FormField>
-      <FormField name="cep" label="CEP">
-        <CepMaskedInput name="cep" id="cep" />
-      </FormField>
-      <FormField name="hospitalClinicState" label="Estado">
-        <Select name="hospitalClinicState" id="hospitalClinicState" options={states} />
-      </FormField>
-      <FormField name="hospitalClinicCity" label="Cidade">
-        <Select name="hospitalClinicCity" id="hospitalClinicCity" options={cities} />
-      </FormField>
-      <FormField name="streetName" label="Logradouro">
-        <TextInput name="streetName" id="streetName" />
-      </FormField>
-      <FormField name="streetNumber" label="Número">
-        <TextInput name="streetNumber" id="streetNumber" />
-      </FormField>
-      <FormField name="complementInfo" label="Complemento">
-        <TextInput name="complementInfo" id="complementInfo" />
-      </FormField>
-      <FormField name="hospitalClinicPhone" label="Telefone">
-        <PhoneMaskedInput name="hospitalClinicPhone" id="hospitalClinicPhone" />
-      </FormField>
-      <FormField name="hospitalClinicEmail" label="E-mail">
-        <EmailMaskedInput name="hospitalClinicEmail" id="hospitalClinicEmail" />
-      </FormField>
-    </SectionBox>
-  )
+    return (
+      <Box>
+        <HeadingSectionCustom>Atendimento em Domicílio</HeadingSectionCustom>
+        <FormField label="Atende em Domicílio?" required>
+          <YesOrNo />
+        </FormField>
+      </Box>
+    )
+  }
+
+  const HospitalClinicAttendance = () => {
+    const YesOrNo = () => {
+      const [enabledClinicAttendance, setEnabledClinicAttendance] = React.useState('Sim')
+      return (
+        <>
+          <RadioButtonGroup
+            name="household-attendance"
+            value={enabledClinicAttendance}
+            options={['Sim', 'Não']}
+            onChange={(event) => {
+              setEnabledClinicAttendance(event.target.value)
+            }}
+          />
+          {enabledClinicAttendance === 'Sim' && (
+            <SectionBox data-testid="hospitalclinic-attendance">
+              <FormField name="hospitalClinicName" label="Nome do local">
+                <TextInput name="hospitalClinicName" id="hospitalClinicName" />
+              </FormField>
+              <FormField name="cep" label="CEP">
+                <CepMaskedInput name="cep" id="cep" />
+              </FormField>
+              <FormField name="hospitalClinicState" label="Estado">
+                <Select name="hospitalClinicState" id="hospitalClinicState" options={states} />
+              </FormField>
+              <FormField name="hospitalClinicCity" label="Cidade">
+                <Select name="hospitalClinicCity" id="hospitalClinicCity" options={cities} />
+              </FormField>
+              <FormField name="streetName" label="Logradouro">
+                <TextInput name="streetName" id="streetName" />
+              </FormField>
+              <FormField name="streetNumber" label="Número">
+                <TextInput name="streetNumber" id="streetNumber" />
+              </FormField>
+              <FormField name="complementInfo" label="Complemento">
+                <TextInput name="complementInfo" id="complementInfo" />
+              </FormField>
+              <FormField name="hospitalClinicPhone" label="Telefone">
+                <PhoneMaskedInput name="hospitalClinicPhone" id="hospitalClinicPhone" />
+              </FormField>
+              <FormField name="hospitalClinicEmail" label="E-mail">
+                <EmailMaskedInput name="hospitalClinicEmail" id="hospitalClinicEmail" />
+              </FormField>
+            </SectionBox>
+          )}
+        </>
+      )
+    }
+
+    return (
+      <Box>
+        <HeadingSectionCustom>Atendimento em Clínica / Hospital</HeadingSectionCustom>
+        <FormField label="Atende em Clínica ou Hospital?" required>
+          <YesOrNo />
+        </FormField>
+      </Box>
+    )
+  }
 
   const Attendances = () => {
     return (
       <Box>
-        <YesOrNoSection
-          label="Atende por video chamada?"
-          name="online-attendance"
-          header="Atendimento Online"
-          component={<OnlineAttendance />}
-        />
-        <YesOrNoSection
-          label="Atende em Clínica ou Hospital?"
-          name="hospitalClinic-attendance"
-          header="Atendimento em Clínica / Hospital"
-          component={<HospitalClinicAttendance />}
-        />
-        <YesOrNoSection
-          label="Atende em Domicílio?"
-          name="household-attendance"
-          header="Atendimento em Domicílio"
-          component={<HouseholdAttendance />}
-        />
+        <OnlineAttendance />
+        <HospitalClinicAttendance />
+        <HouseholdAttendance />
       </Box>
     )
   }
@@ -203,42 +264,16 @@ const SignUp = () => {
         atendoemlibras@gmail.com.
       </Paragraph>
 
-      <RadioButton
-        checked={checked}
-        label="Li e aceito"
-        name="termsAndConditions"
-        onChange={(event) => setChecked(event.target.checked)}
-      />
+      <FormField margin={{ top: '20px' }}>
+        <RadioButton
+          checked={checked}
+          label="Li e aceito"
+          name="termsAndConditions"
+          onChange={(event) => setChecked(event.target.checked)}
+        />
+      </FormField>
     </SectionBox>
   )
-
-  const YesOrNoSection = (props) => {
-    const YesOrNo = (props) => {
-      const [enabledAttendance, setEnabledAttendance] = useState('Não')
-      return (
-        <>
-          <RadioButtonGroup
-            name={props.name}
-            value={enabledAttendance[props.name]}
-            options={['Sim', 'Não']}
-            onChange={(event) => {
-              setEnabledAttendance(event.target.value)
-            }}
-            {...props}
-          />
-          {enabledAttendance === 'Sim' && props.component}
-        </>
-      )
-    }
-    return (
-      <Box>
-        <HeadingSectionCustom>{props.header}</HeadingSectionCustom>
-        <FormField label={props.label} required>
-          <YesOrNo name={props.name} {...props} />
-        </FormField>
-      </Box>
-    )
-  }
 
   const PageTitle = () => (
     <>
@@ -279,9 +314,9 @@ const SignUp = () => {
 export { SignUp }
 
 // TODO:
-// Ajustar tamanho Li e Aceito
-// Validaoca dos campos
-// Enviar para o backend
 // Ajustar a cor dos selects, existe duas bordas
 // Ajustar banner na head
+// Ajustar radiobutton (border tá zuada)
 // Ajustar funcionalidade de sim ou nao
+// Validacao dos campos
+// Enviar para o backend

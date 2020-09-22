@@ -52,10 +52,10 @@ const FormField = (props) => {
     }
   `
 
-  const { label, ...formFieldProps } = props
+  const { label, margin, ...formFieldProps } = props
 
   return (
-    <Box margin={{ bottom: 'large' }}>
+    <Box margin={{ bottom: 'large', ...margin }}>
       <Label htmlFor={props.htmlFor}>
         {label} {props.required && <Span>Obrigatório</Span>}
       </Label>
