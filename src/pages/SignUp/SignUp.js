@@ -277,3 +277,11 @@ const SignUp = () => {
 }
 
 export { SignUp }
+
+// TODO:
+// Ajustar tamanho Li e Aceito
+// Validaoca dos campos
+// Enviar para o backend
+// Ajustar a cor dos selects, existe duas bordas
+// Ajustar banner na head
+// Ajustar funcionalidade de sim ou nao

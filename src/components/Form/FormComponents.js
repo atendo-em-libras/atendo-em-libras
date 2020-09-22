@@ -43,6 +43,13 @@ const FormField = (props) => {
       font-size: 14px;
       margin-left: 0px;
     }
+
+    & button,
+    & input {
+      border-color: #707070;
+      background-color: white;
+      border-radius: 8px;
+    }
   `
 
   const { label, ...formFieldProps } = props
