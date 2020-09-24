@@ -39,6 +39,7 @@ exports[`Footer component renders footer correctly 1`] = `
 
 .c4 {
   height: 5em;
+  margin-right: 100px;
 }
 
 .c5 {
@@ -113,7 +114,7 @@ exports[`Footer component renders footer correctly 1`] = `
 }
 
 .c2 {
-  padding: 0 10vw;
+  padding: 0 10vw 10vw 10vw;
   margin: 0 auto;
 }
 
@@ -156,7 +157,7 @@ exports[`Footer component renders footer correctly 1`] = `
 
 @media (min-width:801px) {
   .c2 {
-    padding: 0 40px;
+    padding: 0 40px 50px 40px;
   }
 }
 

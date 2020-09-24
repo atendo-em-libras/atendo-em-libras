@@ -19,7 +19,7 @@ Object {
 }
 
 .c2 {
-  padding: 0 10vw;
+  padding: 0 10vw 10vw 10vw;
   margin: 0 auto;
 }
 
@@ -133,7 +133,7 @@ Object {
 
 @media (min-width:801px) {
   .c2 {
-    padding: 0 40px;
+    padding: 0 40px 50px 40px;
   }
 }
 
@@ -228,7 +228,7 @@ Object {
       class="Home__HomeWrapper-b5m6jg-0 gJfiEg"
     >
       <div
-        class="StyledBox-sc-13pk1d4-0 esButh sc-AxjAm jRVstO"
+        class="StyledBox-sc-13pk1d4-0 esButh sc-AxjAm hCRKDb"
       >
         <div
           class="HomeBanner__StyledHomeBanner-sc-1mh502r-0 dfBkTw"
@@ -254,7 +254,7 @@ Object {
       </div>
     </div>
     <div
-      class="StyledBox-sc-13pk1d4-0 esButh sc-AxjAm jRVstO"
+      class="StyledBox-sc-13pk1d4-0 esButh sc-AxjAm hCRKDb"
     >
       <div
         data-testid="emptyList"
