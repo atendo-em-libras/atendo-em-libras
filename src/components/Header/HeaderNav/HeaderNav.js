@@ -100,6 +100,7 @@ const StyledHeaderMenu = styled(withRouter(HeaderNav))`
   width: 100%;
   height: auto;
   margin-top: 3.6rem;
+  margin-bottom: 3.6rem;
   box-sizing: border-box;
   display: flex;
   flex-flow: row;
