@@ -98,7 +98,10 @@ const ProviderCard = (props) => {
             {`${hospitalClinicAttendance.state}`}
           </SectionTitle>
         )}
-        <Paragraph size="small">{hospitalClinicAttendance && hospitalClinicAttendance.streetName}</Paragraph>
+        <Paragraph size="small">
+          {hospitalClinicAttendance && hospitalClinicAttendance.streetName}
+          {hospitalClinicAttendance && `, n° ${hospitalClinicAttendance.streetNumber}`}
+        </Paragraph>
       </SectionBlock>
     </>
   )
