@@ -71,7 +71,7 @@ const ProviderCard = (props) => {
     healthInsurance,
   } = props.provider
 
-  const { onlineAttendance, hospitalClinicAttendance } = attendance
+  const { onlineAttendance, hospitalClinicAttendance } = attendance ?? false
   const ProviderVideoCallAvailabilityLabel = () => (
     <ProviderVideoCallAvailabilityContainer>
       <ProviderVideoCallAvailability role="note">
