@@ -27,6 +27,7 @@ const FooterContent = styled.section`
 
 const FooterLogo = styled.img`
   height: 5em;
+  margin-right: 100px;
 `
 
 const FooterDetails = styled.div`
