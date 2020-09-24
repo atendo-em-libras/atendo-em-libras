@@ -17,7 +17,6 @@ exports[`Footer component renders footer correctly 1`] = `
   -webkit-flex-flow: row;
   -ms-flex-flow: row;
   flex-flow: row;
-  margin-top: 50px;
 }
 
 .c3 {

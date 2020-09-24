@@ -8,7 +8,6 @@ const StyledFooter = styled.footer`
   background-color: #ffffff;
   border-top: solid #0000001a 1px;
   flex-flow: row;
-  margin-top: 50px;
 `
 
 const FooterContent = styled.section`
