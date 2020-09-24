@@ -100,7 +100,9 @@ const ProviderCard = (props) => {
         )}
         <Paragraph size="small">
           {hospitalClinicAttendance && hospitalClinicAttendance.streetName}
-          {hospitalClinicAttendance && `, n° ${hospitalClinicAttendance.streetNumber}`}
+          {hospitalClinicAttendance &&
+            hospitalClinicAttendance.streetNumber &&
+            `, n° ${hospitalClinicAttendance.streetNumber}`}
         </Paragraph>
       </SectionBlock>
     </>
