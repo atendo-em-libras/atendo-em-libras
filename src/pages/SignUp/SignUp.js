@@ -58,7 +58,10 @@ const FormBox = styled(Box)`
 `
 
 const SignUp = () => {
-  const [checked, setChecked] = React.useState(false)
+  const [checked, setChecked] = useState(false)
+  const [enabledAttendance, setEnabledAttendance] = useState('Não')
+  const [enabledHouseholdAttendance, setEnabledHouseholdAttendance] = useState('Não')
+  const [enabledClinicAttendance, setEnabledClinicAttendance] = useState('Não')
 
   const screenSize = useContext(ResponsiveContext)
 
@@ -120,16 +123,24 @@ const SignUp = () => {
   )
 
   const OnlineAttendance = () => {
-    const YesOrNo = () => {
-      const [enabledAttendance, setEnabledAttendance] = React.useState('Sim')
-      return (
-        <>
-          <RadioButtonGroup
-            name={'online-attendance'}
-            value={enabledAttendance}
-            options={['Sim', 'Não']}
+    return (
+      <Box>
+        <HeadingSectionCustom>Atendimento Online</HeadingSectionCustom>
+        <FormField label="Atende por video chamada?" required>
+          <RadioButton
+            label="Sim"
+            checked={enabledAttendance === 'Sim'}
+            name={'online-attendance-yes'}
+            onChange={() => {
+              setEnabledAttendance('Sim')
+            }}
+          />
+          <RadioButton
+            label="Não"
+            checked={enabledAttendance === 'Não'}
+            name={'online-attendance-no'}
             onChange={(event) => {
-              setEnabledAttendance(event.target.value)
+              setEnabledAttendance('Não')
             }}
           />
           {enabledAttendance === 'Sim' && (
@@ -144,31 +155,30 @@ const SignUp = () => {
               </Box>
             </SectionBox>
           )}
-        </>
-      )
-    }
-
-    return (
-      <Box>
-        <HeadingSectionCustom>Atendimento Online</HeadingSectionCustom>
-        <FormFieldGrommet label="Atende por video chamada?" required>
-          <YesOrNo />
-        </FormFieldGrommet>
+        </FormField>
       </Box>
     )
   }
 
   const HouseholdAttendance = () => {
-    const YesOrNo = () => {
-      const [enabledHouseholdAttendance, setEnabledHouseholdAttendance] = React.useState('Sim')
-      return (
-        <>
-          <RadioButtonGroup
-            name={'household-attendance'}
-            value={enabledHouseholdAttendance}
-            options={['Sim', 'Não']}
+    return (
+      <Box>
+        <HeadingSectionCustom>Atendimento em Domicílio</HeadingSectionCustom>
+        <FormField label="Atende em Domicílio?" required>
+          <RadioButton
+            label="Sim"
+            checked={enabledHouseholdAttendance === 'Sim'}
+            name={'household-attendance-yes'}
+            onChange={() => {
+              setEnabledHouseholdAttendance('Sim')
+            }}
+          />
+          <RadioButton
+            label="Não"
+            checked={enabledHouseholdAttendance === 'Não'}
+            name={'household-attendance-no'}
             onChange={(event) => {
-              setEnabledHouseholdAttendance(event.target.value)
+              setEnabledHouseholdAttendance('Não')
             }}
           />
           {enabledHouseholdAttendance === 'Sim' && (
@@ -181,31 +191,30 @@ const SignUp = () => {
               </FormField>
             </SectionBox>
           )}
-        </>
-      )
-    }
-
-    return (
-      <Box>
-        <HeadingSectionCustom>Atendimento em Domicílio</HeadingSectionCustom>
-        <FormFieldGrommet label="Atende em Domicílio?" required>
-          <YesOrNo />
-        </FormFieldGrommet>
+        </FormField>
       </Box>
     )
   }
 
   const HospitalClinicAttendance = () => {
-    const YesOrNo = () => {
-      const [enabledClinicAttendance, setEnabledClinicAttendance] = React.useState('Sim')
-      return (
-        <>
-          <RadioButtonGroup
-            name="household-attendance"
-            value={enabledClinicAttendance}
-            options={['Sim', 'Não']}
+    return (
+      <Box>
+        <HeadingSectionCustom>Atendimento em Clínica / Hospital</HeadingSectionCustom>
+        <FormField label="Atende em Clínica ou Hospital?" required>
+          <RadioButton
+            label="Sim"
+            checked={enabledClinicAttendance === 'Sim'}
+            name={'hospital-clinic-attendance-yes'}
+            onChange={() => {
+              setEnabledClinicAttendance('Sim')
+            }}
+          />
+          <RadioButton
+            label="Não"
+            checked={enabledClinicAttendance === 'Não'}
+            name={'hospital-clinic-attendance-no'}
             onChange={(event) => {
-              setEnabledClinicAttendance(event.target.value)
+              setEnabledClinicAttendance('Não')
             }}
           />
           {enabledClinicAttendance === 'Sim' && (
@@ -239,16 +248,7 @@ const SignUp = () => {
               </FormField>
             </SectionBox>
           )}
-        </>
-      )
-    }
-
-    return (
-      <Box>
-        <HeadingSectionCustom>Atendimento em Clínica / Hospital</HeadingSectionCustom>
-        <FormFieldGrommet label="Atende em Clínica ou Hospital?" required>
-          <YesOrNo />
-        </FormFieldGrommet>
+        </FormField>
       </Box>
     )
   }
@@ -327,7 +327,8 @@ export { SignUp }
 
 // TODO:
 // Ajustar radiobutton (border tá zuada)
-// Ajustar funcionalidade de sim ou nao
+// Ajustar problema de espaçamento entre o sim e o não
 // Espaço entre termos e aceite e os atendimentos
+// Exportar o componente pra ser único
 // Validacao dos campos
 // Enviar para o backend
