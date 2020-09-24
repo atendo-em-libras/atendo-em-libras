@@ -2,7 +2,17 @@ import React, { useState, useContext } from 'react'
 import styled from 'styled-components/macro'
 import { logoIcon } from '../../assets/icons'
 import { Heading } from '../../components/Typography/Heading'
-import { Box, Image, Form, Paragraph, Button, ResponsiveContext, RadioButton, RadioButtonGroup } from 'grommet'
+import {
+  Box,
+  Image,
+  Form,
+  Paragraph,
+  Button,
+  ResponsiveContext,
+  RadioButton,
+  RadioButtonGroup,
+  FormField as FormFieldGrommet,
+} from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 import {
   FormField,
@@ -35,6 +45,8 @@ const SectionBox = styled(Box)`
 `
 
 const FormBox = styled(Box)`
+  padding-top: 60px;
+  padding-bottom: 60px;
   background-color: #f7f8fa;
 
   ${respondTo.desktop`
@@ -139,9 +151,9 @@ const SignUp = () => {
     return (
       <Box>
         <HeadingSectionCustom>Atendimento Online</HeadingSectionCustom>
-        <FormField label="Atende por video chamada?" required>
+        <FormFieldGrommet label="Atende por video chamada?" required>
           <YesOrNo />
-        </FormField>
+        </FormFieldGrommet>
       </Box>
     )
   }
@@ -176,9 +188,9 @@ const SignUp = () => {
     return (
       <Box>
         <HeadingSectionCustom>Atendimento em Domicílio</HeadingSectionCustom>
-        <FormField label="Atende em Domicílio?" required>
+        <FormFieldGrommet label="Atende em Domicílio?" required>
           <YesOrNo />
-        </FormField>
+        </FormFieldGrommet>
       </Box>
     )
   }
@@ -234,9 +246,9 @@ const SignUp = () => {
     return (
       <Box>
         <HeadingSectionCustom>Atendimento em Clínica / Hospital</HeadingSectionCustom>
-        <FormField label="Atende em Clínica ou Hospital?" required>
+        <FormFieldGrommet label="Atende em Clínica ou Hospital?" required>
           <YesOrNo />
-        </FormField>
+        </FormFieldGrommet>
       </Box>
     )
   }
@@ -264,14 +276,14 @@ const SignUp = () => {
         atendoemlibras@gmail.com.
       </Paragraph>
 
-      <FormField margin={{ top: '20px' }}>
+      <FormFieldGrommet margin={{ top: '20px' }}>
         <RadioButton
           checked={checked}
           label="Li e aceito"
           name="termsAndConditions"
           onChange={(event) => setChecked(event.target.checked)}
         />
-      </FormField>
+      </FormFieldGrommet>
     </SectionBox>
   )
 
@@ -314,9 +326,8 @@ const SignUp = () => {
 export { SignUp }
 
 // TODO:
-// Ajustar a cor dos selects, existe duas bordas
-// Ajustar banner na head
 // Ajustar radiobutton (border tá zuada)
 // Ajustar funcionalidade de sim ou nao
+// Espaço entre termos e aceite e os atendimentos
 // Validacao dos campos
 // Enviar para o backend
