@@ -96,6 +96,7 @@ const ProviderCard = (props) => {
             <IconText src={addressIcon} alt="address icon" />
             {hospitalClinicAttendance.city && `${hospitalClinicAttendance.city} - `}
             {`${hospitalClinicAttendance.state}`}
+            {hospitalClinicAttendance.stateInitials && ` (${hospitalClinicAttendance.stateInitials})`}
           </SectionTitle>
         )}
         <Paragraph size="small">
