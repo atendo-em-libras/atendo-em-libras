@@ -2,17 +2,7 @@ import React, { useState, useContext } from 'react'
 import styled from 'styled-components/macro'
 import { logoIcon } from '../../assets/icons'
 import { Heading } from '../../components/Typography/Heading'
-import {
-  Box,
-  Image,
-  Form,
-  Paragraph,
-  Button,
-  ResponsiveContext,
-  RadioButton,
-  RadioButtonGroup,
-  FormField as FormFieldGrommet,
-} from 'grommet'
+import { Box, Image, Form, Paragraph, Button, ResponsiveContext, RadioButton } from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 import {
   FormField,
@@ -143,19 +133,17 @@ const SignUp = () => {
               setEnabledAttendance('Não')
             }}
           />
-          {enabledAttendance === 'Sim' && (
-            <SectionBox data-testid="online-attendance">
-              <Box direction="column">
-                <FormField name="whatsAppNumber" htmlFor="whatsAppNumber" label="Número do Whatsapp" margin="0 0 5px 0">
-                  <MobilePhoneMaskedInput name="whatsAppNumber" id="whatsAppNumber" />
-                </FormField>
-                <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
-                  <Select name="plataform" multiple options={['Zoom', 'Whatsapp']} id="plataform" />
-                </FormField>
-              </Box>
-            </SectionBox>
-          )}
         </FormField>
+        {enabledAttendance === 'Sim' && (
+          <Box direction="column" data-testid="online-attendance">
+            <FormField name="whatsAppNumber" htmlFor="whatsAppNumber" label="Número do Whatsapp" margin="0 0 5px 0">
+              <MobilePhoneMaskedInput name="whatsAppNumber" id="whatsAppNumber" />
+            </FormField>
+            <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
+              <Select name="plataform" multiple options={['Zoom', 'Whatsapp']} id="plataform" />
+            </FormField>
+          </Box>
+        )}
       </Box>
     )
   }
@@ -181,17 +169,17 @@ const SignUp = () => {
               setEnabledHouseholdAttendance('Não')
             }}
           />
-          {enabledHouseholdAttendance === 'Sim' && (
-            <SectionBox data-testid="household-attendance">
-              <FormField name="state" label="Estado">
-                <Select name="state" id="state" options={states} />
-              </FormField>
-              <FormField name="city" label="Cidade">
-                <Select name="city" id="city" options={cities} />
-              </FormField>
-            </SectionBox>
-          )}
         </FormField>
+        {enabledHouseholdAttendance === 'Sim' && (
+          <Box data-testid="household-attendance">
+            <FormField name="state" label="Estado">
+              <Select name="state" id="state" options={states} />
+            </FormField>
+            <FormField name="city" label="Cidade">
+              <Select name="city" id="city" options={cities} />
+            </FormField>
+          </Box>
+        )}
       </Box>
     )
   }
@@ -217,38 +205,38 @@ const SignUp = () => {
               setEnabledClinicAttendance('Não')
             }}
           />
-          {enabledClinicAttendance === 'Sim' && (
-            <SectionBox data-testid="hospitalclinic-attendance">
-              <FormField name="hospitalClinicName" label="Nome do local">
-                <TextInput name="hospitalClinicName" id="hospitalClinicName" />
-              </FormField>
-              <FormField name="cep" label="CEP">
-                <CepMaskedInput name="cep" id="cep" />
-              </FormField>
-              <FormField name="hospitalClinicState" label="Estado">
-                <Select name="hospitalClinicState" id="hospitalClinicState" options={states} />
-              </FormField>
-              <FormField name="hospitalClinicCity" label="Cidade">
-                <Select name="hospitalClinicCity" id="hospitalClinicCity" options={cities} />
-              </FormField>
-              <FormField name="streetName" label="Logradouro">
-                <TextInput name="streetName" id="streetName" />
-              </FormField>
-              <FormField name="streetNumber" label="Número">
-                <TextInput name="streetNumber" id="streetNumber" />
-              </FormField>
-              <FormField name="complementInfo" label="Complemento">
-                <TextInput name="complementInfo" id="complementInfo" />
-              </FormField>
-              <FormField name="hospitalClinicPhone" label="Telefone">
-                <PhoneMaskedInput name="hospitalClinicPhone" id="hospitalClinicPhone" />
-              </FormField>
-              <FormField name="hospitalClinicEmail" label="E-mail">
-                <EmailMaskedInput name="hospitalClinicEmail" id="hospitalClinicEmail" />
-              </FormField>
-            </SectionBox>
-          )}
         </FormField>
+        {enabledClinicAttendance === 'Sim' && (
+          <Box data-testid="hospitalclinic-attendance">
+            <FormField name="hospitalClinicName" label="Nome do local">
+              <TextInput name="hospitalClinicName" id="hospitalClinicName" />
+            </FormField>
+            <FormField name="cep" label="CEP">
+              <CepMaskedInput name="cep" id="cep" />
+            </FormField>
+            <FormField name="hospitalClinicState" label="Estado">
+              <Select name="hospitalClinicState" id="hospitalClinicState" options={states} />
+            </FormField>
+            <FormField name="hospitalClinicCity" label="Cidade">
+              <Select name="hospitalClinicCity" id="hospitalClinicCity" options={cities} />
+            </FormField>
+            <FormField name="streetName" label="Logradouro">
+              <TextInput name="streetName" id="streetName" />
+            </FormField>
+            <FormField name="streetNumber" label="Número">
+              <TextInput name="streetNumber" id="streetNumber" />
+            </FormField>
+            <FormField name="complementInfo" label="Complemento">
+              <TextInput name="complementInfo" id="complementInfo" />
+            </FormField>
+            <FormField name="hospitalClinicPhone" label="Telefone">
+              <PhoneMaskedInput name="hospitalClinicPhone" id="hospitalClinicPhone" />
+            </FormField>
+            <FormField name="hospitalClinicEmail" label="E-mail">
+              <EmailMaskedInput name="hospitalClinicEmail" id="hospitalClinicEmail" />
+            </FormField>
+          </Box>
+        )}
       </Box>
     )
   }
@@ -276,14 +264,14 @@ const SignUp = () => {
         atendoemlibras@gmail.com.
       </Paragraph>
 
-      <FormFieldGrommet margin={{ top: '20px' }}>
+      <FormField margin={{ top: '20px' }}>
         <RadioButton
           checked={checked}
           label="Li e aceito"
           name="termsAndConditions"
           onChange={(event) => setChecked(event.target.checked)}
         />
-      </FormFieldGrommet>
+      </FormField>
     </SectionBox>
   )
 
@@ -326,7 +314,6 @@ const SignUp = () => {
 export { SignUp }
 
 // TODO:
-// Ajustar radiobutton (border tá zuada)
 // Ajustar problema de espaçamento entre o sim e o não
 // Espaço entre termos e aceite e os atendimentos
 // Exportar o componente pra ser único

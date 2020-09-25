@@ -35,7 +35,8 @@ const FormField = (props) => {
     & label {
       margin-left: 0px;
     }
-    & div {
+
+    div:first-child {
       border-bottom: 0;
     }
 
