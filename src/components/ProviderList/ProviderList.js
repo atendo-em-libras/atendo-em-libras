@@ -5,17 +5,34 @@ import ProviderApi from '../../api/provider'
 import styled from 'styled-components'
 import { Box } from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
+import { ResponsiveGrid } from '../ResponsiveGrid'
 
+const columns = {
+  small: ['auto'],
+  medium: ['auto'],
+  large: ['auto', 'auto'],
+}
 const cardGap = '30px'
+
+const rows = {
+  small: ['auto'],
+  medium: ['auto'],
+  large: ['auto'],
+}
 
 const ColumnsContainer = styled.div`
   display: block;
-
   ${respondTo.desktop`
     columns: 2;
     column-gap: ${cardGap};
   `}
 `
+
+const fixedGridAreas = {
+  small: [{ name: 'card', start: [0, 0], end: [0, 0] }],
+  medium: [{ name: 'card', start: [0, 0], end: [0, 0] }],
+  large: [{ name: 'card', start: [0, 0], end: [1, 0] }],
+}
 
 const Column = styled(Box)`
   break-inside: avoid;
@@ -53,17 +70,11 @@ class ProviderList extends Component {
     }
 
     return providers && providers.length > 0 ? (
-      <ColumnsContainer>
+      <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas} justify="center" gapRow="50px" gapCol="50px">
         {providers.map((provider) => {
-          return (
-            <Column key={provider.id}>
-              <Box margin={{ bottom: cardGap }}>
-                <ProviderCard provider={provider} />
-              </Box>
-            </Column>
-          )
+          return <ProviderCard provider={provider} gridArea="card" provider={provider} />
         })}
-      </ColumnsContainer>
+      </ResponsiveGrid>
     ) : (
       <ErrorCard onClick={this.handleClick} />
     )
