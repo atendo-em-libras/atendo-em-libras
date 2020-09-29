@@ -10,22 +10,26 @@ const AttendancePanel = (props) => {
     <Box>
       <HeadingSectionCustom>{header}</HeadingSectionCustom>
       <FormField label={label} required>
-        <RadioButton
-          label="Sim"
-          checked={enabledAttendance === 'Sim'}
-          name={`${name}-yes`}
-          onChange={() => {
-            setEnabledAttendance('Sim')
-          }}
-        />
-        <RadioButton
-          label="Não"
-          checked={enabledAttendance === 'Não'}
-          name={`${name}-no`}
-          onChange={(event) => {
-            setEnabledAttendance('Não')
-          }}
-        />
+        <Box margin={{ top: 'small' }}>
+          <RadioButton
+            label="Sim"
+            checked={enabledAttendance === 'Sim'}
+            name={`${name}-yes`}
+            onChange={() => {
+              setEnabledAttendance('Sim')
+            }}
+          />
+        </Box>
+        <Box margin={{ top: 'small' }}>
+          <RadioButton
+            label="Não"
+            checked={enabledAttendance === 'Não'}
+            name={`${name}-no`}
+            onChange={(event) => {
+              setEnabledAttendance('Não')
+            }}
+          />
+        </Box>
       </FormField>
       {enabledAttendance === 'Sim' && component}
     </Box>

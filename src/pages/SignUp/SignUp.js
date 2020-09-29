@@ -190,7 +190,7 @@ const SignUp = () => {
   }
 
   const TermsAndConditions = () => (
-    <SectionBox>
+    <Box>
       <HeadingSectionCustom>Termo de aceite</HeadingSectionCustom>
 
       <Paragraph size="small" fill>
@@ -210,7 +210,7 @@ const SignUp = () => {
           onChange={(event) => setChecked(event.target.checked)}
         />
       </FormField>
-    </SectionBox>
+    </Box>
   )
 
   const PageTitle = () => (
@@ -252,8 +252,6 @@ const SignUp = () => {
 export { SignUp }
 
 // TODO:
-// Ajustar problema de espaçamento entre o sim e o não
-// Espaço entre termos e aceite e os atendimentos
 // Validacao dos campos
 // Enviar para o backend
 // Criar testes para o componente AttendencePanel
