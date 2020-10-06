@@ -12,7 +12,8 @@
           "city": "Uberlândia",
           "state": "Minas Gerais",
           "streetName": "R. Bernardo Cupertino",
-          "stateInitials": "MG"
+          "stateInitials": "MG",
+          "streetNumber": "20"
         },
         "householdAttendance": null
       },

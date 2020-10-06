@@ -198,6 +198,7 @@ const ProviderCard = (props) => {
               <>
                 <Box gridArea="first" className="providerCardColumn">
                   <DetailsInfo />
+                  <Attendance />
                 </Box>
                 <Box gridArea="second" className="providerCardColumn">
                   <ContactInfo />

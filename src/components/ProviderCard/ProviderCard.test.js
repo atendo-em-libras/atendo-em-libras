@@ -56,27 +56,6 @@ describe('ProviderCard tests', () => {
     expect(screen.getByText(provider.attendance.onlineAttendance.platforms)).toBeInTheDocument()
   })
 
-  it('Component should render city and state', () => {
-    console.log(screen)
-    expect(
-      screen.getByText(
-        `${provider.attendance.hospitalClinicAttendance.city} - ${provider.attendance.hospitalClinicAttendance.state} (${provider.attendance.hospitalClinicAttendance.stateInitials})`
-      )
-    ).toBeInTheDocument()
-  })
-
-  it('Component should render only state when city is not informed', () => {
-    provider.attendance.hospitalClinicAttendance.city = ''
-
-    view.rerender(<ProviderCard provider={provider} />)
-
-    expect(screen.getByText(`${provider.attendance.hospitalClinicAttendance.state}`)).toBeInTheDocument()
-  })
-
-  it('Component should render address', () => {
-    expect(screen.getByText(provider.attendance.hospitalClinicAttendance.streetName)).toBeInTheDocument()
-  })
-
   it('Component should render video call avallability', () => {
     view.rerender(
       <ProviderCard provider={{ ...provider, attendance: { ...provider.attendance, onlineAttendance: {} } }} />
@@ -96,6 +75,71 @@ describe('ProviderCard tests', () => {
   it('Component should render correctly', () => {
     const { container } = view
     expect(container).toMatchSnapshot()
+  })
+
+  describe('Information of Attendance location', () => {
+    it('Should render the location of hospital clinic when provider has hospital clinic attendance and doesnt have household attendance', () => {
+      const localProvider = { attendance: { ...provider.attendance } }
+      localProvider.attendance.householdAttendance = {}
+
+      view.rerender(<ProviderCard provider={localProvider} />)
+
+      const hospitalClinicAttendance = localProvider.attendance.hospitalClinicAttendance
+
+      expect(
+        screen.getByText(
+          `${hospitalClinicAttendance.city} - ${hospitalClinicAttendance.state} (${hospitalClinicAttendance.stateInitials})`
+        )
+      ).toBeInTheDocument()
+
+      expect(
+        screen.getByText(`${hospitalClinicAttendance.streetName}, n° ${hospitalClinicAttendance.streetNumber}`)
+      ).toBeInTheDocument()
+    })
+
+    it('Should render the location of hospital clinic when provider has hospital clinic attendance and household attendance', () => {
+      const localProvider = { attendance: { ...provider.attendance } }
+      localProvider.attendance.householdAttendance = {
+        city: 'Balneário Camboriú',
+        state: 'Santa Catarina',
+        stateInitials: 'SC',
+      }
+
+      view.rerender(<ProviderCard provider={localProvider} />)
+
+      const hospitalClinicAttendance = localProvider.attendance.hospitalClinicAttendance
+
+      expect(
+        screen.getByText(
+          `${hospitalClinicAttendance.city} - ${hospitalClinicAttendance.state} (${hospitalClinicAttendance.stateInitials})`
+        )
+      ).toBeInTheDocument()
+
+      expect(
+        screen.getByText(`${hospitalClinicAttendance.streetName}, n° ${hospitalClinicAttendance.streetNumber}`)
+      ).toBeInTheDocument()
+    })
+
+    it('Should render the location of household when provider has household attendance and doesnt have hospital clinic attendance', () => {
+      const localProvider = { attendance: { ...provider.attendance } }
+      localProvider.attendance.hospitalClinicAttendance = {}
+
+      localProvider.attendance.householdAttendance = {
+        city: 'Balneário Camboriú',
+        state: 'Santa Catarina',
+        stateInitials: 'SC',
+      }
+
+      view.rerender(<ProviderCard provider={localProvider} />)
+
+      const householdAttendance = localProvider.attendance.householdAttendance
+
+      expect(
+        screen.getByText(
+          `${householdAttendance.city} - ${householdAttendance.state} (${householdAttendance.stateInitials})`
+        )
+      ).toBeInTheDocument()
+    })
   })
 
   describe('when mobile', () => {
