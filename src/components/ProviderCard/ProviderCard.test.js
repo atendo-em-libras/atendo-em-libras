@@ -57,9 +57,10 @@ describe('ProviderCard tests', () => {
   })
 
   it('Component should render city and state', () => {
+    console.log(screen)
     expect(
       screen.getByText(
-        `${provider.attendance.hospitalClinicAttendance.city} - ${provider.attendance.hospitalClinicAttendance.state}`
+        `${provider.attendance.hospitalClinicAttendance.city} - ${provider.attendance.hospitalClinicAttendance.state} (${provider.attendance.hospitalClinicAttendance.stateInitials})`
       )
     ).toBeInTheDocument()
   })

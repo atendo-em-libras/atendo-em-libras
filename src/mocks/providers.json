@@ -10,8 +10,9 @@
         "onlineAttendance": null,
         "hospitalClinicAttendance": {
           "city": "Uberlândia",
-          "state": "Minas Gerais (MG)",
-          "streetName": "R. Bernardo Cupertino, 423 - B. Martins"
+          "state": "Minas Gerais",
+          "streetName": "R. Bernardo Cupertino",
+          "stateInitials": "MG"
         },
         "householdAttendance": null
       },

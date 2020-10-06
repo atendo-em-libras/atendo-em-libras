@@ -71,7 +71,7 @@ const ProviderCard = (props) => {
     healthInsurance,
   } = props.provider
 
-  const { onlineAttendance, hospitalClinicAttendance } = attendance ?? false
+  const { onlineAttendance, hospitalClinicAttendance, householdAttendance } = attendance ?? false
   const ProviderVideoCallAvailabilityLabel = () => (
     <ProviderVideoCallAvailabilityContainer>
       <ProviderVideoCallAvailability role="note">
@@ -79,6 +79,37 @@ const ProviderCard = (props) => {
         Atende Online
       </ProviderVideoCallAvailability>
     </ProviderVideoCallAvailabilityContainer>
+  )
+
+  const Attendance = () => (
+    <>
+      {hospitalClinicAttendance?.state && (
+        <SectionBlock>
+          <SectionTitle>
+            <IconText src={addressIcon} alt="address icon" />
+            {hospitalClinicAttendance.city && `${hospitalClinicAttendance.city} - `}
+            {`${hospitalClinicAttendance.state}`}
+            {hospitalClinicAttendance.stateInitials && ` (${hospitalClinicAttendance.stateInitials})`}
+          </SectionTitle>
+
+          <Paragraph size="small">
+            {hospitalClinicAttendance?.streetName}
+            {hospitalClinicAttendance?.streetNumber && `, n° ${hospitalClinicAttendance.streetNumber}`}
+          </Paragraph>
+        </SectionBlock>
+      )}
+
+      {householdAttendance?.state && !hospitalClinicAttendance?.state && (
+        <SectionBlock>
+          <SectionTitle>
+            <IconText src={addressIcon} alt="address icon" />
+            {householdAttendance.city && `${householdAttendance.city} - `}
+            {`${householdAttendance.state}`}
+            {householdAttendance.stateInitials && ` (${householdAttendance.stateInitials})`}
+          </SectionTitle>{' '}
+        </SectionBlock>
+      )}
+    </>
   )
 
   const DetailsInfo = () => (
@@ -89,23 +120,7 @@ const ProviderCard = (props) => {
         <p className="title">REGISTRO</p>
         {registerNumber ? <p className="number">{registerNumber}</p> : <p className="number">-</p>}
       </License>
-      {biography && <ExerienceText size="small">{biography}</ExerienceText>}
-      <SectionBlock>
-        {hospitalClinicAttendance && hospitalClinicAttendance.state && (
-          <SectionTitle>
-            <IconText src={addressIcon} alt="address icon" />
-            {hospitalClinicAttendance.city && `${hospitalClinicAttendance.city} - `}
-            {`${hospitalClinicAttendance.state}`}
-            {hospitalClinicAttendance.stateInitials && ` (${hospitalClinicAttendance.stateInitials})`}
-          </SectionTitle>
-        )}
-        <Paragraph size="small">
-          {hospitalClinicAttendance && hospitalClinicAttendance.streetName}
-          {hospitalClinicAttendance &&
-            hospitalClinicAttendance.streetNumber &&
-            `, n° ${hospitalClinicAttendance.streetNumber}`}
-        </Paragraph>
-      </SectionBlock>
+      {biography && <ExerienceText size="small">{biography}</ExerienceText>}{' '}
     </>
   )
 
@@ -163,6 +178,7 @@ const ProviderCard = (props) => {
             responsive === 'small' ? (
               <Box gridArea="first" className="providerCardColumn">
                 <DetailsInfo />
+                <Attendance />
                 <ContactInfo />
                 <Collapsible open={open} {...props}>
                   <MoreInfoBox />

@@ -45,7 +45,7 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
   flex-direction: column;
 }
 
-.c16 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -71,7 +71,7 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
   grid-template-rows: auto auto;
 }
 
-.c15 {
+.c16 {
   font-size: 14px;
   line-height: 20px;
   max-width: 336px;
@@ -128,20 +128,20 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
   font-size: 1.8em;
 }
 
-.c13 {
+.c14 {
   border-bottom: #f5f5f5 1.5px solid;
   padding-bottom: 2em;
   margin-bottom: 2em;
   font-size: 1.4em;
 }
 
-.c13:last-child {
+.c14:last-child {
   border-bottom: none;
   padding-bottom: 0;
   margin-bottom: 0;
 }
 
-.c14 {
+.c15 {
   font-weight: 600;
   color: #0f1423;
 }
@@ -219,7 +219,7 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
 }
 
 @media (max-width:800px) {
-  .c13 {
+  .c14 {
     border-top: rgba(15,20,35,0.2) 1.4px dashed;
     padding-top: 1em;
     margin-top: 2em;
@@ -300,35 +300,16 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
         >
           Fisioterapeuta - Traumato Ortopedia
         </p>
-        <div
-          class="c13"
-        >
-          <p
-            class="c14"
-          >
-            <img
-              alt="address icon"
-              class="c6"
-              src="ic_pin.svg"
-            />
-            
-            Minas Gerais (MG)
-          </p>
-          <p
-            class="c15"
-          >
-            R. Bernardo Cupertino, 423 - B. Martins
-          </p>
-        </div>
+         
       </div>
       <div
-        class="c16 providerCardColumn"
+        class="c13 providerCardColumn"
       >
         <div
-          class="c13"
+          class="c14"
         >
           <p
-            class="c14"
+            class="c15"
           >
             Contato
           </p>
@@ -344,7 +325,7 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
             </span>
           </p>
           <p
-            class="c15"
+            class="c16"
           >
             <img
               alt="e-mail icon"
@@ -358,10 +339,10 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
           </p>
         </div>
         <div
-          class="c13"
+          class="c14"
         >
           <p
-            class="c14"
+            class="c15"
           >
             Atendimento online
           </p>
@@ -377,10 +358,10 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
           </p>
         </div>
         <div
-          class="c13"
+          class="c14"
         >
           <p
-            class="c14"
+            class="c15"
           >
             Planos de saúde
           </p>
@@ -783,6 +764,7 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
         >
           Fisioterapeuta - Traumato Ortopedia
         </p>
+         
         <div
           class="c13"
         >
@@ -795,12 +777,13 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
               src="ic_pin.svg"
             />
             
-            Minas Gerais (MG)
+            Minas Gerais
+             (MG)
           </p>
           <p
             class="c15"
           >
-            R. Bernardo Cupertino, 423 - B. Martins
+            R. Bernardo Cupertino
           </p>
         </div>
         <div
