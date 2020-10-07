@@ -71,8 +71,8 @@ class ProviderList extends Component {
 
     return providers && providers.length > 0 ? (
       <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas} justify="center" gapRow="50px" gapCol="50px">
-        {providers.map((provider) => {
-          return <ProviderCard provider={provider} gridArea="card" provider={provider} />
+        {providers.map((provider, index) => {
+          return <ProviderCard key={index} provider={provider} gridArea="card" provider={provider} />
         })}
       </ResponsiveGrid>
     ) : (

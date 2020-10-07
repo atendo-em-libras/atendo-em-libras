@@ -5,4 +5,9 @@ const Api = {
   },
 }
 
-export default Api
+const Cep = {
+  url: 'https://viacep.com.br/ws',
+  returnType: 'json/',
+}
+
+export { Api, Cep }
