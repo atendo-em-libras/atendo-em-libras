@@ -2,7 +2,7 @@ import axios from 'axios'
 import ProviderApi from './provider'
 import spreadSheet from './spreadSheet'
 import { toggles } from '../constants/featureToggles'
-import Api from '../constants/api'
+import { Api } from '../constants/api'
 
 jest.mock('axios')
 jest.mock('./spreadSheet')

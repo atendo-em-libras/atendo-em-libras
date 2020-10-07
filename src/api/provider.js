@@ -1,7 +1,7 @@
 import spreadSheet from './spreadSheet'
 import { toggles } from '../constants/featureToggles'
 import Axios from 'axios'
-import Api from '../constants/api'
+import { Api } from '../constants/api'
 
 const ProviderApi = {
   get: async () => {
