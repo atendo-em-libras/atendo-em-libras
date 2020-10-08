@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components/macro'
 import {
   Box,
@@ -8,6 +8,7 @@ import {
   FormField as FormFieldGrommet,
   Heading,
 } from 'grommet'
+import './index.css'
 
 const TextInput = (props) => <TextInputGrommet {...props} size="medium" />
 
@@ -31,28 +32,6 @@ const FormField = (props) => {
     opacity: 0.7;
   `
 
-  const FormFieldGrommetStyled = styled(FormFieldGrommet)`
-    & label {
-      margin-left: 0px;
-    }
-
-    div:first-child {
-      border-bottom: 0;
-    }
-
-    & span {
-      font-size: 14px;
-      margin-left: 0px;
-    }
-
-    & button,
-    & input {
-      border-color: #707070;
-      background-color: white;
-      border-radius: 8px;
-    }
-  `
-
   const { label, margin, ...formFieldProps } = props
 
   return (
@@ -60,7 +39,9 @@ const FormField = (props) => {
       <Label htmlFor={props.htmlFor}>
         {label} {props.required && <Span>Obrigatório</Span>}
       </Label>
-      <FormFieldGrommetStyled {...formFieldProps}>{props.children}</FormFieldGrommetStyled>
+      <FormFieldGrommet className="form-field" {...formFieldProps}>
+        {props.children}
+      </FormFieldGrommet>
     </Box>
   )
 }
