@@ -14,6 +14,7 @@ import {
   TextInput,
   HeadingSectionCustom,
 } from '../../components/Form/FormComponents'
+import HospitalClinicAttendanceComponent from './HospitalClinicAttendance'
 import logoLarge from '../../assets/images/pages/singup/signup-logo.svg'
 import { cities } from './cities'
 import { states } from './states'
@@ -121,37 +122,37 @@ const SignUp = () => {
     </Box>
   )
 
-  const HospitalClinicAttendanceComponent = () => (
-    <Box data-testid="hospitalclinic-attendance">
-      <FormField name="hospitalClinicName" label="Nome do local">
-        <TextInput name="hospitalClinicName" id="hospitalClinicName" />
-      </FormField>
-      <FormField name="cep" label="CEP">
-        <CepMaskedInput name="cep" id="cep" />
-      </FormField>
-      <FormField name="hospitalClinicState" label="Estado">
-        <Select name="hospitalClinicState" id="hospitalClinicState" options={states} />
-      </FormField>
-      <FormField name="hospitalClinicCity" label="Cidade">
-        <Select name="hospitalClinicCity" id="hospitalClinicCity" options={cities} />
-      </FormField>
-      <FormField name="streetName" label="Logradouro">
-        <TextInput name="streetName" id="streetName" />
-      </FormField>
-      <FormField name="streetNumber" label="Número">
-        <TextInput name="streetNumber" id="streetNumber" />
-      </FormField>
-      <FormField name="complementInfo" label="Complemento">
-        <TextInput name="complementInfo" id="complementInfo" />
-      </FormField>
-      <FormField name="hospitalClinicPhone" label="Telefone">
-        <PhoneMaskedInput name="hospitalClinicPhone" id="hospitalClinicPhone" />
-      </FormField>
-      <FormField name="hospitalClinicEmail" label="E-mail">
-        <EmailMaskedInput name="hospitalClinicEmail" id="hospitalClinicEmail" />
-      </FormField>
-    </Box>
-  )
+  // const HospitalClinicAttendanceComponent = () => (
+  //   <Box data-testid="hospitalclinic-attendance">
+  //     <FormField name="hospitalClinicName" label="Nome do local">
+  //       <TextInput name="hospitalClinicName" id="hospitalClinicName" />
+  //     </FormField>
+  //     <FormField name="cep" label="CEP">
+  //       <CepMaskedInput name="cep" id="cep" />
+  //     </FormField>
+  //     <FormField name="hospitalClinicState" label="Estado">
+  //       <Select name="hospitalClinicState" id="hospitalClinicState" options={states} />
+  //     </FormField>
+  //     <FormField name="hospitalClinicCity" label="Cidade">
+  //       <Select name="hospitalClinicCity" id="hospitalClinicCity" options={cities} />
+  //     </FormField>
+  //     <FormField name="streetName" label="Logradouro">
+  //       <TextInput name="streetName" id="streetName" />
+  //     </FormField>
+  //     <FormField name="streetNumber" label="Número">
+  //       <TextInput name="streetNumber" id="streetNumber" />
+  //     </FormField>
+  //     <FormField name="complementInfo" label="Complemento">
+  //       <TextInput name="complementInfo" id="complementInfo" />
+  //     </FormField>
+  //     <FormField name="hospitalClinicPhone" label="Telefone">
+  //       <PhoneMaskedInput name="hospitalClinicPhone" id="hospitalClinicPhone" />
+  //     </FormField>
+  //     <FormField name="hospitalClinicEmail" label="E-mail">
+  //       <EmailMaskedInput name="hospitalClinicEmail" id="hospitalClinicEmail" />
+  //     </FormField>
+  //   </Box>
+  // )
 
   const HouseholdAttendanceComponent = () => (
     <Box data-testid="household-attendance">
