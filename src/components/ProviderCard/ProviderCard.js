@@ -83,13 +83,12 @@ const ProviderCard = (props) => {
 
   const Attendance = () => (
     <>
-      {hospitalClinicAttendance?.state && (
+      {hospitalClinicAttendance?.stateInitials && (
         <SectionBlock>
           <SectionTitle>
             <IconText src={addressIcon} alt="address icon" />
             {hospitalClinicAttendance.city && `${hospitalClinicAttendance.city} - `}
-            {`${hospitalClinicAttendance.state}`}
-            {hospitalClinicAttendance.stateInitials && ` (${hospitalClinicAttendance.stateInitials})`}
+            {hospitalClinicAttendance.stateInitials && ` ${hospitalClinicAttendance.stateInitials}`}
           </SectionTitle>
 
           <Paragraph size="small">
@@ -99,14 +98,13 @@ const ProviderCard = (props) => {
         </SectionBlock>
       )}
 
-      {householdAttendance?.state && !hospitalClinicAttendance?.state && (
+      {householdAttendance?.stateInitials && !hospitalClinicAttendance?.stateInitials && (
         <SectionBlock>
           <SectionTitle>
             <IconText src={addressIcon} alt="address icon" />
             {householdAttendance.city && `${householdAttendance.city} - `}
-            {`${householdAttendance.state}`}
-            {householdAttendance.stateInitials && ` (${householdAttendance.stateInitials})`}
-          </SectionTitle>{' '}
+            {householdAttendance.stateInitials && ` ${householdAttendance.stateInitials}`}
+          </SectionTitle>
         </SectionBlock>
       )}
     </>

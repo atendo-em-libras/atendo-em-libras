@@ -87,9 +87,7 @@ describe('ProviderCard tests', () => {
       const hospitalClinicAttendance = localProvider.attendance.hospitalClinicAttendance
 
       expect(
-        screen.getByText(
-          `${hospitalClinicAttendance.city} - ${hospitalClinicAttendance.state} (${hospitalClinicAttendance.stateInitials})`
-        )
+        screen.getByText(`${hospitalClinicAttendance.city} - ${hospitalClinicAttendance.stateInitials}`)
       ).toBeInTheDocument()
 
       expect(
@@ -101,7 +99,6 @@ describe('ProviderCard tests', () => {
       const localProvider = { attendance: { ...provider.attendance } }
       localProvider.attendance.householdAttendance = {
         city: 'Balneário Camboriú',
-        state: 'Santa Catarina',
         stateInitials: 'SC',
       }
 
@@ -110,9 +107,7 @@ describe('ProviderCard tests', () => {
       const hospitalClinicAttendance = localProvider.attendance.hospitalClinicAttendance
 
       expect(
-        screen.getByText(
-          `${hospitalClinicAttendance.city} - ${hospitalClinicAttendance.state} (${hospitalClinicAttendance.stateInitials})`
-        )
+        screen.getByText(`${hospitalClinicAttendance.city} - ${hospitalClinicAttendance.stateInitials}`)
       ).toBeInTheDocument()
 
       expect(
@@ -126,7 +121,6 @@ describe('ProviderCard tests', () => {
 
       localProvider.attendance.householdAttendance = {
         city: 'Balneário Camboriú',
-        state: 'Santa Catarina',
         stateInitials: 'SC',
       }
 
@@ -134,11 +128,7 @@ describe('ProviderCard tests', () => {
 
       const householdAttendance = localProvider.attendance.householdAttendance
 
-      expect(
-        screen.getByText(
-          `${householdAttendance.city} - ${householdAttendance.state} (${householdAttendance.stateInitials})`
-        )
-      ).toBeInTheDocument()
+      expect(screen.getByText(`${householdAttendance.city} - ${householdAttendance.stateInitials}`)).toBeInTheDocument()
     })
   })
 
