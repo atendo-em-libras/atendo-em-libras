@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { logoIcon } from '../../assets/icons'
 import { Heading } from '../../components/Typography/Heading'
@@ -15,10 +15,8 @@ import {
   HeadingSectionCustom,
 } from '../../components/Form/FormComponents'
 import logoLarge from '../../assets/images/pages/singup/signup-logo.svg'
-import { cities } from './cities'
-import { states } from './states'
 import { AttendancePanel } from './AttendancePanel'
-import CepApi from '../../api/cep/api'
+import LocationApi from '../../api/location'
 
 const Square = styled(Box)`
   box-shadow: 0px 10px 32px #00000029;
@@ -137,7 +135,7 @@ const SignUp = () => {
     }
 
     const getLocation = async (event) => {
-      const location = await CepApi.get(event.target.value)
+      const location = await LocationApi.getByCep(event.target.value)
       setCity(location.localidade)
       setState(location.uf)
       setLoading(false)
@@ -176,16 +174,56 @@ const SignUp = () => {
     )
   }
 
-  const HouseholdAttendanceComponent = () => (
-    <Box data-testid="household-attendance">
-      <FormField name="state" label="Estado">
-        <Select name="state" id="state" options={states} />
-      </FormField>
-      <FormField name="city" label="Cidade">
-        <Select name="city" id="city" options={cities} />
-      </FormField>
-    </Box>
-  )
+  const HouseholdAttendanceComponent = () => {
+    const [loading, setLoading] = useState(false)
+    const [state, setState] = useState('')
+    const [cities, setCities] = useState([])
+    const [states, setStates] = useState([])
+
+    useEffect(() => {
+      const getUfs = async () => {
+        setLoading(true)
+        const ufs = await LocationApi.getUf()
+        setStates(ufs)
+        setLoading(false)
+      }
+      getUfs()
+    }, [])
+
+    const handleOnSelectState = (event) => {
+      event.preventDefault()
+      setState(event.option)
+    }
+
+    useEffect(() => {
+      const getCitiesByUf = async () => {
+        setLoading(true)
+        const cities = await LocationApi.getCitiesByUF(state)
+        setCities(cities)
+        setLoading(false)
+      }
+
+      getCitiesByUf()
+    }, [state])
+
+    return (
+      <Box data-testid="household-attendance">
+        <FormField name="state" label="Estado">
+          <Select
+            name="state"
+            id="state"
+            options={states}
+            value={state}
+            onChange={handleOnSelectState}
+            disabled={loading}
+          />
+        </FormField>
+        <FormField name="city" label="Cidade">
+          <Select name="city" id="city" options={cities} disabled={loading || !state} />
+        </FormField>
+      </Box>
+    )
+  }
 
   const Attendances = () => {
     return (
@@ -252,12 +290,7 @@ const SignUp = () => {
           <PageTitle />
         </Box>
 
-        <Form
-          onSubmit={({ value }) => {
-            console.log(value)
-          }}
-          messages={{ required: 'Campo obrigatório' }}
-        >
+        <Form onSubmit={({ value }) => {}} messages={{ required: 'Campo obrigatório' }}>
           <PersonalInfo />
           <ProfessionalInfo />
           <Attendances />

@@ -10,4 +10,11 @@ const Cep = {
   returnType: 'json/',
 }
 
-export { Api, Cep }
+const IbgeService = {
+  url: 'https://servicodados.ibge.gov.br/api/v1/localidades/estados',
+  paths: {
+    providers: '/municipios',
+  },
+}
+
+export { Api, Cep, IbgeService }
