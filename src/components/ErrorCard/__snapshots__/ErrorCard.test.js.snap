@@ -19,7 +19,7 @@ exports[`ErrorCard tests Render correctly 1`] = `
   flex-direction: column;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -41,7 +41,7 @@ exports[`ErrorCard tests Render correctly 1`] = `
   justify-content: center;
 }
 
-.c9 {
+.c11 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -51,7 +51,7 @@ exports[`ErrorCard tests Render correctly 1`] = `
   width: 12px;
 }
 
-.c5 {
+.c6 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -79,33 +79,41 @@ exports[`ErrorCard tests Render correctly 1`] = `
   transition-timing-function: ease-in-out;
 }
 
-.c5:hover {
+.c6:hover {
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
-.c3 {
+.c6:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c6:focus > circle,
+.c6:focus > ellipse,
+.c6:focus > line,
+.c6:focus > path,
+.c6:focus > polygon,
+.c6:focus > polyline,
+.c6:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c6:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c4 {
   font-size: 22px;
   line-height: 28px;
   max-width: 528px;
 }
 
-.c4 {
+.c5 {
   margin-bottom: 24px;
   font-size: 22px;
   line-height: 28px;
   max-width: 528px;
-}
-
-.c6 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  border-radius: 17px;
-}
-
-.c8 {
-  vertical-align: middle;
-  margin-right: 5px;
-  margin-right: 8px;
 }
 
 .c1 {
@@ -122,10 +130,6 @@ exports[`ErrorCard tests Render correctly 1`] = `
   padding: 2em;
   line-height: 3em;
   word-break: break-word;
-  width: 607px;
-  text-align: center;
-  vertical-align: center;
-  padding-bottom: 54px;
 }
 
 .c1 .providerCardColumn:last-child {
@@ -133,7 +137,29 @@ exports[`ErrorCard tests Render correctly 1`] = `
   margin-right: none;
 }
 
+.c9 {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.c7 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 17px;
+}
+
+.c10 {
+  margin-right: 8px;
+}
+
 .c2 {
+  width: 607px;
+  text-align: center;
+  vertical-align: center;
+  padding-bottom: 54px;
+}
+
+.c3 {
   object-fit: cover;
   width: 100%;
 }
@@ -155,20 +181,20 @@ exports[`ErrorCard tests Render correctly 1`] = `
     role="error"
   >
     <div
-      class="c0 Card-hurxuz-0 c1"
+      class="c0 c1 c2"
     >
       <img
         alt="Computer screen with a warning icon"
-        class="c2"
+        class="c3"
         src="ic_error.svg"
       />
       <p
-        class="c3"
+        class="c4"
       >
         Ops, tivemos um problema e infelizmente não conseguimos carregar a lista.
       </p>
       <p
-        class="c4"
+        class="c5"
       >
         <strong>
           Tente novamente.
@@ -176,20 +202,20 @@ exports[`ErrorCard tests Render correctly 1`] = `
       </p>
       <button
         aria-label="reload"
-        class="c5 c6"
+        class="c6 c7"
         type="button"
       >
         <div
-          class="c7"
+          class="c8"
         >
           <img
             alt="refreshIcon"
-            class="IconText-sc-1u6m2iw-0 c8"
+            class="c9 c10"
             color="#f8f8f8"
             src="ic_refresh.svg"
           />
           <div
-            class="c9"
+            class="c11"
           />
           Recarregar página
         </div>
