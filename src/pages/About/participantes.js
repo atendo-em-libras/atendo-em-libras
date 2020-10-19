@@ -17,6 +17,7 @@ import FotoSophia from '../../assets/images/participantes/sophia.png'
 import FotoThomaz from '../../assets/images/participantes/thomaz.png'
 import FotoMatheus from '../../assets/images/participantes/matheus.png'
 import FotoRamon from '../../assets/images/participantes/ramon.jpg'
+import FotoJoao from '../../assets/images/participantes/joao.jpg'
 
 const participantes = [
   { nome: 'Andressa Silva', role: 'Desenvolvedora', avatar: FotoAndressa },
@@ -38,6 +39,7 @@ const participantes = [
   { nome: 'Thomaz Zandonotto', role: 'Desenvolvedor', avatar: FotoThomaz },
   { nome: 'Matheus Viana', role: 'Quality Analyst', avatar: FotoMatheus },
   { nome: 'Ramon Costa', role: 'Desenvolvedor', avatar: FotoRamon },
+  { nome: 'João Miranda', role: 'Business Analyst', avatar: FotoJoao },
 ]
 
 export { participantes }
