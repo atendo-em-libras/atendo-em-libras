@@ -225,13 +225,13 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="Home__HomeWrapper-b5m6jg-0 jLAomz"
+      class="Home__HomeWrapper-b5m6jg-0 gJfiEg"
     >
       <div
-        class="StyledBox-sc-13pk1d4-0 bNoYcm sc-bdnylx ewuAuy"
+        class="StyledBox-sc-13pk1d4-0 esButh sc-AxjAm hCRKDb"
       >
         <div
-          class="HomeBanner__StyledHomeBanner-sc-1mh502r-0 bjhXZH"
+          class="HomeBanner__StyledHomeBanner-sc-1mh502r-0 dfBkTw"
         >
           <img
             alt="Ilustração projeto Atendo em Libras"
@@ -246,7 +246,7 @@ Object {
         </div>
       </div>
       <div
-        class="HomeCallOut__StyledHomeCallOut-sc-8y0p5g-0 MHOA-D"
+        class="HomeCallOut__StyledHomeCallOut-sc-8y0p5g-0 inrJok"
       >
         <h2>
           Profissionais de diversas áreas da saúde prontos para te atender
@@ -254,7 +254,7 @@ Object {
       </div>
     </div>
     <div
-      class="StyledBox-sc-13pk1d4-0 bNoYcm sc-bdnylx ewuAuy"
+      class="StyledBox-sc-13pk1d4-0 esButh sc-AxjAm hCRKDb"
     >
       <div
         data-testid="emptyList"
