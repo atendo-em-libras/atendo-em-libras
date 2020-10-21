@@ -48,9 +48,6 @@ const FormBox = styled(Box)`
 `
 
 const SignUp = () => {
-  const [checked, setChecked] = useState(false)
-  const [value, setValue] = useState({})
-
   const screenSize = useContext(ResponsiveContext)
 
   const PersonalInfo = () => (
@@ -75,13 +72,10 @@ const SignUp = () => {
         name="whatsappNumber"
         htmlFor="whatsappNumber"
         label="Número de WhatsApp"
-        help="O número será usado para contato principal e para combinar atendimentos"
+        subtext="O número será usado para contato principal e para combinar atendimentos"
         required
       >
         <MobilePhoneMaskedInput name="whatsappNumber" id="whatsappNumber" />
-      </FormField>
-      <FormField name="phone" htmlFor="phone" label="Telefone" required>
-        <MobilePhoneMaskedInput name="phone" id="phone" />
       </FormField>
     </SectionBox>
   )
@@ -89,7 +83,7 @@ const SignUp = () => {
   const ProfessionalInfo = () => (
     <SectionBox>
       <HeadingSectionCustom>Informações profissionais</HeadingSectionCustom>
-      <FormField name="category" htmlFor="category__input" label="Categoria">
+      <FormField name="category" htmlFor="category__input" label="Categoria" required>
         <Select
           name="category"
           options={[
@@ -108,7 +102,7 @@ const SignUp = () => {
       <FormField name="expertise" htmlFor="expertise" label="Especialidade">
         <TextInput name="expertise" id="expertise" placeholder="Pediatra, Cardiologista, Traumatologista" />
       </FormField>
-      <FormField name="register_number" htmlFor="register_number" label="Número de cadastro profissional">
+      <FormField name="register_number" htmlFor="register_number" label="Número de cadastro profissional" required>
         <TextInput name="register_number" id="register_number" placeholder="Exemplo: CRM, CRP" />
       </FormField>
       <FormField name="presentation" htmlFor="presentation" label="Apresentação">
@@ -189,13 +183,23 @@ const SignUp = () => {
     const [states, setStates] = useState([])
 
     useEffect(() => {
+      let mounted = true
+
       const getUfs = async () => {
         setLoading(true)
-        const ufs = await LocationApi.getUf()
-        setStates(ufs)
+        LocationApi.getUf().then((response) => {
+          if (mounted) {
+            setStates(response)
+          }
+        })
+
         setLoading(false)
       }
       getUfs()
+
+      return () => {
+        mounted = false
+      }
     }, [])
 
     const handleOnSelectState = (event) => {
@@ -204,14 +208,23 @@ const SignUp = () => {
     }
 
     useEffect(() => {
+      let mounted = true
+
       const getCitiesByUf = async () => {
         setLoading(true)
-        const cities = await LocationApi.getCitiesByUF(state)
-        setCities(cities)
+        LocationApi.getCitiesByUF(state).then((response) => {
+          if (mounted) {
+            setCities(response)
+          }
+        })
+
         setLoading(false)
       }
-
       getCitiesByUf()
+
+      return () => {
+        mounted = false
+      }
     }, [state])
 
     return (
@@ -253,29 +266,33 @@ const SignUp = () => {
     )
   }
 
-  const TermsAndConditions = () => (
-    <Box>
-      <HeadingSectionCustom>Termo de aceite</HeadingSectionCustom>
+  const TermsAndConditions = () => {
+    const [checked, setChecked] = useState(false)
 
-      <Paragraph size="small" fill>
-        O site Atendo em Libras é uma iniciativa, sem fins lucrativos, que visa possibilitar maior visibilidade de dados
-        de contato de profissionais que sabem Libras. Contudo, seu conteúdo é construído de forma colaborativa pela
-        comunidade, não podendo assim o site garantir sua veracidade, exatidão, integridade ou qualidade das informações
-        aqui expostas. Dessa forma, isenta-se de qualquer responsabilidade quanto à utilização ou não destas
-        informações. Se você encontrou seus dados aqui expostos e deseja removê-los, envie um email para
-        atendoemlibras@gmail.com.
-      </Paragraph>
+    return (
+      <Box>
+        <HeadingSectionCustom>Termo de aceite</HeadingSectionCustom>
 
-      <FormField margin={{ top: '20px' }} required>
-        <RadioButton
-          checked={checked}
-          label="Li e aceito"
-          name="termsAndConditions"
-          onChange={(event) => setChecked(event.target.checked)}
-        />
-      </FormField>
-    </Box>
-  )
+        <Paragraph size="small" fill>
+          O site Atendo em Libras é uma iniciativa, sem fins lucrativos, que visa possibilitar maior visibilidade de
+          dados de contato de profissionais que sabem Libras. Contudo, seu conteúdo é construído de forma colaborativa
+          pela comunidade, não podendo assim o site garantir sua veracidade, exatidão, integridade ou qualidade das
+          informações aqui expostas. Dessa forma, isenta-se de qualquer responsabilidade quanto à utilização ou não
+          destas informações. Se você encontrou seus dados aqui expostos e deseja removê-los, envie um email para
+          atendoemlibras@gmail.com.
+        </Paragraph>
+
+        <FormField margin={{ top: '20px' }} required>
+          <RadioButton
+            checked={checked}
+            label="Li e aceito"
+            name="termsAndConditions"
+            onChange={(event) => setChecked(event.target.checked)}
+          />
+        </FormField>
+      </Box>
+    )
+  }
 
   const PageTitle = () => (
     <>
@@ -286,7 +303,9 @@ const SignUp = () => {
     </>
   )
 
-  const onSubmit = () => {}
+  const onSubmit = (event) => {
+    console.log(event)
+  }
 
   return (
     <FormBox>

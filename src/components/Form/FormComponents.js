@@ -32,13 +32,22 @@ const FormField = (props) => {
     opacity: 0.7;
   `
 
-  const { label, margin, ...formFieldProps } = props
+  const SpanSubtext = styled.span`
+    font-size: 14px;
+    margin-left: 0px;
+    line-height: 24px;
+    color: #777777;
+    margin-bottom: 1em;
+  `
+
+  const { label, margin, subtext, ...formFieldProps } = props
 
   return (
     <Box margin={{ bottom: 'large', ...margin }}>
       <Label htmlFor={props.htmlFor}>
         {label} {props.required && <Span>Obrigatório</Span>}
       </Label>
+      {subtext && <SpanSubtext>{subtext}</SpanSubtext>}
       <FormFieldGrommet className="form-field" {...formFieldProps}>
         {props.children}
       </FormFieldGrommet>

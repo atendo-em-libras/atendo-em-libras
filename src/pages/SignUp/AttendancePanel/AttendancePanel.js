@@ -31,7 +31,7 @@ const AttendancePanel = (props) => {
           />
         </Box>
       </FormField>
-      {enabledAttendance === 'Sim' && component}
+      {enabledAttendance === 'Sim' ? component : null}
     </Box>
   )
 }
