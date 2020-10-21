@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { logoIcon } from '../../assets/icons'
 import { Heading } from '../../components/Typography/Heading'
-import { Box, Image, Form, Paragraph, Button, ResponsiveContext, RadioButton } from 'grommet'
+import { Box, Image, Form, Paragraph, Button, ResponsiveContext, RadioButton, RadioButtonGroup } from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 import {
   FormField,
@@ -49,6 +49,7 @@ const FormBox = styled(Box)`
 
 const SignUp = () => {
   const [checked, setChecked] = useState(false)
+  const [value, setValue] = useState({})
 
   const screenSize = useContext(ResponsiveContext)
 
@@ -61,8 +62,26 @@ const SignUp = () => {
       <FormField name="phone" htmlFor="phone" label="Telefone" required>
         <MobilePhoneMaskedInput name="phone" id="phone" />
       </FormField>
-      <FormField name="email" htmlFor="email" label="Email">
+      <FormField name="email" htmlFor="email" label="Email" required>
         <EmailMaskedInput name="email" id="email" />
+      </FormField>
+    </SectionBox>
+  )
+
+  const ContactInfo = () => (
+    <SectionBox>
+      <HeadingSectionCustom>Informações de Contato</HeadingSectionCustom>
+      <FormField
+        name="whatsappNumber"
+        htmlFor="whatsappNumber"
+        label="Número de WhatsApp"
+        help="O número será usado para contato principal e para combinar atendimentos"
+        required
+      >
+        <MobilePhoneMaskedInput name="whatsappNumber" id="whatsappNumber" />
+      </FormField>
+      <FormField name="phone" htmlFor="phone" label="Telefone" required>
+        <MobilePhoneMaskedInput name="phone" id="phone" />
       </FormField>
     </SectionBox>
   )
@@ -109,17 +128,6 @@ const SignUp = () => {
     </SectionBox>
   )
 
-  const OnlineAttendanceComponent = () => (
-    <Box direction="column" data-testid="online-attendance">
-      <FormField name="whatsAppNumber" htmlFor="whatsAppNumber" label="Número do Whatsapp" margin="0 0 5px 0">
-        <MobilePhoneMaskedInput name="whatsAppNumber" id="whatsAppNumber" />
-      </FormField>
-      <FormField name="plataform" htmlFor="plataform__input" label="Plataforma">
-        <Select name="plataform" multiple options={['Zoom', 'Whatsapp']} id="plataform" />
-      </FormField>
-    </Box>
-  )
-
   const HospitalClinicAttendanceComponent = () => {
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
@@ -143,16 +151,16 @@ const SignUp = () => {
 
     return (
       <Box data-testid="hospitalclinic-attendance">
-        <FormField name="hospitalClinicName" label="Nome do local">
+        <FormField name="hospitalClinicName" label="Nome do local" required>
           <TextInput name="hospitalClinicName" id="hospitalClinicName" />
         </FormField>
-        <FormField name="cep" label="CEP">
+        <FormField name="cep" label="CEP" required>
           <CepMaskedInput onChange={handleOnChange} name="cep" id="cep" disabled={loading} />
         </FormField>
-        <FormField name="hospitalClinicState" label="Estado">
+        <FormField name="hospitalClinicState" label="Estado" required>
           <TextInput disabled name="hospitalClinicState" id="hospitalClinicState" value={state} />
         </FormField>
-        <FormField name="hospitalClinicCity" label="Cidade">
+        <FormField name="hospitalClinicCity" label="Cidade" required>
           <TextInput disabled name="hospitalClinicCity" id="hospitalClinicCity" value={city} />
         </FormField>
         <FormField name="streetName" label="Logradouro">
@@ -208,7 +216,7 @@ const SignUp = () => {
 
     return (
       <Box data-testid="household-attendance">
-        <FormField name="state" label="Estado">
+        <FormField name="state" label="Estado" required>
           <Select
             name="state"
             id="state"
@@ -218,7 +226,7 @@ const SignUp = () => {
             disabled={loading}
           />
         </FormField>
-        <FormField name="city" label="Cidade">
+        <FormField name="city" label="Cidade" required>
           <Select name="city" id="city" options={cities} disabled={loading || !state} />
         </FormField>
       </Box>
@@ -228,12 +236,7 @@ const SignUp = () => {
   const Attendances = () => {
     return (
       <Box>
-        <AttendancePanel
-          header="Atendimento Online"
-          label="Atende por video chamada?"
-          name="online-attendance"
-          component={<OnlineAttendanceComponent />}
-        />
+        <AttendancePanel header="Atendimento Online" label="Atende por video chamada?" name="online-attendance" />
         <AttendancePanel
           header="Atendimento em Clínica / Hospital"
           label="Atende em Clínica ou Hospital?"
@@ -263,7 +266,7 @@ const SignUp = () => {
         atendoemlibras@gmail.com.
       </Paragraph>
 
-      <FormField margin={{ top: '20px' }}>
+      <FormField margin={{ top: '20px' }} required>
         <RadioButton
           checked={checked}
           label="Li e aceito"
@@ -283,6 +286,8 @@ const SignUp = () => {
     </>
   )
 
+  const onSubmit = () => {}
+
   return (
     <FormBox>
       <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '20%' }}>
@@ -290,8 +295,9 @@ const SignUp = () => {
           <PageTitle />
         </Box>
 
-        <Form onSubmit={({ value }) => {}} messages={{ required: 'Campo obrigatório' }}>
+        <Form validate="blur" onSubmit={onSubmit} messages={{ required: 'Campo obrigatório' }}>
           <PersonalInfo />
+          <ContactInfo />
           <ProfessionalInfo />
           <Attendances />
           <TermsAndConditions />

@@ -9,7 +9,7 @@ const AttendancePanel = (props) => {
   return (
     <Box>
       <HeadingSectionCustom>{header}</HeadingSectionCustom>
-      <FormField label={label} required>
+      <FormField label={label}>
         <Box margin={{ top: 'small' }}>
           <RadioButton
             label="Sim"
