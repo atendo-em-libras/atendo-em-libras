@@ -6,6 +6,10 @@ import styled from 'styled-components'
 import { Box } from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 import { ResponsiveGrid } from '../ResponsiveGrid'
+import ReactPlaceholder from 'react-placeholder'
+import 'react-placeholder/lib/reactPlaceholder.css'
+import { TextBlock, MediaBlock, TextRow, RectShape, RoundShape } from 'react-placeholder/lib/placeholders'
+import Skeleton from 'react-loading-skeleton'
 
 const columns = {
   small: ['auto'],
@@ -66,7 +70,20 @@ class ProviderList extends Component {
     const { isLoaded, providers } = this.state
 
     if (!isLoaded) {
-      return <div data-testid="emptyList"></div>
+      const awesomePlaceholder = (
+        <div className="my-awesome-placeholder">
+          <RectShape color="blue" style={{ width: 30, height: 80 }} />
+          <TextBlock rows={7} color="yellow" />
+        </div>
+      )
+
+      return (
+        <Box data-testid="emptyList" style={{ width: '100%' }}>
+          <Skeleton height={250} />
+          <Skeleton height={250} />
+          <Skeleton height={250} />
+        </Box>
+      )
     }
 
     return providers && providers.length > 0 ? (
