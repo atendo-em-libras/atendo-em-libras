@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { logoIcon } from '../../assets/icons'
 import { Heading } from '../../components/Typography/Heading'
-import { Box, Image, Form, Paragraph, Button, ResponsiveContext, RadioButton, RadioButtonGroup } from 'grommet'
+import { Box, Image, Form, Paragraph, Button, ResponsiveContext, CheckBox } from 'grommet'
 import { respondTo } from '../../utils/breakpoints/_respondTo'
 import {
   FormField,
@@ -249,35 +249,43 @@ const SignUp = () => {
   }
 
   const Attendances = () => {
-    const setRadioButtonValue = (key, value) => {
-      setFormValue({ ...formValue, [key]: value })
-    }
+    const SpanSubtext = styled.span`
+      font-size: 14px;
+      margin-left: 0px;
+      line-height: 24px;
+      color: #777777;
+      margin-bottom: 1em;
+    `
 
     return (
       <Box>
-        <AttendancePanel
-          header="Atendimento Online"
-          label="Atende por video chamada?"
-          name="onlineAttendanceOption"
-          radioButtonValue={formValue.onlineAttendanceOption}
-          setRadioButtonValue={(value) => setRadioButtonValue('onlineAttendanceOption', value)}
-        />
-        <AttendancePanel
-          header="Atendimento em Clínica / Hospital"
-          label="Atende em Clínica ou Hospital?"
-          name="hospitalclinicAttendanceOption"
-          component={<HospitalClinicAttendanceComponent />}
-          radioButtonValue={formValue.hospitalclinicAttendanceOption}
-          setRadioButtonValue={(value) => setRadioButtonValue('hospitalclinicAttendanceOption', value)}
-        />
-        <AttendancePanel
-          header="Atendimento em Domicílio"
-          label="Atende em Domicílio?"
-          name="householdAttendanceOption"
-          component={<HouseholdAttendanceComponent />}
-          radioButtonValue={formValue.householdAttendanceOption}
-          setRadioButtonValue={(value) => setRadioButtonValue('householdAttendanceOption', value)}
-        />
+        <HeadingSectionCustom required>Atendimento</HeadingSectionCustom>
+        <SpanSubtext>Escolha o(s) tipo(s) de atendimento(s)</SpanSubtext>
+
+        <FormField
+          name={'attendances'}
+          marginBottom={'none'}
+          validate={(value, formValue) => {
+            if (
+              !formValue.onlineAttendanceOption &&
+              !formValue.householdAttendanceOption &&
+              !formValue.hospitalclinicAttendanceOption
+            )
+              return 'Pelo menos um atendimento é obrigatório'
+          }}
+        >
+          <AttendancePanel label="Video chamada" name="onlineAttendanceOption" />
+          <AttendancePanel
+            label="Domicílio"
+            name="householdAttendanceOption"
+            component={<HouseholdAttendanceComponent />}
+          />
+          <AttendancePanel
+            label="Clínica ou Hospital"
+            name="hospitalclinicAttendanceOption"
+            component={<HospitalClinicAttendanceComponent />}
+          />
+        </FormField>
       </Box>
     )
   }
@@ -287,7 +295,7 @@ const SignUp = () => {
 
     return (
       <Box>
-        <HeadingSectionCustom>Termo de aceite</HeadingSectionCustom>
+        <HeadingSectionCustom required>Termo de aceite</HeadingSectionCustom>
 
         <Paragraph size="small" fill>
           O site Atendo em Libras é uma iniciativa, sem fins lucrativos, que visa possibilitar maior visibilidade de
@@ -298,12 +306,11 @@ const SignUp = () => {
           atendoemlibras@gmail.com.
         </Paragraph>
 
-        <FormField margin={{ top: '20px' }} name="termsAndConditions" required>
-          <RadioButton
+        <FormField margin={{ top: '20px' }} name="termsAndConditions" required noRequiredLabel>
+          <CheckBox
             checked={checked}
             label="Li e aceito"
             name="termsAndConditions"
-            id="termsAndConditions"
             onChange={(event) => setChecked(event.target.checked)}
           />
         </FormField>
@@ -321,17 +328,8 @@ const SignUp = () => {
   )
 
   const onSubmit = (event) => {
-    console.log(event)
+    console.log(event.value)
   }
-
-  const [formValue, setFormValue] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    onlineAttendanceOption: 'Não',
-    hospitalclinicAttendanceOption: 'Não',
-    householdAttendanceOption: 'Não',
-  })
 
   return (
     <FormBox>
@@ -340,16 +338,11 @@ const SignUp = () => {
           <PageTitle />
         </Box>
 
-        <Form
-          // value={formValue}
-          validate="blur"
-          onSubmit={onSubmit}
-          messages={{ required: 'Campo obrigatório' }}
-        >
+        <Form validate="blur" onSubmit={onSubmit} messages={{ required: 'Campo obrigatório' }}>
           <PersonalInfo />
           <ContactInfo />
           <ProfessionalInfo />
-          {/* <Attendances /> */}
+          <Attendances />
           <TermsAndConditions />
 
           <SectionBox>

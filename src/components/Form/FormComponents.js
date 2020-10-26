@@ -14,38 +14,40 @@ const TextInput = (props) => <TextInputGrommet {...props} size="medium" />
 
 const Select = (props) => <SelectGrommet {...props} size="medium" />
 
+const Label = styled.label`
+  font-size: 18px;
+  margin-bottom: 8px;
+`
+
+const Span = styled.span`
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.7;
+  color: #000;
+  font-weight: normal;
+`
+
+const SpanSubtext = styled.span`
+  font-size: 14px;
+  margin-left: 0px;
+  line-height: 24px;
+  color: #777777;
+  margin-bottom: 1em;
+`
+
 const HeadingSectionCustom = (props) => (
   <Heading color="#5996F7" level="2" size="20px" margin={{ bottom: '24px' }}>
-    {props.children}
+    {props.children} {props.required && <Span>Obrigatório</Span>}
   </Heading>
 )
 
 const FormField = (props) => {
-  const Label = styled.label`
-    font-size: 18px;
-    margin-bottom: 8px;
-  `
-
-  const Span = styled.span`
-    font-size: 14px;
-    font-style: italic;
-    opacity: 0.7;
-  `
-
-  const SpanSubtext = styled.span`
-    font-size: 14px;
-    margin-left: 0px;
-    line-height: 24px;
-    color: #777777;
-    margin-bottom: 1em;
-  `
-
-  const { label, margin, subtext, ...formFieldProps } = props
+  const { label, margin, subtext, marginBottom, ...formFieldProps } = props
 
   return (
-    <Box margin={{ bottom: 'large', ...margin }}>
+    <Box margin={{ bottom: marginBottom || 'large', ...margin }}>
       <Label htmlFor={props.htmlFor}>
-        {label} {props.required && <Span>Obrigatório</Span>}
+        {label} {props.required && !props.noRequiredLabel && <Span>Obrigatório</Span>}
       </Label>
       {subtext && <SpanSubtext>{subtext}</SpanSubtext>}
       <FormFieldGrommet className="form-field" {...formFieldProps}>
