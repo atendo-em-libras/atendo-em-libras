@@ -3,35 +3,35 @@ import { Box, RadioButton } from 'grommet'
 import { FormField, HeadingSectionCustom } from '../../../components/Form/FormComponents'
 
 const AttendancePanel = (props) => {
-  const [enabledAttendance, setEnabledAttendance] = useState('Sim')
-  const { header, label, name, component } = props
+  // const [enabledAttendance, setEnabledAttendance] = useState('Sim')
+  const { header, label, name, component, radioButtonValue, setRadioButtonValue } = props
 
   return (
     <Box>
       <HeadingSectionCustom>{header}</HeadingSectionCustom>
-      <FormField label={label}>
+      <FormField label={label} name={name} required>
         <Box margin={{ top: 'small' }}>
           <RadioButton
             label="Sim"
-            checked={enabledAttendance === 'Sim'}
+            checked={radioButtonValue === 'Sim'}
             name={`${name}-yes`}
             onChange={() => {
-              setEnabledAttendance('Sim')
+              setRadioButtonValue('Sim')
             }}
           />
         </Box>
         <Box margin={{ top: 'small' }}>
           <RadioButton
             label="Não"
-            checked={enabledAttendance === 'Não'}
+            checked={radioButtonValue === 'Não'}
             name={`${name}-no`}
             onChange={(event) => {
-              setEnabledAttendance('Não')
+              setRadioButtonValue('Não')
             }}
           />
         </Box>
       </FormField>
-      {enabledAttendance === 'Sim' ? component : null}
+      {radioButtonValue === 'Sim' ? component : null}
     </Box>
   )
 }

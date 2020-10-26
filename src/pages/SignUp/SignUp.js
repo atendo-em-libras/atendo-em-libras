@@ -50,20 +50,22 @@ const FormBox = styled(Box)`
 const SignUp = () => {
   const screenSize = useContext(ResponsiveContext)
 
-  const PersonalInfo = () => (
-    <SectionBox>
-      <HeadingSectionCustom>Informações pessoais</HeadingSectionCustom>
-      <FormField name="name" htmlFor="name" label="Nome Completo" required>
-        <TextInput name="name" id="name" />
-      </FormField>
-      <FormField name="phone" htmlFor="phone" label="Telefone" required>
-        <MobilePhoneMaskedInput name="phone" id="phone" />
-      </FormField>
-      <FormField name="email" htmlFor="email" label="Email" required>
-        <EmailMaskedInput name="email" id="email" />
-      </FormField>
-    </SectionBox>
-  )
+  const PersonalInfo = () => {
+    return (
+      <SectionBox>
+        <HeadingSectionCustom>Informações pessoais</HeadingSectionCustom>
+        <FormField name="name" htmlFor="name" label="Nome Completo" required>
+          <TextInput name="name" id="name" />
+        </FormField>
+        <FormField name="phone" htmlFor="phone" label="Telefone" required>
+          <MobilePhoneMaskedInput name="phone" id="phone" />
+        </FormField>
+        <FormField name="email" htmlFor="email" label="Email" required>
+          <EmailMaskedInput name="email" id="email" />
+        </FormField>
+      </SectionBox>
+    )
+  }
 
   const ContactInfo = () => (
     <SectionBox>
@@ -247,20 +249,34 @@ const SignUp = () => {
   }
 
   const Attendances = () => {
+    const setRadioButtonValue = (key, value) => {
+      setFormValue({ ...formValue, [key]: value })
+    }
+
     return (
       <Box>
-        <AttendancePanel header="Atendimento Online" label="Atende por video chamada?" name="online-attendance" />
+        <AttendancePanel
+          header="Atendimento Online"
+          label="Atende por video chamada?"
+          name="onlineAttendanceOption"
+          radioButtonValue={formValue.onlineAttendanceOption}
+          setRadioButtonValue={(value) => setRadioButtonValue('onlineAttendanceOption', value)}
+        />
         <AttendancePanel
           header="Atendimento em Clínica / Hospital"
           label="Atende em Clínica ou Hospital?"
-          name="hospital-clinic-attendance"
+          name="hospitalclinicAttendanceOption"
           component={<HospitalClinicAttendanceComponent />}
+          radioButtonValue={formValue.hospitalclinicAttendanceOption}
+          setRadioButtonValue={(value) => setRadioButtonValue('hospitalclinicAttendanceOption', value)}
         />
         <AttendancePanel
           header="Atendimento em Domicílio"
           label="Atende em Domicílio?"
-          name="household-attendance"
+          name="householdAttendanceOption"
           component={<HouseholdAttendanceComponent />}
+          radioButtonValue={formValue.householdAttendanceOption}
+          setRadioButtonValue={(value) => setRadioButtonValue('householdAttendanceOption', value)}
         />
       </Box>
     )
@@ -282,11 +298,12 @@ const SignUp = () => {
           atendoemlibras@gmail.com.
         </Paragraph>
 
-        <FormField margin={{ top: '20px' }} required>
+        <FormField margin={{ top: '20px' }} name="termsAndConditions" required>
           <RadioButton
             checked={checked}
             label="Li e aceito"
             name="termsAndConditions"
+            id="termsAndConditions"
             onChange={(event) => setChecked(event.target.checked)}
           />
         </FormField>
@@ -307,6 +324,15 @@ const SignUp = () => {
     console.log(event)
   }
 
+  const [formValue, setFormValue] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    onlineAttendanceOption: 'Não',
+    hospitalclinicAttendanceOption: 'Não',
+    householdAttendanceOption: 'Não',
+  })
+
   return (
     <FormBox>
       <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '20%' }}>
@@ -314,11 +340,16 @@ const SignUp = () => {
           <PageTitle />
         </Box>
 
-        <Form validate="blur" onSubmit={onSubmit} messages={{ required: 'Campo obrigatório' }}>
+        <Form
+          // value={formValue}
+          validate="blur"
+          onSubmit={onSubmit}
+          messages={{ required: 'Campo obrigatório' }}
+        >
           <PersonalInfo />
           <ContactInfo />
           <ProfessionalInfo />
-          <Attendances />
+          {/* <Attendances /> */}
           <TermsAndConditions />
 
           <SectionBox>
