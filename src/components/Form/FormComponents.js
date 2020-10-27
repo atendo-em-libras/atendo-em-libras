@@ -36,7 +36,7 @@ const SpanSubtext = styled.span`
 `
 
 const HeadingSectionCustom = (props) => (
-  <Heading color="#5996F7" level="2" size="20px" margin={{ bottom: '24px' }}>
+  <Heading color="#5996F7" level="2" size="20px" margin={{ bottom: '24px' }} {...props}>
     {props.children} {props.required && <Span>Obrigatório</Span>}
   </Heading>
 )

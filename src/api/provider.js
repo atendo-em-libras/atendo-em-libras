@@ -13,6 +13,10 @@ const ProviderApi = {
     const serviceProvidersJson = await spreadSheet.getServiceProviders()
     return mapJsonToProviders(serviceProvidersJson)
   },
+  post: async (professional) => {
+    let res = await Axios.post(Api.url, professional)
+    return res.data
+  },
 }
 
 const mapJsonToProviders = (json) => {

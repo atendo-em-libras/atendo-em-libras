@@ -17,6 +17,9 @@ import {
 import logoLarge from '../../assets/images/pages/singup/signup-logo.svg'
 import { AttendancePanel } from './AttendancePanel'
 import LocationApi from '../../api/location'
+import { Api } from '../../constants/api'
+import ProviderApi from '../../api/provider'
+import ProfessionalModel from './ProfessionalModel'
 
 const Square = styled(Box)`
   box-shadow: 0px 10px 32px #00000029;
@@ -104,22 +107,18 @@ const SignUp = () => {
       <FormField name="expertise" htmlFor="expertise" label="Especialidade">
         <TextInput name="expertise" id="expertise" placeholder="Pediatra, Cardiologista, Traumatologista" />
       </FormField>
-      <FormField name="register_number" htmlFor="register_number" label="Número de cadastro profissional" required>
-        <TextInput name="register_number" id="register_number" placeholder="Exemplo: CRM, CRP" />
+      <FormField name="registerNumber" htmlFor="registerNumber" label="Número de cadastro profissional" required>
+        <TextInput name="registerNumber" id="registerNumber" placeholder="Exemplo: CRM, CRP" />
       </FormField>
-      <FormField name="presentation" htmlFor="presentation" label="Apresentação">
+      <FormField name="biography" htmlFor="biography" label="Apresentação">
         <TextInput
-          name="presentation"
-          id="presentation"
+          name="biography"
+          id="biography"
           placeholder="Descreva um pouco a sua área profissional e de atendimento"
         />
       </FormField>
-      <FormField name="health_insurance_plans" htmlFor="health_insurance_plans" label="Planos de saúde aceitos">
-        <TextInput
-          name="health_insurance_plans"
-          id="health_insurance_plans"
-          placeholder="Particular, Unimed, SulAmerica"
-        />
+      <FormField name="healthInsurancePlans" htmlFor="healthInsurancePlans" label="Planos de saúde aceitos">
+        <TextInput name="healthInsurancePlans" id="healthInsurancePlans" placeholder="Particular, Unimed, SulAmerica" />
       </FormField>
     </SectionBox>
   )
@@ -150,8 +149,13 @@ const SignUp = () => {
         <FormField name="hospitalClinicName" label="Nome do local" required>
           <TextInput name="hospitalClinicName" id="hospitalClinicName" />
         </FormField>
-        <FormField name="cep" label="CEP" required>
-          <CepMaskedInput onChange={handleOnChange} name="cep" id="cep" disabled={loading} />
+        <FormField name="hospitalClinicCep" label="CEP" required>
+          <CepMaskedInput
+            onChange={handleOnChange}
+            name="hospitalClinicCep"
+            id="hospitalClinicCep"
+            disabled={loading}
+          />
         </FormField>
         <FormField name="hospitalClinicState" label="Estado" required>
           <TextInput disabled name="hospitalClinicState" id="hospitalClinicState" value={state} />
@@ -159,14 +163,14 @@ const SignUp = () => {
         <FormField name="hospitalClinicCity" label="Cidade" required>
           <TextInput disabled name="hospitalClinicCity" id="hospitalClinicCity" value={city} />
         </FormField>
-        <FormField name="streetName" label="Logradouro">
-          <TextInput name="streetName" id="streetName" />
+        <FormField name="hospitalClinicStreetName" label="Logradouro">
+          <TextInput name="hospitalClinicStreetName" id="hospitalClinicStreetName" />
         </FormField>
-        <FormField name="streetNumber" label="Número">
-          <TextInput name="streetNumber" id="streetNumber" />
+        <FormField name="hospitalClinicStreetNumber" label="Número">
+          <TextInput name="hospitalClinicStreetNumber" id="hospitalClinicStreetNumber" />
         </FormField>
-        <FormField name="complementInfo" label="Complemento">
-          <TextInput name="complementInfo" id="complementInfo" />
+        <FormField name="hospitalClinicComplementInfo" label="Complemento">
+          <TextInput name="complehospitalClinicComplementInfomentInfo" id="hospitalClinicComplementInfo" />
         </FormField>
         <FormField name="hospitalClinicPhone" label="Telefone">
           <PhoneMaskedInput name="hospitalClinicPhone" id="hospitalClinicPhone" />
@@ -231,18 +235,18 @@ const SignUp = () => {
 
     return (
       <Box data-testid="household-attendance">
-        <FormField name="state" label="Estado" required>
+        <FormField name="householdState" label="Estado" required>
           <Select
-            name="state"
-            id="state"
+            name="householdState"
+            id="householdState"
             options={states}
             value={state}
             onChange={handleOnSelectState}
             disabled={loading}
           />
         </FormField>
-        <FormField name="city" label="Cidade" required>
-          <Select name="city" id="city" options={cities} disabled={loading || !state} />
+        <FormField name="householdCity" label="Cidade" required>
+          <Select name="householdCity" id="householdCity" options={cities} disabled={loading || !state} />
         </FormField>
       </Box>
     )
@@ -257,22 +261,28 @@ const SignUp = () => {
       margin-bottom: 1em;
     `
 
+    const attendancesValidate = (formValue) => {
+      {
+        if (
+          !formValue.onlineAttendanceOption &&
+          !formValue.householdAttendanceOption &&
+          !formValue.hospitalclinicAttendanceOption
+        )
+          return 'Pelo menos um atendimento é obrigatório'
+      }
+    }
+
     return (
       <Box>
-        <HeadingSectionCustom required>Atendimento</HeadingSectionCustom>
+        <HeadingSectionCustom style={{ marginBottom: '0' }} required>
+          Atendimento
+        </HeadingSectionCustom>
         <SpanSubtext>Escolha o(s) tipo(s) de atendimento(s)</SpanSubtext>
 
         <FormField
           name={'attendances'}
           marginBottom={'none'}
-          validate={(value, formValue) => {
-            if (
-              !formValue.onlineAttendanceOption &&
-              !formValue.householdAttendanceOption &&
-              !formValue.hospitalclinicAttendanceOption
-            )
-              return 'Pelo menos um atendimento é obrigatório'
-          }}
+          validate={(value, formValue) => attendancesValidate(formValue)}
         >
           <AttendancePanel label="Video chamada" name="onlineAttendanceOption" />
           <AttendancePanel
@@ -307,12 +317,14 @@ const SignUp = () => {
         </Paragraph>
 
         <FormField margin={{ top: '20px' }} name="termsAndConditions" required noRequiredLabel>
-          <CheckBox
-            checked={checked}
-            label="Li e aceito"
-            name="termsAndConditions"
-            onChange={(event) => setChecked(event.target.checked)}
-          />
+          <Box>
+            <CheckBox
+              checked={checked}
+              label="Li e aceito"
+              name="termsAndConditions"
+              onChange={(event) => setChecked(event.target.checked)}
+            />
+          </Box>
         </FormField>
       </Box>
     )
@@ -328,7 +340,9 @@ const SignUp = () => {
   )
 
   const onSubmit = (event) => {
-    console.log(event.value)
+    const professionalModel = ProfessionalModel.createModel(event.value)
+    ProviderApi.post(professionalModel)
+    console.log(professionalModel)
   }
 
   return (
@@ -355,8 +369,3 @@ const SignUp = () => {
 }
 
 export { SignUp }
-
-// TODO:
-// Validacao dos campos
-// Enviar para o backend
-// Criar testes para o componente AttendencePanel
