@@ -53,6 +53,15 @@ const FormBox = styled(Box)`
 const SignUp = () => {
   const screenSize = useContext(ResponsiveContext)
 
+  const emailValidation = (email) => {
+    if (
+      !/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        email
+      )
+    )
+      return 'Insira um e-mail válido'
+  }
+
   const PersonalInfo = () => {
     return (
       <SectionBox>
@@ -63,7 +72,7 @@ const SignUp = () => {
         <FormField name="phone" htmlFor="phone" label="Telefone" required>
           <MobilePhoneMaskedInput name="phone" id="phone" />
         </FormField>
-        <FormField name="email" htmlFor="email" label="Email" required>
+        <FormField name="email" htmlFor="email" label="Email" validate={emailValidation} required>
           <EmailMaskedInput name="email" id="email" />
         </FormField>
       </SectionBox>
@@ -89,7 +98,7 @@ const SignUp = () => {
     <SectionBox>
       <HeadingSectionCustom>Informações profissionais</HeadingSectionCustom>
       <FormField name="category" htmlFor="category__input" label="Categoria" required>
-        <Select name="category" options={categories} id="category" />
+        <Select name="category" options={categories} labelKey="Description" id="category" />
       </FormField>
       <FormField name="specialty" htmlFor="specialty" label="Especialidade">
         <TextInput name="specialty" id="specialty" placeholder="Pediatra, Cardiologista, Traumatologista" />
