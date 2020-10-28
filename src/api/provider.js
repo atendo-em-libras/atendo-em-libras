@@ -14,7 +14,7 @@ const ProviderApi = {
     return mapJsonToProviders(serviceProvidersJson)
   },
   post: async (professional) => {
-    let res = await Axios.post(Api.url, professional)
+    let res = await Axios.post(Api.url + Api.paths.providers, professional)
     return res.data
   },
 }

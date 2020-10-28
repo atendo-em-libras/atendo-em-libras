@@ -1,10 +1,33 @@
 const ProfessionalModel = {
   createModel(professional) {
+    const toEnum = (category) => {
+      switch (category) {
+        case 'Enfermagem':
+          return 'ENFERMAGEM'
+        case 'Fisioterapia':
+          return 'FISIOTERAPIA'
+        case 'Fonoaudiologia':
+          return 'FONOAUDIOLOGIA'
+        case 'Medicina':
+          return 'MEDICINA'
+        case 'Nutrição':
+          return 'NUTRICAO'
+        case 'Odontologia':
+          return 'ODONTOLOGIA'
+        case 'Psicologia':
+          return 'PSICOLOGIA'
+        case 'Técnico de Enfermagem':
+          return 'TECNICO_ENFERMAGEM'
+        default:
+          break
+      }
+    }
+
     let professionalModel = {
       name: professional.name,
       biography: professional.biography,
-      category: professional.category,
-      speciality: professional.expertise,
+      category: toEnum(professional.category),
+      specialty: professional.specialty,
       registerNumber: professional.registerNumber,
       healthInsurance: professional.healthInsurancePlans,
       email: professional.email,

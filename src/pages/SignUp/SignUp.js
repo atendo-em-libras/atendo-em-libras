@@ -17,9 +17,9 @@ import {
 import logoLarge from '../../assets/images/pages/singup/signup-logo.svg'
 import { AttendancePanel } from './AttendancePanel'
 import LocationApi from '../../api/location'
-import { Api } from '../../constants/api'
 import ProviderApi from '../../api/provider'
 import ProfessionalModel from './ProfessionalModel'
+import { categories } from './categories'
 
 const Square = styled(Box)`
   box-shadow: 0px 10px 32px #00000029;
@@ -89,23 +89,10 @@ const SignUp = () => {
     <SectionBox>
       <HeadingSectionCustom>Informações profissionais</HeadingSectionCustom>
       <FormField name="category" htmlFor="category__input" label="Categoria" required>
-        <Select
-          name="category"
-          options={[
-            'Enfermagem',
-            'Fisioterapia',
-            'Fonoaudiologia',
-            'Medicina',
-            'Nutrição',
-            'Odontologia',
-            'Psicologia',
-            'Técnico de Enfermagem',
-          ]}
-          id="category"
-        />
+        <Select name="category" options={categories} id="category" />
       </FormField>
-      <FormField name="expertise" htmlFor="expertise" label="Especialidade">
-        <TextInput name="expertise" id="expertise" placeholder="Pediatra, Cardiologista, Traumatologista" />
+      <FormField name="specialty" htmlFor="specialty" label="Especialidade">
+        <TextInput name="specialty" id="specialty" placeholder="Pediatra, Cardiologista, Traumatologista" />
       </FormField>
       <FormField name="registerNumber" htmlFor="registerNumber" label="Número de cadastro profissional" required>
         <TextInput name="registerNumber" id="registerNumber" placeholder="Exemplo: CRM, CRP" />
