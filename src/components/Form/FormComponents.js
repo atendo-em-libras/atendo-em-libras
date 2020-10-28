@@ -117,18 +117,7 @@ const EmailMaskedInput = (props) => (
   <MaskedInput
     mask={[
       {
-        regexp: /^[\w\-_.]+$/,
-        placeholder: 'atendo',
-      },
-      { fixed: '@' },
-      {
-        regexp: /^[\w]+$/,
-        placeholder: 'libras',
-      },
-      { fixed: '.' },
-      {
-        regexp: /^[\w]+$/,
-        placeholder: 'com',
+        placeholder: 'atendo@libras.com',
       },
     ]}
     {...props}

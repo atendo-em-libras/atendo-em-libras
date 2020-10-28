@@ -15,7 +15,7 @@ const ProviderApi = {
   },
   post: async (professional) => {
     let res = await Axios.post(Api.url + Api.paths.providers, professional)
-    return res.data
+    return res
   },
 }
 

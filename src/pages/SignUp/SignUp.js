@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components/macro'
-import { logoIcon } from '../../assets/icons'
-import { Heading } from '../../components/Typography/Heading'
-import { Box, Image, Form, Paragraph, Button, ResponsiveContext, CheckBox } from 'grommet'
-import { respondTo } from '../../utils/breakpoints/_respondTo'
+
+import LocationApi from '../../api/location'
+import ProviderApi from '../../api/provider'
+import { Box, Image, Form, Paragraph, ResponsiveContext, CheckBox } from 'grommet'
 import {
   FormField,
   CepMaskedInput,
@@ -14,48 +14,28 @@ import {
   TextInput,
   HeadingSectionCustom,
 } from '../../components/Form/FormComponents'
-import logoLarge from '../../assets/images/pages/singup/signup-logo.svg'
+import { SuccessModal } from '../../components/SuccessModal'
+import { Heading } from '../../components/Typography/Heading'
+import { Button } from '../../components/Buttons'
 import { AttendancePanel } from './AttendancePanel'
-import LocationApi from '../../api/location'
-import ProviderApi from '../../api/provider'
 import ProfessionalModel from './ProfessionalModel'
 import { categories } from './categories'
+import { useHistory } from 'react-router-dom'
+import { COLORS } from '../../constants/colors'
+import { logoIcon } from '../../assets/icons'
 
-const Square = styled(Box)`
-  box-shadow: 0px 10px 32px #00000029;
-  border-radius: 0px 20px 20px 20px;
-  width: 45px;
-  height: 45px;
-  padding: 10px;
-  ${respondTo.desktop`
-    width: 50px;
-    height: 50px;
-  `}
-`
-
-const SectionBox = styled(Box)`
-  margin-top: 50px;
-`
-
-const FormBox = styled(Box)`
-  padding-top: 60px;
-  padding-bottom: 60px;
-  background-color: #f7f8fa;
-
-  ${respondTo.desktop`
-    background: url(${logoLarge}) no-repeat #f7f8fa;
-    background-position-x: -300px;
-    background-position-y: 320px;
-    background-size: 660px 550px;
-  `}
-`
+import img_palmas from '../../assets/images/img_palmas.svg'
+import { Square, SectionBox, FormBox } from './SignUpStyles'
 
 const SignUp = () => {
+  const history = useHistory()
+  const [show, setShow] = useState(true)
+
   const screenSize = useContext(ResponsiveContext)
 
   const emailValidation = (email) => {
     if (
-      !/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         email
       )
     )
@@ -335,10 +315,10 @@ const SignUp = () => {
     </>
   )
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     const professionalModel = ProfessionalModel.createModel(event.value)
-    ProviderApi.post(professionalModel)
-    console.log(professionalModel)
+    let response = await ProviderApi.post(professionalModel)
+    setShow(response.status === 200)
   }
 
   return (
@@ -354,6 +334,29 @@ const SignUp = () => {
           <ProfessionalInfo />
           <Attendances />
           <TermsAndConditions />
+
+          {show && (
+            <SuccessModal responsive={false} animation="fadeIn" style={{ borderRadius: '1em' }}>
+              <Box pad="medium" align="center">
+                <Image src={img_palmas} margin={{ bottom: 'medium' }} />
+                <Heading level="2" color={COLORS.brand} style={{ fontWeight: 'bold' }} margin={{ bottom: 'medium' }}>
+                  Parabéns!
+                </Heading>
+                <Paragraph textAlign="center" margin={{ bottom: 'medium' }}>
+                  Obrigada, iremos analisar o cadastro e em breve incluiremos na nossa plataforma.
+                </Paragraph>
+                <Box direction="row" justify="center">
+                  <Button
+                    label="Muito bem!"
+                    size="small"
+                    primary
+                    droplet="bottom-left"
+                    onClick={() => history.push('/')}
+                  />
+                </Box>
+              </Box>
+            </SuccessModal>
+          )}
 
           <SectionBox>
             <Button type="submit" primary label="Cadastrar" />

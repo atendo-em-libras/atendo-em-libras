@@ -28,7 +28,7 @@ export const categories = [
     Description: 'Psicologia',
   },
   {
-    Id: 'TECNICO_DE_ENFERMAGEM',
-    Description: 'Técnico de Enfermagem',
+    Id: 'TECNICO_ENFERMAGEM',
+    Description: 'Técnico em Enfermagem',
   },
 ]

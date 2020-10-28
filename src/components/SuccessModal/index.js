@@ -1,0 +1,1 @@
+export { SuccessModal } from './SuccessModal'
