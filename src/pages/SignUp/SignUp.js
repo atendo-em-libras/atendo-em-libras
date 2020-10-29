@@ -29,7 +29,7 @@ import { Square, SectionBox, FormBox } from './SignUpStyles'
 
 const SignUp = () => {
   const history = useHistory()
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false)
 
   const screenSize = useContext(ResponsiveContext)
 
