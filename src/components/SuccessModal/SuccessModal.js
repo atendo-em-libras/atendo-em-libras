@@ -1,6 +1,13 @@
-import React from 'react'
-import { Layer } from 'grommet'
+import React, { useContext } from 'react'
+import { Layer, ResponsiveContext } from 'grommet'
 
 export const SuccessModal = (props) => {
-  return <Layer {...props}>{props.children}</Layer>
+  const screenSize = useContext(ResponsiveContext)
+  const responsiveProps = screenSize === 'small' &&
+   {
+     full: 'horizontal',
+     margin: 'medium'
+   }
+   
+  return <Layer {...responsiveProps} {...props}>{props.children}</Layer>
 }
