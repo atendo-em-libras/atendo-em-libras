@@ -359,7 +359,7 @@ const SignUp = () => {
           )}
 
           <SectionBox>
-            <Button type="submit" primary label="Cadastrar" />
+            <Button type="submit" primary droplet="bottom-left" label="Cadastrar" />
           </SectionBox>
         </Form>
       </Box>
