@@ -18,6 +18,8 @@ import FotoThomaz from '../../assets/images/participantes/thomaz.png'
 import FotoMatheus from '../../assets/images/participantes/matheus.png'
 import FotoRamon from '../../assets/images/participantes/ramon.jpg'
 import FotoJoao from '../../assets/images/participantes/joao.jpg'
+import FotoSamuel from '../../assets/images/participantes/samuel_locatelli.png'
+import FotoJessica from '../../assets/images/participantes/jessica_pureza.png'
 
 const participantes = [
   { nome: 'Andressa Silva', role: 'Desenvolvedora', avatar: FotoAndressa },
@@ -27,19 +29,21 @@ const participantes = [
   { nome: 'Guilherme Vandresen', role: 'Business Analyst', avatar: FotoGuilherme },
   { nome: 'Heitor Inhaquites', role: 'Desenvolvedor', avatar: FotoHeitor },
   { nome: 'Inessa Luerce', role: 'Desenvolvedora e Experience Designer', avatar: FotoInessa },
+  { nome: 'João Miranda', role: 'Business Analyst', avatar: FotoJoao },
+  { nome: 'Jéssica Pureza', role: 'Experience Designer', avatar: FotoJessica },
   { nome: 'Laura Melo', role: 'Business Analyst', avatar: FotoLaura },
   { nome: 'Luana Gayer', role: 'Business Analyst', avatar: FotoLuana },
   { nome: 'Luma Beserra', role: 'Desenvolvedora', avatar: FotoLuma },
   { nome: 'Maira Cerqueira', role: 'QA Analyst', avatar: FotoMaira },
   { nome: 'Marco Beduschi', role: 'Desenvolvedor', avatar: FotoMarco },
   { nome: 'Marcos Bezerra', role: 'Desenvolvedor', avatar: FotoMarcos },
+  { nome: 'Matheus Viana', role: 'QA Analyst', avatar: FotoMatheus },
   { nome: 'Nicole Bianchin', role: 'Desenvolvedora', avatar: FotoNicole },
+  { nome: 'Ramon Costa', role: 'Desenvolvedor', avatar: FotoRamon },
   { nome: 'Ricardo Praxedes', role: 'Desenvolvedor', avatar: FotoRicardo },
+  { nome: 'Samuel Locatelli', role: 'Desenvolvedor', avatar: FotoSamuel },
   { nome: 'Sophia Cavalcan', role: 'Experience Designer', avatar: FotoSophia },
   { nome: 'Thomaz Zandonotto', role: 'Desenvolvedor', avatar: FotoThomaz },
-  { nome: 'Matheus Viana', role: 'Quality Analyst', avatar: FotoMatheus },
-  { nome: 'Ramon Costa', role: 'Desenvolvedor', avatar: FotoRamon },
-  { nome: 'João Miranda', role: 'Business Analyst', avatar: FotoJoao },
 ]
 
 export { participantes }
