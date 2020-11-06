@@ -46,7 +46,7 @@ const SignUp = () => {
     return (
       <SectionBox>
         <HeadingSectionCustom>Informações pessoais</HeadingSectionCustom>
-        <FormField name="name" htmlFor="name" label="Nome Completo" required>
+        <FormField name="name" htmlFor="name" label="Nome completo" required>
           <TextInput name="name" id="name" />
         </FormField>
         <FormField name="phone" htmlFor="phone" label="Telefone" required>
@@ -61,7 +61,7 @@ const SignUp = () => {
 
   const ContactInfo = () => (
     <SectionBox>
-      <HeadingSectionCustom>Informações de Contato</HeadingSectionCustom>
+      <HeadingSectionCustom>Informações de contato</HeadingSectionCustom>
       <FormField
         name="whatsappNumber"
         htmlFor="whatsappNumber"
@@ -253,7 +253,7 @@ const SignUp = () => {
         <HeadingSectionCustom style={{ marginBottom: '0' }} required>
           Atendimento
         </HeadingSectionCustom>
-        <SpanSubtext>Escolha o(s) tipo(s) de atendimento(s)</SpanSubtext>
+        <SpanSubtext>Escolha os tipos de atendimento</SpanSubtext>
 
         <FormField
           name={'attendances'}
@@ -311,7 +311,9 @@ const SignUp = () => {
       <Square margin={{ right: 'medium' }} background="white">
         <Image src={logoIcon} fill />
       </Square>
-      <Heading level="2">Cadastrar</Heading>
+      <Heading alignSelf="center" level="2">
+        Cadastrar profissional
+      </Heading>
     </>
   )
 
