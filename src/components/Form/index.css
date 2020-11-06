@@ -4,6 +4,8 @@
 
 .form-field div:first-child {
   border-bottom: 0;
+  padding: 2px;
+  margin-left: -2px;
 }
 
 .form-field span {

@@ -12,7 +12,7 @@ import './index.css'
 
 const TextInput = (props) => <TextInputGrommet {...props} size="medium" />
 
-const Select = (props) => <SelectGrommet {...props} size="medium" />
+const Select = (props) => <SelectGrommet style={{ padding: '5px', marginLeft: 0 }} {...props} size="medium" />
 
 const Label = styled.label`
   font-size: 18px;

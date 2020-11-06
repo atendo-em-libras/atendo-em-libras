@@ -329,7 +329,7 @@ const SignUp = () => {
 
   return (
     <FormBox>
-      <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '20%' }}>
+      <Box margin={screenSize === 'small' ? { horizontal: 'xlarge' } : { horizontal: '30%' }}>
         <Box direction="row" alignSelf="center">
           <PageTitle />
         </Box>
