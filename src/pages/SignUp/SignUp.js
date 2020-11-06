@@ -14,6 +14,7 @@ import {
   TextInput,
   HeadingSectionCustom,
 } from '../../components/Form/FormComponents'
+import ReactLoading from 'react-loading'
 import { SuccessModal } from '../../components/SuccessModal'
 import { Heading } from '../../components/Typography/Heading'
 import { Button } from '../../components/Buttons'
@@ -30,6 +31,7 @@ import { Square, SectionBox, FormBox } from './SignUpStyles'
 const SignUp = () => {
   const history = useHistory()
   const [show, setShow] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const screenSize = useContext(ResponsiveContext)
 
@@ -318,8 +320,10 @@ const SignUp = () => {
   )
 
   const onSubmit = async (event) => {
+    setLoading(true)
     const professionalModel = ProfessionalModel.createModel(event.value)
     let response = await ProviderApi.post(professionalModel)
+    setLoading(false)
     setShow(response.status === 200)
   }
 
@@ -361,7 +365,17 @@ const SignUp = () => {
           )}
 
           <SectionBox>
-            <Button type="submit" primary droplet="bottom-left" label="Cadastrar" />
+            <Button
+              type="submit"
+              primary
+              droplet="bottom-left"
+              size="small"
+              style={{ display: 'flex', justifyContent: 'center' }}
+              disabled={loading}
+              children={() =>
+                loading ? <ReactLoading height="20px" width="20px" type="spinningBubbles" /> : 'Cadastrar'
+              }
+            />
           </SectionBox>
         </Form>
       </Box>

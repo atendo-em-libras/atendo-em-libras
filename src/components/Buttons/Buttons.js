@@ -15,7 +15,11 @@ const BaseButton = styled(GrommetButton)`
   font-size: 1.4rem;
   font-weight: 600;
   border-radius: 17px;
-  ${({ droplet }) => dropletStyle(droplet)}
+  ${({ droplet }) => dropletStyle(droplet)};
+  &:disabled {
+    background: #666;
+    cursor: default;
+  }
 `
 
 const Button = ({ 'aria-label': ariaLabel, ...props }) => {
