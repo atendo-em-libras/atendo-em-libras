@@ -7,8 +7,8 @@ describe('SignUp', () => {
   beforeEach(() => {
     wrapper = render(<SignUp />)
   })
-  it('Has a Nome Completo field', () => {
-    const textbox = wrapper.getByLabelText('Nome Completo Obrigatório')
+  it('Has a Nome completo field', () => {
+    const textbox = wrapper.getByLabelText('Nome completo Obrigatório')
     expect(textbox).toBeTruthy()
   })
   // it('Has a Telefone field', () => {
