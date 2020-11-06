@@ -659,6 +659,11 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
   border-radius: 17px;
 }
 
+.c19:disabled {
+  background: #666;
+  cursor: default;
+}
+
 .c20 {
   background-color: #C7DDFD;
   color: #5996f7;

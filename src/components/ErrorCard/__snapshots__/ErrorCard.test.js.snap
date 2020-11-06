@@ -102,6 +102,11 @@ exports[`ErrorCard tests Render correctly 1`] = `
   border-radius: 17px;
 }
 
+.c6:disabled {
+  background: #666;
+  cursor: default;
+}
+
 .c8 {
   vertical-align: middle;
   margin-right: 5px;
