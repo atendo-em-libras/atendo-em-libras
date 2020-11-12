@@ -228,14 +228,12 @@ const Attendances = () => {
   `
 
   const attendancesValidate = (formValue) => {
-    {
-      if (
-        !formValue.onlineAttendanceOption &&
-        !formValue.householdAttendanceOption &&
-        !formValue.hospitalclinicAttendanceOption
-      )
-        return 'Pelo menos um atendimento é obrigatório'
-    }
+    if (
+      !formValue.onlineAttendanceOption &&
+      !formValue.householdAttendanceOption &&
+      !formValue.hospitalclinicAttendanceOption
+    )
+      return 'Pelo menos um atendimento é obrigatório'
   }
 
   return (
@@ -266,36 +264,6 @@ const Attendances = () => {
   )
 }
 
-const TermsAndConditions = () => {
-  const [checked, setChecked] = useState(false)
-
-  return (
-    <Box>
-      <HeadingSectionCustom required>Termo de aceite</HeadingSectionCustom>
-
-      <Paragraph size="small" fill>
-        O site Atendo em Libras é uma iniciativa, sem fins lucrativos, que visa possibilitar maior visibilidade de dados
-        de contato de profissionais que sabem Libras. Contudo, seu conteúdo é construído de forma colaborativa pela
-        comunidade, não podendo assim o site garantir sua veracidade, exatidão, integridade ou qualidade das informações
-        aqui expostas. Dessa forma, isenta-se de qualquer responsabilidade quanto à utilização ou não destas
-        informações. Se você encontrou seus dados aqui expostos e deseja removê-los, envie um email para
-        atendoemlibras@gmail.com.
-      </Paragraph>
-
-      <FormField margin={{ top: '20px' }} name="termsAndConditions" required noRequiredLabel>
-        <Box>
-          <CheckBox
-            checked={checked}
-            label="Li e aceito"
-            name="termsAndConditions"
-            onChange={(event) => setChecked(event.target.checked)}
-          />
-        </Box>
-      </FormField>
-    </Box>
-  )
-}
-
 const PageTitle = () => (
   <>
     <Square margin={{ right: 'medium' }} background="white">
@@ -307,10 +275,36 @@ const PageTitle = () => (
   </>
 )
 
+const TermsAndConditions = ({ checked, setChecked }) => (
+  <Box>
+    <HeadingSectionCustom required>Termo de aceite</HeadingSectionCustom>
+
+    <Paragraph size="small" fill>
+      O site Atendo em Libras é uma iniciativa, sem fins lucrativos, que visa possibilitar maior visibilidade de dados
+      de contato de profissionais que sabem Libras. Contudo, seu conteúdo é construído de forma colaborativa pela
+      comunidade, não podendo assim o site garantir sua veracidade, exatidão, integridade ou qualidade das informações
+      aqui expostas. Dessa forma, isenta-se de qualquer responsabilidade quanto à utilização ou não destas informações.
+      Se você encontrou seus dados aqui expostos e deseja removê-los, envie um email para atendoemlibras@gmail.com.
+    </Paragraph>
+
+    <FormField margin={{ top: '20px' }} name="termsAndConditions" required noRequiredLabel>
+      <Box>
+        <CheckBox
+          checked={checked}
+          label="Li e aceito"
+          name="termsAndConditions"
+          onChange={(event) => setChecked(event.target.checked)}
+        />
+      </Box>
+    </FormField>
+  </Box>
+)
+
 const SignUp = () => {
   const history = useHistory()
   const [show, setShow] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [checked, setChecked] = useState(false)
 
   const screenSize = useContext(ResponsiveContext)
 
@@ -334,7 +328,7 @@ const SignUp = () => {
           <ContactInfo />
           <ProfessionalInfo />
           <Attendances />
-          <TermsAndConditions />
+          <TermsAndConditions checked={checked} setChecked={setChecked} />
 
           {show && (
             <SuccessModal responsive={false} animation="fadeIn" style={{ borderRadius: '1em' }}>
@@ -366,7 +360,7 @@ const SignUp = () => {
               droplet="bottom-left"
               size="small"
               style={{ display: 'flex', justifyContent: 'center' }}
-              disabled={loading}
+              disabled={loading || !checked}
               children={() =>
                 loading ? <ReactLoading height="20px" width="20px" type="spinningBubbles" /> : 'Cadastrar'
               }
