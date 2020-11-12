@@ -79,7 +79,7 @@ describe('ProviderCard tests', () => {
 
   describe('Information of Attendance location', () => {
     it('Should render the location of hospital clinic when provider has hospital clinic attendance and doesnt have household attendance', () => {
-      const localProvider = { attendance: { ...provider.attendance } }
+      const localProvider = { ...provider, attendance: { ...provider.attendance } }
       localProvider.attendance.householdAttendance = {}
 
       view.rerender(<ProviderCard provider={localProvider} />)
@@ -96,7 +96,7 @@ describe('ProviderCard tests', () => {
     })
 
     it('Should render the location of hospital clinic when provider has hospital clinic attendance and household attendance', () => {
-      const localProvider = { attendance: { ...provider.attendance } }
+      const localProvider = { ...provider, attendance: { ...provider.attendance } }
       localProvider.attendance.householdAttendance = {
         city: 'Balneário Camboriú',
         stateInitials: 'SC',
@@ -116,7 +116,7 @@ describe('ProviderCard tests', () => {
     })
 
     it('Should render the location of household when provider has household attendance and doesnt have hospital clinic attendance', () => {
-      const localProvider = { attendance: { ...provider.attendance } }
+      const localProvider = { ...provider, attendance: { ...provider.attendance } }
       localProvider.attendance.hospitalClinicAttendance = {}
 
       localProvider.attendance.householdAttendance = {

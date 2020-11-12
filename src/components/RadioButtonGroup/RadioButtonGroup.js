@@ -4,6 +4,13 @@ import { Button } from '../Buttons/'
 import { Text } from 'grommet'
 import styled from 'styled-components/macro'
 
+const ButtonStyled = styled(Button)`
+  border-style: solid;
+  border-width: 1px;
+  border-color: ${COLORS.brand};
+  margin-right: 12px;
+`
+
 export const RadioButtonGroup = (props) => {
   const [selectedIndex, setSelectedIndex] = useState(0)
 
@@ -11,13 +18,6 @@ export const RadioButtonGroup = (props) => {
     setSelectedIndex(i)
     props.onChange(value)
   }
-
-  const ButtonStyled = styled(Button)`
-    border-style: solid;
-    border-width: 1px;
-    border-color: ${COLORS.brand};
-    margin-right: 12px;
-  `
 
   const options = props.options.map((option, i) => (
     <Button
