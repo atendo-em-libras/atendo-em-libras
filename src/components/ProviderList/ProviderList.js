@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import ReactLoading from 'react-loading'
 import { ProviderCard } from '../ProviderCard'
 import { ErrorCard } from '../ErrorCard'
 import ProviderApi from '../../api/provider'
 import { ResponsiveGrid } from '../ResponsiveGrid'
+import { COLORS } from '../../constants/colors'
+import Filter from './Filter'
 
 const columns = {
   small: ['auto'],
@@ -27,15 +30,15 @@ class ProviderList extends Component {
     super(props)
 
     this.state = {
-      isLoaded: false,
+      isLoading: false,
       providers: [],
     }
   }
 
   loadServiceProvicers = async () => {
+    this.setState({ isLoading: true })
     const serviceProvidersJson = await ProviderApi.get()
-    this.setState({ isLoaded: true })
-    this.setState({ providers: serviceProvidersJson })
+    this.setState({ isLoading: false, providers: serviceProvidersJson })
   }
 
   handleClick = () => {
@@ -47,22 +50,33 @@ class ProviderList extends Component {
   }
 
   render() {
-    const { isLoaded, providers } = this.state
+    const { isLoading, providers } = this.state
 
-    if (!isLoaded) {
-      return <div data-testid="emptyList"></div>
+    if (isLoading) {
+      return <ReactLoading className="loading-list" color={COLORS.brand} type="spinningBubbles" />
     }
 
-    return providers && providers.length > 0 ? (
-      <ResponsiveGrid columns={columns} rows={rows} areas={fixedGridAreas} justify="center" gapRow="50px" gapCol="50px">
-        {providers.map((provider, index) => {
-          return <ProviderCard key={index} provider={provider} gridArea="card" />
-        })}
-      </ResponsiveGrid>
-    ) : (
-      <ErrorCard onClick={this.handleClick} />
+    return (
+      <React.Fragment>
+        <Filter />
+        {providers && providers.length > 0 ? (
+          <ResponsiveGrid
+            columns={columns}
+            rows={rows}
+            areas={fixedGridAreas}
+            justify="center"
+            gapRow="50px"
+            gapCol="50px"
+          >
+            {providers.map((provider, index) => {
+              return <ProviderCard key={index} provider={provider} gridArea="card" />
+            })}
+          </ResponsiveGrid>
+        ) : (
+          <ErrorCard onClick={this.handleClick} />
+        )}
+      </React.Fragment>
     )
   }
 }
-
 export { ProviderList }
