@@ -111,6 +111,10 @@ exports[`Footer component renders footer correctly 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   width: 1152px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .c2 {

@@ -31,7 +31,6 @@ describe('ProviderList tests', () => {
     render(<ProviderList />)
 
     expect(screen.queryByRole('provider')).toBeNull()
-    expect(screen.getByTestId('emptyList')).toBeInTheDocument()
     expect(await screen.findByText('doctor-who@tardis.com')).toBeInTheDocument()
   })
 })
