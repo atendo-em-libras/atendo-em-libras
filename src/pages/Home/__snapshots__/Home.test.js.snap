@@ -12,10 +12,28 @@ Object {
   max-width: 100%;
   min-width: 0;
   min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 1152px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  width: 1152px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -135,6 +153,10 @@ Object {
   text-align: left;
 }
 
+@media only screen and (max-width:768px) {
+
+}
+
 @media (min-width:801px) {
   .c2 {
     padding: 0 40px 50px 40px;
@@ -142,6 +164,10 @@ Object {
 }
 
 @media (min-width:800px) {
+
+}
+
+@media (min-width:801px) {
 
 }
 
@@ -224,6 +250,260 @@ Object {
       </div>
       <div
         class="c1 c2"
+      >
+        <div
+          class="c5"
+        >
+          <div
+            class="loading-list"
+            style="fill: #5996f7; height: 64px; width: 64px;"
+          >
+            <svg
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              
+  
+              <circle
+                cx="16"
+                cy="3"
+                r="0"
+              >
+                
+    
+                <animate
+                  attributeName="r"
+                  begin="0"
+                  calcMode="spline"
+                  dur="1s"
+                  keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                  repeatCount="indefinite"
+                  values="0;3;0;0"
+                />
+                
+  
+              </circle>
+              
+  
+              <circle
+                cx="16"
+                cy="3"
+                r="0"
+                transform="rotate(45 16 16)"
+              >
+                
+    
+                <animate
+                  attributeName="r"
+                  begin="0.125s"
+                  calcMode="spline"
+                  dur="1s"
+                  keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                  repeatCount="indefinite"
+                  values="0;3;0;0"
+                />
+                
+  
+              </circle>
+              
+  
+              <circle
+                cx="16"
+                cy="3"
+                r="0"
+                transform="rotate(90 16 16)"
+              >
+                
+    
+                <animate
+                  attributeName="r"
+                  begin="0.25s"
+                  calcMode="spline"
+                  dur="1s"
+                  keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                  repeatCount="indefinite"
+                  values="0;3;0;0"
+                />
+                
+  
+              </circle>
+              
+  
+              <circle
+                cx="16"
+                cy="3"
+                r="0"
+                transform="rotate(135 16 16)"
+              >
+                
+    
+                <animate
+                  attributeName="r"
+                  begin="0.375s"
+                  calcMode="spline"
+                  dur="1s"
+                  keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                  repeatCount="indefinite"
+                  values="0;3;0;0"
+                />
+                
+  
+              </circle>
+              
+  
+              <circle
+                cx="16"
+                cy="3"
+                r="0"
+                transform="rotate(180 16 16)"
+              >
+                
+    
+                <animate
+                  attributeName="r"
+                  begin="0.5s"
+                  calcMode="spline"
+                  dur="1s"
+                  keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                  repeatCount="indefinite"
+                  values="0;3;0;0"
+                />
+                
+  
+              </circle>
+              
+  
+              <circle
+                cx="16"
+                cy="3"
+                r="0"
+                transform="rotate(225 16 16)"
+              >
+                
+    
+                <animate
+                  attributeName="r"
+                  begin="0.625s"
+                  calcMode="spline"
+                  dur="1s"
+                  keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                  repeatCount="indefinite"
+                  values="0;3;0;0"
+                />
+                
+  
+              </circle>
+              
+  
+              <circle
+                cx="16"
+                cy="3"
+                r="0"
+                transform="rotate(270 16 16)"
+              >
+                
+    
+                <animate
+                  attributeName="r"
+                  begin="0.75s"
+                  calcMode="spline"
+                  dur="1s"
+                  keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                  repeatCount="indefinite"
+                  values="0;3;0;0"
+                />
+                
+  
+              </circle>
+              
+  
+              <circle
+                cx="16"
+                cy="3"
+                r="0"
+                transform="rotate(315 16 16)"
+              >
+                
+    
+                <animate
+                  attributeName="r"
+                  begin="0.875s"
+                  calcMode="spline"
+                  dur="1s"
+                  keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                  repeatCount="indefinite"
+                  values="0;3;0;0"
+                />
+                
+  
+              </circle>
+              
+  
+              <circle
+                cx="16"
+                cy="3"
+                r="0"
+                transform="rotate(180 16 16)"
+              >
+                
+    
+                <animate
+                  attributeName="r"
+                  begin="0.5s"
+                  calcMode="spline"
+                  dur="1s"
+                  keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
+                  repeatCount="indefinite"
+                  values="0;3;0;0"
+                />
+                
+  
+              </circle>
+              
+
+            </svg>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="Home__HomeWrapper-b5m6jg-0 gJfiEg"
+    >
+      <div
+        class="StyledBox-sc-13pk1d4-0 hfyNUx sc-AxjAm hCRKDb"
+      >
+        <div
+          class="HomeBanner__StyledHomeBanner-sc-1mh502r-0 dfBkTw"
+        >
+          <img
+            alt="Ilustração projeto Atendo em Libras"
+            src="img_atendo_em_libras_illustration.svg"
+          />
+          <h1>
+            Conheça profissionais de saúde que atendem em Libras
+          </h1>
+          <p>
+            Sabemos da dificuldade de encontrar um profissional de saúde que se comunique em Libras e no atual momento em que vivemos isso se torna ainda mais difícil. Pensando nisso trouxemos alguns profissionais que atendem em Libras.
+          </p>
+        </div>
+      </div>
+      <div
+        class="HomeCallOut__StyledHomeCallOut-sc-8y0p5g-0 inrJok"
+      >
+        <h2>
+          Profissionais de diversas áreas da saúde prontos para te atender
+        </h2>
+      </div>
+    </div>
+    <div
+      class="StyledBox-sc-13pk1d4-0 hfyNUx sc-AxjAm hCRKDb"
+    >
+      <div
+        class="StyledBox-sc-13pk1d4-0 jmTzhV"
       >
         <div
           class="loading-list"
@@ -436,252 +716,6 @@ Object {
           
 
         </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="Home__HomeWrapper-b5m6jg-0 gJfiEg"
-    >
-      <div
-        class="StyledBox-sc-13pk1d4-0 gqermd sc-AxjAm hCRKDb"
-      >
-        <div
-          class="HomeBanner__StyledHomeBanner-sc-1mh502r-0 dfBkTw"
-        >
-          <img
-            alt="Ilustração projeto Atendo em Libras"
-            src="img_atendo_em_libras_illustration.svg"
-          />
-          <h1>
-            Conheça profissionais de saúde que atendem em Libras
-          </h1>
-          <p>
-            Sabemos da dificuldade de encontrar um profissional de saúde que se comunique em Libras e no atual momento em que vivemos isso se torna ainda mais difícil. Pensando nisso trouxemos alguns profissionais que atendem em Libras.
-          </p>
-        </div>
-      </div>
-      <div
-        class="HomeCallOut__StyledHomeCallOut-sc-8y0p5g-0 inrJok"
-      >
-        <h2>
-          Profissionais de diversas áreas da saúde prontos para te atender
-        </h2>
-      </div>
-    </div>
-    <div
-      class="StyledBox-sc-13pk1d4-0 gqermd sc-AxjAm hCRKDb"
-    >
-      <div
-        class="loading-list"
-        style="fill: #5996f7; height: 64px; width: 64px;"
-      >
-        <svg
-          viewBox="0 0 32 32"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          
-  
-          <circle
-            cx="16"
-            cy="3"
-            r="0"
-          >
-            
-    
-            <animate
-              attributeName="r"
-              begin="0"
-              calcMode="spline"
-              dur="1s"
-              keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-              repeatCount="indefinite"
-              values="0;3;0;0"
-            />
-            
-  
-          </circle>
-          
-  
-          <circle
-            cx="16"
-            cy="3"
-            r="0"
-            transform="rotate(45 16 16)"
-          >
-            
-    
-            <animate
-              attributeName="r"
-              begin="0.125s"
-              calcMode="spline"
-              dur="1s"
-              keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-              repeatCount="indefinite"
-              values="0;3;0;0"
-            />
-            
-  
-          </circle>
-          
-  
-          <circle
-            cx="16"
-            cy="3"
-            r="0"
-            transform="rotate(90 16 16)"
-          >
-            
-    
-            <animate
-              attributeName="r"
-              begin="0.25s"
-              calcMode="spline"
-              dur="1s"
-              keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-              repeatCount="indefinite"
-              values="0;3;0;0"
-            />
-            
-  
-          </circle>
-          
-  
-          <circle
-            cx="16"
-            cy="3"
-            r="0"
-            transform="rotate(135 16 16)"
-          >
-            
-    
-            <animate
-              attributeName="r"
-              begin="0.375s"
-              calcMode="spline"
-              dur="1s"
-              keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-              repeatCount="indefinite"
-              values="0;3;0;0"
-            />
-            
-  
-          </circle>
-          
-  
-          <circle
-            cx="16"
-            cy="3"
-            r="0"
-            transform="rotate(180 16 16)"
-          >
-            
-    
-            <animate
-              attributeName="r"
-              begin="0.5s"
-              calcMode="spline"
-              dur="1s"
-              keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-              repeatCount="indefinite"
-              values="0;3;0;0"
-            />
-            
-  
-          </circle>
-          
-  
-          <circle
-            cx="16"
-            cy="3"
-            r="0"
-            transform="rotate(225 16 16)"
-          >
-            
-    
-            <animate
-              attributeName="r"
-              begin="0.625s"
-              calcMode="spline"
-              dur="1s"
-              keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-              repeatCount="indefinite"
-              values="0;3;0;0"
-            />
-            
-  
-          </circle>
-          
-  
-          <circle
-            cx="16"
-            cy="3"
-            r="0"
-            transform="rotate(270 16 16)"
-          >
-            
-    
-            <animate
-              attributeName="r"
-              begin="0.75s"
-              calcMode="spline"
-              dur="1s"
-              keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-              repeatCount="indefinite"
-              values="0;3;0;0"
-            />
-            
-  
-          </circle>
-          
-  
-          <circle
-            cx="16"
-            cy="3"
-            r="0"
-            transform="rotate(315 16 16)"
-          >
-            
-    
-            <animate
-              attributeName="r"
-              begin="0.875s"
-              calcMode="spline"
-              dur="1s"
-              keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-              repeatCount="indefinite"
-              values="0;3;0;0"
-            />
-            
-  
-          </circle>
-          
-  
-          <circle
-            cx="16"
-            cy="3"
-            r="0"
-            transform="rotate(180 16 16)"
-          >
-            
-    
-            <animate
-              attributeName="r"
-              begin="0.5s"
-              calcMode="spline"
-              dur="1s"
-              keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8"
-              repeatCount="indefinite"
-              values="0;3;0;0"
-            />
-            
-  
-          </circle>
-          
-
-        </svg>
-        
-
       </div>
     </div>
   </div>,

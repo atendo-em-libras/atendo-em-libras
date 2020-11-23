@@ -13,9 +13,6 @@ const StyledDropBox = styled(Box)`
   * {
     border-color: #fff;
   }
-  button:disabled {
-    cursor: zoom;
-  }
 `
 
 const StyledFilterBox = styled(Box)`
