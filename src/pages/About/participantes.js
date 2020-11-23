@@ -1,3 +1,4 @@
+import FotoAmilton from '../../assets/images/participantes/amilton.png'
 import FotoAndressa from '../../assets/images/participantes/andressa.jpg'
 import FotoCris from '../../assets/images/participantes/cris.png'
 import FotoDebora from '../../assets/images/participantes/debora.jpg'
@@ -22,6 +23,7 @@ import FotoSamuel from '../../assets/images/participantes/samuel_locatelli.png'
 import FotoJessica from '../../assets/images/participantes/jessica_pureza.png'
 
 const participantes = [
+  { nome: 'Amilton Baracy', role: 'Desenvolvedor', avatar: FotoAmilton },
   { nome: 'Andressa Silva', role: 'Desenvolvedora', avatar: FotoAndressa },
   { nome: 'Cris Brand', role: 'Business Analyst', avatar: FotoCris },
   { nome: 'Débora Pereira', role: 'Intérprete de Libras', avatar: FotoDebora },
