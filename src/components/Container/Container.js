@@ -12,7 +12,7 @@ const StyledBox = styled(Box)`
   `}
 `
 const Container = (props) => {
-  return <StyledBox width="xlarge" justify="center" direction="row" {...props} />
+  return <StyledBox width="xlarge" justify="center" direction="column" {...props} />
 }
 
 export { Container }

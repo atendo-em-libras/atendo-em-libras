@@ -1,7 +1,7 @@
-import React, { Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { logoIcon } from '../../../assets/icons'
-import { Box, Image, ResponsiveContext, Anchor } from 'grommet'
+import { Box, Image, ResponsiveContext } from 'grommet'
 import { respondTo } from '../../../utils/breakpoints/_respondTo'
 
 const StyledTitle = styled.h1`

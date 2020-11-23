@@ -1,160 +1,225 @@
-import React, { useState } from 'react'
-import { CheckBoxGroup, DropButton, Box } from 'grommet'
-import { Button } from '../../Buttons'
-import { Select } from '../../Form'
-import styled from 'styled-components/macro'
-import { COLORS } from '../../../constants/colors'
+import React, { useState, useEffect, useContext } from 'react'
+import { Box, ResponsiveContext } from 'grommet'
+import { FormField } from '../../Form'
+import { videoIcon, addressIcon, peopleIcon, arrowDownIcon } from '../../../assets/icons'
+import { categories as ObjectCategories } from '../../../constants/categories'
+import LocationApi from '../../../api/location'
+import {
+  StyledCheckBox,
+  StyledClearButton,
+  StyledDropBox,
+  StyledFilterBox,
+  StyledSaveButton,
+  StyledSelect,
+  StyledDropButton,
+  StyledHr,
+  StyledIconText,
+  StyledFormChip,
+  StyledClearFilterButton,
+  StyleFilterArrowIcon,
+} from './FilterStyles'
 
-const StyledBox = styled(Box)`
-  background: ${COLORS.brand};
-  color: #fff;
-  * {
-    border-color: #fff;
-  }
-`
+const attendanceOptions = ['Vídeo chamada', 'Domicílio', 'Clínica ou Hospital']
+const categories = ObjectCategories.map((x) => x.Description)
 
-const StyledCheckBox = styled(CheckBoxGroup)`
-  div {
-    border-color: #fff !important;
-  }
-  input:checked + div {
-    background: #fff;
-  }
-  svg {
-    stroke: ${COLORS.brand};
-  }
-`
-
-const StyledSaveButton = styled(Button)`
-  background: #fff;
-  color: ${COLORS.brand};
-`
-
-const StyledClearButton = styled(Button)`
-  color: #fff;
-  text-decoration: underline;
-`
-
-const StyledSelect = styled(Select)`
-  color: #fff;
-`
-
-const StyledHr = styled.hr`
-  height: 1px;
-`
-
-const Filter = () => {
-  const [filters, setFilters] = useState({ localidades: [], categorias: [], tiposAtendimento: [] })
-  const [localidade, setLocalidade] = useState('')
-  const [categoria, setCategoria] = useState([])
-  const [tipoAtendimento, setTipoAtendimento] = useState([])
+const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
+  const screenSize = useContext(ResponsiveContext)
 
   return (
-    <Box>
-      <DropButton
-        label="Tipos Atendimento"
-        dropAlign={{ top: 'bottom', right: 'right' }}
-        dropContent={
-          <StyledBox>
-            <Box pad="medium">
-              <StyledCheckBox
-                value={tipoAtendimento}
-                options={['Online', 'Outro']}
-                onChange={({ value }) => setTipoAtendimento(value)}
-              />
-            </Box>
-            <StyledHr color="#fff" />
-            <Box pad="medium" direction="row" justify="between">
-              <StyledClearButton
-                size="small"
-                onClick={() => {
-                  setTipoAtendimento([])
-                }}
-              >
-                Limpar
-              </StyledClearButton>
-              <StyledSaveButton
-                size="small"
-                droplet="bottom-left"
-                onClick={() => {
-                  setFilters({ ...filters, tiposAtendimento: tipoAtendimento })
-                }}
-              >
-                Salvar
-              </StyledSaveButton>
-            </Box>
-          </StyledBox>
+    <StyledDropButton
+      dropAlign={{ top: 'bottom', left: 'left' }}
+      dropProps={{
+        style: {
+          boxShadow: 'none',
+          background: 'transparent',
+          marginTop: screenSize === 'small' ? '0px' : '10px',
+        },
+      }}
+      dropContent={
+        <StyledDropBox>
+          <Box pad="medium">{children}</Box>
+          <StyledHr color="#fff" />
+          <Box pad="medium" direction="row" justify="between">
+            <StyledClearButton
+              size="small"
+              onClick={() => {
+                onClear()
+              }}
+            >
+              Limpar
+            </StyledClearButton>
+            <StyledSaveButton
+              size="small"
+              droplet="bottom-left"
+              onClick={() => {
+                onSave()
+              }}
+            >
+              Salvar
+            </StyledSaveButton>
+          </Box>
+        </StyledDropBox>
+      }
+      {...props}
+    >
+      {icon && <StyledIconText src={icon} alt={`${label} Icon`} />}
+      <span>{label}</span>
+      <StyleFilterArrowIcon src={arrowDownIcon} />
+    </StyledDropButton>
+  )
+}
+
+const FilterChip = ({ label, icon, onClose }) => {
+  return <StyledFormChip onClick={() => onClose()}>{label}</StyledFormChip>
+}
+
+const Filter = ({ filters, setFilters }) => {
+  const [attendanceOption, setAttendanceOption] = useState([])
+  const [state, setState] = useState('')
+  const [city, setCity] = useState('')
+  const [category, setCategory] = useState([])
+  const [loadingCities, setLoadingCities] = useState(false)
+  const [cities, setCities] = useState([])
+  const [states, setStates] = useState([])
+
+  const hasFilter =
+    filters.attendanceOptions.length > 0 || filters.categories.length > 0 || filters.localities.length > 0
+
+  useEffect(() => {
+    let mounted = true
+
+    const getUfs = async () => {
+      setLoadingCities(true)
+      LocationApi.getUf().then((response) => {
+        if (mounted) {
+          setStates(response)
         }
-      />
-      <DropButton
-        label="Localidade"
-        dropAlign={{ top: 'bottom', right: 'right' }}
-        dropContent={
-          <StyledBox>
-            <Box pad="medium">
-              <StyledSelect
-                options={['po', 'bom', 'dia']}
-                value={localidade}
-                onChange={({ value }) => setLocalidade(value)}
-              />
-            </Box>
-            <StyledHr color="#fff" />
-            <Box pad="medium" direction="row" justify="between">
-              <StyledClearButton
-                onClick={() => {
-                  setLocalidade([])
-                }}
-              >
-                Limpar
-              </StyledClearButton>
-              <StyledSaveButton
-                size="small"
-                droplet="bottom-left"
-                onClick={() => {
-                  setFilters({ ...filters, localidades: [...filters.localidades, localidade] })
-                }}
-              >
-                Salvar
-              </StyledSaveButton>
-            </Box>
-          </StyledBox>
+      })
+
+      setLoadingCities(false)
+    }
+    getUfs()
+
+    return () => {
+      mounted = false
+    }
+  }, [])
+
+  useEffect(() => {
+    let mounted = true
+
+    const getCitiesByUf = async () => {
+      setLoadingCities(true)
+      LocationApi.getCitiesByUF(state).then((response) => {
+        if (mounted) {
+          setCities(response)
         }
-      />
-      <DropButton
-        label="Categoria"
-        dropAlign={{ top: 'bottom', right: 'right' }}
-        dropContent={
-          <StyledBox>
-            <Box pad="medium">
-              <CheckBoxGroup
-                options={['one', 'two', 'three']}
-                value={categoria}
-                onChange={({ value }) => setCategoria(value)}
-              />
-            </Box>
-            <StyledHr color="#fff" />
-            <Box pad="medium" direction="row" justify="between">
-              <StyledClearButton
-                onClick={() => {
-                  setCategoria([])
-                }}
-              >
-                Limpar
-              </StyledClearButton>
-              <StyledSaveButton
-                size="small"
-                droplet="bottom-left"
-                onClick={() => {
-                  setFilters({ ...filters, categorias: categoria })
-                }}
-              >
-                Salvar
-              </StyledSaveButton>
-            </Box>
-          </StyledBox>
-        }
-      />
-    </Box>
+      })
+
+      setLoadingCities(false)
+    }
+    getCitiesByUf()
+
+    return () => {
+      mounted = false
+    }
+  }, [state])
+
+  return (
+    <>
+      <StyledFilterBox margin={{ bottom: 'medium' }}>
+        <FilterCard
+          label="Tipos de atendimento"
+          icon={videoIcon}
+          onClear={() => setAttendanceOption([])}
+          onSave={() => {
+            setFilters({ ...filters, attendanceOptions: attendanceOption })
+          }}
+          onOpen={() => setAttendanceOption(filters.attendanceOptions)}
+        >
+          <StyledCheckBox
+            value={attendanceOption}
+            options={attendanceOptions}
+            onChange={({ value }) => setAttendanceOption(value)}
+          />
+        </FilterCard>
+        <FilterCard
+          label="Localidade"
+          icon={addressIcon}
+          onClear={() => {
+            setCity('')
+            setState('')
+          }}
+          onSave={() => {
+            setFilters({ ...filters, localities: [...filters.localities, { state, city }] })
+            setCity('')
+            setState('')
+          }}
+        >
+          <FormField label="Estado" name="state" marginBottom="none">
+            <StyledSelect options={states} value={state} onChange={({ value }) => setState(value)} />
+          </FormField>
+          <FormField label="Cidade" name="city" marginBottom="none">
+            <StyledSelect
+              options={cities}
+              disabled={loadingCities || !state}
+              value={city}
+              onChange={({ value }) => setCity(value)}
+            />
+          </FormField>
+        </FilterCard>
+        <FilterCard
+          label="Categoria"
+          icon={peopleIcon}
+          onClear={() => setCategory([])}
+          onSave={() => {
+            setFilters({ ...filters, categories: category })
+          }}
+          onOpen={() => setCategory(filters.categories)}
+        >
+          <StyledCheckBox options={categories} value={category} onChange={({ value }) => setCategory(value)} />
+        </FilterCard>
+      </StyledFilterBox>
+      {hasFilter && (
+        <Box direction="row" wrap margin={{ bottom: 'medium' }}>
+          <StyledClearFilterButton
+            onClick={() => setFilters({ localities: [], categories: [], attendanceOptions: [] })}
+            size="small"
+            droplet="bottom-left"
+          >
+            Limpar filtros
+          </StyledClearFilterButton>
+          {filters.attendanceOptions.map((option, index) => (
+            <FilterChip
+              label={option}
+              key={index}
+              onClose={() =>
+                setFilters({ ...filters, attendanceOptions: filters.attendanceOptions.filter((x) => x !== option) })
+              }
+            />
+          ))}
+          {filters.localities.map((option, index) => (
+            <FilterChip
+              label={`${option.city} - ${option.state}`}
+              key={index}
+              onClose={() =>
+                setFilters({
+                  ...filters,
+                  localities: filters.localities.filter((x) => x.city !== option.city && x.state !== option.state),
+                })
+              }
+            />
+          ))}
+          {filters.categories.map((option, index) => (
+            <FilterChip
+              label={option}
+              key={index}
+              onClose={() => setFilters({ ...filters, categories: filters.categories.filter((x) => x !== option) })}
+            />
+          ))}
+        </Box>
+      )}
+    </>
   )
 }
 

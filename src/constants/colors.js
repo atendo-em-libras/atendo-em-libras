@@ -1,5 +1,6 @@
 const COLORS = {
   brand: '#5996f7',
+  brandLight: '#c7ddfd',
   'status-disabled': '#CCCCCC',
   'light-1': '#F8F8F8',
   'light-2': '#F2F2F2',
