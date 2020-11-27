@@ -93,12 +93,25 @@ const StyledClearFilterButton = styled(Button)`
   margin: 5px 5px 5px 0px;
   color: #fff;
 `
-const StyleFilterArrowIcon = styled(IconText)`
+const StyledFilterArrowIcon = styled(IconText)`
   height: 15px;
   width: 15px;
   vertical-align: sub;
   margin-right: 0;
   margin-left: 12px;
+`
+
+const StyledCloseButton = styled(Button)`
+  margin-left: 12px;
+  padding: 0 7px;
+  border-radius: 50%;
+  background: ${COLORS.brand};
+  img {
+    margin: 0;
+    width: 10px;
+    height: 10px;
+    vertical-align: inherit;
+  }
 `
 
 export {
@@ -113,5 +126,6 @@ export {
   StyledIconText,
   StyledFormChip,
   StyledClearFilterButton,
-  StyleFilterArrowIcon,
+  StyledFilterArrowIcon,
+  StyledCloseButton,
 }

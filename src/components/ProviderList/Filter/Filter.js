@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Box, ResponsiveContext } from 'grommet'
 import { FormField } from '../../Form'
-import { videoIcon, addressIcon, peopleIcon, arrowDownIcon } from '../../../assets/icons'
+import { videoIcon, addressIcon, peopleIcon, arrowDownIcon, trashIcon, closeIcon } from '../../../assets/icons'
 import { categories as ObjectCategories } from '../../../constants/categories'
 import LocationApi from '../../../api/location'
 import {
@@ -16,7 +16,8 @@ import {
   StyledIconText,
   StyledFormChip,
   StyledClearFilterButton,
-  StyleFilterArrowIcon,
+  StyledFilterArrowIcon,
+  StyledCloseButton,
 } from './FilterStyles'
 
 const attendanceOptions = ['Vídeo chamada', 'Domicílio', 'Clínica ou Hospital']
@@ -37,9 +38,11 @@ const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
       }}
       dropContent={
         <StyledDropBox>
-          <Box pad="medium">{children}</Box>
+          <Box style={{ overflow: 'auto' }} pad="medium">
+            {children}
+          </Box>
           <StyledHr color="#fff" />
-          <Box pad="medium" direction="row" justify="between">
+          <Box pad="medium" direction="row" style={{ minHeight: '68px' }} justify="between">
             <StyledClearButton
               size="small"
               onClick={() => {
@@ -64,13 +67,21 @@ const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
     >
       {icon && <StyledIconText src={icon} alt={`${label} Icon`} />}
       <span>{label}</span>
-      <StyleFilterArrowIcon src={arrowDownIcon} />
+      <StyledFilterArrowIcon src={arrowDownIcon} />
     </StyledDropButton>
   )
 }
 
 const FilterChip = ({ label, icon, onClose }) => {
-  return <StyledFormChip onClick={() => onClose()}>{label}</StyledFormChip>
+  return (
+    <StyledFormChip>
+      <StyledIconText src={icon} alt={`${label} icone`} />
+      {label}
+      <StyledCloseButton onClick={() => onClose()}>
+        <StyledIconText src={closeIcon} alt={`Excluir filtro ${label}`} />
+      </StyledCloseButton>
+    </StyledFormChip>
+  )
 }
 
 const Filter = ({ filters, setFilters }) => {
@@ -187,12 +198,14 @@ const Filter = ({ filters, setFilters }) => {
             size="small"
             droplet="bottom-left"
           >
+            <StyledIconText src={trashIcon} alt="Limpar filtros icon" />
             Limpar filtros
           </StyledClearFilterButton>
           {filters.attendanceOptions.map((option, index) => (
             <FilterChip
               label={option}
               key={index}
+              icon={videoIcon}
               onClose={() =>
                 setFilters({ ...filters, attendanceOptions: filters.attendanceOptions.filter((x) => x !== option) })
               }
@@ -202,6 +215,7 @@ const Filter = ({ filters, setFilters }) => {
             <FilterChip
               label={`${option.city} - ${option.state}`}
               key={index}
+              icon={addressIcon}
               onClose={() =>
                 setFilters({
                   ...filters,
@@ -214,6 +228,7 @@ const Filter = ({ filters, setFilters }) => {
             <FilterChip
               label={option}
               key={index}
+              icon={peopleIcon}
               onClose={() => setFilters({ ...filters, categories: filters.categories.filter((x) => x !== option) })}
             />
           ))}

@@ -12,6 +12,7 @@ import logoIcon from './ic_logo.svg'
 import logoIconWhite from './ic_logo_white.svg'
 import peopleIcon from './ic_people.svg'
 import arrowDownIcon from './ic_arrow_down.svg'
+import trashIcon from './ic_trash.svg'
 
 export {
   videoIcon,
@@ -28,4 +29,5 @@ export {
   logoIconWhite,
   peopleIcon,
   arrowDownIcon,
+  trashIcon,
 }

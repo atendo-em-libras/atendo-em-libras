@@ -26,6 +26,12 @@ const fixedGridAreas = {
   large: [{ name: 'card', start: [0, 0], end: [1, 0] }],
 }
 
+const attendanceKeys = {
+  'Vídeo chamada': 'onlineAttendance',
+  Domicílio: 'householdAttendance',
+  'Clínica ou Hospital': 'hospitalClinicAttendance',
+}
+
 const ProviderList = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [providers, setProviders] = useState([])
@@ -51,9 +57,17 @@ const ProviderList = () => {
   useEffect(() => {
     const filterProviders = () => {
       const filtered = providers.filter((provider) => {
-        let isFiltered = true
+        if (
+          filters.attendanceOptions.length === 0 &&
+          filters.categories.length === 0 &&
+          filters.localities.length === 0
+        ) {
+          return true
+        }
+
+        let isFiltered = false
         for (let i = 0; i < filters.attendanceOptions.length; i++) {
-          isFiltered = provider.attendance[filters.attendanceOptions[i]]
+          isFiltered = provider.attendance[attendanceKeys[filters.attendanceOptions[i]]]
 
           if (isFiltered) break
         }
@@ -64,13 +78,21 @@ const ProviderList = () => {
           if (isFiltered) break
         }
 
-        // for (let i = 0; i < filters.localities.length; i++) {
-        //   const { houseHoldAttendance, hospitalClinicAttendance } = provider.attendance;
+        for (let i = 0; i < filters.localities.length; i++) {
+          const { houseHoldAttendance, hospitalClinicAttendance } = provider.attendance
 
-        //   if (houseHoldAttendance) {
-        //     isFiltered = houseHoldAttendance.stateInitials ===
-        //   }
-        // }
+          if (houseHoldAttendance)
+            isFiltered =
+              houseHoldAttendance.stateInitials === filters.localities[i].state &&
+              houseHoldAttendance.city === filters.localities[i].city
+
+          if (hospitalClinicAttendance)
+            isFiltered =
+              hospitalClinicAttendance.stateInitials === filters.localities[i].state &&
+              hospitalClinicAttendance.city === filters.localities[i].city
+
+          if (isFiltered) break
+        }
 
         return isFiltered
       })
