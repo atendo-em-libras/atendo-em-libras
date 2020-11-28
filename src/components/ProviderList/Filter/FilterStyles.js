@@ -17,16 +17,8 @@ const StyledDropBox = styled(Box)`
 
 const StyledFilterBox = styled(Box)`
   flex-direction: column;
-  button {
-    margin-bottom: 12px;
-    margin-right: 0;
-  }
   ${respondTo.desktop`
     flex-direction: row;
-    button {
-      margin-bottom: 0px;
-      margin-right: 12px;
-    }
   `}
 `
 
@@ -61,11 +53,19 @@ const StyledHr = styled.hr`
 
 const StyledDropButton = styled(DropButton)`
   border: 2px solid ${COLORS.brand};
-  margin-right: 8px;
   color: ${COLORS.brand};
   font-size: 14px;
   padding: 12px 23px;
-  span {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  ${respondTo.desktop`
+    margin-bottom: 0px;
+  `} span {
     vertical-align: middle;
   }
 `

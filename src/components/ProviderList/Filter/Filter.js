@@ -42,7 +42,7 @@ const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
             {children}
           </Box>
           <StyledHr color="#fff" />
-          <Box pad="medium" direction="row" style={{ minHeight: '68px' }} justify="between">
+          <Box pad="medium" direction="row" style={{ minHeight: '92px' }} justify="between">
             <StyledClearButton
               size="small"
               onClick={() => {
