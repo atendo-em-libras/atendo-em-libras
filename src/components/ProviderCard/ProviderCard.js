@@ -127,7 +127,9 @@ const ProviderCard = (props) => {
       <SectionTitle>Contato</SectionTitle>
       <p>
         <IconText src={phoneIcon} alt="phone icon" />
-        <span> {phone}</span>
+        <a href={BuildUrlWhatsApp()} target="_blank">
+          {phone}
+        </a>
       </p>
       <Paragraph size="small">
         <IconText src={emailIcon} alt="e-mail icon" />
@@ -135,6 +137,12 @@ const ProviderCard = (props) => {
       </Paragraph>
     </SectionBlock>
   )
+
+  const BuildUrlWhatsApp = () => {
+    const whatsAppNumber = phone.replace(/(\(|\)|\s|-)/g, '')
+    const url = `https://api.whatsapp.com/send/?phone=55${whatsAppNumber}&text&app_absent=0`
+    return url
+  }
 
   const CallPlatform = () => (
     <SectionBlock>
