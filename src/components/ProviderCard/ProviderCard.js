@@ -127,7 +127,7 @@ const ProviderCard = (props) => {
       <SectionTitle>Contato</SectionTitle>
       <p>
         <IconText src={phoneIcon} alt="phone icon" />
-        <a href={BuildUrlWhatsApp()} target="_blank">
+        <a test-data-id="link-api-whatsapp" href={BuildUrlWhatsApp(phone)} target="_blank">
           {phone}
         </a>
       </p>
@@ -138,8 +138,8 @@ const ProviderCard = (props) => {
     </SectionBlock>
   )
 
-  const BuildUrlWhatsApp = () => {
-    const whatsAppNumber = phone.replace(/(\(|\)|\s|-)/g, '')
+  const BuildUrlWhatsApp = (phoneNumber) => {
+    const whatsAppNumber = phoneNumber.replace(/(\(|\)|\s|-)/g, '')
     const url = `https://api.whatsapp.com/send/?phone=55${whatsAppNumber}&text&app_absent=0`
     return url
   }
