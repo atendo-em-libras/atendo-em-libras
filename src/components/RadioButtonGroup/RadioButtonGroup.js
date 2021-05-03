@@ -2,14 +2,6 @@ import React, { useState } from 'react'
 import { COLORS } from '../../constants/colors'
 import { Button } from '../Buttons/'
 import { Text } from 'grommet'
-import styled from 'styled-components/macro'
-
-const ButtonStyled = styled(Button)`
-  border-style: solid;
-  border-width: 1px;
-  border-color: ${COLORS.brand};
-  margin-right: 12px;
-`
 
 export const RadioButtonGroup = (props) => {
   const [selectedIndex, setSelectedIndex] = useState(0)
