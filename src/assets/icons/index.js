@@ -10,6 +10,9 @@ import mobileHamburgerIcon from './ic_menu.svg'
 import missionIcon from './ic_mission.svg'
 import logoIcon from './ic_logo.svg'
 import logoIconWhite from './ic_logo_white.svg'
+import peopleIcon from './ic_people.svg'
+import arrowDownIcon from './ic_arrow_down.svg'
+import trashIcon from './ic_trash.svg'
 
 export {
   videoIcon,
@@ -24,4 +27,7 @@ export {
   missionIcon,
   logoIcon,
   logoIconWhite,
+  peopleIcon,
+  arrowDownIcon,
+  trashIcon,
 }

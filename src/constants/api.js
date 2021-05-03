@@ -1,5 +1,5 @@
 const Api = {
-  url: process.env.REACT_APP_API_URL,
+  url: 'https://atendo-em-libras-api.herokuapp.com',
   paths: {
     providers: '/professionals/',
   },
