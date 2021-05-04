@@ -1,8 +1,3 @@
-import React from 'react'
-import { FormField } from '../../Form'
-
-const FilterLocations = () => {
-  return <FormField />
-}
+import { FilterLocations } from './FilterLocations'
 
 export default FilterLocations
