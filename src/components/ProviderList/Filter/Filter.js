@@ -23,7 +23,7 @@ import {
 const attendanceOptions = ['Vídeo chamada', 'Domicílio', 'Clínica ou Hospital']
 const categories = ObjectCategories.map((x) => x.Description)
 
-const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
+export const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
   const screenSize = useContext(ResponsiveContext)
 
   return (
