@@ -138,7 +138,7 @@ const Filter = ({ filters, setFilters }) => {
 
   return (
     <>
-      <StyledFilterBox margin={{ bottom: 'medium' }}>
+      <StyledFilterBox data-testid="checkbox-tipos-de-atendimento" margin={{ bottom: 'medium' }}>
         <FilterCard
           label="Tipos de atendimento"
           icon={videoIcon}
