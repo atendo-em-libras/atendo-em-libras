@@ -171,6 +171,10 @@ Object {
 
 }
 
+@media (min-width:801px) {
+
+}
+
 @media (min-width:800px) {
   .c4 h2 {
     max-width: 50%;

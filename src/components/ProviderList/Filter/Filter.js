@@ -38,12 +38,13 @@ export const FilterCard = ({ children, onClear, onSave, icon, label, ...props })
       }}
       dropContent={
         <StyledDropBox>
-          <Box style={{ overflow: 'auto' }} pad="medium">
+          <Box data-testid="teste-modal" style={{ overflow: 'auto' }} pad="medium">
             {children}
           </Box>
           <StyledHr color="#fff" />
           <Box pad="medium" direction="row" style={{ minHeight: '92px' }} justify="between">
             <StyledClearButton
+              data-testeid="teste-limpar"
               size="small"
               onClick={() => {
                 onClear()
@@ -138,7 +139,7 @@ const Filter = ({ filters, setFilters }) => {
 
   return (
     <>
-      <StyledFilterBox margin={{ bottom: 'medium' }}>
+      <StyledFilterBox data-testid="checkbox-tipos-de-atendimento" margin={{ bottom: 'medium' }}>
         <FilterCard
           label="Tipos de atendimento"
           icon={videoIcon}

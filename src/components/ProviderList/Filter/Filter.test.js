@@ -1,35 +1,43 @@
 import React from 'react'
-import { render, fireEvent, screen } from '@testing-library/react'
-import { FilterCard } from './Filter'
-import userEvent from '@testing-library/user-event'
-import { videoIcon } from '../../../assets/icons'
+import { fireEvent, render, screen } from '@testing-library/react'
+import Filter from './Filter'
 
+window.scrollTo = jest.fn()
 describe('FilterCard tests', () => {
-  it('Should have `localizaçao` label', () => {
-    render(<FilterCard label={'localizaçao'} onClear={false} onSave={true} icon={videoIcon} />)
-    expect(screen.getByText('localizaçao')).toBeInTheDocument()
+  it('deverá renderizar os filtros', () => {
+    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
+
+    const checkBoxTiposdeAtendimento = screen.getByTestId('checkbox-tipos-de-atendimento')
+
+    expect(checkBoxTiposdeAtendimento).toBeTruthy()
+  })
+  it('deverá encontrar Tipo de Atendimento', async () => {
+    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
+
+    screen.getByTestId('checkbox-tipos-de-atendimento')
+    const atendimento = screen.getByText('Tipos de atendimento')
+    expect(atendimento).toBeInTheDocument()
+  })
+  it('deverá abrir o modal e encontrar Domicílio', async () => {
+    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
+
+    screen.getByTestId('checkbox-tipos-de-atendimento')
+    const tipo = screen.getByText('Tipos de atendimento')
+    fireEvent.click(tipo)
+    screen.getByTestId('teste-modal')
+    const domicilio = screen.getByLabelText('Domicílio')
+    expect(domicilio).toBeInTheDocument()
   })
 
-  it('Should open modal', () => {
-    render(<FilterCard label={'Tipos de atendimento'} onClear={false} onSave={true} icon={videoIcon} onOpen={true} />)
-    userEvent.click(screen.getByLabelText('Tipos de atendimento'))
+  it('deverá checar se seleciona uma opção do filtro Tipos de Atendimento', async () => {
+    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
 
-    expect(screen.getByLabelText('Tipos de atendimento')).toBeChecked()
-  })
-
-  it('should open select menu with userEvent click', () => {
-    const { container, getByText } = render(
-      <FilterCard
-        className="FilterStyles__StyledFilterBox-sc-1vn6zua-1 bWMecn"
-        label="Tipos de atendimento"
-        onClear={false}
-        onSave={true}
-        icon={videoIcon}
-        onOpen={false}
-      />
-    )
-    const control = container.querySelector('.select__dropdown-indicator')
-    userEvent.click(control)
-    expect(getByText('Video chamada')).toBeTruthy()
+    screen.getByTestId('checkbox-tipos-de-atendimento')
+    const tipo = screen.getByText('Tipos de atendimento')
+    fireEvent.click(tipo)
+    screen.getByTestId('teste-modal')
+    const checar = screen.getByLabelText('Domicílio')
+    const clicado = fireEvent.click(checar)
+    expect(clicado).toEqual(true)
   })
 })
