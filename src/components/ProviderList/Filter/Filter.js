@@ -73,9 +73,9 @@ export const FilterCard = ({ children, onClear, onSave, icon, label, ...props })
   )
 }
 
-const FilterChip = ({ label, icon, onClose }) => {
+export const FilterChip = ({ label, icon, onClose }) => {
   return (
-    <StyledFormChip>
+    <StyledFormChip data-testid="filter-chip" >
       <StyledIconText src={icon} alt={`${label} icone`} />
       {label}
       <StyledCloseButton onClick={() => onClose()}>
