@@ -38,12 +38,13 @@ export const FilterCard = ({ children, onClear, onSave, icon, label, ...props })
       }}
       dropContent={
         <StyledDropBox>
-          <Box style={{ overflow: 'auto' }} pad="medium">
+          <Box data-testid="teste-modal" style={{ overflow: 'auto' }} pad="medium">
             {children}
           </Box>
           <StyledHr color="#fff" />
           <Box pad="medium" direction="row" style={{ minHeight: '92px' }} justify="between">
             <StyledClearButton
+              data-testeid="teste-limpar"
               size="small"
               onClick={() => {
                 onClear()
@@ -72,13 +73,13 @@ export const FilterCard = ({ children, onClear, onSave, icon, label, ...props })
   )
 }
 
-const FilterChip = ({ label, icon, onClose }) => {
+export const FilterChip = ({ label, icon, onClose }) => {
   return (
-    <StyledFormChip>
+    <StyledFormChip data-testid="filter-chip">
       <StyledIconText src={icon} alt={`${label} icone`} />
       {label}
       <StyledCloseButton onClick={() => onClose()}>
-        <StyledIconText src={closeIcon} alt={`Excluir filtro ${label}`} />
+        <StyledIconText data-testid="filter-chip-btn-excluir" src={closeIcon} alt={`Excluir filtro ${label}`} />
       </StyledCloseButton>
     </StyledFormChip>
   )
@@ -180,6 +181,7 @@ const Filter = ({ filters, setFilters }) => {
           </FormField>
         </FilterCard>
         <FilterCard
+          data-testid="checkbox-categoria"
           label="Categoria"
           icon={peopleIcon}
           onClear={() => setCategory([])}
