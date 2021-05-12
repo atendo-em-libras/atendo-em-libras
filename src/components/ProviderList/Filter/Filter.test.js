@@ -1,5 +1,5 @@
 import React from 'react'
-import { findByText, fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import Filter, { FilterChip } from './Filter'
 
 window.scrollTo = jest.fn()
