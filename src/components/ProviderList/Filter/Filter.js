@@ -139,7 +139,7 @@ const Filter = ({ filters, setFilters }) => {
 
   return (
     <>
-      <StyledFilterBox data-testid="checkbox-tipos-de-atendimento" margin={{ bottom: 'medium' }}>
+      <StyledFilterBox data-testid="filter-box" margin={{ bottom: 'medium' }}>
         <FilterCard
           label="Tipos de atendimento"
           icon={videoIcon}
@@ -198,12 +198,14 @@ const Filter = ({ filters, setFilters }) => {
             onClick={() => setFilters({ localities: [], categories: [], attendanceOptions: [] })}
             size="small"
             droplet="bottom-left"
+            data-testid="limpar-filtro"
           >
             <StyledIconText src={trashIcon} alt="Limpar filtros icon" />
             Limpar filtros
           </StyledClearFilterButton>
           {filters.attendanceOptions.map((option, index) => (
             <FilterChip
+              data-testid="filter-chip-limpar"
               label={option}
               key={index}
               icon={videoIcon}

@@ -8,21 +8,21 @@ describe('FilterCard tests', () => {
   it('deverá renderizar os filtros', () => {
     render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
 
-    const checkBoxTiposdeAtendimento = screen.getByTestId('checkbox-tipos-de-atendimento')
+    const checkBoxTiposdeAtendimento = screen.getByTestId('filter-box')
 
     expect(checkBoxTiposdeAtendimento).toBeTruthy()
   })
   it('deverá encontrar Tipo de Atendimento', () => {
     render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
 
-    screen.getByTestId('checkbox-tipos-de-atendimento')
+    screen.getByTestId('filter-box')
     const atendimento = screen.getByText('Tipos de atendimento')
     expect(atendimento).toBeInTheDocument()
   })
   it('deverá abrir o modal e encontrar Domicílio', () => {
     render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
 
-    screen.getByTestId('checkbox-tipos-de-atendimento')
+    screen.getByTestId('filter-box')
     const tipo = screen.getByText('Tipos de atendimento')
     fireEvent.click(tipo)
     screen.getByTestId('teste-modal')
@@ -33,7 +33,7 @@ describe('FilterCard tests', () => {
   it('deverá checar se seleciona uma opção do filtro Tipos de Atendimento', () => {
     render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
 
-    screen.getByTestId('checkbox-tipos-de-atendimento')
+    screen.getByTestId('filter-box')
     const tipo = screen.getByText('Tipos de atendimento')
     fireEvent.click(tipo)
     screen.getByTestId('teste-modal')
@@ -46,7 +46,7 @@ describe('FilterCard tests', () => {
       <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
     )
 
-    getByTestId('checkbox-tipos-de-atendimento')
+    getByTestId('filter-box')
     const tipo = getByText('Tipos de atendimento')
     fireEvent.click(tipo)
     getByTestId('teste-modal')
@@ -66,7 +66,7 @@ describe('FilterCard tests', () => {
       <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
     )
 
-    getByTestId('checkbox-tipos-de-atendimento')
+    getByTestId('filter-box')
     const tipo = getByText('Tipos de atendimento')
     fireEvent.click(tipo)
     getByTestId('teste-modal')
@@ -83,7 +83,8 @@ describe('FilterCard tests', () => {
     const { getByText, getByTestId } = render(
       <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
     )
-    getByTestId('checkbox-tipos-de-atendimento')
+
+    getByTestId('filter-box')
     const tipo = screen.getByText('Tipos de atendimento')
     fireEvent.click(tipo)
     screen.getByTestId('teste-modal')
@@ -93,12 +94,12 @@ describe('FilterCard tests', () => {
     expect(opcaoDomicilio).not.toBeChecked()
   })
 
-  it('deverá limpar filtros', async () => {
-    const { getByText, getByTestId, getByLabelText, findByText } = render(
-      <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
+  it('deverá mostrar o Botão limpar filtros', () => {
+    const { getByText, getByTestId, getByLabelText } = render(
+      <Filter filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
     )
 
-    getByTestId('checkbox-tipos-de-atendimento')
+    getByTestId('filter-box')
     const tipo = getByText('Tipos de atendimento')
     fireEvent.click(tipo)
     getByTestId('teste-modal')
@@ -106,14 +107,24 @@ describe('FilterCard tests', () => {
     fireEvent.click(opcaoVideoChamada)
     const botaoSalvar = getByText('Salvar')
     fireEvent.click(botaoSalvar)
-    const filter = await findByText('Profissionais')
-    fireEvent.click(filter)
-    const filterChip = render(<FilterChip />)
-    filterChip.getByTestId('filter-chip')
+    fireEvent.click(tipo)
+    expect(getByTestId('limpar-filtro')).toBeInTheDocument()
+  })
+  it('deverá limpar filtros', async () => {
+    const { getByText, getByTestId, getByLabelText, findByTestId } = render(
+      <Filter filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
+    )
 
-    const botaoLimpar = filterChip.getByText('filter-chip-btn-excluir')
-    fireEvent.click(botaoLimpar)
-
-    expect(filterChip.getByText('Vídeo chamada')).not.toBeInTheDocument()
+    getByTestId('filter-box')
+    const tipo = getByText('Tipos de atendimento')
+    fireEvent.click(tipo)
+    getByTestId('teste-modal')
+    const opcaoVideoChamada = getByLabelText('Vídeo chamada')
+    fireEvent.click(opcaoVideoChamada)
+    const botaoSalvar = getByText('Salvar')
+    fireEvent.click(botaoSalvar)
+    fireEvent.click(tipo)
+    fireEvent.click(getByTestId('limpar-filtro'))
+    expect(findByTestId('filter-chip-limpar')).toMatchObject({})
   })
 })
