@@ -181,6 +181,7 @@ const Filter = ({ filters, setFilters }) => {
           </FormField>
         </FilterCard>
         <FilterCard
+          data-testid="checkbox-categoria"
           label="Categoria"
           icon={peopleIcon}
           onClear={() => setCategory([])}
