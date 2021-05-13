@@ -92,28 +92,4 @@ describe('FilterCard tests', () => {
     fireEvent.click(getByText('Limpar'))
     expect(opcaoDomicilio).not.toBeChecked()
   })
-
-  // it('deverá limpar filtros', async () => {
-  //   const { getByText, getByTestId, getByLabelText, findByText } = render(
-  //     <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
-  //   )
-
-  //   getByTestId('checkbox-tipos-de-atendimento')
-  //   const tipo = getByText('Tipos de atendimento')
-  //   fireEvent.click(tipo)
-  //   getByTestId('teste-modal')
-  //   const opcaoVideoChamada = getByLabelText('Vídeo chamada')
-  //   fireEvent.click(opcaoVideoChamada)
-  //   const botaoSalvar = getByText('Salvar')
-  //   fireEvent.click(botaoSalvar)
-  //   const filter = await findByText('Profissionais')
-  //   fireEvent.click(filter)
-  //   const filterChip = render(<FilterChip />)
-  //   filterChip.getByTestId('filter-chip')
-
-  //   const botaoLimpar = filterChip.getByText('filter-chip-btn-excluir')
-  //   fireEvent.click(botaoLimpar)
-
-  //   expect(filterChip.getByText('Vídeo chamada')).not.toBeInTheDocument()
-  // })
 })
