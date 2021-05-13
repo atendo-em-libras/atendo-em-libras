@@ -9,7 +9,7 @@ describe('Testa o filtro de categorias', () => {
     const { getByTestId } = render(
       <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
     )
-    const checkBoxCategorias = getByTestId('checkbox-tipos-de-atendimento')
+    const checkBoxCategorias = getByTestId('filter-box')
     expect(checkBoxCategorias).toBeTruthy()
   })
 
@@ -17,7 +17,7 @@ describe('Testa o filtro de categorias', () => {
     const { getByTestId } = render(
       <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
     )
-    getByTestId('checkbox-tipos-de-atendimento')
+    getByTestId('filter-box')
     const categoria = getByTestId('checkbox-categoria')
     expect(categoria).toBeInTheDocument()
   })
@@ -26,7 +26,7 @@ describe('Testa o filtro de categorias', () => {
     const { getByTestId, getByLabelText } = render(
       <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
     )
-    getByTestId('checkbox-tipos-de-atendimento')
+    getByTestId('filter-box')
     const categoria = getByTestId('checkbox-categoria')
     fireEvent.click(categoria)
     getByTestId('teste-modal')
@@ -39,7 +39,7 @@ describe('Testa o filtro de categorias', () => {
       <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
     )
 
-    getByTestId('checkbox-tipos-de-atendimento')
+    getByTestId('filter-box')
     const categoria = getByTestId('checkbox-categoria')
     fireEvent.click(categoria)
     getByTestId('teste-modal')
@@ -54,7 +54,7 @@ describe('Testa o filtro de categorias', () => {
       <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
     )
 
-    getByTestId('checkbox-tipos-de-atendimento')
+    getByTestId('filter-box')
     const categoria = getByTestId('checkbox-categoria')
     fireEvent.click(categoria)
     getByTestId('teste-modal')
@@ -98,5 +98,47 @@ describe('Testa o filtro de categorias', () => {
     fireEvent.click(getByText('Limpar'))
 
     expect(fonoaudiologia).not.toBeChecked()
+  })
+
+  it('deverá mostrar o Botão limpar filtros', () => {
+    const { getByText, getByTestId, getByLabelText } = render(
+      <Filter filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
+    )
+
+    getByTestId('filter-box')
+
+    const categoria = getByTestId('checkbox-categoria')
+    fireEvent.click(categoria)
+    getByTestId('teste-modal')
+    const fonoaudiologia = getByLabelText('Fonoaudiologia')
+    fireEvent.click(fonoaudiologia)
+
+    const botaoSalvar = getByText('Salvar')
+    fireEvent.click(botaoSalvar)
+
+    fireEvent.click(fonoaudiologia)
+    expect(getByTestId('limpar-filtro')).toBeInTheDocument()
+  })
+
+  it('deverá limpar filtros', async () => {
+    const { getByText, getByTestId, getByLabelText } = render(
+      <Filter filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
+    )
+
+    getByTestId('filter-box')
+
+    const categoria = getByTestId('checkbox-categoria')
+    fireEvent.click(categoria)
+    getByTestId('teste-modal')
+    const fonoaudiologia = getByLabelText('Fonoaudiologia')
+    fireEvent.click(fonoaudiologia)
+
+    const botaoSalvar = getByText('Salvar')
+    fireEvent.click(botaoSalvar)
+    fireEvent.click(fonoaudiologia)
+
+    fireEvent.click(getByTestId('limpar-filtro'))
+
+    expect(getByTestId('limpar-filtro')).toMatchObject({})
   })
 })
