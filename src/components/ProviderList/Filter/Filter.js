@@ -156,6 +156,7 @@ const Filter = ({ filters, setFilters }) => {
           />
         </FilterCard>
         <FilterCard
+          data-testid="teste-modal-localidade"
           label="Localidade"
           icon={addressIcon}
           onClear={() => {
@@ -169,7 +170,12 @@ const Filter = ({ filters, setFilters }) => {
           }}
         >
           <FormField label="Estado" name="state" marginBottom="none">
-            <StyledSelect options={states} value={state} onChange={({ value }) => setState(value)} />
+            <StyledSelect
+              data-testid="teste-estados"
+              options={states}
+              value={state}
+              onChange={({ value }) => setState(value)}
+            />
           </FormField>
           <FormField label="Cidade" name="city" marginBottom="none">
             <StyledSelect
