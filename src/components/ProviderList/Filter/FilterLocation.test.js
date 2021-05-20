@@ -2,9 +2,6 @@ import React from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import Filter from './Filter'
 import LocationApi from '../../../api/location'
-import mockLocations from '../../../mocks/locations'
-
-import userEvent from '@testing-library/user-event'
 
 window.scrollTo = jest.fn()
 
@@ -34,19 +31,17 @@ describe('FilteLocation tests', () => {
   })
 
   it('deverá abrir menu dropdown com todos os estados ', async () => {
-    jest.mock('../../../api/location')
-
-    LocationApi.getUf()
-
-    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
-
+    const locations = LocationApi.getUf()
+    const { StyledSelect } = render(
+      <Filter filters={{ localities: locations, categories: [], attendanceOptions: [] }} setFilters={() => {}} />
+    )
+    screen.getByTestId('filter-box')
     const tipo = screen.getByText('Localidade')
     fireEvent.click(tipo)
-    expect(screen.getByText('Estado')).toBeInTheDocument()
-    console.log(screen.getByTestId('teste-estados'))
-
-    expect(screen.getByTestId('teste-estados')).toHaveFormValues(LocationApi.getUf())
-
-    //expect(userEvent.click(screen.getByTestId(('teste-estados'),  ['AL']))).toBe(true)
+    screen.getByText('Estado')
+    const inputEstado = StyledSelect.queryByText('teste-estados')
+    fireEvent.selectOptions(inputEstado)
+    expect(screen.getByText('AC')).toBeTruthy()
   })
+  //it('deverá abrir menu dropdown com todos os estados ', async () => {
 })
