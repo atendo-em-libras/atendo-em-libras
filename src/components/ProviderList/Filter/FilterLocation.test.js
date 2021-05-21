@@ -1,7 +1,12 @@
 import React from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import Filter from './Filter'
-import LocationApi from '../../../api/location'
+import userEvent from '@testing-library/user-event'
+
+jest.mock('../../../api/location', () => ({
+  getCitiesByUF: () => Promise.resolve(['Rio Branco']),
+  getUf: () => Promise.resolve(['AC', 'SP', 'POA']),
+}))
 
 window.scrollTo = jest.fn()
 
@@ -31,17 +36,17 @@ describe('FilteLocation tests', () => {
   })
 
   it('deverá abrir menu dropdown com todos os estados ', async () => {
-    const locations = LocationApi.getUf()
-    const { StyledSelect } = render(
-      <Filter filters={{ localities: locations, categories: [], attendanceOptions: [] }} setFilters={() => {}} />
-    )
+    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
     screen.getByTestId('filter-box')
     const tipo = screen.getByText('Localidade')
     fireEvent.click(tipo)
-    screen.getByText('Estado')
-    const inputEstado = StyledSelect.queryByText('teste-estados')
-    fireEvent.selectOptions(inputEstado)
-    expect(screen.getByText('AC')).toBeTruthy()
+    expect(screen.getByText('Estado')).toBeInTheDocument()
+    //const inputEstado = await screen.getByTestId('teste-estados')
+    //fireEvent.change(inputEstado, { target: { value: 'AC' } })
+    //fireEvent.change(screen.getByTestId('teste-estados'), { target: { value: 'AC' } })
+    await userEvent.click(screen.getByTestId('teste-estados'))
+    //await userEvent.selectOptions(screen.getByTestId('teste-estados'), ['AC'])
+    expect(screen.getByText('POA')).toBeTruthy()
   })
   //it('deverá abrir menu dropdown com todos os estados ', async () => {
 })
