@@ -38,7 +38,7 @@ export const FilterCard = ({ children, onClear, onSave, icon, label, ...props })
       }}
       dropContent={
         <StyledDropBox>
-          <Box data-testid="teste-modal" style={{ overflow: 'auto' }} pad="medium">
+           <Box data-testid="teste-modal" style={{ overflow: 'auto' }} pad="medium">
             {children}
           </Box>
           <StyledHr color="#fff" />
@@ -93,7 +93,7 @@ const Filter = ({ filters, setFilters }) => {
   const [loadingCities, setLoadingCities] = useState(false)
   const [cities, setCities] = useState([])
   const [states, setStates] = useState([])
-
+  //const [isModalOpen, setIsModalOpen] = useState(true)
   const hasFilter =
     filters.attendanceOptions.length > 0 || filters.categories.length > 0 || filters.localities.length > 0
 
@@ -146,8 +146,10 @@ const Filter = ({ filters, setFilters }) => {
           onClear={() => setAttendanceOption([])}
           onSave={() => {
             setFilters({ ...filters, attendanceOptions: attendanceOption })
+            //setIsModalOpen(false)
           }}
           onOpen={() => setAttendanceOption(filters.attendanceOptions)}
+          //onClose={() => setIsModalOpen(false)}
         >
           <StyledCheckBox
             value={attendanceOption}
@@ -169,7 +171,7 @@ const Filter = ({ filters, setFilters }) => {
             setState('')
           }}
         >
-          <FormField label="Estado" name="state" marginBottom="none">
+          <FormField  label="Estado" name="state" marginBottom="none">
             <StyledSelect
               data-testid="teste-estados"
               options={states}
@@ -179,6 +181,7 @@ const Filter = ({ filters, setFilters }) => {
           </FormField>
           <FormField label="Cidade" name="city" marginBottom="none">
             <StyledSelect
+              data-testid="teste-cidades"
               options={cities}
               disabled={loadingCities || !state}
               value={city}
