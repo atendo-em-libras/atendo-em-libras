@@ -4,16 +4,16 @@ import Filter from './Filter'
 import userEvent from '@testing-library/user-event'
 
 jest.mock('../../../api/location', () => ({
-  getCitiesByUF: () => Promise.resolve(['Rio Branco', 'São Paulo']),
-  getUf: () => Promise.resolve(['AC', 'SP', 'XX']),
+  getCitiesByUF: () => Promise.resolve(['São Paulo', 'Adolfo']),
+  getUf: () => Promise.resolve(['SP', 'AC', 'XX', 'RS']),
 }))
 
 window.scrollTo = jest.fn()
 // Deve mostrar o filtro de localidade Quando renderiizar o  componente filter - ok
 //Deve abrir as Opções de estado, cidade, limpar e salvar quando eu clicar no filtro de localidade -ok
 //Deve abrir as Opções de estado quando eu seleciono o input - ok
-// Deve abrir as Opções de cidade quando eu seleciono o input 
-//UF e cidade preenchidos 
+//Deve abrir as Opções de cidade quando eu seleciono o input  - ok
+//UF e cidade preenchidos
 //UF preenchidos e cidade  nao preenchidos
 //Quando clicar em salvar e tiver sem preenchimento em estado e cidade retorna mensagem de erro
 //Quando tiver UF ou/e cidade prenchido e clicar em limpar deve limpar os campos
@@ -22,39 +22,24 @@ window.scrollTo = jest.fn()
 describe('FilteLocation tests', () => {
   it('Deve mostrar o filtro de localidade Quando renderiizar o  componente filter', () => {
     render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
-    
+
     const filtroLocalidade = screen.getByTestId('teste-modal-localidade')
-    waitFor( () => expect(filtroLocalidade).toBeInTheDocument())
+    waitFor(() => expect(filtroLocalidade).toBeInTheDocument())
   })
   it('Deve abrir as Opções de estado, cidade, limpar e salvar quando eu clicar no filtro de localidade', () => {
     render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
 
     const filtroLocalidade = screen.getByTestId('teste-modal-localidade')
-    
+
     userEvent.click(filtroLocalidade)
 
-    waitFor( () => {
+    waitFor(() => {
       expect(screen.getByText('Estado')).toBeInTheDocument()
       expect(screen.getByText('Cidade')).toBeInTheDocument()
       expect(screen.getByText('Limpar')).toBeInTheDocument()
       expect(screen.getByText('Salvar')).toBeInTheDocument()
-      
     })
   })
-  
-
-  xit('Deve abrir menu dropdown com todos os estados quando eu clico no input estado', () => {
-   const {container} = render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
-
-    const filtroLocalidade = screen.getByTestId('teste-modal-localidade')
-    userEvent.click(filtroLocalidade)
-
-    console.log(container.querySelector('button > div > div > div > input'))
-
-})
-
-
-
   it('deverá abrir menu dropdown com todos os estados ', async () => {
     //renderiza o componente
     render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
@@ -88,53 +73,36 @@ describe('FilteLocation tests', () => {
     userEvent.click(estado)
 
     //Esperamos que as opções estejam disponíveis (AC, SP e XX) - se tirarmos o clique anterior não vemos as opções
-  
-    
+
     const opcaoAC = await screen.findByText('AC') // aqui eu guardamos as opções para clicar nela
     const opcaoSP = await screen.findByText('SP')
     const opcaoXX = await screen.findByText('XX')
     expect(opcaoAC).toBeInTheDocument()
     expect(opcaoSP).toBeInTheDocument()
     expect(opcaoXX).toBeInTheDocument()
-
-
-  
   })
-  it('Deve Sumir dropdown quando clicar em na opcao de estado SP ', async () => { 
-   
+  it('Deve abrir as Opções de cidade quando eu seleciono o input cidades ', async () => {
+    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
 
-   //renderiza o componente
-   render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
+    const filtroLocalidade = screen.getByTestId('teste-modal-localidade')
 
-   //pega o elemento corresponente ao filtro de localidade
-   const filtroLocalidade = screen.getByTestId('teste-modal-localidade')
+    userEvent.click(filtroLocalidade)
 
-   //clica no filtro
-   userEvent.click(filtroLocalidade)
+    expect(await screen.findByTestId('teste-modal')).toBeInTheDocument()
 
-   const estado = await screen.findByTestId('teste-estados')
-
-   //Esperamos que o valor inicial do estado seja ''
-   expect(estado.value).toBe('')
-
-   //clicamos nesse elemento
-   userEvent.click(estado)
-   const opcaoAC = await screen.findByText('AC') // aqui eu guardamos as opções para clicar nela
-   const opcaoSP = await screen.findByText('SP')
-   const opcaoXX = await screen.findByText('XX')
-    //Clico na opção SP
+    const estado = await screen.findByTestId('teste-estados')
+    userEvent.click(estado)
+    expect(estado.value).toBe('')
+    const opcaoSP = await screen.findByText('SP')
+    expect(opcaoSP).toBeInTheDocument()
     userEvent.click(opcaoSP)
-
-    // Espero que o valor do estado agora seja SP
-    expect(estado.value).toEqual('SP')
-
-    //Espero que as opções não estejam mais no documento
-    expect(opcaoSP).not.toBeInTheDocument()
-    expect(opcaoAC).not.toBeInTheDocument()
-    expect(opcaoXX).not.toBeInTheDocument()
-
-  })
-  it('Deve abrir as Opções de cidade quando eu seleciono o input ', async () => { 
-
+    //final de estado
+    const cidade = await screen.findByTestId('teste-cidades')
+    userEvent.click(cidade)
+    expect(cidade.value).toBe('')
+    const opcaoSaoPaulo = await screen.findByText('São Paulo')
+    const opcaoAdolfo = await screen.findByText('Adolfo')
+    expect(opcaoSaoPaulo).toBeInTheDocument()
+    expect(opcaoAdolfo).toBeInTheDocument()
   })
 })
