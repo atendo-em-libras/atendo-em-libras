@@ -28,7 +28,7 @@ const fixedGridAreas = {
 
 const attendanceKeys = {
   'Vídeo chamada': 'onlineAttendance',
-  Domicílio: 'householdAttendance',
+  'Domicílio': 'householdAttendance',
   'Clínica ou Hospital': 'hospitalClinicAttendance',
 }
 
@@ -64,27 +64,37 @@ const ProviderList = () => {
         ) {
           return true
         }
-
+        // Tipo de Atendimento
         let isFiltered = false
         for (let i = 0; i < filters.attendanceOptions.length; i++) {
-          isFiltered = provider.attendance[attendanceKeys[filters.attendanceOptions[i]]]
+          console.log(provider.attendance[filters.localities.state])
+          if (attendanceKeys[filters.attendanceOptions[i]] === "onlineAttendance") {
+            isFiltered = provider.attendance[attendanceKeys[filters.attendanceOptions[i]]]
+            console.log('Aquiiiiii')
+          }
+          else {
+            isFiltered = provider.attendance[attendanceKeys[filters.attendanceOptions[i]]] && provider.attendance[filters.localities.state]
+            console.log('Aquiiiiii 88888')
+          }
 
           if (isFiltered) break
         }
-
+        // Categorias
         for (let i = 0; i < filters.categories.length; i++) {
           isFiltered = provider.category === filters.categories[i]
 
           if (isFiltered) break
         }
-
+        // Localidade
         for (let i = 0; i < filters.localities.length; i++) {
-          const { houseHoldAttendance, hospitalClinicAttendance } = provider.attendance
+          const { hospitalClinicAttendance, householdAttendance } = provider.attendance
 
-          if (houseHoldAttendance)
+          if (householdAttendance) {
             isFiltered =
-              houseHoldAttendance.stateInitials === filters.localities[i].state &&
-              houseHoldAttendance.city === filters.localities[i].city
+              householdAttendance.stateInitials === filters.localities[i].state &&
+              householdAttendance.city === filters.localities[i].city
+
+          }
 
           if (hospitalClinicAttendance)
             isFiltered =
