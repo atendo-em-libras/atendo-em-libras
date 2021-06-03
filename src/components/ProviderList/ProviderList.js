@@ -67,14 +67,18 @@ const ProviderList = () => {
         // Tipo de Atendimento
         let isFiltered = false
         for (let i = 0; i < filters.attendanceOptions.length; i++) {
-          console.log(provider.attendance[filters.localities.state])
+          console.log(filters.localities.state)
+
+          
           if (attendanceKeys[filters.attendanceOptions[i]] === "onlineAttendance") {
             isFiltered = provider.attendance[attendanceKeys[filters.attendanceOptions[i]]]
-            console.log('Aquiiiiii')
+     
           }
-          else {
-            isFiltered = provider.attendance[attendanceKeys[filters.attendanceOptions[i]]] && provider.attendance[filters.localities.state]
-            console.log('Aquiiiiii 88888')
+          
+          if (attendanceKeys[filters.attendanceOptions[i]] === "householdAttendance" || attendanceKeys[filters.attendanceOptions[i]] === "hospitalClinicAttendance") {
+            
+            isFiltered = provider.attendance[attendanceKeys[filters.attendanceOptions[i]]] || provider.attendance[filters.localities.state]
+            
           }
 
           if (isFiltered) break
