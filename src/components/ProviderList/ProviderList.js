@@ -55,67 +55,69 @@ const ProviderList = () => {
   }, [])
 
   useEffect(() => {
-    const filterProviders = () => {
-      const filtered = providers.filter((provider) => {
-        if (
-          filters.attendanceOptions.length === 0 &&
-          filters.categories.length === 0 &&
-          filters.localities.length === 0
-        ) {
-          return true
-        }
-        // Tipo de Atendimento
-        let isFiltered = false
-        for (let i = 0; i < filters.attendanceOptions.length; i++) {
-          console.log(filters.localities.state)
+    let filteredByCategory = null
+    let filteredByAttendanceType = null
+    let filteredByState = null
+    let filteredByCity = null
 
-          
-          if (attendanceKeys[filters.attendanceOptions[i]] === "onlineAttendance") {
-            isFiltered = provider.attendance[attendanceKeys[filters.attendanceOptions[i]]]
-     
-          }
-          
-          if (attendanceKeys[filters.attendanceOptions[i]] === "householdAttendance" || attendanceKeys[filters.attendanceOptions[i]] === "hospitalClinicAttendance") {
-            
-            isFiltered = provider.attendance[attendanceKeys[filters.attendanceOptions[i]]] || provider.attendance[filters.localities.state]
-            
-          }
+    // Category
+    const hasNoSelectedCategory = filters.categories.length === 0;
+console.log(providers)
+console.log(filters)
+if (hasNoSelectedCategory) {
+  filteredByCategory = providers
+} else {
+  filteredByCategory = providers.filter(item => filters.categories.includes(item.category));
+  
+}
 
-          if (isFiltered) break
-        }
-        // Categorias
-        for (let i = 0; i < filters.categories.length; i++) {
-          isFiltered = provider.category === filters.categories[i]
+// Attendance
+const hasNoSelectedAttendanceType = filters.attendanceOptions.length === 0
 
-          if (isFiltered) break
-        }
-        // Localidade
-        for (let i = 0; i < filters.localities.length; i++) {
-          const { hospitalClinicAttendance, householdAttendance } = provider.attendance
+if (hasNoSelectedAttendanceType) {
+  filteredByAttendanceType = filteredByCategory
+} else {
+  filteredByAttendanceType = filteredByCategory.filter(item => {
+    return (filters.attendanceOptions.includes('Vídeo chamada') && !!item.attendance.onlineAttendance) ||
+    (filters.attendanceOptions.includes('Clínica ou Hospital') && !!item.attendance.hospitalClinicAttendance) ||
+    (filters.attendanceOptions.includes('Domicílio') && !!item.attendance.householdAttendance)
+  });
+}
 
-          if (householdAttendance) {
-            isFiltered =
-              householdAttendance.stateInitials === filters.localities[i].state &&
-              householdAttendance.city === filters.localities[i].city
+// State
 
-          }
+const hasNoSelectedState = filters.localities.length === 0 
+const hasOnlyOnlineAsAttendanceType = (filters.attendanceOptions.includes('Vídeo chamada') && filters.attendanceOptions.length === 1);
 
-          if (hospitalClinicAttendance)
-            isFiltered =
-              hospitalClinicAttendance.stateInitials === filters.localities[i].state &&
-              hospitalClinicAttendance.city === filters.localities[i].city
+if (hasNoSelectedState || hasOnlyOnlineAsAttendanceType) {
+  filteredByState = filteredByAttendanceType
+} else {
+  filteredByState = filteredByAttendanceType.filter(item => {
+    return (!!item.attendance.hospitalClinicAttendance && item.attendance.hospitalClinicAttendance.stateInitials === filters.localities[0].state) ||
+    (!!item.attendance.householdAttendance && item.attendance.householdAttendance.stateInitials === filters.localities[0].state)
+  });
+}
+console.log(filteredByState)
+// City
+const hasNoSelectedCity = filters.localities.length === 0 
 
-          if (isFiltered) break
-        }
+if (hasNoSelectedCity || hasOnlyOnlineAsAttendanceType) {
+  filteredByCity = filteredByState
+} else {
+  filteredByCity = filteredByState.filter(item => {
+    return (!!item.attendance.hospitalClinicAttendance && item.attendance.hospitalClinicAttendance.city === filters.localities[0].city) ||
+    (!!item.attendance.householdAttendance && item.attendance.householdAttendance.city === filters.localities[0].city)
+  });
+}
 
-        return isFiltered
-      })
+console.log(filteredByCity)
+setFilteredProviders(filteredByCity)
 
-      setFilteredProviders(filtered)
-    }
+      
+  }, [filters])
 
-    filterProviders()
-  }, [filters, providers])
+    
+  
 
   if (isLoading) {
     return (
@@ -126,7 +128,9 @@ const ProviderList = () => {
   }
 
   return (
+
     <React.Fragment>
+      <p>{JSON.stringify(filters)}</p>
       <Filter filters={filters} setFilters={setFilters} />
       {filteredProviders && filteredProviders.length > 0 ? (
         <ResponsiveGrid
