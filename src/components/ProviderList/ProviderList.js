@@ -26,11 +26,7 @@ const fixedGridAreas = {
   large: [{ name: 'card', start: [0, 0], end: [1, 0] }],
 }
 
-const attendanceKeys = {
-  'Vídeo chamada': 'onlineAttendance',
-  'Domicílio': 'householdAttendance',
-  'Clínica ou Hospital': 'hospitalClinicAttendance',
-}
+
 
 const ProviderList = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -58,66 +54,61 @@ const ProviderList = () => {
     let filteredByCategory = null
     let filteredByAttendanceType = null
     let filteredByState = null
-    let filteredByCity = null
+    
 
     // Category
-    const hasNoSelectedCategory = filters.categories.length === 0;
-console.log(providers)
-console.log(filters)
-if (hasNoSelectedCategory) {
-  filteredByCategory = providers
-} else {
-  filteredByCategory = providers.filter(item => filters.categories.includes(item.category));
+    const hasNoSelectedCategory = filters.categories.length === 0
   
-}
+    if (hasNoSelectedCategory) {
+      filteredByCategory = providers
+    } else {
+      filteredByCategory = providers.filter((item) => filters.categories.includes(item.category))
+    }
 
-// Attendance
-const hasNoSelectedAttendanceType = filters.attendanceOptions.length === 0
+    // Attendance
+    const hasNoSelectedAttendanceType = filters.attendanceOptions.length === 0
 
-if (hasNoSelectedAttendanceType) {
-  filteredByAttendanceType = filteredByCategory
-} else {
-  filteredByAttendanceType = filteredByCategory.filter(item => {
-    return (filters.attendanceOptions.includes('Vídeo chamada') && !!item.attendance.onlineAttendance) ||
-    (filters.attendanceOptions.includes('Clínica ou Hospital') && !!item.attendance.hospitalClinicAttendance) ||
-    (filters.attendanceOptions.includes('Domicílio') && !!item.attendance.householdAttendance)
-  });
-}
+    if (hasNoSelectedAttendanceType) {
+      filteredByAttendanceType = filteredByCategory
+    } else {
+      filteredByAttendanceType = filteredByCategory.filter((item) => {
+        return (
+          (filters.attendanceOptions.includes('Vídeo chamada') && !!item.attendance.onlineAttendance) ||
+          (filters.attendanceOptions.includes('Clínica ou Hospital') && !!item.attendance.hospitalClinicAttendance) ||
+          (filters.attendanceOptions.includes('Domicílio') && !!item.attendance.householdAttendance)
+        )
+      })
+    }
 
-// State
+    // State
 
-const hasNoSelectedState = filters.localities.length === 0 
-const hasOnlyOnlineAsAttendanceType = (filters.attendanceOptions.includes('Vídeo chamada') && filters.attendanceOptions.length === 1);
+    const hasNoSelectedState = filters.localities.length === 0
+    const hasOnlyOnlineAsAttendanceType =
+      filters.attendanceOptions.includes('Vídeo chamada') && filters.attendanceOptions.length === 1
 
-if (hasNoSelectedState || hasOnlyOnlineAsAttendanceType) {
-  filteredByState = filteredByAttendanceType
-} else {
-  filteredByState = filteredByAttendanceType.filter(item => {
-    return (!!item.attendance.hospitalClinicAttendance && item.attendance.hospitalClinicAttendance.stateInitials === filters.localities[0].state) ||
-    (!!item.attendance.householdAttendance && item.attendance.householdAttendance.stateInitials === filters.localities[0].state)
-  });
-}
-console.log(filteredByState)
-// City
-const hasNoSelectedCity = filters.localities.length === 0 
-
-if (hasNoSelectedCity || hasOnlyOnlineAsAttendanceType) {
-  filteredByCity = filteredByState
-} else {
-  filteredByCity = filteredByState.filter(item => {
-    return (!!item.attendance.hospitalClinicAttendance && item.attendance.hospitalClinicAttendance.city === filters.localities[0].city) ||
-    (!!item.attendance.householdAttendance && item.attendance.householdAttendance.city === filters.localities[0].city)
-  });
-}
-
-console.log(filteredByCity)
-setFilteredProviders(filteredByCity)
-
+    if (hasNoSelectedState || hasOnlyOnlineAsAttendanceType) {
+      filteredByState = filteredByAttendanceType
+    } else {
+      filteredByState = filteredByAttendanceType.filter((item) => {
+        
+        return (
+          
+          (item.attendance.hospitalClinicAttendance &&
+            item.attendance.hospitalClinicAttendance.stateInitials === filters.localities[0].state) ||
+          (item.attendance.householdAttendance &&
+            item.attendance.householdAttendance.stateInitials === filters.localities[0].state)
+            
+        )
+        
+      })
       
-  }, [filters])
-
+    }
     
-  
+
+
+   
+    setFilteredProviders(filteredByState)
+  }, [filters, providers])
 
   if (isLoading) {
     return (
@@ -128,7 +119,6 @@ setFilteredProviders(filteredByCity)
   }
 
   return (
-
     <React.Fragment>
       <p>{JSON.stringify(filters)}</p>
       <Filter filters={filters} setFilters={setFilters} />

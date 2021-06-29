@@ -127,7 +127,7 @@ const ProviderCard = (props) => {
       <SectionTitle>Contato</SectionTitle>
       <p>
         <IconText src={phoneIcon} alt="phone icon" />
-        <a test-data-id="link-api-whatsapp" href={BuildUrlWhatsApp(phone)} target="_blank">
+        <a test-data-id="link-api-whatsapp" href={BuildUrlWhatsApp(phone)} target="_blank" rel="noopener noreferrer">
           {phone}
         </a>
       </p>
