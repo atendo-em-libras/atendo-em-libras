@@ -1,7 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Box, ResponsiveContext } from 'grommet'
 import { FormField } from '../../Form'
-import { videoIcon, addressIcon, peopleIcon, arrowDownIcon, trashIcon, closeIcon, cardIcon } from '../../../assets/icons'
+import {
+  videoIcon,
+  addressIcon,
+  peopleIcon,
+  arrowDownIcon,
+  trashIcon,
+  closeIcon,
+  cardIcon,
+} from '../../../assets/icons'
 import { categories as ObjectCategories } from '../../../constants/categories'
 import LocationApi from '../../../api/location'
 import {
@@ -187,8 +195,7 @@ const Filter = ({ filters, setFilters }) => {
 
             setHealthInsurance('')
           }}
-        >
-        </FilterCard>
+        ></FilterCard>
       </StyledFilterBox>
       {hasFilter && (
         <Box direction="row" wrap margin={{ bottom: 'medium' }}>
