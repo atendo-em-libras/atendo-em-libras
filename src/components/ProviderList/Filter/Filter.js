@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Box, ResponsiveContext } from 'grommet'
 import { FormField } from '../../Form'
-import { videoIcon, addressIcon, peopleIcon, arrowDownIcon, trashIcon, closeIcon } from '../../../assets/icons'
+import { videoIcon, addressIcon, peopleIcon, arrowDownIcon, trashIcon, closeIcon, cardIcon } from '../../../assets/icons'
 import { categories as ObjectCategories } from '../../../constants/categories'
 import LocationApi from '../../../api/location'
 import {
@@ -90,6 +90,7 @@ const Filter = ({ filters, setFilters }) => {
   const [state, setState] = useState('')
   const [category, setCategory] = useState([])
   const [states, setStates] = useState([])
+  const [healthInsurance, setHealthInsurance] = useState('')
   const hasFilter =
     filters.attendanceOptions.length > 0 || filters.categories.length > 0 || filters.localities.length > 0
 
@@ -173,6 +174,20 @@ const Filter = ({ filters, setFilters }) => {
           onOpen={() => setCategory(filters.categories)}
         >
           <StyledCheckBox options={categories} value={category} onChange={({ value }) => setCategory(value)} />
+        </FilterCard>
+        <FilterCard
+          data-testid="teste-plano-saude"
+          label="Plano de Saúde"
+          icon={cardIcon}
+          onClear={() => {
+            setHealthInsurance('')
+          }}
+          onSave={() => {
+            setFilters({ ...filters, healthInsurance: [...filters.healthInsurance, { healthInsurance }] })
+
+            setHealthInsurance('')
+          }}
+        >
         </FilterCard>
       </StyledFilterBox>
       {hasFilter && (
