@@ -35,7 +35,7 @@ describe('FilteLocation tests', () => {
 
     waitFor(() => {
       expect(screen.getByText('Estado')).toBeInTheDocument()
-     // expect(screen.getByText('Cidade')).toBeInTheDocument()
+      // expect(screen.getByText('Cidade')).toBeInTheDocument()
       expect(screen.getByText('Limpar')).toBeInTheDocument()
       expect(screen.getByText('Salvar')).toBeInTheDocument()
     })
@@ -57,7 +57,7 @@ describe('FilteLocation tests', () => {
     //2) tenha um elemento label com o texto Estado
     expect(await screen.findByText('Estado')).toBeInTheDocument()
     //3) tenha um elemento label com o texto Cidade
-  //  expect(await screen.findByText('Cidade')).toBeInTheDocument()
+    //  expect(await screen.findByText('Cidade')).toBeInTheDocument()
     //4 tenha um botao com o texto Limpar
     expect(await screen.findByText('Limpar')).toBeInTheDocument()
     //5 tenha um botao com o texto Salvar

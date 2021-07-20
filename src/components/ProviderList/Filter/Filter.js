@@ -97,7 +97,6 @@ const Filter = ({ filters, setFilters }) => {
     let mounted = true
 
     const getUfs = async () => {
-     
       LocationApi.getUf().then((response) => {
         if (mounted) {
           setStates(response)
@@ -111,15 +110,14 @@ const Filter = ({ filters, setFilters }) => {
     }
   }, [])
 
- function desabilitaEstado() {  return filters.attendanceOptions.includes('Vídeo chamada') && filters.attendanceOptions.length === 1;}
-    
-  function mostrarObservacaoLocalidade() {  
-    
-    return filters.attendanceOptions.includes('Vídeo chamada')  ;}
-    
-  
-  
-  
+  function desabilitaEstado() {
+    return filters.attendanceOptions.includes('Vídeo chamada') && filters.attendanceOptions.length === 1
+  }
+
+  function mostrarObservacaoLocalidade() {
+    return filters.attendanceOptions.includes('Vídeo chamada')
+  }
+
   return (
     <>
       <StyledFilterBox data-testid="filter-box" margin={{ bottom: 'medium' }}>
@@ -131,14 +129,11 @@ const Filter = ({ filters, setFilters }) => {
             setFilters({ ...filters, attendanceOptions: attendanceOption })
           }}
           onOpen={() => setAttendanceOption(filters.attendanceOptions)}
-
         >
           <StyledCheckBox
             value={attendanceOption}
             options={attendanceOptions}
             onChange={({ value }) => setAttendanceOption(value)}
-            
-            
           />
         </FilterCard>
         <FilterCard
@@ -146,20 +141,17 @@ const Filter = ({ filters, setFilters }) => {
           label="Localidade"
           icon={addressIcon}
           onClear={() => {
-           
             setState('')
           }}
           onSave={() => {
             setFilters({ ...filters, localities: [...filters.localities, { state }] })
-            
+
             setState('')
           }}
-          disabled = {desabilitaEstado()}
-
+          disabled={desabilitaEstado()}
         >
-          <FormField label="Estado" name="state" marginBottom="none" >
+          <FormField label="Estado" name="state" marginBottom="none">
             <StyledSelect
-              
               data-testid="teste-estados"
               options={states}
               value={state}
@@ -167,10 +159,8 @@ const Filter = ({ filters, setFilters }) => {
               onSave={() => {
                 setFilters({ ...filters, localities: [...filters.localities] })
               }}
-              
             />
           </FormField>
-
         </FilterCard>
         <FilterCard
           data-testid="checkbox-categoria"
@@ -215,7 +205,7 @@ const Filter = ({ filters, setFilters }) => {
               onClose={() =>
                 setFilters({
                   ...filters,
-                  localities: filters.localities.filter((x) =>  x.state !== option.state),
+                  localities: filters.localities.filter((x) => x.state !== option.state),
                 })
               }
             />
@@ -228,20 +218,11 @@ const Filter = ({ filters, setFilters }) => {
               onClose={() => setFilters({ ...filters, categories: filters.categories.filter((x) => x !== option) })}
             />
           ))}
-       
-            
-       
-       
         </Box>
-      
-      
-      
       )}
-        { mostrarObservacaoLocalidade() && <p> *Filtro de localidade não se aplica a video chamada</p>}
+      {mostrarObservacaoLocalidade() && <p> *Filtro de localidade não se aplica a video chamada</p>}
     </>
-  
   )
-  
 }
 
 export default Filter

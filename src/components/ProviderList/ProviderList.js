@@ -26,13 +26,16 @@ const fixedGridAreas = {
   large: [{ name: 'card', start: [0, 0], end: [1, 0] }],
 }
 
-
-
 const ProviderList = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [providers, setProviders] = useState([])
   const [filteredProviders, setFilteredProviders] = useState([])
-  const [filters, setFilters] = useState({ localities: [], categories: [], attendanceOptions: [] })
+  const [filters, setFilters] = useState({
+    localities: [],
+    categories: [],
+    attendanceOptions: [],
+    healthInsurance: [],
+  })
 
   const loadServiceProviders = async () => {
     setIsLoading(true)
@@ -54,11 +57,11 @@ const ProviderList = () => {
     let filteredByCategory = null
     let filteredByAttendanceType = null
     let filteredByState = null
-    
+    let filteredByHealthInsurance = null
 
     // Category
     const hasNoSelectedCategory = filters.categories.length === 0
-  
+
     if (hasNoSelectedCategory) {
       filteredByCategory = providers
     } else {
@@ -81,7 +84,6 @@ const ProviderList = () => {
     }
 
     // State
-
     const hasNoSelectedState = filters.localities.length === 0
     const hasOnlyOnlineAsAttendanceType =
       filters.attendanceOptions.includes('Vídeo chamada') && filters.attendanceOptions.length === 1
@@ -90,24 +92,27 @@ const ProviderList = () => {
       filteredByState = filteredByAttendanceType
     } else {
       filteredByState = filteredByAttendanceType.filter((item) => {
-        
         return (
-          
           (item.attendance.hospitalClinicAttendance &&
             item.attendance.hospitalClinicAttendance.stateInitials === filters.localities[0].state) ||
           (item.attendance.householdAttendance &&
             item.attendance.householdAttendance.stateInitials === filters.localities[0].state)
-            
         )
-        
       })
-      
     }
-    
 
+    // Health Insurance
+    const hasNoSelectedHealthInsurance = filters.healthInsurance.length === 0
 
-   
-    setFilteredProviders(filteredByState)
+    if (hasNoSelectedHealthInsurance) {
+      filteredByHealthInsurance = filteredByState
+    } else {
+      filteredByHealthInsurance = filteredByState.filter((item) =>
+        filters.healthInsurance.includes(item.healthInsurance)
+      )
+    }
+
+    setFilteredProviders(filteredByHealthInsurance)
   }, [filters, providers])
 
   if (isLoading) {
