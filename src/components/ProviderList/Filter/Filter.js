@@ -11,7 +11,7 @@ import {
   cardIcon,
 } from '../../../assets/icons'
 import { categories as ObjectCategories } from '../../../constants/categories'
-import { healthInsurance as ObjectHealthInsurance } from '../../../constants/healthinsurance'
+import { healthInsurance as ObjectHealthInsurance } from '../../../constants/healthInsurance'
 import LocationApi from '../../../api/location'
 import {
   StyledCheckBox,
