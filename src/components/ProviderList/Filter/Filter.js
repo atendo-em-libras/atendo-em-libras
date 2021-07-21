@@ -11,6 +11,7 @@ import {
   cardIcon,
 } from '../../../assets/icons'
 import { categories as ObjectCategories } from '../../../constants/categories'
+import { healthInsurance as ObjectHealthInsurance } from '../../../constants/healthinsurance'
 import LocationApi from '../../../api/location'
 import {
   StyledCheckBox,
@@ -30,6 +31,7 @@ import {
 
 const attendanceOptions = ['Vídeo chamada', 'Domicílio', 'Clínica ou Hospital']
 const categories = ObjectCategories.map((x) => x.Description)
+const healthInsuranceOptions = ObjectHealthInsurance.map((item) => item.Description)
 
 export const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
   const screenSize = useContext(ResponsiveContext)
@@ -98,7 +100,7 @@ const Filter = ({ filters, setFilters }) => {
   const [state, setState] = useState('')
   const [category, setCategory] = useState([])
   const [states, setStates] = useState([])
-  const [healthInsurance, setHealthInsurance] = useState('')
+  const [healthInsurance, setHealthInsurance] = useState([])
   const hasFilter =
     filters.attendanceOptions.length > 0 || filters.categories.length > 0 || filters.localities.length > 0
 
@@ -191,11 +193,16 @@ const Filter = ({ filters, setFilters }) => {
             setHealthInsurance('')
           }}
           onSave={() => {
-            setFilters({ ...filters, healthInsurance: [...filters.healthInsurance, { healthInsurance }] })
-
-            setHealthInsurance('')
+            setFilters({ ...filters, healthInsurance: healthInsurance })
           }}
-        ></FilterCard>
+          onOpen={() => setHealthInsurance(filters.healthInsurance)}
+        >
+          <StyledCheckBox
+            options={healthInsuranceOptions}
+            value={healthInsurance}
+            onChange={({ value }) => setHealthInsurance(value)}
+          />
+        </FilterCard>
       </StyledFilterBox>
       {hasFilter && (
         <Box direction="row" wrap margin={{ bottom: 'medium' }}>
