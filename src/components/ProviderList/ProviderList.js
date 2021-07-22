@@ -34,7 +34,7 @@ const ProviderList = () => {
     localities: [],
     categories: [],
     attendanceOptions: [],
-    healthInsurance: [],
+    healthInsurances: [],
   })
 
   const loadServiceProviders = async () => {
@@ -102,13 +102,15 @@ const ProviderList = () => {
     }
 
     // Health Insurance
-    const hasNoSelectedHealthInsurance = filters.healthInsurance.length === 0
+    const hasNoSelectedHealthInsurance = filters.healthInsurances.length === 0
 
     if (hasNoSelectedHealthInsurance) {
       filteredByHealthInsurance = filteredByState
     } else {
       filteredByHealthInsurance = filteredByState.filter((item) =>
-        filters.healthInsurance.includes(item.healthInsurance)
+        filters.healthInsurances.find((healthOpt) =>
+          item.healthInsurance?.toLowerCase()?.includes(healthOpt.toLowerCase())
+        )
       )
     }
 

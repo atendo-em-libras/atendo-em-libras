@@ -100,9 +100,12 @@ const Filter = ({ filters, setFilters }) => {
   const [state, setState] = useState('')
   const [category, setCategory] = useState([])
   const [states, setStates] = useState([])
-  const [healthInsurance, setHealthInsurance] = useState([])
+  const [healthInsurances, setHealthInsurances] = useState([])
   const hasFilter =
-    filters.attendanceOptions.length > 0 || filters.categories.length > 0 || filters.localities.length > 0
+    filters.attendanceOptions.length > 0 ||
+    filters.categories.length > 0 ||
+    filters.localities.length > 0 ||
+    filters.healthInsurances.length > 0
 
   useEffect(() => {
     let mounted = true
@@ -190,17 +193,17 @@ const Filter = ({ filters, setFilters }) => {
           label="Plano de Saúde"
           icon={cardIcon}
           onClear={() => {
-            setHealthInsurance('')
+            setHealthInsurances([])
           }}
           onSave={() => {
-            setFilters({ ...filters, healthInsurance: healthInsurance })
+            setFilters({ ...filters, healthInsurances: healthInsurances })
           }}
-          onOpen={() => setHealthInsurance(filters.healthInsurance)}
+          onOpen={() => setHealthInsurances(filters.healthInsurances)}
         >
           <StyledCheckBox
             options={healthInsuranceOptions}
-            value={healthInsurance}
-            onChange={({ value }) => setHealthInsurance(value)}
+            value={healthInsurances}
+            onChange={({ value }) => setHealthInsurances(value)}
           />
         </FilterCard>
       </StyledFilterBox>
@@ -245,6 +248,19 @@ const Filter = ({ filters, setFilters }) => {
               key={index}
               icon={peopleIcon}
               onClose={() => setFilters({ ...filters, categories: filters.categories.filter((x) => x !== option) })}
+            />
+          ))}
+          {filters.healthInsurances.map((option, index) => (
+            <FilterChip
+              label={option}
+              key={index}
+              icon={cardIcon}
+              onClose={() =>
+                setFilters({
+                  ...filters,
+                  healthInsurances: filters.healthInsurances.filter((healthOpt) => healthOpt !== option),
+                })
+              }
             />
           ))}
         </Box>
