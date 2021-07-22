@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import ReactLoading from 'react-loading'
 import { ProviderCard } from '../ProviderCard'
 import { ErrorCard } from '../ErrorCard'
@@ -6,7 +6,11 @@ import ProviderApi from '../../api/provider'
 import { ResponsiveGrid } from '../ResponsiveGrid'
 import { COLORS } from '../../constants/colors'
 import Filter from './Filter'
-import { Box } from 'grommet'
+import { SuccessModal } from '../../components/SuccessModal'
+import { Heading } from '../../components/Typography/Heading'
+import { Button } from '../../components/Buttons'
+import { Box, Image, Paragraph } from 'grommet'
+import img_palmas from '../../assets/images/img_palmas.svg'
 
 const columns = {
   small: ['auto'],
@@ -27,9 +31,10 @@ const fixedGridAreas = {
 }
 
 const ProviderList = () => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [providers, setProviders] = useState([])
   const [filteredProviders, setFilteredProviders] = useState([])
+  const [error, setError] = useState(false)
   const [filters, setFilters] = useState({
     localities: [],
     categories: [],
@@ -38,11 +43,15 @@ const ProviderList = () => {
   })
 
   const loadServiceProviders = async () => {
-    setIsLoading(true)
-    const serviceProvidersJson = await ProviderApi.get()
-    setIsLoading(false)
-    setProviders(serviceProvidersJson)
-    setFilteredProviders(serviceProvidersJson)
+    try {
+      const serviceProvidersJson = await ProviderApi.get()
+      setIsLoading(false)
+      setProviders(serviceProvidersJson)
+      setFilteredProviders(serviceProvidersJson)
+    } catch (error) {
+      setError(true)
+      setIsLoading(false)
+    }
   }
 
   const handleClick = () => {
@@ -125,10 +134,9 @@ const ProviderList = () => {
     )
   }
 
-  return (
-    <React.Fragment>
-      <Filter filters={filters} setFilters={setFilters} />
-      {filteredProviders && filteredProviders.length > 0 ? (
+  const message = () => {
+    if (filteredProviders && filteredProviders.length > 0) {
+      return (
         <ResponsiveGrid
           columns={columns}
           rows={rows}
@@ -141,9 +149,35 @@ const ProviderList = () => {
             return <ProviderCard key={index} provider={provider} gridArea="card" />
           })}
         </ResponsiveGrid>
-      ) : (
-        <ErrorCard onClick={handleClick} />
-      )}
+      )
+    } else if (error) {
+      return <ErrorCard onClick={handleClick} />
+    }
+    return (
+      <>
+        {!isLoading && (
+          <SuccessModal responsive={false} animation="fadeIn" style={{ borderRadius: '1em' }}>
+            <Box pad="medium" align="center">
+              <Image src={img_palmas} margin={{ bottom: 'medium' }} />
+              <Heading level="2" color={COLORS.brand} style={{ fontWeight: 'bold' }} margin={{ bottom: 'medium' }}>
+                Parabéns!
+              </Heading>
+              <Paragraph textAlign="center" margin={{ bottom: 'medium' }}>
+                Obrigada, iremos analisar o cadastro e em breve incluiremos na nossa plataforma.
+              </Paragraph>
+              <Box direction="row" justify="center">
+                <Button label="Muito bem!" size="small" primary droplet="bottom-left" onClick={() => {}} />
+              </Box>
+            </Box>
+          </SuccessModal>
+        )}
+      </>
+    )
+  }
+  return (
+    <React.Fragment>
+      <Filter filters={filters} setFilters={setFilters} />
+      {message()}
     </React.Fragment>
   )
 }
