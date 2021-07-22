@@ -127,7 +127,6 @@ const ProviderList = () => {
 
   return (
     <React.Fragment>
-      <p>{JSON.stringify(filters)}</p>
       <Filter filters={filters} setFilters={setFilters} />
       {filteredProviders && filteredProviders.length > 0 ? (
         <ResponsiveGrid

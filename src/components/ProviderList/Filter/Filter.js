@@ -159,7 +159,6 @@ const Filter = ({ filters, setFilters }) => {
           }}
           onSave={() => {
             setFilters({ ...filters, localities: [...filters.localities, { state }] })
-
             setState('')
           }}
           disabled={desabilitaEstado()}
@@ -210,7 +209,7 @@ const Filter = ({ filters, setFilters }) => {
       {hasFilter && (
         <Box direction="row" wrap margin={{ bottom: 'medium' }}>
           <StyledClearFilterButton
-            onClick={() => setFilters({ localities: [], categories: [], attendanceOptions: [] })}
+            onClick={() => setFilters({ localities: [], categories: [], attendanceOptions: [], healthInsurances: [] })}
             size="small"
             droplet="bottom-left"
             data-testid="limpar-filtro"
