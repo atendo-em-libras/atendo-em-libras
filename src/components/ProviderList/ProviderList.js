@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactLoading from 'react-loading'
 import { ProviderCard } from '../ProviderCard'
 import { ErrorCard } from '../ErrorCard'
@@ -35,6 +35,7 @@ const ProviderList = () => {
   const [providers, setProviders] = useState([])
   const [filteredProviders, setFilteredProviders] = useState([])
   const [error, setError] = useState(false)
+  const [show, setShow] = useState(false)
   const [filters, setFilters] = useState({
     localities: [],
     categories: [],
@@ -124,6 +125,7 @@ const ProviderList = () => {
     }
 
     setFilteredProviders(filteredByHealthInsurance)
+    setShow(filteredByHealthInsurance.length == 0 && !isLoading)
   }, [filters, providers])
 
   if (isLoading) {
@@ -153,9 +155,10 @@ const ProviderList = () => {
     } else if (error) {
       return <ErrorCard onClick={handleClick} />
     }
+  
     return (
-      <>
-        {!isLoading && (
+      <>  
+        {show && (
           <SuccessModal responsive={false} animation="fadeIn" style={{ borderRadius: '1em' }}>
             <Box pad="medium" align="center">
               <Image src={img_palmas} margin={{ bottom: 'medium' }} />
@@ -166,7 +169,19 @@ const ProviderList = () => {
                 Obrigada, iremos analisar o cadastro e em breve incluiremos na nossa plataforma.
               </Paragraph>
               <Box direction="row" justify="center">
-                <Button label="Muito bem!" size="small" primary droplet="bottom-left" onClick={() => {}} />
+                <Button 
+                  label="Muito bem!" 
+                  size="small" 
+                  primary droplet="bottom-left" 
+                  onClick={() => {
+                    setShow(false)
+                    setFilters({
+                      localities: [],
+                      categories: [],
+                      attendanceOptions: [],
+                      healthInsurances: [],
+                    })}} 
+                  />
               </Box>
             </Box>
           </SuccessModal>
@@ -174,6 +189,7 @@ const ProviderList = () => {
       </>
     )
   }
+
   return (
     <React.Fragment>
       <Filter filters={filters} setFilters={setFilters} />
