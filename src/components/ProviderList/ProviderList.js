@@ -2,15 +2,12 @@ import React, { useEffect, useState } from 'react'
 import ReactLoading from 'react-loading'
 import { ProviderCard } from '../ProviderCard'
 import { ErrorCard } from '../ErrorCard'
+import { errorIcon } from '../../assets/icons'
 import ProviderApi from '../../api/provider'
 import { ResponsiveGrid } from '../ResponsiveGrid'
 import { COLORS } from '../../constants/colors'
 import Filter from './Filter'
-import { SuccessModal } from '../../components/SuccessModal'
-import { Heading } from '../../components/Typography/Heading'
-import { Button } from '../../components/Buttons'
-import { Box, Image, Paragraph } from 'grommet'
-import img_palmas from '../../assets/images/img_palmas.svg'
+import { Box } from 'grommet'
 
 const columns = {
   small: ['auto'],
@@ -125,8 +122,8 @@ const ProviderList = () => {
     }
 
     setFilteredProviders(filteredByHealthInsurance)
-    setShow(filteredByHealthInsurance.length == 0 && !isLoading)
-  }, [filters, providers])
+    setShow(filteredByHealthInsurance.length === 0 && !isLoading)
+  }, [filters, isLoading, providers])
 
   if (isLoading) {
     return (
@@ -153,38 +150,36 @@ const ProviderList = () => {
         </ResponsiveGrid>
       )
     } else if (error) {
-      return <ErrorCard onClick={handleClick} />
+      return (
+        <ErrorCard
+          textParagraph={{
+            title: 'Ops, tivemos um problema e infelizmente não conseguimos carregar a lista.',
+            subtitle: 'Tente novamente',
+          }}
+          srcImage={errorIcon}
+          textButton="Recarregar página"
+          onClick={handleClick}
+        />
+      )
     }
-  
+
     return (
-      <>  
+      <>
         {show && (
-          <SuccessModal responsive={false} animation="fadeIn" style={{ borderRadius: '1em' }}>
-            <Box pad="medium" align="center">
-              <Image src={img_palmas} margin={{ bottom: 'medium' }} />
-              <Heading level="2" color={COLORS.brand} style={{ fontWeight: 'bold' }} margin={{ bottom: 'medium' }}>
-                Parabéns!
-              </Heading>
-              <Paragraph textAlign="center" margin={{ bottom: 'medium' }}>
-                Obrigada, iremos analisar o cadastro e em breve incluiremos na nossa plataforma.
-              </Paragraph>
-              <Box direction="row" justify="center">
-                <Button 
-                  label="Muito bem!" 
-                  size="small" 
-                  primary droplet="bottom-left" 
-                  onClick={() => {
-                    setShow(false)
-                    setFilters({
-                      localities: [],
-                      categories: [],
-                      attendanceOptions: [],
-                      healthInsurances: [],
-                    })}} 
-                  />
-              </Box>
-            </Box>
-          </SuccessModal>
+          <ErrorCard
+            textParagraph={{ title: 'Não encontramos nenhum resultado para sua busca.' }}
+            srcImage={errorIcon}
+            textButton="Nova pesquisa"
+            onClick={() => {
+              setShow(false)
+              setFilters({
+                localities: [],
+                categories: [],
+                attendanceOptions: [],
+                healthInsurances: [],
+              })
+            }}
+          />
         )}
       </>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Card } from '../Card'
 import { IconText } from '../IconText'
-import { errorIcon } from '../../assets/icons'
 import { refreshIcon } from '../../assets/icons'
 import { Paragraph, Box, ResponsiveContext } from 'grommet'
 import { Button } from '../Buttons'
@@ -23,30 +23,47 @@ const ErrorImage = styled.img`
   width: 100%;
 `
 
-export const ErrorCard = ({ onClick }) => (
-  <ResponsiveContext.Consumer>
-    {(responsive) => {
-      return (
-        <Box align="center" role="error">
-          <ErrorContainer align="center">
-            <ErrorImage src={errorIcon} alt="Computer screen with a warning icon" />
-            <Paragraph size={responsive === 'small' ? 'small' : 'large'}>
-              Ops, tivemos um problema e infelizmente não conseguimos carregar a lista.
-            </Paragraph>
-            <Paragraph size={responsive === 'small' ? 'small' : 'large'} margin={{ bottom: 'medium' }}>
-              <strong>Tente novamente.</strong>
-            </Paragraph>
-            <Button
-              primary
-              onClick={onClick}
-              aria-label="reload"
-              icon={<RefreshIcon src={refreshIcon} alt="refreshIcon" />}
-              size="medium"
-              label="Recarregar página"
-            />
-          </ErrorContainer>
-        </Box>
-      )
-    }}
-  </ResponsiveContext.Consumer>
-)
+export const ErrorCard = ({ onClick, srcImage, textParagraph, textButton }) => {
+  const { title, subtitle } = textParagraph
+  return (
+    <ResponsiveContext.Consumer>
+      {(responsive) => {
+        return (
+          <Box align="center" role="error">
+            <ErrorContainer align="center">
+              <ErrorImage src={srcImage} />
+              <Paragraph size={responsive === 'small' ? 'small' : 'large'}>{title}</Paragraph>
+              <Paragraph size={responsive === 'small' ? 'small' : 'large'} margin={{ bottom: 'medium' }}>
+                <strong>{subtitle}</strong>
+              </Paragraph>
+              <Button
+                primary
+                onClick={onClick}
+                aria-label="reload"
+                icon={<RefreshIcon src={refreshIcon} alt="refreshIcon" />}
+                size="medium"
+                label={textButton}
+              />
+            </ErrorContainer>
+          </Box>
+        )
+      }}
+    </ResponsiveContext.Consumer>
+  )
+}
+
+ErrorCard.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  srcImage: PropTypes.string.isRequired,
+  textParagraph: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+  }),
+  textButton: PropTypes.string,
+}
+
+ErrorCard.defaultProps = {
+  textParagraph: PropTypes.shape({
+    subtitle: '',
+  }),
+}
