@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import ReactLoading from 'react-loading'
 import { ProviderCard } from '../ProviderCard'
-import { ErrorCard } from '../ErrorCard'
+import { InfoCard } from '../InfoCard'
 import { errorIcon } from '../../assets/icons'
 import ProviderApi from '../../api/provider'
 import { ResponsiveGrid } from '../ResponsiveGrid'
 import { COLORS } from '../../constants/colors'
 import Filter from './Filter'
+import { errorInfo, notFoundInfo } from './ProviderList.constants'
 import { Box } from 'grommet'
 
 const columns = {
@@ -32,7 +33,6 @@ const ProviderList = () => {
   const [providers, setProviders] = useState([])
   const [filteredProviders, setFilteredProviders] = useState([])
   const [error, setError] = useState(false)
-  const [show, setShow] = useState(false)
   const [filters, setFilters] = useState({
     localities: [],
     categories: [],
@@ -43,11 +43,11 @@ const ProviderList = () => {
   const loadServiceProviders = async () => {
     try {
       const serviceProvidersJson = await ProviderApi.get()
-      setIsLoading(false)
       setProviders(serviceProvidersJson)
       setFilteredProviders(serviceProvidersJson)
     } catch (error) {
       setError(true)
+    } finally {
       setIsLoading(false)
     }
   }
@@ -122,8 +122,7 @@ const ProviderList = () => {
     }
 
     setFilteredProviders(filteredByHealthInsurance)
-    setShow(filteredByHealthInsurance.length === 0 && !isLoading)
-  }, [filters, isLoading, providers])
+  }, [filters, providers])
 
   if (isLoading) {
     return (
@@ -133,7 +132,7 @@ const ProviderList = () => {
     )
   }
 
-  const message = () => {
+  const getCardInfo = () => {
     if (filteredProviders && filteredProviders.length > 0) {
       return (
         <ResponsiveGrid
@@ -151,44 +150,36 @@ const ProviderList = () => {
       )
     } else if (error) {
       return (
-        <ErrorCard
-          textParagraph={{
-            title: 'Ops, tivemos um problema e infelizmente não conseguimos carregar a lista.',
-            subtitle: 'Tente novamente',
-          }}
+        <InfoCard
+          textParagraph={errorInfo.errorText}
           srcImage={errorIcon}
-          textButton="Recarregar página"
+          textButton={errorInfo.errorTextButton}
           onClick={handleClick}
         />
       )
     }
 
     return (
-      <>
-        {show && (
-          <ErrorCard
-            textParagraph={{ title: 'Não encontramos nenhum resultado para sua busca.' }}
-            srcImage={errorIcon}
-            textButton="Nova pesquisa"
-            onClick={() => {
-              setShow(false)
-              setFilters({
-                localities: [],
-                categories: [],
-                attendanceOptions: [],
-                healthInsurances: [],
-              })
-            }}
-          />
-        )}
-      </>
+      <InfoCard
+        textParagraph={notFoundInfo.notFoundText}
+        srcImage={errorIcon}
+        textButton={notFoundInfo.notFoundTextButton}
+        onClick={() => {
+          setFilters({
+            localities: [],
+            categories: [],
+            attendanceOptions: [],
+            healthInsurances: [],
+          })
+        }}
+      />
     )
   }
 
   return (
     <React.Fragment>
       <Filter filters={filters} setFilters={setFilters} />
-      {message()}
+      {getCardInfo()}
     </React.Fragment>
   )
 }

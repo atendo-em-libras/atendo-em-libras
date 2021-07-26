@@ -11,27 +11,27 @@ const RefreshIcon = styled(IconText)`
   margin-right: 8px;
 `
 
-const ErrorContainer = styled(Card)`
+const InfoContainer = styled(Card)`
   width: 607px;
   text-align: center;
   vertical-align: center;
   padding-bottom: 54px;
 `
 
-const ErrorImage = styled.img`
+const InfoImage = styled.img`
   object-fit: cover;
   width: 100%;
 `
 
-export const ErrorCard = ({ onClick, srcImage, textParagraph, textButton }) => {
+export const InfoCard = ({ onClick, srcImage, textParagraph, textButton }) => {
   const { title, subtitle } = textParagraph
   return (
     <ResponsiveContext.Consumer>
       {(responsive) => {
         return (
           <Box align="center" role="error">
-            <ErrorContainer align="center">
-              <ErrorImage src={srcImage} />
+            <InfoContainer align="center">
+              <InfoImage src={srcImage} />
               <Paragraph size={responsive === 'small' ? 'small' : 'large'}>{title}</Paragraph>
               <Paragraph size={responsive === 'small' ? 'small' : 'large'} margin={{ bottom: 'medium' }}>
                 <strong>{subtitle}</strong>
@@ -44,7 +44,7 @@ export const ErrorCard = ({ onClick, srcImage, textParagraph, textButton }) => {
                 size="medium"
                 label={textButton}
               />
-            </ErrorContainer>
+            </InfoContainer>
           </Box>
         )
       }}
@@ -52,7 +52,7 @@ export const ErrorCard = ({ onClick, srcImage, textParagraph, textButton }) => {
   )
 }
 
-ErrorCard.propTypes = {
+InfoCard.propTypes = {
   onClick: PropTypes.func.isRequired,
   srcImage: PropTypes.string.isRequired,
   textParagraph: PropTypes.shape({
@@ -62,7 +62,7 @@ ErrorCard.propTypes = {
   textButton: PropTypes.string,
 }
 
-ErrorCard.defaultProps = {
+InfoCard.defaultProps = {
   textParagraph: PropTypes.shape({
     subtitle: '',
   }),
