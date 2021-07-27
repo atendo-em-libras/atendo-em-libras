@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ErrorCard tests Render correctly 1`] = `
+exports[`InfoCard tests Render correctly 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -163,7 +163,6 @@ exports[`ErrorCard tests Render correctly 1`] = `
       class="c0 Card-hurxuz-0 c1"
     >
       <img
-        alt="Computer screen with a warning icon"
         class="c2"
         src="ic_error.svg"
       />
@@ -176,7 +175,7 @@ exports[`ErrorCard tests Render correctly 1`] = `
         class="c4"
       >
         <strong>
-          Tente novamente.
+          Tente novamente
         </strong>
       </p>
       <button
