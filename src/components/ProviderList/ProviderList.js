@@ -28,17 +28,19 @@ const fixedGridAreas = {
   large: [{ name: 'card', start: [0, 0], end: [1, 0] }],
 }
 
+const cleanFilters = {
+  localities: [],
+  categories: [],
+  attendanceOptions: [],
+  healthInsurances: [],
+}
+
 const ProviderList = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [providers, setProviders] = useState([])
   const [filteredProviders, setFilteredProviders] = useState([])
   const [error, setError] = useState(false)
-  const [filters, setFilters] = useState({
-    localities: [],
-    categories: [],
-    attendanceOptions: [],
-    healthInsurances: [],
-  })
+  const [filters, setFilters] = useState(cleanFilters)
 
   const loadServiceProviders = async () => {
     try {
@@ -132,6 +134,8 @@ const ProviderList = () => {
     )
   }
 
+  const clearFilters = () => setFilters(cleanFilters)
+
   const getCardInfo = () => {
     if (filteredProviders && filteredProviders.length > 0) {
       return (
@@ -148,30 +152,14 @@ const ProviderList = () => {
           })}
         </ResponsiveGrid>
       )
-    } else if (error) {
-      return (
-        <InfoCard
-          textParagraph={errorInfo.errorText}
-          srcImage={errorIcon}
-          textButton={errorInfo.errorTextButton}
-          onClick={handleClick}
-        />
-      )
     }
 
     return (
       <InfoCard
-        textParagraph={notFoundInfo.notFoundText}
+        textParagraph={error ? errorInfo.errorText : notFoundInfo.notFoundText}
         srcImage={errorIcon}
-        textButton={notFoundInfo.notFoundTextButton}
-        onClick={() => {
-          setFilters({
-            localities: [],
-            categories: [],
-            attendanceOptions: [],
-            healthInsurances: [],
-          })
-        }}
+        textButton={error ? errorInfo.errorTextButton : notFoundInfo.notFoundTextButton}
+        onClick={error ? handleClick : clearFilters}
       />
     )
   }

@@ -10,5 +10,5 @@ export const notFoundInfo = {
   notFoundText: {
     title: 'Não encontramos nenhum resultado para sua busca.',
   },
-  notFoundTextButton: 'Recarregar página',
+  notFoundTextButton: 'Buscar novamente',
 }
