@@ -19,21 +19,19 @@ describe('InfoCard tests', () => {
     expect(container).toMatchSnapshot()
   })
 
-  it('Call reload function when button is clicked for Error', () => {
+  it.each`
+    cardInfoType   | textParagraph                | textButton
+    ${'Error'}     | ${errorInfo.errorText}       | ${errorInfo.errorTextButton}
+    ${'Not found'} | ${notFoundInfo.notFoundText} | ${notFoundInfo.notFoundTextButton}
+  `('Calls click function and renders props for $cardInfoType', ({ textParagraph, textButton }) => {
     const onClick = jest.fn()
 
     const { getByText } = render(
-      <InfoCard
-        onClick={onClick}
-        srcImage={errorIcon}
-        textParagraph={errorInfo.errorText}
-        textButton={errorInfo.errorTextButton}
-      />
+      <InfoCard onClick={onClick} srcImage={errorIcon} textParagraph={textParagraph} textButton={textButton} />
     )
-
     fireEvent.click(screen.getByRole('button', { name: 'reload' }))
 
     expect(onClick).toHaveBeenCalledTimes(1)
-    expect(getByText(errorInfo.errorText.title)).toBeInTheDocument()
+    expect(getByText(textParagraph.title)).toBeInTheDocument()
   })
 })
