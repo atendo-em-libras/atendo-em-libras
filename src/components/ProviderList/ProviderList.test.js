@@ -1,10 +1,11 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { ProviderList } from './ProviderList'
 import ProviderApi from '../../api/provider'
 import mockProviders from '../../mocks/providers'
 
 jest.mock('../../api/provider.js')
+window.scrollTo = jest.fn()
 
 describe('ProviderList tests', () => {
   it('Component should render error to find providers', async () => {
@@ -32,5 +33,17 @@ describe('ProviderList tests', () => {
 
     expect(screen.queryByRole('provider')).toBeNull()
     expect(await screen.findByText('doctor-who@tardis.com')).toBeInTheDocument()
+  })
+
+  it('Component should filter properly', async () => {
+    ProviderApi.get.mockResolvedValue(mockProviders.providers)
+
+    render(<ProviderList />)
+
+    fireEvent.click(await screen.findByTestId('teste-plano-saude'))
+    fireEvent.click(await screen.findByLabelText('Amil'))
+    fireEvent.click(await screen.findByText('Salvar'))
+
+    expect(await screen.findByText('thais_amorim773@hotmail.com')).toBeInTheDocument()
   })
 })
