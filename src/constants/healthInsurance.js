@@ -1,62 +1,62 @@
 export const healthInsurance = [
   {
-    Id: 'SULAMERICA',
-    Description: 'SulAmerica',
+    id: 'SULAMERICA',
+    description: 'SulAmerica',
   },
   {
-    Id: 'UNIMED',
-    Description: 'Unimed',
+    id: 'UNIMED',
+    description: 'Unimed',
   },
   {
-    Id: 'BRADESCO',
-    Description: 'Bradesco',
+    id: 'BRADESCO',
+    description: 'Bradesco',
   },
   {
-    Id: 'AMIL',
-    Description: 'Amil',
+    id: 'AMIL',
+    description: 'Amil',
   },
   {
-    Id: 'NOTREDAME',
-    Description: 'NotreDame',
+    id: 'NOTREDAME',
+    description: 'NotreDame',
   },
   {
-    Id: 'CAIXA SEGURADORA',
-    Description: 'Caixa Seguradora',
+    id: 'CAIXA SEGURADORA',
+    description: 'Caixa Seguradora',
   },
   {
-    Id: 'DR EXAME',
-    Description: 'Dr Exame',
+    id: 'DR EXAME',
+    description: 'Dr Exame',
   },
   {
-    Id: 'SAUDESC',
-    Description: 'Saudesc',
+    id: 'SAUDESC',
+    description: 'Saudesc',
   },
   {
-    Id: 'INSTITUTO MAIS SAÚDE',
-    Description: 'Instituto Mais Saúde',
+    id: 'INSTITUTO MAIS SAÚDE',
+    description: 'Instituto Mais Saúde',
   },
   {
-    Id: 'CARE PLUS',
-    Description: 'Care Plus',
+    id: 'CARE PLUS',
+    description: 'Care Plus',
   },
   {
-    Id: 'GOLDEN CROSS',
-    Description: 'Golden Cross',
+    id: 'GOLDEN CROSS',
+    description: 'Golden Cross',
   },
   {
-    Id: 'IPASGO',
-    Description: 'Ipasgo',
+    id: 'IPASGO',
+    description: 'Ipasgo',
   },
   {
-    Id: 'PARTICULAR',
-    Description: 'Particular',
+    id: 'PARTICULAR',
+    description: 'Particular',
   },
   {
-    Id: 'REEMBOLSO',
-    Description: 'Reembolso',
+    id: 'REEMBOLSO',
+    description: 'Reembolso',
   },
   {
-    Id: 'RECIBO',
-    Description: 'Recibo',
+    id: 'RECIBO',
+    description: 'Recibo',
   },
 ]

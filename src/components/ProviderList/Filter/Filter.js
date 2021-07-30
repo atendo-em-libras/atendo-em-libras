@@ -30,8 +30,8 @@ import {
 } from './FilterStyles'
 
 const attendanceOptions = ['Vídeo chamada', 'Domicílio', 'Clínica ou Hospital']
-const categories = ObjectCategories.map((x) => x.Description)
-const healthInsuranceOptions = ObjectHealthInsurance.map((item) => item.Description)
+const categories = ObjectCategories.map((x) => x.description)
+const healthInsuranceOptions = ObjectHealthInsurance.map((item) => item.description)
 
 export const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
   const screenSize = useContext(ResponsiveContext)
@@ -63,6 +63,7 @@ export const FilterCard = ({ children, onClear, onSave, icon, label, ...props })
               Limpar
             </StyledClearButton>
             <StyledSaveButton
+              data-testid="filter-save-button"
               size="small"
               droplet="bottom-left"
               onClick={() => {
