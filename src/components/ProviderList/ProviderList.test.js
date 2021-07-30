@@ -1,17 +1,22 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
-import { ProviderList } from './ProviderList'
+import { attendanceOptions } from '../../constants/attendanceOptions'
+import { healthInsurance } from '../../constants/healthInsurance'
+import { categories } from '../../constants/categories'
 import ProviderApi from '../../api/provider'
 import mockProviders from '../../mocks/providers'
+import { ProviderList } from './ProviderList'
 
 jest.mock('../../api/provider.js')
 window.scrollTo = jest.fn()
+
+const generate = () => render(<ProviderList />)
 
 describe('ProviderList tests', () => {
   it('Component should render error to find providers', async () => {
     ProviderApi.get.mockResolvedValue([])
 
-    render(<ProviderList />)
+    generate()
 
     const providerList = await screen.findByRole('error')
     expect(providerList).toBeInTheDocument()
@@ -20,7 +25,7 @@ describe('ProviderList tests', () => {
   it('Component should show video call availability', async () => {
     ProviderApi.get.mockResolvedValue(mockProviders.providers)
 
-    render(<ProviderList />)
+    generate()
 
     const videoCallAvailability = await screen.findAllByText('Atende Online')
     expect(videoCallAvailability[0]).toBeInTheDocument()
@@ -29,21 +34,26 @@ describe('ProviderList tests', () => {
   it('Component should show empty space before loading providers', async () => {
     ProviderApi.get.mockResolvedValue(mockProviders.providers)
 
-    render(<ProviderList />)
+    generate()
 
     expect(screen.queryByRole('provider')).toBeNull()
     expect(await screen.findByText('doctor-who@tardis.com')).toBeInTheDocument()
   })
 
-  it('Component should filter properly', async () => {
+  it.each`
+    filter                 | dropdownOpt                  | checkboxOpt                       | expected
+    ${'attendance option'} | ${'teste-modal-atendimento'} | ${attendanceOptions[0]}           | ${'47 112233445'}
+    ${'category'}          | ${'checkbox-categoria'}      | ${categories[1].description}      | ${'34 999624855'}
+    ${'health insurance'}  | ${'teste-plano-saude'}       | ${healthInsurance[3].description} | ${'34 999624855'}
+  `('Component should filter by $filter properly', async ({ dropdownOpt, checkboxOpt, expected }) => {
     ProviderApi.get.mockResolvedValue(mockProviders.providers)
 
-    render(<ProviderList />)
+    generate()
 
-    fireEvent.click(await screen.findByTestId('teste-plano-saude'))
-    fireEvent.click(await screen.findByLabelText('Amil'))
-    fireEvent.click(await screen.findByText('Salvar'))
+    fireEvent.click(await screen.findByTestId(dropdownOpt))
+    fireEvent.click(await screen.findByLabelText(checkboxOpt))
+    fireEvent.click(await screen.findByTestId('filter-save-button'))
 
-    expect(await screen.findByText('thais_amorim773@hotmail.com')).toBeInTheDocument()
+    expect(await screen.findByText(expected)).toBeInTheDocument()
   })
 })
