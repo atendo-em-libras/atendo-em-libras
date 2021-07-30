@@ -10,6 +10,7 @@ import {
   closeIcon,
   cardIcon,
 } from '../../../assets/icons'
+import { attendanceOptions } from '../../../constants/attendanceOptions'
 import { categories as ObjectCategories } from '../../../constants/categories'
 import { healthInsurance as ObjectHealthInsurance } from '../../../constants/healthInsurance'
 import LocationApi from '../../../api/location'
@@ -29,7 +30,6 @@ import {
   StyledCloseButton,
 } from './FilterStyles'
 
-const attendanceOptions = ['Vídeo chamada', 'Domicílio', 'Clínica ou Hospital']
 const categories = ObjectCategories.map((x) => x.description)
 const healthInsuranceOptions = ObjectHealthInsurance.map((item) => item.description)
 
@@ -137,6 +137,7 @@ const Filter = ({ filters, setFilters }) => {
     <>
       <StyledFilterBox data-testid="filter-box" margin={{ bottom: 'medium' }}>
         <FilterCard
+          data-testid="teste-modal-atendimento"
           label="Tipos de atendimento"
           icon={videoIcon}
           onClear={() => setAttendanceOption([])}

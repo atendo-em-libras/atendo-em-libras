@@ -165,10 +165,10 @@ const ProviderList = () => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <Filter filters={filters} setFilters={setFilters} />
       {getCardInfo()}
-    </React.Fragment>
+    </>
   )
 }
 export { ProviderList }
