@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import Filter from './Filter'
 import userEvent from '@testing-library/user-event'
 
@@ -19,15 +19,23 @@ window.scrollTo = jest.fn()
 //Quando tiver UF ou/e cidade prenchido e clicar em limpar deve limpar os campos
 //Deve chamar a Função onSave  e fechar o modal de localidade quando clicar em salvar
 
+const generate = () =>
+  render(
+    <Filter
+      filters={{ localities: [], categories: [], attendanceOptions: [], healthInsurances: [] }}
+      setFilters={() => {}}
+    />
+  )
+
 describe('FilteLocation tests', () => {
   it('Deve mostrar o filtro de localidade Quando renderiizar o  componente filter', () => {
-    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
+    generate()
 
     const filtroLocalidade = screen.getByTestId('teste-modal-localidade')
     waitFor(() => expect(filtroLocalidade).toBeInTheDocument())
   })
   it('Deve abrir as Opções de estado, cidade, limpar e salvar quando eu clicar no filtro de localidade', () => {
-    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
+    generate()
 
     const filtroLocalidade = screen.getByTestId('teste-modal-localidade')
 
@@ -42,7 +50,7 @@ describe('FilteLocation tests', () => {
   })
   it('deverá abrir menu dropdown com todos os estados ', async () => {
     //renderiza o componente
-    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
+    generate()
 
     //pega o elemento corresponente ao filtro de localidade
     const filtroLocalidade = screen.getByTestId('teste-modal-localidade')
@@ -82,7 +90,7 @@ describe('FilteLocation tests', () => {
     expect(opcaoXX).toBeInTheDocument()
   })
   it('Deve abrir as Opções de cidade quando eu seleciono o input cidades ', async () => {
-    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
+    generate()
 
     const filtroLocalidade = screen.getByTestId('teste-modal-localidade')
 
@@ -95,14 +103,5 @@ describe('FilteLocation tests', () => {
     expect(estado.value).toBe('')
     const opcaoSP = await screen.findByText('SP')
     expect(opcaoSP).toBeInTheDocument()
-    //userEvent.click(opcaoSP)
-    //final de estado
-    // const cidade = await screen.findByTestId('teste-cidades')
-    // userEvent.click(cidade)
-    // expect(cidade.value).toBe('')
-    // const opcaoSaoPaulo = await screen.findByText('São Paulo')
-    // const opcaoAdolfo = await screen.findByText('Adolfo')
-    // expect(opcaoSaoPaulo).toBeInTheDocument()
-    // expect(opcaoAdolfo).toBeInTheDocument()
   })
 })

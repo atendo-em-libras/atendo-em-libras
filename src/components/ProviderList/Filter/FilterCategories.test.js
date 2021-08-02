@@ -1,31 +1,33 @@
 import React from 'react'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import Filter, { FilterChip } from './Filter'
 
 window.scrollTo = jest.fn()
 
+const generate = () =>
+  render(
+    <Filter
+      filters={{ localities: [], categories: [], attendanceOptions: [], healthInsurances: [] }}
+      setFilters={() => {}}
+    />
+  )
+
 describe('Testa o filtro de categorias', () => {
   it('deverá renderizar os filtros de categorias', () => {
-    const { getByTestId } = render(
-      <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
-    )
+    const { getByTestId } = generate()
     const checkBoxCategorias = getByTestId('filter-box')
     expect(checkBoxCategorias).toBeTruthy()
   })
 
   it('deverá encontrar as categorias', () => {
-    const { getByTestId } = render(
-      <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
-    )
+    const { getByTestId } = generate()
     getByTestId('filter-box')
     const categoria = getByTestId('checkbox-categoria')
     expect(categoria).toBeInTheDocument()
   })
 
   it('deverá abrir o modal e encontrar Enfermagem', () => {
-    const { getByTestId, getByLabelText } = render(
-      <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
-    )
+    const { getByTestId, getByLabelText } = generate()
     getByTestId('filter-box')
     const categoria = getByTestId('checkbox-categoria')
     fireEvent.click(categoria)
@@ -35,9 +37,7 @@ describe('Testa o filtro de categorias', () => {
   })
 
   it('deverá checar se seleciona uma opção do filtro Categorias', () => {
-    const { getByTestId, getByLabelText } = render(
-      <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
-    )
+    const { getByTestId, getByLabelText } = generate()
 
     getByTestId('filter-box')
     const categoria = getByTestId('checkbox-categoria')
@@ -50,9 +50,7 @@ describe('Testa o filtro de categorias', () => {
   })
 
   it('deverá salvar a seleçao enfermagem', () => {
-    const { getByTestId, getByLabelText, getByText } = render(
-      <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
-    )
+    const { getByTestId, getByLabelText, getByText } = generate()
 
     getByTestId('filter-box')
     const categoria = getByTestId('checkbox-categoria')
@@ -67,9 +65,7 @@ describe('Testa o filtro de categorias', () => {
   })
 
   it('deverá salvar a seleçao Fonoaudiologia e renderizar filter chip Fonoaudiologia', () => {
-    const { getByText, getByTestId, getByLabelText } = render(
-      <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
-    )
+    const { getByText, getByTestId, getByLabelText } = generate()
 
     const categoria = getByTestId('checkbox-categoria')
     fireEvent.click(categoria)
@@ -86,9 +82,7 @@ describe('Testa o filtro de categorias', () => {
   })
 
   it('deverá tirar a seleçao do checkbox em categorias', () => {
-    const { getByText, getByTestId, getByLabelText } = render(
-      <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
-    )
+    const { getByText, getByTestId, getByLabelText } = generate()
     const categoria = getByTestId('checkbox-categoria')
     fireEvent.click(categoria)
     getByTestId('teste-modal')
@@ -102,7 +96,10 @@ describe('Testa o filtro de categorias', () => {
 
   it('deverá mostrar o Botão limpar filtros', () => {
     const { getByText, getByTestId, getByLabelText } = render(
-      <Filter filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
+      <Filter
+        filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [], healthInsurances: [] }}
+        setFilters={() => {}}
+      />
     )
 
     getByTestId('filter-box')
@@ -122,7 +119,10 @@ describe('Testa o filtro de categorias', () => {
 
   it('deverá limpar filtros', async () => {
     const { getByText, getByTestId, getByLabelText } = render(
-      <Filter filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
+      <Filter
+        filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [], healthInsurances: [] }}
+        setFilters={() => {}}
+      />
     )
 
     getByTestId('filter-box')

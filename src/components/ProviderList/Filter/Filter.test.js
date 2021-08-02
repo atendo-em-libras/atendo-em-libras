@@ -4,23 +4,31 @@ import Filter, { FilterChip } from './Filter'
 
 window.scrollTo = jest.fn()
 
+const generate = () =>
+  render(
+    <Filter
+      filters={{ localities: [], categories: [], attendanceOptions: [], healthInsurances: [] }}
+      setFilters={() => {}}
+    />
+  )
+
 describe('FilterCard tests', () => {
   it('deverá renderizar os filtros', () => {
-    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
+    generate()
 
     const checkBoxTiposdeAtendimento = screen.getByTestId('filter-box')
 
     expect(checkBoxTiposdeAtendimento).toBeTruthy()
   })
   it('deverá encontrar Tipo de Atendimento', () => {
-    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
+    generate()
 
     screen.getByTestId('filter-box')
     const atendimento = screen.getByText('Tipos de atendimento')
     expect(atendimento).toBeInTheDocument()
   })
   it('deverá abrir o modal e encontrar Domicílio', () => {
-    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
+    generate()
 
     screen.getByTestId('filter-box')
     const tipo = screen.getByText('Tipos de atendimento')
@@ -31,7 +39,7 @@ describe('FilterCard tests', () => {
   })
 
   it('deverá checar se seleciona uma opção do filtro Tipos de Atendimento', () => {
-    render(<Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />)
+    generate()
 
     screen.getByTestId('filter-box')
     const tipo = screen.getByText('Tipos de atendimento')
@@ -42,9 +50,7 @@ describe('FilterCard tests', () => {
     expect(opcaoDomicilio).toBeChecked()
   })
   it('deverá salvar a seleçao video chamada', () => {
-    const { getByText, getByTestId, getByLabelText } = render(
-      <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
-    )
+    const { getByText, getByTestId, getByLabelText } = generate()
 
     getByTestId('filter-box')
     const tipo = getByText('Tipos de atendimento')
@@ -62,9 +68,7 @@ describe('FilterCard tests', () => {
   })
 
   it('deverá salvar a seleçao video chamada e renderizar filter chip video chamada', () => {
-    const { getByText, getByTestId, getByLabelText } = render(
-      <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
-    )
+    const { getByText, getByTestId, getByLabelText } = generate()
 
     getByTestId('filter-box')
     const tipo = getByText('Tipos de atendimento')
@@ -80,9 +84,7 @@ describe('FilterCard tests', () => {
     expect(filterChip.getByText('Vídeo chamada')).toBeInTheDocument()
   })
   it('deverá tirar a seleçao do checkbox em tipos de atendimento', () => {
-    const { getByText, getByTestId } = render(
-      <Filter filters={{ localities: [], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
-    )
+    const { getByText, getByTestId } = generate()
 
     getByTestId('filter-box')
     const tipo = screen.getByText('Tipos de atendimento')
@@ -96,7 +98,10 @@ describe('FilterCard tests', () => {
 
   it('deverá mostrar o Botão limpar filtros', () => {
     const { getByText, getByTestId, getByLabelText } = render(
-      <Filter filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
+      <Filter
+        filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [], healthInsurances: [] }}
+        setFilters={() => {}}
+      />
     )
 
     getByTestId('filter-box')
@@ -112,7 +117,10 @@ describe('FilterCard tests', () => {
   })
   it('deverá limpar filtros', async () => {
     const { getByText, getByTestId, getByLabelText, findByTestId } = render(
-      <Filter filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [] }} setFilters={() => {}} />
+      <Filter
+        filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [], healthInsurances: [] }}
+        setFilters={() => {}}
+      />
     )
 
     getByTestId('filter-box')
