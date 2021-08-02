@@ -181,6 +181,7 @@ exports[`InfoCard tests Render correctly 1`] = `
       <button
         aria-label="reload"
         class="c5 c6"
+        data-testid="info-card-button"
         type="button"
       >
         <div

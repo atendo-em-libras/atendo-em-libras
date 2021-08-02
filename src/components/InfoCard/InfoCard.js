@@ -37,6 +37,7 @@ export const InfoCard = ({ onClick, srcImage, textParagraph, textButton }) => {
                 <strong>{subtitle}</strong>
               </Paragraph>
               <Button
+                data-testid="info-card-button"
                 primary
                 onClick={onClick}
                 aria-label="reload"
