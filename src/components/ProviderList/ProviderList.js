@@ -47,7 +47,7 @@ const ProviderList = () => {
       const serviceProvidersJson = await ProviderApi.get()
       setProviders(serviceProvidersJson)
       setFilteredProviders(serviceProvidersJson)
-    } catch (error) {
+    } catch (e) {
       setError(true)
     } finally {
       setIsLoading(false)

@@ -8,6 +8,10 @@ jest.mock('../../../api/location', () => ({
   getUf: () => Promise.resolve(['SP', 'AC', 'XX', 'RS']),
 }))
 
+const emptyFunc = () => {
+  // do nothing.
+}
+
 window.scrollTo = jest.fn()
 // Deve mostrar o filtro de localidade Quando renderiizar o  componente filter - ok
 //Deve abrir as Opções de estado, cidade, limpar e salvar quando eu clicar no filtro de localidade -ok
@@ -23,7 +27,7 @@ const generate = () =>
   render(
     <Filter
       filters={{ localities: [], categories: [], attendanceOptions: [], healthInsurances: [] }}
-      setFilters={() => {}}
+      setFilters={emptyFunc}
     />
   )
 
