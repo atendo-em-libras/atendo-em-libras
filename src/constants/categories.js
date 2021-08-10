@@ -1,34 +1,34 @@
 export const categories = [
   {
-    Id: 'ENFERMAGEM',
-    Description: 'Enfermagem',
+    id: 'ENFERMAGEM',
+    description: 'Enfermagem',
   },
   {
-    Id: 'FISIOTERAPIA',
-    Description: 'Fisioterapia',
+    id: 'FISIOTERAPIA',
+    description: 'Fisioterapia',
   },
   {
-    Id: 'FONOAUDIOLOGIA',
-    Description: 'Fonoaudiologia',
+    id: 'FONOAUDIOLOGIA',
+    description: 'Fonoaudiologia',
   },
   {
-    Id: 'MEDICINA',
-    Description: 'Medicina',
+    id: 'MEDICINA',
+    description: 'Medicina',
   },
   {
-    Id: 'NUTRICAO',
-    Description: 'Nutrição',
+    id: 'NUTRICAO',
+    description: 'Nutrição',
   },
   {
-    Id: 'ODONTOLOGIA',
-    Description: 'Odontologia',
+    id: 'ODONTOLOGIA',
+    description: 'Odontologia',
   },
   {
-    Id: 'PSICOLOGIA',
-    Description: 'Psicologia',
+    id: 'PSICOLOGIA',
+    description: 'Psicologia',
   },
   {
-    Id: 'TECNICO_ENFERMAGEM',
-    Description: 'Técnico em Enfermagem',
+    id: 'TECNICO_ENFERMAGEM',
+    description: 'Técnico em Enfermagem',
   },
 ]

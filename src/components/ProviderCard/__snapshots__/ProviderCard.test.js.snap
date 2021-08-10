@@ -342,6 +342,7 @@ exports[`ProviderCard tests Component should render correctly 1`] = `
             />
             <a
               href="https://api.whatsapp.com/send/?phone=5534999624855&text&app_absent=0"
+              rel="noopener noreferrer"
               target="_blank"
               test-data-id="link-api-whatsapp"
             >
@@ -831,6 +832,7 @@ exports[`ProviderCard tests when mobile Component should render correctly 1`] = 
             />
             <a
               href="https://api.whatsapp.com/send/?phone=5534999624855&text&app_absent=0"
+              rel="noopener noreferrer"
               target="_blank"
               test-data-id="link-api-whatsapp"
             >

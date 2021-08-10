@@ -153,22 +153,10 @@ Object {
   text-align: left;
 }
 
-@media only screen and (max-width:768px) {
-
-}
-
 @media (min-width:801px) {
   .c2 {
     padding: 0 40px 50px 40px;
   }
-}
-
-@media (min-width:800px) {
-
-}
-
-@media (min-width:801px) {
-
 }
 
 @media (min-width:800px) {

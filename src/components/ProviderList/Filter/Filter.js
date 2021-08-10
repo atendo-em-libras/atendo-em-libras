@@ -1,8 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Box, ResponsiveContext } from 'grommet'
 import { FormField } from '../../Form'
-import { videoIcon, addressIcon, peopleIcon, arrowDownIcon, trashIcon, closeIcon } from '../../../assets/icons'
+import {
+  videoIcon,
+  addressIcon,
+  peopleIcon,
+  arrowDownIcon,
+  trashIcon,
+  closeIcon,
+  cardIcon,
+} from '../../../assets/icons'
+import { attendanceOptions } from '../../../constants/attendanceOptions'
 import { categories as ObjectCategories } from '../../../constants/categories'
+import { healthInsurance as ObjectHealthInsurance } from '../../../constants/healthInsurance'
 import LocationApi from '../../../api/location'
 import {
   StyledCheckBox,
@@ -20,10 +30,10 @@ import {
   StyledCloseButton,
 } from './FilterStyles'
 
-const attendanceOptions = ['Vídeo chamada', 'Domicílio', 'Clínica ou Hospital']
-const categories = ObjectCategories.map((x) => x.Description)
+const categories = ObjectCategories.map((x) => x.description)
+const healthInsuranceOptions = ObjectHealthInsurance.map((item) => item.description)
 
-const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
+export const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
   const screenSize = useContext(ResponsiveContext)
 
   return (
@@ -38,12 +48,13 @@ const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
       }}
       dropContent={
         <StyledDropBox>
-          <Box style={{ overflow: 'auto' }} pad="medium">
+          <Box data-testid="teste-modal" style={{ overflow: 'auto' }} pad="medium">
             {children}
           </Box>
           <StyledHr color="#fff" />
           <Box pad="medium" direction="row" style={{ minHeight: '92px' }} justify="between">
             <StyledClearButton
+              data-testeid="teste-limpar"
               size="small"
               onClick={() => {
                 onClear()
@@ -52,6 +63,7 @@ const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
               Limpar
             </StyledClearButton>
             <StyledSaveButton
+              data-testid="filter-save-button"
               size="small"
               droplet="bottom-left"
               onClick={() => {
@@ -72,13 +84,13 @@ const FilterCard = ({ children, onClear, onSave, icon, label, ...props }) => {
   )
 }
 
-const FilterChip = ({ label, icon, onClose }) => {
+export const FilterChip = ({ label, icon, onClose }) => {
   return (
-    <StyledFormChip>
+    <StyledFormChip data-testid="filter-chip">
       <StyledIconText src={icon} alt={`${label} icone`} />
       {label}
       <StyledCloseButton onClick={() => onClose()}>
-        <StyledIconText src={closeIcon} alt={`Excluir filtro ${label}`} />
+        <StyledIconText data-testid="filter-chip-btn-excluir" src={closeIcon} alt={`Excluir filtro ${label}`} />
       </StyledCloseButton>
     </StyledFormChip>
   )
@@ -87,27 +99,24 @@ const FilterChip = ({ label, icon, onClose }) => {
 const Filter = ({ filters, setFilters }) => {
   const [attendanceOption, setAttendanceOption] = useState([])
   const [state, setState] = useState('')
-  const [city, setCity] = useState('')
   const [category, setCategory] = useState([])
-  const [loadingCities, setLoadingCities] = useState(false)
-  const [cities, setCities] = useState([])
   const [states, setStates] = useState([])
-
+  const [healthInsurances, setHealthInsurances] = useState([])
   const hasFilter =
-    filters.attendanceOptions.length > 0 || filters.categories.length > 0 || filters.localities.length > 0
+    filters.attendanceOptions.length > 0 ||
+    filters.categories.length > 0 ||
+    filters.localities.length > 0 ||
+    filters.healthInsurances.length > 0
 
   useEffect(() => {
     let mounted = true
 
     const getUfs = async () => {
-      setLoadingCities(true)
       LocationApi.getUf().then((response) => {
         if (mounted) {
           setStates(response)
         }
       })
-
-      setLoadingCities(false)
     }
     getUfs()
 
@@ -116,30 +125,19 @@ const Filter = ({ filters, setFilters }) => {
     }
   }, [])
 
-  useEffect(() => {
-    let mounted = true
+  function desabilitaEstado() {
+    return filters.attendanceOptions.includes('Vídeo chamada') && filters.attendanceOptions.length === 1
+  }
 
-    const getCitiesByUf = async () => {
-      setLoadingCities(true)
-      LocationApi.getCitiesByUF(state).then((response) => {
-        if (mounted) {
-          setCities(response)
-        }
-      })
-
-      setLoadingCities(false)
-    }
-    getCitiesByUf()
-
-    return () => {
-      mounted = false
-    }
-  }, [state])
+  function mostrarObservacaoLocalidade() {
+    return filters.attendanceOptions.includes('Vídeo chamada')
+  }
 
   return (
     <>
-      <StyledFilterBox margin={{ bottom: 'medium' }}>
+      <StyledFilterBox data-testid="filter-box" margin={{ bottom: 'medium' }}>
         <FilterCard
+          data-testid="teste-modal-atendimento"
           label="Tipos de atendimento"
           icon={videoIcon}
           onClear={() => setAttendanceOption([])}
@@ -155,31 +153,32 @@ const Filter = ({ filters, setFilters }) => {
           />
         </FilterCard>
         <FilterCard
+          data-testid="teste-modal-localidade"
           label="Localidade"
           icon={addressIcon}
           onClear={() => {
-            setCity('')
             setState('')
           }}
           onSave={() => {
-            setFilters({ ...filters, localities: [...filters.localities, { state, city }] })
-            setCity('')
+            setFilters({ ...filters, localities: [...filters.localities, { state }] })
             setState('')
           }}
+          disabled={desabilitaEstado()}
         >
           <FormField label="Estado" name="state" marginBottom="none">
-            <StyledSelect options={states} value={state} onChange={({ value }) => setState(value)} />
-          </FormField>
-          <FormField label="Cidade" name="city" marginBottom="none">
             <StyledSelect
-              options={cities}
-              disabled={loadingCities || !state}
-              value={city}
-              onChange={({ value }) => setCity(value)}
+              data-testid="teste-estados"
+              options={states}
+              value={state}
+              onChange={({ value }) => setState(value)}
+              onSave={() => {
+                setFilters({ ...filters, localities: [...filters.localities] })
+              }}
             />
           </FormField>
         </FilterCard>
         <FilterCard
+          data-testid="checkbox-categoria"
           label="Categoria"
           icon={peopleIcon}
           onClear={() => setCategory([])}
@@ -190,19 +189,39 @@ const Filter = ({ filters, setFilters }) => {
         >
           <StyledCheckBox options={categories} value={category} onChange={({ value }) => setCategory(value)} />
         </FilterCard>
+        <FilterCard
+          data-testid="teste-plano-saude"
+          label="Plano de Saúde"
+          icon={cardIcon}
+          onClear={() => {
+            setHealthInsurances([])
+          }}
+          onSave={() => {
+            setFilters({ ...filters, healthInsurances: healthInsurances })
+          }}
+          onOpen={() => setHealthInsurances(filters.healthInsurances)}
+        >
+          <StyledCheckBox
+            options={healthInsuranceOptions}
+            value={healthInsurances}
+            onChange={({ value }) => setHealthInsurances(value)}
+          />
+        </FilterCard>
       </StyledFilterBox>
       {hasFilter && (
         <Box direction="row" wrap margin={{ bottom: 'medium' }}>
           <StyledClearFilterButton
-            onClick={() => setFilters({ localities: [], categories: [], attendanceOptions: [] })}
+            onClick={() => setFilters({ localities: [], categories: [], attendanceOptions: [], healthInsurances: [] })}
             size="small"
             droplet="bottom-left"
+            data-testid="limpar-filtro"
           >
             <StyledIconText src={trashIcon} alt="Limpar filtros icon" />
             Limpar filtros
           </StyledClearFilterButton>
           {filters.attendanceOptions.map((option, index) => (
             <FilterChip
+              data-testid="filter-chip-limpar"
               label={option}
               key={index}
               icon={videoIcon}
@@ -213,13 +232,13 @@ const Filter = ({ filters, setFilters }) => {
           ))}
           {filters.localities.map((option, index) => (
             <FilterChip
-              label={`${option.city} - ${option.state}`}
+              label={`${option.state}`}
               key={index}
               icon={addressIcon}
               onClose={() =>
                 setFilters({
                   ...filters,
-                  localities: filters.localities.filter((x) => x.city !== option.city && x.state !== option.state),
+                  localities: filters.localities.filter((x) => x.state !== option.state),
                 })
               }
             />
@@ -232,8 +251,22 @@ const Filter = ({ filters, setFilters }) => {
               onClose={() => setFilters({ ...filters, categories: filters.categories.filter((x) => x !== option) })}
             />
           ))}
+          {filters.healthInsurances.map((option, index) => (
+            <FilterChip
+              label={option}
+              key={index}
+              icon={cardIcon}
+              onClose={() =>
+                setFilters({
+                  ...filters,
+                  healthInsurances: filters.healthInsurances.filter((healthOpt) => healthOpt !== option),
+                })
+              }
+            />
+          ))}
         </Box>
       )}
+      {mostrarObservacaoLocalidade() && <p> *Filtro de localidade não se aplica a video chamada</p>}
     </>
   )
 }

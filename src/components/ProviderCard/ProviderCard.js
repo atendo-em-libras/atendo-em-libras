@@ -15,7 +15,7 @@ import PropTypes from 'prop-types'
 import { CategoryBadge } from './CategoryBadge'
 import { Paragraph, Box, ResponsiveContext, Collapsible } from 'grommet'
 import { FormDown, FormUp } from 'grommet-icons'
-import { videoIcon, phoneIcon, emailIcon, addressIcon, healthInsuranceIcon } from '../../assets/icons'
+import { videoIcon, phoneIcon, emailIcon, addressIcon, cardIcon } from '../../assets/icons'
 import { ResponsiveGrid } from '../ResponsiveGrid'
 import { ToggleButton } from './ToggleButton'
 
@@ -127,7 +127,7 @@ const ProviderCard = (props) => {
       <SectionTitle>Contato</SectionTitle>
       <p>
         <IconText src={phoneIcon} alt="phone icon" />
-        <a test-data-id="link-api-whatsapp" href={BuildUrlWhatsApp(phone)} target="_blank">
+        <a test-data-id="link-api-whatsapp" href={BuildUrlWhatsApp(phone)} target="_blank" rel="noopener noreferrer">
           {phone}
         </a>
       </p>
@@ -158,7 +158,7 @@ const ProviderCard = (props) => {
     <SectionBlock>
       <SectionTitle>Planos de saúde</SectionTitle>
       <p>
-        <IconText src={healthInsuranceIcon} alt="card icon" />
+        <IconText src={cardIcon} alt="card icon" />
         {healthInsurance ? <span>{healthInsurance}</span> : <span>Não informado</span>}
       </p>
     </SectionBlock>

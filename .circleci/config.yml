@@ -1,4 +1,8 @@
 version: 2
+
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.1
+
 jobs:
   build:
     docker:
@@ -17,7 +21,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run lint
       - run: npm test -- --coverage
+      - store_artifacts:
+          path: coverage
       - run: npx hawkeye scan
+      - sonarcloud/scan
   deploy-staging:
     docker:
       - image: buildpack-deps:trusty
@@ -57,3 +64,7 @@ workflows:
       - deploy-prod:
           requires:
             - approve-deploy-prod
+  main:
+    jobs:
+      - build:
+          context: SonarCloud

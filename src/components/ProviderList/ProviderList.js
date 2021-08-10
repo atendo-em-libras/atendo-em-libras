@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import ReactLoading from 'react-loading'
 import { ProviderCard } from '../ProviderCard'
-import { ErrorCard } from '../ErrorCard'
+import { InfoCard } from '../InfoCard'
+import { errorIcon } from '../../assets/icons'
 import ProviderApi from '../../api/provider'
 import { ResponsiveGrid } from '../ResponsiveGrid'
 import { COLORS } from '../../constants/colors'
 import Filter from './Filter'
+import { errorInfo, notFoundInfo } from './ProviderList.constants'
 import { Box } from 'grommet'
 
 const columns = {
@@ -26,24 +28,30 @@ const fixedGridAreas = {
   large: [{ name: 'card', start: [0, 0], end: [1, 0] }],
 }
 
-const attendanceKeys = {
-  'Vídeo chamada': 'onlineAttendance',
-  Domicílio: 'householdAttendance',
-  'Clínica ou Hospital': 'hospitalClinicAttendance',
+const cleanFilters = {
+  localities: [],
+  categories: [],
+  attendanceOptions: [],
+  healthInsurances: [],
 }
 
 const ProviderList = () => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [providers, setProviders] = useState([])
   const [filteredProviders, setFilteredProviders] = useState([])
-  const [filters, setFilters] = useState({ localities: [], categories: [], attendanceOptions: [] })
+  const [error, setError] = useState(false)
+  const [filters, setFilters] = useState(cleanFilters)
 
   const loadServiceProviders = async () => {
-    setIsLoading(true)
-    const serviceProvidersJson = await ProviderApi.get()
-    setIsLoading(false)
-    setProviders(serviceProvidersJson)
-    setFilteredProviders(serviceProvidersJson)
+    try {
+      const serviceProvidersJson = await ProviderApi.get()
+      setProviders(serviceProvidersJson)
+      setFilteredProviders(serviceProvidersJson)
+    } catch (e) {
+      setError(true)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleClick = () => {
@@ -55,52 +63,67 @@ const ProviderList = () => {
   }, [])
 
   useEffect(() => {
-    const filterProviders = () => {
-      const filtered = providers.filter((provider) => {
-        if (
-          filters.attendanceOptions.length === 0 &&
-          filters.categories.length === 0 &&
-          filters.localities.length === 0
-        ) {
-          return true
-        }
+    let filteredByCategory = null
+    let filteredByAttendanceType = null
+    let filteredByState = null
+    let filteredByHealthInsurance = null
 
-        let isFiltered = false
-        for (let i = 0; i < filters.attendanceOptions.length; i++) {
-          isFiltered = provider.attendance[attendanceKeys[filters.attendanceOptions[i]]]
+    // Category
+    const hasNoSelectedCategory = filters.categories.length === 0
 
-          if (isFiltered) break
-        }
-
-        for (let i = 0; i < filters.categories.length; i++) {
-          isFiltered = provider.category === filters.categories[i]
-
-          if (isFiltered) break
-        }
-
-        for (let i = 0; i < filters.localities.length; i++) {
-          const { houseHoldAttendance, hospitalClinicAttendance } = provider.attendance
-
-          if (houseHoldAttendance)
-            isFiltered =
-              houseHoldAttendance.stateInitials === filters.localities[i].state &&
-              houseHoldAttendance.city === filters.localities[i].city
-
-          if (hospitalClinicAttendance)
-            isFiltered =
-              hospitalClinicAttendance.stateInitials === filters.localities[i].state &&
-              hospitalClinicAttendance.city === filters.localities[i].city
-
-          if (isFiltered) break
-        }
-
-        return isFiltered
-      })
-
-      setFilteredProviders(filtered)
+    if (hasNoSelectedCategory) {
+      filteredByCategory = providers
+    } else {
+      filteredByCategory = providers.filter((item) => filters.categories.includes(item.category))
     }
 
-    filterProviders()
+    // Attendance
+    const hasNoSelectedAttendanceType = filters.attendanceOptions.length === 0
+
+    if (hasNoSelectedAttendanceType) {
+      filteredByAttendanceType = filteredByCategory
+    } else {
+      filteredByAttendanceType = filteredByCategory.filter((item) => {
+        return (
+          (filters.attendanceOptions.includes('Vídeo chamada') && !!item.attendance.onlineAttendance) ||
+          (filters.attendanceOptions.includes('Clínica ou Hospital') && !!item.attendance.hospitalClinicAttendance) ||
+          (filters.attendanceOptions.includes('Domicílio') && !!item.attendance.householdAttendance)
+        )
+      })
+    }
+
+    // State
+    const hasNoSelectedState = filters.localities.length === 0
+    const hasOnlyOnlineAsAttendanceType =
+      filters.attendanceOptions.includes('Vídeo chamada') && filters.attendanceOptions.length === 1
+
+    if (hasNoSelectedState || hasOnlyOnlineAsAttendanceType) {
+      filteredByState = filteredByAttendanceType
+    } else {
+      filteredByState = filteredByAttendanceType.filter((item) => {
+        return (
+          (item.attendance.hospitalClinicAttendance &&
+            item.attendance.hospitalClinicAttendance.stateInitials === filters.localities[0].state) ||
+          (item.attendance.householdAttendance &&
+            item.attendance.householdAttendance.stateInitials === filters.localities[0].state)
+        )
+      })
+    }
+
+    // Health Insurance
+    const hasNoSelectedHealthInsurance = filters.healthInsurances.length === 0
+
+    if (hasNoSelectedHealthInsurance) {
+      filteredByHealthInsurance = filteredByState
+    } else {
+      filteredByHealthInsurance = filteredByState.filter((item) =>
+        filters.healthInsurances.find((healthOpt) =>
+          item.healthInsurance?.toLowerCase()?.includes(healthOpt.toLowerCase())
+        )
+      )
+    }
+
+    setFilteredProviders(filteredByHealthInsurance)
   }, [filters, providers])
 
   if (isLoading) {
@@ -111,10 +134,11 @@ const ProviderList = () => {
     )
   }
 
-  return (
-    <React.Fragment>
-      <Filter filters={filters} setFilters={setFilters} />
-      {filteredProviders && filteredProviders.length > 0 ? (
+  const clearFilters = () => setFilters(cleanFilters)
+
+  const getCardInfo = () => {
+    if (filteredProviders && filteredProviders.length > 0) {
+      return (
         <ResponsiveGrid
           columns={columns}
           rows={rows}
@@ -127,10 +151,24 @@ const ProviderList = () => {
             return <ProviderCard key={index} provider={provider} gridArea="card" />
           })}
         </ResponsiveGrid>
-      ) : (
-        <ErrorCard onClick={handleClick} />
-      )}
-    </React.Fragment>
+      )
+    }
+
+    return (
+      <InfoCard
+        textParagraph={error ? errorInfo.errorText : notFoundInfo.notFoundText}
+        srcImage={errorIcon}
+        textButton={error ? errorInfo.errorTextButton : notFoundInfo.notFoundTextButton}
+        onClick={error ? handleClick : clearFilters}
+      />
+    )
+  }
+
+  return (
+    <>
+      <Filter filters={filters} setFilters={setFilters} />
+      {getCardInfo()}
+    </>
   )
 }
 export { ProviderList }

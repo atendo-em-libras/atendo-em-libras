@@ -4,7 +4,6 @@ const Api = {
     providers: '/professionals/',
   },
 }
-
 const Cep = {
   url: 'https://viacep.com.br/ws',
   returnType: 'json/',
