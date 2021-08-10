@@ -3,12 +3,15 @@ import { fireEvent, render } from '@testing-library/react'
 import Filter, { FilterChip } from './Filter'
 
 window.scrollTo = jest.fn()
+const emptyFunc = () => {
+  // do nothing.
+}
 
 const generate = () =>
   render(
     <Filter
       filters={{ localities: [], categories: [], attendanceOptions: [], healthInsurances: [] }}
-      setFilters={() => {}}
+      setFilters={emptyFunc}
     />
   )
 
@@ -98,7 +101,7 @@ describe('Testa o filtro de categorias', () => {
     const { getByText, getByTestId, getByLabelText } = render(
       <Filter
         filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [], healthInsurances: [] }}
-        setFilters={() => {}}
+        setFilters={emptyFunc}
       />
     )
 
@@ -121,7 +124,7 @@ describe('Testa o filtro de categorias', () => {
     const { getByText, getByTestId, getByLabelText } = render(
       <Filter
         filters={{ localities: ['São Paulo'], categories: [], attendanceOptions: [], healthInsurances: [] }}
-        setFilters={() => {}}
+        setFilters={emptyFunc}
       />
     )
 
