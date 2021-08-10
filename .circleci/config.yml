@@ -64,7 +64,7 @@ workflows:
       - deploy-prod:
           requires:
             - approve-deploy-prod
-    main:
-      jobs:
-        - build:
-            context: SonarCloud
+  main:
+    jobs:
+      - build:
+          context: SonarCloud
