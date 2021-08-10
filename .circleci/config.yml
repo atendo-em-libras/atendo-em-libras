@@ -1,4 +1,8 @@
 version: 2
+
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.1
+
 jobs:
   build:
     docker:
@@ -20,6 +24,7 @@ jobs:
       - store_artifacts:
           path: coverage
       - run: npx hawkeye scan
+      - sonarcloud/scan
   deploy-staging:
     docker:
       - image: buildpack-deps:trusty
@@ -59,3 +64,7 @@ workflows:
       - deploy-prod:
           requires:
             - approve-deploy-prod
+    main:
+      jobs:
+        - build:
+            context: SonarCloud
