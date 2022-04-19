@@ -18,4 +18,4 @@ async function getServiceProviders() {
   }
 }
 
-export default { getServiceProviders }
+export { getServiceProviders }

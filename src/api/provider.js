@@ -1,7 +1,7 @@
-import spreadSheet from './spreadSheet'
 import { toggles } from '../constants/featureToggles'
 import Axios from 'axios'
 import { Api } from '../constants/api'
+import { getServiceProviders } from './spreadSheet'
 
 const ProviderApi = {
   get: async () => {
@@ -10,7 +10,7 @@ const ProviderApi = {
       return res.data
     }
 
-    const serviceProvidersJson = await spreadSheet.getServiceProviders()
+    const serviceProvidersJson = await getServiceProviders()
     return mapJsonToProviders(serviceProvidersJson)
   },
   post: async (professional) => {

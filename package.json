@@ -17,7 +17,7 @@
     "react-ga": "^3.1.2",
     "react-loading": "^2.0.3",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^5.0.1",
     "styled-components": "^5.1.1"
   },
   "scripts": {
@@ -112,9 +112,12 @@
     "eslint-plugin-prettier": "^3.1.3",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-styled-components": "^7.0.2",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-normalize": "^10.0.1",
+    "postcss-preset-env": "^7.4.3",
     "prettier": "^2.0.5",
-    "stylelint": "^13.6.0",
-    "stylelint-config-recommended": "^3.0.0",
+    "stylelint": "^14.7.1",
+    "stylelint-config-recommended": "^7.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0"
   }
