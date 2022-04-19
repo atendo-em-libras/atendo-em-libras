@@ -1,8 +1,8 @@
 import axios from 'axios'
 import ProviderApi from './provider'
-import spreadSheet from './spreadSheet'
 import { toggles } from '../constants/featureToggles'
 import { Api } from '../constants/api'
+import { getServiceProviders } from './spreadSheet'
 
 jest.mock('axios')
 jest.mock('./spreadSheet')
@@ -23,9 +23,9 @@ describe('ProviderApi', () => {
     describe('When apiIntegration toggle is False', () => {
       it('Should fetch data from spreadsheet', async () => {
         toggles.apiIntegration = false
-        spreadSheet.getServiceProviders.mockResolvedValue([])
+        getServiceProviders.mockResolvedValue([])
         await ProviderApi.get()
-        expect(spreadSheet.getServiceProviders).toHaveBeenCalledTimes(1)
+        expect(getServiceProviders).toHaveBeenCalledTimes(1)
       })
     })
   })
